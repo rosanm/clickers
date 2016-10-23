@@ -37,7 +37,6 @@ function buy(itemNr){
 
 function gameLoop() {
 
-
     //Add units 
         //Free 1ps  
         units += 1;
