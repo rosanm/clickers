@@ -9,7 +9,7 @@ body {
 
 .header {
     margin-bottom: 20px;
-    font-family: SherlockFont;
+    text-align: center;
 }
 
 .header h1 {
