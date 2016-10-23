@@ -58,8 +58,10 @@ function gameLoop() {
         
 
         //Update GUI
-        $("#unitcounter").html("Pounds:" + units);
+        $("#unitcounter").html("&pound;" + units);
         $("#unitpersec").html("Pounds /sec :" + calcUnitsPerSec());
+
+        
         //Update ZOO
         populateZoo();
 

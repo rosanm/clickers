@@ -1,9 +1,29 @@
+@font-face {
+    font-family: SherlockFont;
+    src: url(../fonts/WATSON.ttf);
+}
+
 body {
     background: url(../images/Sherlock_wallpaper_fabric_shop_preview.png) bottom center repeat;
 }
 
 .header {
     margin-bottom: 20px;
+    font-family: SherlockFont;
+}
+
+.header h1 {
+    font-size: 70px;
+    color: #9A7C4A;
+}
+
+#unitcounter, #unitpersec {
+    font-family: SherlockFont;
+    font-size: 22px;
+}
+
+#unitpersec {
+   font-size: 18px;
 }
 
 .border {
