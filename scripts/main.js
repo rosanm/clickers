@@ -1,6 +1,7 @@
 
 
-var units = 100000;
+var units = 10000;
+var ups = 0;
 var items = [{name:"Maginifying glass", count:0, price:10,     gains:1,     max:1},
             {name:"Newspaper",          count:0, price:100,    gains:2,     max:20},
             {name:"Anonymous tip",      count:0, price:500,    gains:10,    max:100},
@@ -13,7 +14,7 @@ function populateZoo() {
 var itemsString ="";
         items.forEach(function(e) {
             if(e.count > 0){
-                itemsString += e.name + ': ' + e.count + "." + 
+                itemsString += e.name + ': ' + e.count + "x." + 
                 "<br/>&pound per second: " +e.gains*e.count  +
                 "<br/><br/>";
             }
@@ -35,40 +36,38 @@ function buy(itemNr){
             items[itemNr].max +"/"+ items[itemNr].max )
         }
     }
-
 };
 
 function calcUnitsPerSec(itemsArray){
-    var unitsPerSec = 1;
-
+    var unitsPerSec = 0.10;
     itemsArray.forEach(function(e) {
                 unitsPerSec += (e.count*e.gains);
             }, this);
-
     return unitsPerSec;
 };
 
+function updateGui(){
+        $("#unitcounter").html("&pound;" + units );
+        $("#unitpersec").html("PER SECOND:<br/>&pound; " + ups );
+        populateZoo();
+};
+
 function gameLoop() {
-        var ups = calcUnitsPerSec(items);
+        //update ups
+        ups = calcUnitsPerSec(items);
         
         //Add units 
         units += ups;
         
         //Update GUI
-        $("#unitcounter").html("&pound;" + units +".00");
-        $("#unitpersec").html("PER SECOND:<br/>&pound; " + ups +".00");
+        updateGui();
       
-        //Update ZOO
-        populateZoo();
-
     //this must be the last statment
     setTimeout(gameLoop, 1000);
 }
 
 //Start the game the first time
 gameLoop();
-
-
 
 $(document).ready(function(){
 
@@ -77,7 +76,7 @@ $(document).ready(function(){
         {
             text: i.name + " ["+i.price+"P]",
             class: 'button-buy',
-            click: function() { buy(index) }
+            click: function() { buy(index);updateGui(index) }
         });
         
         $("#buttonSection").append(button);
