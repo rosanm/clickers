@@ -23,3 +23,16 @@ body {
     overflow: auto;
     height: 598px;
 }
+
+.button-buy {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    width: 100%;
+}
