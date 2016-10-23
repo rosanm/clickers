@@ -60,3 +60,17 @@ gameLoop();
 
 
 
+$(document).ready(function(){
+
+    items.forEach(function(i, index){
+        var button = $('<button/>',
+        {
+            text: i.name,
+            class: 'button-buy',
+            click: function() { buy(index) }
+        });
+        
+        $("#buttonSection").append(button);
+    });
+
+});
