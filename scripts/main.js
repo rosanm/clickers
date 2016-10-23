@@ -14,18 +14,20 @@ function populateZoo() {
     var itemsString = "";
     
             items.forEach(function(e) {
-                itemsString += '<div class="whitebg">';
                 if(e.count > 0){
-                   var imgString ="";
-                    //Build image part
-                    for(i=1; i<= e.count; i++){                     
-                        imgString += '<img src="images/sherlock/'+e.img+'" height="40" width="40">';
+                    itemsString += '<div class="whitebg">';
+                    
+                    var imgString ="";
+                        //Build image part
+                        for(i=1; i<= e.count; i++){                     
+                            imgString += '<img src="images/sherlock/'+e.img+'" height="40" width="40">';
+                        }
+                        //Build text part
+                            itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
+                            "<br/>&pound per second: " +e.gains*e.count;
+                    
+                        itemsString += '</div>';
                     }
-                    //Build text part
-                        itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
-                        "<br/>&pound per second: " +e.gains*e.count;
-                }
-                    itemsString += '</div>';
                 }, this);
 
                 
