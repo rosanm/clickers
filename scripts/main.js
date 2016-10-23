@@ -39,7 +39,7 @@ function buy(itemNr){
 };
 
 function calcUnitsPerSec(itemsArray){
-    var unitsPerSec = 0.10;
+    var unitsPerSec = 1;
     itemsArray.forEach(function(e) {
                 unitsPerSec += (e.count*e.gains);
             }, this);
