@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url(../images/Sherlock_wallpaper_fabric_shop_preview.png) bottom center repeat;
+
 }
 
 .header {
@@ -17,6 +17,20 @@ body {
     color: #9A7C4A;
 }
 
+.boxHeader, .boxHeader2 { 
+    border-radius: 15px;
+    background-color: #9F6E1D;
+    font-size: 34px;
+    color: white;
+    margin: 2px;
+    padding: 2px 2px 2px 50px;
+    font-family: SherlockFont;
+}
+
+.boxHeader2 { 
+    padding: 0;
+}
+
 #unitcounter, #unitpersec {
     font-family: SherlockFont;
     font-size: 22px;
@@ -24,11 +38,6 @@ body {
 
 #unitpersec {
    font-size: 18px;
-}
-
-.border {
-    background: url(../images/gplaypattern.png) bottom center repeat;    
-    border: 1px solid #999;
 }
 
 .box {
@@ -42,6 +51,11 @@ body {
 .theZoo {
     overflow: auto;
     height: 598px;
+}
+
+.content {
+    border-radius: 15px;
+    background: url(../images/wallpattern.jpg) bottom center no-repeat;
 }
 
 .button-buy {
