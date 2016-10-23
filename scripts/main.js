@@ -2,19 +2,19 @@
 
 var units = 10000000;
 var ups = 0;
-var items = [{name:"Maginifying glass", img:"magnifyer.png",        count:0, price:10,     gains:1,     max:1},
-            {name:"Newspaper",          img:"newspaper.png",        count:0, price:100,    gains:2,     max:20},
+var items = [{name:"Maginifying glass", img:"magnifyer.png",        count:0, price:10,     gains:1,     max:2},
+            {name:"Newspaper",          img:"newspaper.png",        count:0, price:100,    gains:2,     max:10},
             {name:"Anonymous tip",      img:"key.png",              count:0, price:500,    gains:10,    max:100},
-            {name:"Watson",             img:"watson.png",           count:0, price:2500,   gains:50,    max:200},
-            {name:"Police dog",         img:"dog.gif",              count:0, price:8000,   gains:500,   max:500},
-            {name:"Police station",     img:"policestation.jpg",    count:0, price:50000,  gains:2000,  max:10000}];
+            {name:"Watson",             img:"watson.png",           count:0, price:2500,   gains:50,    max:1},
+            {name:"Police dog",         img:"dog.gif",              count:0, price:8000,   gains:500,   max:2},
+            {name:"Police station",     img:"policestation.jpg",    count:0, price:50000,  gains:2000,  max:2}];
 
 
 function populateZoo() {
-    var itemsString = '<div class="whitebg">';
+    var itemsString = "";
     
             items.forEach(function(e) {
-                
+                itemsString += '<div class="whitebg">';
                 if(e.count > 0){
                    var imgString ="";
                     //Build image part
@@ -23,13 +23,12 @@ function populateZoo() {
                     }
                     //Build text part
                         itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
-                        "<br/>&pound per second: " +e.gains*e.count  +
-                        "<br/><br/>";
+                        "<br/>&pound per second: " +e.gains*e.count;
                 }
-
+                    itemsString += '</div>';
                 }, this);
 
-                itemsString += '</div>';
+                
             $(".theZoo").html(itemsString);
 };
 
