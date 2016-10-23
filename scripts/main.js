@@ -31,10 +31,14 @@ gameLoop();
 
 
 function buy(itemNr){
-
+    //Can affound?
     if(units >= items[itemNr].price){
-        units = units-items[itemNr].price;
-        items[itemNr].count++;
+        //Still in stock?
+        if(items[itemNr].count <= items[itemNr].max){
+            //Buy it
+            units = units-items[itemNr].price;
+            items[itemNr].count++;
+        }
     }
 
 
