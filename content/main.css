@@ -1,0 +1,16 @@
+.border {
+    border: 1px solid black;
+}
+
+.box {
+    min-height: 600px;
+}
+
+.container {
+    padding-top: 20px;
+}
+
+.theZoo {
+    overflow: auto;
+    height: 598px;
+}
