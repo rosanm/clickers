@@ -29,7 +29,8 @@ function buy(itemNr){
             units = units-items[itemNr].price;
             items[itemNr].count++;
         }else{
-            alert(items[itemNr].name +" is out of stock, maximum reached. " + items[itemNr].max +"/"+ items[itemNr].max )
+            alert(items[itemNr].name +" is out of stock, maximum reached. " +
+            items[itemNr].max +"/"+ items[itemNr].max )
         }
     }
 
@@ -46,20 +47,14 @@ function calcUnitsPerSec(itemsArray){
 };
 
 function gameLoop() {
-
-    //Add units 
-        //Free 1ps  
-        units += 1;
-        //items
-        items.forEach(function(e) {
-            units += (e.count*e.gains);
-        }, this);
-
+        var ups = calcUnitsPerSec(items);
         
-
+        //Add units 
+        units += ups;
+        
         //Update GUI
         $("#unitcounter").html("&pound;" + units +".00");
-        $("#unitpersec").html("PER SECOND:<br/>&pound; " + calcUnitsPerSec(items));
+        $("#unitpersec").html("PER SECOND:<br/>&pound; " + ups);
       
         //Update ZOO
         populateZoo();
