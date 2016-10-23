@@ -12,11 +12,13 @@ var items = [{name:"Maginifying glass", count:0, price:10, gains:1, max:1},
 function populateZoo() {
 var itemsString ="";
         items.forEach(function(e) {
-                itemsString += e.name + ': ' + e.count + "." +            " <br/>";
+            if(e.count > 0){
+                itemsString += e.name + ': ' + e.count + "." + 
+                "<br/>&pound per second: " +e.gains*e.count  +
+                "<br/><br/>";
+            }
             }, this);
-
         $(".theZoo").html(itemsString);
-
 };
 
 
@@ -54,7 +56,7 @@ function gameLoop() {
         
         //Update GUI
         $("#unitcounter").html("&pound;" + units +".00");
-        $("#unitpersec").html("PER SECOND:<br/>&pound; " + ups);
+        $("#unitpersec").html("PER SECOND:<br/>&pound; " + ups +".00");
       
         //Update ZOO
         populateZoo();
