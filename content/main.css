@@ -1,5 +1,14 @@
+body {
+    background: url(../images/swirl_pattern.png) bottom center repeat;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
 .border {
-    border: 1px solid black;
+    background: url(../images/cheap_diagonal_fabric.png) bottom center repeat;    
+    border: 1px solid #999;
 }
 
 .box {
