@@ -2,21 +2,28 @@
 
 var units = 10000;
 var ups = 0;
-var items = [{name:"Maginifying glass", count:0, price:10,     gains:1,     max:1},
-            {name:"Newspaper",          count:0, price:100,    gains:2,     max:20},
-            {name:"Anonymous tip",      count:0, price:500,    gains:10,    max:100},
-            {name:"Watson",             count:0, price:2500,   gains:50,    max:200},
-            {name:"Police dog",         count:0, price:8000,   gains:500,   max:500},
-            {name:"Police station",     count:0, price:50000,  gains:2000,  max:10000}];
+var items = [{name:"Maginifying glass", img:"magnifyer.png", count:0, price:10,     gains:1,     max:1},
+            {name:"Newspaper",          img:"magnifyer.png", count:0, price:100,    gains:2,     max:20},
+            {name:"Anonymous tip",      img:"magnifyer.png", count:0, price:500,    gains:10,    max:100},
+            {name:"Watson",             img:"magnifyer.png", count:0, price:2500,   gains:50,    max:200},
+            {name:"Police dog",         img:"magnifyer.png", count:0, price:8000,   gains:500,   max:500},
+            {name:"Police station",     img:"magnifyer.png", count:0, price:50000,  gains:2000,  max:10000}];
 
 
 function populateZoo() {
 var itemsString ="";
+var imgString ="";
         items.forEach(function(e) {
             if(e.count > 0){
-                itemsString += e.name + ': ' + e.count + "x." + 
-                "<br/>&pound per second: " +e.gains*e.count  +
-                "<br/><br/>";
+
+                //Build image part
+                for(i=0; i<= e.count; i++){                     
+                    imgString +'<img src="'+e.img+'" height="40" width="40">';
+                }
+                //Build text part
+                    itemsString += imgString + e.name + ': ' + e.count + "x." + 
+                    "<br/>&pound per second: " +e.gains*e.count  +
+                    "<br/><br/>";
             }
             }, this);
         $(".theZoo").html(itemsString);
@@ -39,7 +46,7 @@ function buy(itemNr){
 };
 
 function calcUnitsPerSec(itemsArray){
-    var unitsPerSec = 1;
+    var unitsPerSec = 0;
     itemsArray.forEach(function(e) {
                 unitsPerSec += (e.count*e.gains);
             }, this);
@@ -48,7 +55,7 @@ function calcUnitsPerSec(itemsArray){
 
 function updateGui(){
         $("#unitcounter").html("&pound;" + units );
-        $("#unitpersec").html("PER SECOND:<br/>&pound; " + ups );
+        $("#unitpersec").html("PER SECOND:<br/>&pound; " + calcUnitsPerSec(items) );
         populateZoo();
 };
 
@@ -59,8 +66,8 @@ function gameLoop() {
         //Add units 
         units += ups;
         
-        //Update GUI
-        updateGui();
+        //Update units
+        $("#unitcounter").html("&pound;" + units );
       
     //this must be the last statment
     setTimeout(gameLoop, 1000);
