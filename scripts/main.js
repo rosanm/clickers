@@ -1,12 +1,12 @@
 
 
-var units = 10000;
-var items = [{name:"Maginifying glass", count:0, price:10, gains:1, max:1},
-            {name:"Newspaper", count:0, price:100, gains:2, max:100},
-            {name:"Anonymous tip", count:0, price:1000, gains:5, max:100},
-            {name:"Watson", count:0, price:10000, gains:25, max:200},
-            {name:"Police dog", count:0, price:100000, gains:50, max:500},
-            {name:"Police station", count:0, price:100000, gains:500, max:10000}];
+var units = 100000;
+var items = [{name:"Maginifying glass", count:0, price:10,     gains:1,     max:1},
+            {name:"Newspaper",          count:0, price:100,    gains:2,     max:20},
+            {name:"Anonymous tip",      count:0, price:500,    gains:10,    max:100},
+            {name:"Watson",             count:0, price:2500,   gains:50,    max:200},
+            {name:"Police dog",         count:0, price:8000,   gains:500,   max:500},
+            {name:"Police station",     count:0, price:50000,  gains:2000,  max:10000}];
 
 
 function populateZoo() {
@@ -75,7 +75,7 @@ $(document).ready(function(){
     items.forEach(function(i, index){
         var button = $('<button/>',
         {
-            text: i.name,
+            text: i.name + " ["+i.price+"P]",
             class: 'button-buy',
             click: function() { buy(index) }
         });
