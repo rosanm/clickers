@@ -17,6 +17,15 @@ body {
     color: #9A7C4A;
 }
 
+#unitcounter, #unitpersec {
+    font-family: SherlockFont;
+    font-size: 22px;
+}
+
+#unitpersec {
+   font-size: 18px;
+}
+
 .border {
     background: url(../images/gplaypattern.png) bottom center repeat;    
     border: 1px solid #999;

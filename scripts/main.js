@@ -46,7 +46,7 @@ function gameLoop() {
         }, this);
 
         //Update GUI
-        $("#unitcounter").html("Pounds:" + units);
+        $("#unitcounter").html("&pound;" + units);
 
         //Update ZOO
         populateZoo();
