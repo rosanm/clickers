@@ -9,33 +9,15 @@ var items = [{name:"Maginifying glass", count:0, price:10, gains:1, max:1},
             {name:"Police station", count:0, price:100000, gains:500, max:10000}];
 
 
-function gameLoop() {
+function populateZoo() {
 var itemsString ="";
-
-    //Add units 
-        //Free 1ps  
-        units += 1;
-        //items
         items.forEach(function(e) {
-            units += (e.count*e.gains);
-        }, this);
-
-        //Update GUI
-        $("#unitcounter").html("Pounds:" + units);
-
-        //Update ZOO
-        items.forEach(function(e) {
-                itemsString += e.name + ': ' + e.count +" <br/>";
+                itemsString += e.name + ': ' + e.count + "." +            " <br/>";
             }, this);
 
         $(".theZoo").html(itemsString);
 
-    //this must be the last statment
-    setTimeout(gameLoop, 1000);
-}
-
-//Start the game the first time
-gameLoop();
+};
 
 
 function buy(itemNr){
@@ -51,7 +33,31 @@ function buy(itemNr){
         }
     }
 
-
 };
+
+function gameLoop() {
+
+
+    //Add units 
+        //Free 1ps  
+        units += 1;
+        //items
+        items.forEach(function(e) {
+            units += (e.count*e.gains);
+        }, this);
+
+        //Update GUI
+        $("#unitcounter").html("Pounds:" + units);
+
+        //Update ZOO
+        populateZoo();
+
+    //this must be the last statment
+    setTimeout(gameLoop, 1000);
+}
+
+//Start the game the first time
+gameLoop();
+
 
 
