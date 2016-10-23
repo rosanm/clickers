@@ -35,6 +35,16 @@ function buy(itemNr){
 
 };
 
+function calcUnitsPerSec(){
+    var unitpersec = 1;
+
+    items.forEach(function(e) {
+                unitpersec += (e.count*e.gains);
+            }, this);
+
+    return unitsPerSec;
+};
+
 function gameLoop() {
 
     //Add units 
@@ -45,9 +55,11 @@ function gameLoop() {
             units += (e.count*e.gains);
         }, this);
 
+        
+
         //Update GUI
         $("#unitcounter").html("Pounds:" + units);
-
+        $("#unitpersec").html("Pounds /sec :" + calcUnitsPerSec());
         //Update ZOO
         populateZoo();
 
