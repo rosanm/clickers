@@ -11,7 +11,7 @@ var items = [{name:"Maginifying glass", img:"magnifyer.png",        count:0, pri
 
 
 function populateZoo() {
-    var itemsString ="";
+    var itemsString = '<div class="whitebg">';
     
             items.forEach(function(e) {
                 
@@ -28,6 +28,8 @@ function populateZoo() {
                 }
 
                 }, this);
+
+                itemsString += '</div>';
             $(".theZoo").html(itemsString);
 };
 
