@@ -50,10 +50,10 @@ function populateEnemy() {
                         //Build text part
                             itemsString += imgString + "<br/>" + e.name + ': ' + e.hp + "hp." ;             
             
-            $(".monster-box").html(itemsString);
+            $(".monster-box-enemy").html(itemsString);
 };
 
-function AttackEnemy() {
+function attackEnemy() {
    e = enemys[level-1];
    e.hp = e.hp - ups;
         if(e.hp < 0){
@@ -90,7 +90,6 @@ function updateGui(){
         $("#unitcounter").html("&pound;" + units );
         $("#unitpersec").html("PER SECOND:<br/>&pound; " + calcUnitsPerSec(items) );
         $("#currentLvl").html("LEVEL: " + level);
-        currentLvl
         populateZoo();
         populateEnemy();
         
@@ -107,13 +106,16 @@ function gameLoop() {
         $("#unitcounter").html("&pound;" + units );
       
         //Attack
-        AttackEnemy();
+        attackEnemy();
     //this must be the last statment
     setTimeout(gameLoop, 1000);
 }
 
 //Start the game the first time
 gameLoop();
+
+
+
 
 $(document).ready(function(){
 
