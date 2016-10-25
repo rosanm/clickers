@@ -9,6 +9,12 @@ var items = [{name:"Maginifying glass", img:"magnifyer.png",        count:0, pri
             {name:"Police dog",         img:"dog.gif",              count:0, price:8000,   gains:500,   max:2},
             {name:"Police station",     img:"policestation.jpg",    count:0, price:50000,  gains:2000,  max:2}];
 
+var enemys = [{name:"a", hp:100,img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+            {name:"a",  hp:200, img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
+            {name:"a",  hp:300, img:"034_arambly_by_deoxysdaniel-d5mriwg.png"},
+            {name:"a",  hp:400, img:"035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
+            {name:"a",  hp:500, img:"036_cubern_by_deoxysdaniel-d5n1gqm.png"},
+            {name:"a",  hp:600, img:"037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
 function populateZoo() {
     var itemsString = "";
