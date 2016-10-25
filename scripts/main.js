@@ -1,8 +1,8 @@
 
 
-var units = 10000000;
+var units = 1000;
 var ups = 0;
-var level = 0;
+var level = 1;
 var items = [{name:"Maginifying glass", img:"magnifyer.png",        count:0, price:10,     gains:1,     max:2},
             {name:"Newspaper",          img:"newspaper.png",        count:0, price:100,    gains:2,     max:10},
             {name:"Anonymous tip",      img:"key.png",              count:0, price:500,    gains:10,    max:100},
@@ -10,12 +10,12 @@ var items = [{name:"Maginifying glass", img:"magnifyer.png",        count:0, pri
             {name:"Police dog",         img:"dog.gif",              count:0, price:8000,   gains:500,   max:2},
             {name:"Police station",     img:"policestation.jpg",    count:0, price:50000,  gains:2000,  max:2}];
 
-var enemys = [{name:"Dropphin", hp:100,img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
-            {name:"Dolswim",  hp:200, img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
-            {name:"Arambly",  hp:300, img:"034_arambly_by_deoxysdaniel-d5mriwg.png"},
-            {name:"Umbrarach",  hp:400, img:"035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
-            {name:"Cubern",  hp:500, img:"036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-            {name:"Gigarotto",  hp:600, img:"037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
+var enemys = [{name:"Dropphin", hp:1500,img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+            {name:"Dolswim",  hp:5000, img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
+            {name:"Arambly",  hp:20000, img:"034_arambly_by_deoxysdaniel-d5mriwg.png"},
+            {name:"Umbrarach",  hp:100000, img:"035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
+            {name:"Cubern",  hp:500000, img:"036_cubern_by_deoxysdaniel-d5n1gqm.png"},
+            {name:"Gigarotto",  hp:2000000, img:"037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
 function populateZoo() {
     var itemsString = "";
@@ -43,7 +43,7 @@ function populateZoo() {
 
 function populateEnemy() {
     var itemsString = "";    
-            e = enemys[level];                        
+            e = enemys[level-1];                        
                     var imgString ="";
                         //Build image part                
                             imgString += '<img src="images/enemys/'+e.img+'" width="100%">';
@@ -51,6 +51,16 @@ function populateEnemy() {
                             itemsString += imgString + "<br/>" + e.name + ': ' + e.hp + "hp." ;             
             
             $(".monster-box").html(itemsString);
+};
+
+function AttackEnemy() {
+   e = enemys[level-1];
+   e.hp = e.hp - ups;
+        if(e.hp < 0){
+            level = level + 1;
+            updateGui();
+        }  
+    populateEnemy();
 };
 
 function buy(itemNr){
@@ -79,10 +89,11 @@ function calcUnitsPerSec(itemsArray){
 function updateGui(){
         $("#unitcounter").html("&pound;" + units );
         $("#unitpersec").html("PER SECOND:<br/>&pound; " + calcUnitsPerSec(items) );
-        $("#currentLvl").html(level);
+        $("#currentLvl").html("LEVEL: " + level);
         currentLvl
         populateZoo();
         populateEnemy();
+        
 };
 
 function gameLoop() {
@@ -95,6 +106,8 @@ function gameLoop() {
         //Update units
         $("#unitcounter").html("&pound;" + units );
       
+        //Attack
+        AttackEnemy();
     //this must be the last statment
     setTimeout(gameLoop, 1000);
 }
