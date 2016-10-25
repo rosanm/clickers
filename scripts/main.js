@@ -105,36 +105,49 @@ gameLoop();
 
 $(document).ready(function(){
 
-    items.forEach(function(i, index){
-        var image = $('<img/>',
-        {
-            class: 'item-image',
-        });
-
-        image.attr('src', 'images/Items/' + i.img);
-
+    items.forEach(function(i, index){      
         var div = $('<div/>',
         {
             class: 'item-field',
         });
 
+        var image = $('<img/>',
+        {
+            class: 'item-image',
+        });
+        image.attr('src', 'images/Items/' + i.img);
+
+        var buttonBox = $('<div/>', {
+            class: 'button-box',
+        });
+
+        var buttonBox2 = $('<div/>', {
+            class: 'button-box',
+        });
+
         var buttonBuy = $('<button/>',
         {
-            text: "BUY  ["+i.price+"P]",
+            text: "Buy",
             class: 'button-buy',
             click: function() { buy(index);updateGui(index) }
         });
 
+        buttonBox.append(buttonBuy);
+        buttonBox.append('<p class="text">' + i.price + ' coins</p>');
+
         var buttonUpgrade = $('<button/>',
         {
-            text: "UPGRADE ["+i.price+"P]",
+            text: "Upgrade",
             class: 'button-upgrade',
             click: function() { buy(index);updateGui(index) }
         });
 
+        buttonBox2.append(buttonUpgrade);
+        buttonBox2.append('<p class="text">' + i.price + ' coins</p>');
+
         div.append(image);
-        div.append(buttonBuy);
-        div.append(buttonUpgrade);
+        div.append(buttonBox);     
+        div.append(buttonBox2)
         
         $("#items-box").append(div);
     });
