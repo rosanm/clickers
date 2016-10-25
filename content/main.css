@@ -78,13 +78,39 @@ html, body { height: 100%; margin: 0; padding: 0; }
     height: 100%;
 }
 
-button {
-    margin: 10px;
+.item-field {
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 10px 0;
+    padding: 0 0 25px 0;
+    border-bottom: 1px solid black;
+}
+
+.item-image {
+    float: left;
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-left: 5px;
+}
+
+.button-buy, .button-upgrade {
     display: block;
     background-color: darkslateblue;
-    width: 95%;
-    height: 60px;
+    width: 30%;
     color: white;
+    float: right;
+    margin-right: 5px;
+    height: 60px;
+}
+
+.button-upgrade {
+    background-color: green;
+}
+
+.button-buy {
+    background-color: rebeccapurple;
 }
 
 .whitebg {

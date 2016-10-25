@@ -2,12 +2,12 @@
 
 var units = 10000000;
 var ups = 0;
-var items = [{name:"Maginifying glass", img:"magnifyer.png",        count:0, price:10,     gains:1,     max:2},
-            {name:"Newspaper",          img:"newspaper.png",        count:0, price:100,    gains:2,     max:10},
-            {name:"Anonymous tip",      img:"key.png",              count:0, price:500,    gains:10,    max:100},
-            {name:"Watson",             img:"watson.png",           count:0, price:2500,   gains:50,    max:1},
-            {name:"Police dog",         img:"dog.gif",              count:0, price:8000,   gains:500,   max:2},
-            {name:"Police station",     img:"policestation.jpg",    count:0, price:50000,  gains:2000,  max:2}];
+var items = [{name:"Maginifying glass", img:"water.png",        count:0, price:10,     gains:1,     max:2},
+            {name:"Newspaper",          img:"water-glass.png",        count:0, price:100,    gains:2,     max:10},
+            {name:"Anonymous tip",      img:"water-glass-round.png",              count:0, price:500,    gains:10,    max:100},
+            {name:"Watson",             img:"orange-glass-round.png",           count:0, price:2500,   gains:50,    max:1},
+            {name:"Police dog",         img:"green-glass-round.png",              count:0, price:8000,   gains:500,   max:2},
+            {name:"Police station",     img:"pink-glass-round.png",    count:0, price:50000,  gains:2000,  max:2}];
 
 var enemys = [{name:"a", hp:100,img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
             {name:"a",  hp:200, img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
@@ -90,14 +90,37 @@ gameLoop();
 $(document).ready(function(){
 
     items.forEach(function(i, index){
-        var button = $('<button/>',
+        var image = $('<img/>',
         {
-            text: i.name + " ["+i.price+"P]",
+            class: 'item-image',
+        });
+
+        image.attr('src', 'images/Items/' + i.img);
+
+        var div = $('<div/>',
+        {
+            class: 'item-field',
+        });
+
+        var buttonBuy = $('<button/>',
+        {
+            text: "BUY  ["+i.price+"P]",
             class: 'button-buy',
             click: function() { buy(index);updateGui(index) }
         });
+
+        var buttonUpgrade = $('<button/>',
+        {
+            text: "UPGRADE ["+i.price+"P]",
+            class: 'button-upgrade',
+            click: function() { buy(index);updateGui(index) }
+        });
+
+        div.append(image);
+        div.append(buttonBuy);
+        div.append(buttonUpgrade);
         
-        $("#items-box").append(button);
+        $("#items-box").append(div);
     });
 
 });
