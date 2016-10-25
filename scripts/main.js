@@ -3,12 +3,12 @@
 var units = 1000;
 var ups = 0;
 var level = 1;
-var items = [{name:"Maginifying glass", img:"magnifyer.png",        count:0, price:10,     gains:1,     max:2},
-            {name:"Newspaper",          img:"newspaper.png",        count:0, price:100,    gains:2,     max:10},
-            {name:"Anonymous tip",      img:"key.png",              count:0, price:500,    gains:10,    max:100},
-            {name:"Watson",             img:"watson.png",           count:0, price:2500,   gains:50,    max:1},
-            {name:"Police dog",         img:"dog.gif",              count:0, price:8000,   gains:500,   max:2},
-            {name:"Police station",     img:"policestation.jpg",    count:0, price:50000,  gains:2000,  max:2}];
+var items = [{name:"Maginifying glass", img:"water.png",                count:0, price:10,     gains:1,     max:2},
+            {name:"Newspaper",          img:"water-glass.png",          count:0, price:100,    gains:2,     max:10},
+            {name:"Anonymous tip",      img:"water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
+            {name:"Watson",             img:"orange-glass-round.png",   count:0, price:2500,   gains:50,    max:1},
+            {name:"Police dog",         img:"green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
+            {name:"Police station",     img:"pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
 
 var enemys = [{name:"Dropphin", hp:1500,img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
             {name:"Dolswim",  hp:5000, img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
@@ -117,15 +117,51 @@ gameLoop();
 
 $(document).ready(function(){
 
-    items.forEach(function(i, index){
-        var button = $('<button/>',
+    items.forEach(function(i, index){      
+        var div = $('<div/>',
         {
-            text: i.name + " ["+i.price+"P]",
+            class: 'item-field',
+        });
+
+        var image = $('<img/>',
+        {
+            class: 'item-image',
+        });
+        image.attr('src', 'images/Items/' + i.img);
+
+        var buttonBox = $('<div/>', {
+            class: 'button-box',
+        });
+
+        var buttonBox2 = $('<div/>', {
+            class: 'button-box',
+        });
+
+        var buttonBuy = $('<button/>',
+        {
+            text: "Buy",
             class: 'button-buy',
             click: function() { buy(index);updateGui(index) }
         });
+
+        buttonBox.append(buttonBuy);
+        buttonBox.append('<p class="text">' + i.price + ' coins</p>');
+
+        var buttonUpgrade = $('<button/>',
+        {
+            text: "Upgrade",
+            class: 'button-upgrade',
+            click: function() { buy(index);updateGui(index) }
+        });
+
+        buttonBox2.append(buttonUpgrade);
+        buttonBox2.append('<p class="text">' + i.price + ' coins</p>');
+
+        div.append(image);
+        div.append(buttonBox);     
+        div.append(buttonBox2)
         
-        $("#items-box").append(button);
+        $("#items-box").append(div);
     });
 
 });
