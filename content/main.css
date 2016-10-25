@@ -75,7 +75,16 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .theZoo {
     overflow: auto;
-    height: 598px;
+    height: 100%;
+}
+
+button {
+    margin: 10px;
+    display: block;
+    background-color: darkslateblue;
+    width: 95%;
+    height: 60px;
+    color: white;
 }
 
 .whitebg {

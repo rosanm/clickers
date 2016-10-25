@@ -91,7 +91,7 @@ $(document).ready(function(){
             click: function() { buy(index);updateGui(index) }
         });
         
-        $("#buttonSection").append(button);
+        $("#items-box").append(button);
     });
 
 });
