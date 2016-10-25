@@ -80,6 +80,8 @@ function calcUnitsPerSec(itemsArray){
 function updateGui(){
         $("#unitcounter").html("&pound;" + units );
         $("#unitpersec").html("PER SECOND:<br/>&pound; " + calcUnitsPerSec(items) );
+        $("#currentLvl").html(level);
+        currentLvl
         populateZoo();
         populateEnemy();
 };
