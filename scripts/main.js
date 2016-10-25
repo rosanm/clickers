@@ -40,6 +40,22 @@ function populateZoo() {
             $(".theZoo").html(itemsString);
 };
 
+function populateEnemy() {
+    var itemsString = "";
+    
+            enemys.forEach(function(e) {                         
+                    var imgString ="";
+                        //Build image part
+                        for(i=1; i<= e.count; i++){                     
+                            imgString += '<img src="images/enemys/'+e.img+'">';
+                        }
+                        //Build text part
+                            itemsString += imgString + "<br/>" + e.name + ': ' + e.hp + "hp." ;             
+                }, this);
+
+                
+            $(".theZoo").html(itemsString);
+};
 
 function buy(itemNr){
     //Can affound?
@@ -68,6 +84,7 @@ function updateGui(){
         $("#unitcounter").html("&pound;" + units );
         $("#unitpersec").html("PER SECOND:<br/>&pound; " + calcUnitsPerSec(items) );
         populateZoo();
+        populateEnemy();
 };
 
 function gameLoop() {
