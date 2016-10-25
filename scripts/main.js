@@ -2,19 +2,21 @@
 
 var units = 10000000;
 var ups = 0;
-var items = [{name:"Maginifying glass", img:"water.png",        count:0, price:10,     gains:1,     max:2},
-            {name:"Newspaper",          img:"water-glass.png",        count:0, price:100,    gains:2,     max:10},
-            {name:"Anonymous tip",      img:"water-glass-round.png",              count:0, price:500,    gains:10,    max:100},
-            {name:"Watson",             img:"orange-glass-round.png",           count:0, price:2500,   gains:50,    max:1},
-            {name:"Police dog",         img:"green-glass-round.png",              count:0, price:8000,   gains:500,   max:2},
-            {name:"Police station",     img:"pink-glass-round.png",    count:0, price:50000,  gains:2000,  max:2}];
 
-var enemys = [{name:"a", hp:100,img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
-            {name:"a",  hp:200, img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
-            {name:"a",  hp:300, img:"034_arambly_by_deoxysdaniel-d5mriwg.png"},
-            {name:"a",  hp:400, img:"035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
-            {name:"a",  hp:500, img:"036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-            {name:"a",  hp:600, img:"037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
+var items = [{name:"Maginifying glass", img:"water.png",                count:0, price:10,     gains:1,     max:2},
+            {name:"Newspaper",          img:"water-glass.png",          count:0, price:100,    gains:2,     max:10},
+            {name:"Anonymous tip",      img:"water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
+            {name:"Watson",             img:"orange-glass-round.png",   count:0, price:2500,   gains:50,    max:1},
+            {name:"Police dog",         img:"green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
+            {name:"Police station",     img:"pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
+var level = 0;
+
+var enemys = [{name:"Dropphin", hp:100,img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+            {name:"Dolswim",  hp:200, img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
+            {name:"Arambly",  hp:300, img:"034_arambly_by_deoxysdaniel-d5mriwg.png"},
+            {name:"Umbrarach",  hp:400, img:"035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
+            {name:"Cubern",  hp:500, img:"036_cubern_by_deoxysdaniel-d5n1gqm.png"},
+            {name:"Gigarotto",  hp:600, img:"037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
 function populateZoo() {
     var itemsString = "";
@@ -40,6 +42,17 @@ function populateZoo() {
             $(".theZoo").html(itemsString);
 };
 
+function populateEnemy() {
+    var itemsString = "";    
+            e = enemys[level];                        
+                    var imgString ="";
+                        //Build image part                
+                            imgString += '<img src="images/enemys/'+e.img+'" width="100%">';
+                        //Build text part
+                            itemsString += imgString + "<br/>" + e.name + ': ' + e.hp + "hp." ;             
+            
+            $(".monster-box").html(itemsString);
+};
 
 function buy(itemNr){
     //Can affound?
@@ -68,6 +81,7 @@ function updateGui(){
         $("#unitcounter").html("&pound;" + units );
         $("#unitpersec").html("PER SECOND:<br/>&pound; " + calcUnitsPerSec(items) );
         populateZoo();
+        populateEnemy();
 };
 
 function gameLoop() {
