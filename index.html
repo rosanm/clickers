@@ -15,6 +15,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="content/bootstrap.css">
     <link rel="stylesheet" href="content/main.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -29,9 +30,9 @@
                     <div class="boxHeader" style="text-align: center;">
                         STATS
                     </div>
-                    <div id="unitcounter">&pound; 0.00</div>
-                    <div id="unitpersec">PER SECOND: &pound; 0</div>
-                    <div id="currentLvl">LEVEL: 0</div>
+                    <div id="unitcounter"><i class="diamondIcon fa fa-diamond fa-lg"></i> 0.00</div>
+                    <div id="unitpersec"> <i class="diamondIcon fa fa-flash fa-lg"></i> p/s 0</div>
+                    <div id="currentLvl">Level <i class="fa fa-level-up fa-lg"></i>: 0</div>
                 </div>
                 <div class="section-left-under">
                     <div class="monster-box">
@@ -40,6 +41,13 @@
                         </div>
                         <div class="monster-box-enemy" >
                        </div>
+                       <div id="progresscontainer" style="text-align: center; display: none;">
+                            <progress max="100" value="80">
+                                <div class="progress-bar">
+                                    <span id="hp-progress"></span>
+                                </div>
+                            </progress>           
+                        </div>
                     </div>
                 </div>
             </div>
