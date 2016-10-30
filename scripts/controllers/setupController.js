@@ -1,4 +1,5 @@
-angular.module('Clickers', []).controller('setupController', function($scope) {
+var app = angular.module('Clickers', []);
+app.controller('setupController', function($scope) {
 
     //variables
     $scope.units = 1000;
@@ -18,7 +19,7 @@ angular.module('Clickers', []).controller('setupController', function($scope) {
                     {name:"Cubern",     hp:500000,  total: 500000,  img:"036_cubern_by_deoxysdaniel-d5n1gqm.png"},
                     {name:"Gigarotto",  hp:2000000, total: 200000,  img:"037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
-    $scope.friends = [{name:"Pandoo", level:1500,    count:4, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
+    $scope.friends = [{name:"Pandoo", level:1500,    count:4, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1},
                     {name:"Blazby",    level:5000,    count:2, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
                     {name:"Kniron",    level:20000,   count:1, gains:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
                     {name:"Eartail",   level:100000,  count:1, gains:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
@@ -26,24 +27,156 @@ angular.module('Clickers', []).controller('setupController', function($scope) {
     //end variables
     
     function populateZoo() {
-    var itemsString = "";    
-            friends.forEach(function(e) {
+            var itemsString = "";    
+            $scope.friends.forEach(function(e, i) {
                 if(e.count > 0){
-                    itemsString += '<div class="whitebg">';
-                    
-                    var imgString ="";
-                        //Build image part
-                        for(i=1; i<= e.count; i++){                     
-                            imgString += '<img src="images/friends/'+e.img+'" width="35%">';
-                        }
-                        //Build text part
-                            itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
-                             "<br/>DMG per second: " +e.gains*e.count;   
-                        itemsString += '</div>';
+                      $scope.friends[i].ups = e.gains*e.count;
+                      $scope.$apply();
                     }
-                }, this);
-        
-            $(".theZoo").html(itemsString);
-};
+            }, this);
+    };
 
+    function populateEnemy() {
+        var itemsString = "";    
+        e = $scope.enemys[$scope.level-1];                        
+        var imgString ="";
+        //Build image part                
+        imgString += '<img src="images/enemys/'+e.img+'" width="100%">';
+        //Build text part
+        itemsString += imgString + "<br/>" + e.name;  
+
+        var progress = e.hp / e.total * 100;
+
+        $("progress").attr('value', progress);
+
+        $(".monster-box-enemy").html(itemsString);
+        $("#progresscontainer").show();
+    };
+
+    function attackEnemy() {
+    e = $scope.enemys[$scope.level-1];
+    e.hp = e.hp - $scope.ups;
+        if(e.hp < 0){
+            $scope.level = $scope.level + 1;
+            $("#progresscontainer").hide();
+            setDoor();
+        }
+        else {
+            populateEnemy();
+        }
+    };
+
+    function buy(itemNr){
+        //Can affound?
+        if($scope.units >= $scope.items[itemNr].price){
+            //Still in stock?
+            if($scope.items[itemNr].count < $scope.items[itemNr].max){
+                //Buy it
+                $scope.units = $scope.units-$scope.items[itemNr].price;
+                $scope.items[itemNr].count++;
+            }else{
+                alert($scope.items[itemNr].name +" is out of stock, maximum reached. " +
+                $scope.items[itemNr].max +"/"+ $scope.items[itemNr].max )
+            }
+        }
+    };
+
+    function calcUnitsPerSec(itemsArray){
+        var unitsPerSec = 0;
+        itemsArray.forEach(function(e) {
+                    unitsPerSec += (e.count*e.gains);
+                }, this);
+        return unitsPerSec;
+    };
+
+    function updateGui(){
+        $("#unitcounter").html("<i class=\"diamondIcon fa fa-diamond fa-lg\"></i> " + $scope.units);
+        $("#unitpersec").html("<i class=\"diamondIcon fa fa-flash fa-lg\"></i> p/s " + $scope.ups );
+        $("#currentLvl").html("Level: " + $scope.level);
+        populateZoo();
+        populateEnemy();
+    };
+
+    function setDoor(){
+        var imgString = '<img id="door" src="images/door.png" width="100%">';
+        $(".monster-box-enemy").html(imgString);
+    }
+
+    function gameLoop() {
+            //update ups
+            itemUps = calcUnitsPerSec($scope.items);
+            friendUps = calcUnitsPerSec($scope.friends);
+            $scope.ups = itemUps + friendUps;      
+            
+            //Add units 
+            $scope.units += $scope.ups;
+        
+        //Update units
+        $("#unitcounter").html("<i class=\"diamondIcon fa fa-diamond fa-lg\"></i> " + $scope.units);
+        
+        //Attack
+        attackEnemy();
+        //this must be the last statment
+        setTimeout(gameLoop, 1000);
+    }
+
+    //Start the game the first time
+    gameLoop();
+
+    $(document).ready(function(){
+
+    updateGui();
+    $(".MonsterCard").draggable({ containment: "parent", grid: [ 30, 30 ] });
+
+        //Build image part                
+        setDoor();
+
+        $scope.items.forEach(function(i, index){      
+            var div = $('<div/>',
+            {
+                class: 'item-field',
+            });
+
+            var image = $('<img/>',
+            {
+                class: 'item-image',
+            });
+            image.attr('src', 'images/Items/' + i.img);
+
+            var buttonBox = $('<div/>', {
+                class: 'button-box',
+            });
+
+            var buttonBox2 = $('<div/>', {
+                class: 'button-box',
+            });
+
+            var buttonBuy = $('<button/>',
+            {
+                text: "Buy",
+                class: 'button-buy',
+                click: function() { buy(index);updateGui(index) }
+            });
+
+            buttonBox.append(buttonBuy);
+            buttonBox.append('<p class="text">' + i.price + ' coins</p>');
+
+            var buttonUpgrade = $('<button/>',
+            {
+                text: "Upgrade",
+                class: 'button-upgrade',
+                click: function() { buy(index);updateGui(index) }
+            });
+
+            buttonBox2.append(buttonUpgrade);
+            buttonBox2.append('<p class="text">' + i.price + ' coins</p>');
+
+            div.append(image);
+            div.append(buttonBox);     
+            div.append(buttonBox2)
+            
+            $("#items-box").append(div);
+        });
+
+    });
 });

@@ -24,13 +24,13 @@
     <script src="scripts/bootstrap/bootstrap.min.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/controllers/setupController.js"></script>
+    <script src="scripts/directives/ngRepeatWhile.js"></script>
     </head>
 
     <body>
 
         <div class="main-container" ng-app="Clickers" ng-controller="setupController">
             <div class="section-left">
-                <h1>{{test}}</h1>
                 <div class="section-left-top">
                     <div class="boxHeader" style="text-align: center;">
                         STATS
@@ -61,9 +61,7 @@
                 <div class="boxHeader">MONSTERS</div>
                 <div class="theZoo">
                     <div ng-repeat="friend in friends" class="MonsterCard section-monstercard">
-                        <img src="{{friend.img}}" width="35%">
-                        <p>{{friend.name}}</p><p>{{friend.count}}</p>
-                        <p>DMG per second:</p><span>{{friend.gains*e.count}}</span> 
+                        <div ng-repeat-while="{{friend.count}}"></div>
                     </div>
                 </div>
             </div>
