@@ -138,7 +138,9 @@ $(document).ready(function(){
     $(".section-monstercard").draggable({ 
                 containment: "parent",
                 grid: [ 30, 30 ],
-                scroll: true, });
+                scroll: false,
+                cursor: "move"
+         });
 
     //Build image part                
     setDoor();

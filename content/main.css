@@ -62,7 +62,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .section-monstercard {
-    width: 100%;
+    width: 40%;
+	height: 300px;
     margin: 10px;
     background: #FEF2E2;
     border: 10px solid #300D0D;
