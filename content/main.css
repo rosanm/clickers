@@ -51,9 +51,21 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .section-center {
     width: 38%;
+	height: 100%;
     float: left;
     margin: 0 1%;
     padding: 0;
+    background: #FBCB81;
+    border: 10px solid #300D0D;
+	border-radius: 10px;
+	overflow: auto;
+}
+
+.section-monstercard {
+    width: 90%;
+    float: left;
+    margin: 10px;
+    padding: 10px;
     background: #FEF2E2;
     border: 10px solid #300D0D;
 	border-radius: 10px;

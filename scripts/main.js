@@ -119,22 +119,24 @@ function gameLoop() {
         //Add units 
         units += ups;
     
-    //Update units
-    $("#unitcounter").html("<i class=\"diamondIcon fa fa-diamond fa-lg\"></i> " + units);
-    
-    //Attack
-    attackEnemy();
-    //this must be the last statment
-    setTimeout(gameLoop, 1000);
+        //Update units
+        $("#unitcounter").html("<i class=\"diamondIcon fa fa-diamond fa-lg\"></i> " + units);
+        
+        //Attack
+        attackEnemy();
+        //this must be the last statment
+        setTimeout(gameLoop, 1000);
 }
 
 //Start the game the first time
 gameLoop();
 
+
+
 $(document).ready(function(){
 
-updateGui();
-$(".MonsterCard").draggable({ containment: "parent", grid: [ 30, 30 ] });
+    updateGui();
+    $(".section-monstercard").draggable({ containment: "parent", grid: [ 30, 30 ] });
 
     //Build image part                
     setDoor();
