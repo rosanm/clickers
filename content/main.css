@@ -49,6 +49,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
     margin: 0;
     padding: 0;
     background: burlywood;
+	overflow: auto;
 }
 
 .monster-box {
@@ -88,8 +89,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .item-image {
     float: left;
-    width: 60px;
-    height: 60px;
+    width: 20%;
     display: block;
     margin-left: 5px;
 }

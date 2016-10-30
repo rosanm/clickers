@@ -36,13 +36,11 @@ function populateZoo() {
                         }
                         //Build text part
                             itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
-                            "<br/>DMG per second: " +e.gains*e.count;
-                    
+                            "<br/>DMG per second: " +e.gains*e.count;                    
                         itemsString += '</div>';
                     }
                 }, this);
-
-                
+        
             $(".theZoo").html(itemsString);
 };
 
@@ -53,9 +51,8 @@ function populateEnemy() {
                         //Build image part                
                             imgString += '<img src="images/enemys/'+e.img+'" width="100%">';
                         //Build text part
-                            itemsString += imgString + "<br/>" + e.name + ': ' + e.hp + "hp." ;             
-            
-            $(".monster-box-enemy").html(itemsString);
+                            itemsString += imgString + "<br/>" + e.name + ': ' + e.hp + "hp." ;                       
+                        $(".monster-box-enemy").html(itemsString);
 };
 
 function attackEnemy() {
