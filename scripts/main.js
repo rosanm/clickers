@@ -10,7 +10,6 @@ var items = [{name:"Maginifying glass", img:"water.png",                count:0,
             {name:"Police dog",         img:"green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
             {name:"Police station",     img:"pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
 
-
 var enemys = [{name:"Dropphin", hp:1500,    total: 1500,    img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
             {name:"Dolswim",    hp:5000,    total: 5000,    img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
             {name:"Arambly",    hp:20000,   total: 20000,   img:"034_arambly_by_deoxysdaniel-d5mriwg.png"},
@@ -33,7 +32,7 @@ function populateZoo() {
                     var imgString ="";
                         //Build image part
                         for(i=1; i<= e.count; i++){                     
-                            imgString += '<img src="images/friends/'+e.img+'" height="40" width="40">';
+                            imgString += '<img src="images/friends/'+e.img+'" width="35%">';
                         }
                         //Build text part
                             itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
@@ -100,7 +99,7 @@ function calcUnitsPerSec(itemsArray){
 
 function updateGui(){
     $("#unitcounter").html("<i class=\"diamondIcon fa fa-diamond fa-lg\"></i> " + units);
-    $("#unitpersec").html("<i class=\"diamondIcon fa fa-flash fa-lg\"></i> p/s " + calcUnitsPerSec(items) );
+    $("#unitpersec").html("<i class=\"diamondIcon fa fa-flash fa-lg\"></i> p/s " + ups );
     $("#currentLvl").html("Level: " + level);
     populateZoo();
     populateEnemy();
@@ -133,6 +132,8 @@ function gameLoop() {
 gameLoop();
 
 $(document).ready(function(){
+
+updateGui();
 
     //Build image part                
     setDoor();
