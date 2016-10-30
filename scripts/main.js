@@ -134,6 +134,7 @@ gameLoop();
 $(document).ready(function(){
 
 updateGui();
+$(".MonsterCard").draggable({ containment: "parent", grid: [ 30, 30 ] });
 
     //Build image part                
     setDoor();
