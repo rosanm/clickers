@@ -14,7 +14,7 @@ app.directive('ngRepeatWhile', function($parse, $compile) {
         var counter = $parse($attrs.ngRepeatWhile)($scope);
         for(var i = 0; i < counter; i++) {
             var monster = "<div class=\"boxHeader\">" + $scope.friend.name + "</div>" +
-            "<img src=" + $scope.friend.img + " width=\"35%\">"+
+            "<img src=" + $scope.friend.img + " class=\"friendImg\">"+
             "<p>DMG per second:</p><span>" + $scope.friend.ups + "</span>";
             $element.append(monster);
         }
