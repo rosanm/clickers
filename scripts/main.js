@@ -23,26 +23,26 @@ var friends = [{name:"Pandoo", level:1500,    count:4, gains:100, img:"001_pando
             {name:"Eartail",   level:100000,  count:1, gains:500, img:"048_eartail_by_deoxysdaniel-d5nwewr.png"},
             {name:"Phyracu",   level:500000,  count:1, gains:800, img:"053_phyracu_by_deoxysdaniel-d5nwexe.png"}]
 
-function populateZoo() {
-    var itemsString = "";    
-            friends.forEach(function(e) {
-                if(e.count > 0){
-                    itemsString += '<div class="whitebg">';
+ function populateZoo() {
+//     var itemsString = "";    
+//             friends.forEach(function(e) {
+//                 if(e.count > 0){
+//                     itemsString += '<div class="whitebg">';
                     
-                    var imgString ="";
-                        //Build image part
-                        for(i=1; i<= e.count; i++){                     
-                            imgString += '<img src="images/friends/'+e.img+'" width="35%">';
-                        }
-                        //Build text part
-                            itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
-                             "<br/>DMG per second: " +e.gains*e.count;   
-                        itemsString += '</div>';
-                    }
-                }, this);
+//                     var imgString ="";
+//                         //Build image part
+//                         for(i=1; i<= e.count; i++){                     
+//                             imgString += '<img src="images/friends/'+e.img+'" width="35%">';
+//                         }
+//                         //Build text part
+//                             itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
+//                              "<br/>DMG per second: " +e.gains*e.count;   
+//                         itemsString += '</div>';
+//                     }
+//                 }, this);
         
-            $(".theZoo").html(itemsString);
-};
+//             $(".theZoo").html(itemsString);
+ };
 
 function populateEnemy() {
     var itemsString = "";    
