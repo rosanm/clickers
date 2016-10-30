@@ -10,7 +10,6 @@ var items = [{name:"Maginifying glass", img:"water.png",                count:0,
             {name:"Police dog",         img:"green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
             {name:"Police station",     img:"pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
 
-
 var enemys = [{name:"Dropphin", hp:1500,    total: 1500,    img:"007_dropphin_by_deoxysdaniel-d5j9slu.png"},
             {name:"Dolswim",    hp:5000,    total: 5000,    img:"008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
             {name:"Arambly",    hp:20000,   total: 20000,   img:"034_arambly_by_deoxysdaniel-d5mriwg.png"},
@@ -18,11 +17,11 @@ var enemys = [{name:"Dropphin", hp:1500,    total: 1500,    img:"007_dropphin_by
             {name:"Cubern",     hp:500000,  total: 500000,  img:"036_cubern_by_deoxysdaniel-d5n1gqm.png"},
             {name:"Gigarotto",  hp:2000000, total: 200000,  img:"037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
-var friends = [{name:"Pandoo", level:1500,    count:1, gains:100, img:"001_pandoo_by_deoxysdaniel-d5j9po2.png"},
-            {name:"Blazby",    level:5000,    count:0, gains:200, img:"004_blazby_by_deoxysdaniel-d5j9qzc.png"},
-            {name:"Kniron",    level:20000,   count:0, gains:300, img:"038_kniron_by_deoxysdaniel-d5ncn7r.png"},
-            {name:"Eartail",   level:100000,  count:0, gains:500, img:"048_eartail_by_deoxysdaniel-d5nwewr.png"},
-            {name:"Phyracu",   level:500000,  count:0, gains:800, img:"053_phyracu_by_deoxysdaniel-d5nwexe.png"}]
+var friends = [{name:"Pandoo", level:1500,    count:4, gains:100, img:"001_pandoo_by_deoxysdaniel-d5j9po2.png"},
+            {name:"Blazby",    level:5000,    count:2, gains:200, img:"004_blazby_by_deoxysdaniel-d5j9qzc.png"},
+            {name:"Kniron",    level:20000,   count:1, gains:300, img:"038_kniron_by_deoxysdaniel-d5ncn7r.png"},
+            {name:"Eartail",   level:100000,  count:1, gains:500, img:"048_eartail_by_deoxysdaniel-d5nwewr.png"},
+            {name:"Phyracu",   level:500000,  count:1, gains:800, img:"053_phyracu_by_deoxysdaniel-d5nwexe.png"}]
 
 function populateZoo() {
     var itemsString = "";    
@@ -33,7 +32,7 @@ function populateZoo() {
                     var imgString ="";
                         //Build image part
                         for(i=1; i<= e.count; i++){                     
-                            imgString += '<img src="images/friends/'+e.img+'" height="40" width="40">';
+                            imgString += '<img src="images/friends/'+e.img+'" width="35%">';
                         }
                         //Build text part
                             itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
@@ -100,7 +99,7 @@ function calcUnitsPerSec(itemsArray){
 
 function updateGui(){
     $("#unitcounter").html("<i class=\"diamondIcon fa fa-diamond fa-lg\"></i> " + units);
-    $("#unitpersec").html("<i class=\"diamondIcon fa fa-flash fa-lg\"></i> p/s " + calcUnitsPerSec(items) );
+    $("#unitpersec").html("<i class=\"diamondIcon fa fa-flash fa-lg\"></i> p/s " + ups );
     $("#currentLvl").html("Level: " + level);
     populateZoo();
     populateEnemy();
@@ -133,6 +132,8 @@ function gameLoop() {
 gameLoop();
 
 $(document).ready(function(){
+
+updateGui();
 
     //Build image part                
     setDoor();
