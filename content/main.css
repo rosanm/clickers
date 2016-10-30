@@ -58,17 +58,18 @@ html, body { height: 100%; margin: 0; padding: 0; }
     background: #FBCB81;
     border: 10px solid #300D0D;
 	border-radius: 10px;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .section-monstercard {
-    width: 40%;
-	height: 300px;
+	float: left;
+    width: 350px;
+	height: 250px;
     margin: 10px;
     background: #FEF2E2;
     border: 10px solid #300D0D;
 	border-radius: 10px;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .section-right {
@@ -80,7 +81,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	background:#FBCB81;
     border: 10px solid #300D0D;
 	border-radius: 10px;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .monster-box {
@@ -121,8 +122,13 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .theZoo {
-    overflow: auto;
-    height: 100%;
+	height: 100%;
+    overflow-y: scroll;
+}
+
+#items-box{
+	height: 100%;
+    overflow-y: scroll;
 }
 
 .item-field {
