@@ -1,9 +1,18 @@
 @font-face {
-    font-family: SherlockFont;
-    src: url(../fonts/WATSON.ttf);
+    font-family: Windlass;
+    src: url(../fonts/Windlass.ttf);
+}
+
+@font-face {
+    font-family: Livingst;
+    src: url(../fonts/Livingst.ttf);
 }
 
 html, body { height: 100%; margin: 0; padding: 0; }
+
+.main-container {
+	background: url(http://www.mb3d.co.uk/mb3d/Wood_Seamless_and_Tileable_High_Res_Textures_files/Wood_14_UV_H_CM_1.jpg) repeat;
+}
 
 .header h1 {
     font-size: 70px;
@@ -11,12 +20,19 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .boxHeader, .boxHeader2 { 
-    background-color: darkslategray;
+    /*background-color: darkslategray;*/
     font-size: 34px;
-    color: white;
-    font-family: SherlockFont;
+    color: #222;
+    font-family: Windlass;
     text-align: center;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bfd255+0,8eb92a+50,72aa00+51,9ecb2d+100;Green+Gloss */
+	background: #bfd255; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 ); /* IE6-9 */
 }
+
 
 .main-container {
     height: 100%;
@@ -28,18 +44,21 @@ html, body { height: 100%; margin: 0; padding: 0; }
     float: left;
     margin: 0;
     padding: 0;
-    background: grey;
-    border-right: 10px solid black;
+    background:#FBCB81;
+    border: 10px solid #300D0D;
+	border-radius: 10px;
 }
 
 .section-center {
-    width: 40%;
+    width: 38%;
     height: 100%;
     float: left;
-    margin: 0;
+    margin: 0 1%;
     padding: 0;
-    background: palegreen;
-    border-right: 10px solid black;
+    background: #FEF2E2;
+    border: 10px solid #300D0D;
+	border-radius: 10px;
+	overflow: auto;
 }
 
 .section-right {
@@ -48,16 +67,32 @@ html, body { height: 100%; margin: 0; padding: 0; }
     float: left;
     margin: 0;
     padding: 0;
-    background: burlywood;
+	background:#FBCB81;
+    border: 10px solid #300D0D;
+	border-radius: 10px;
+	overflow: auto;
 }
 
 .monster-box {
-    background-color: pink;
-    border-right: 10px solid black;
     width: 20%;
     height: 50%;
+	margin: 0 0 0 -10px;
     position: absolute;
     bottom: 0;
+	border-right: 10px solid #300D0D;
+	border-left: 10px solid #300D0D;
+	border-radius: 10px;
+}
+
+.monster-box-enemy {
+	text-align: center;
+	font-family: Livingst;
+	font-size: 22px;
+}
+
+#door {
+	margin: 10px 0 0 0;
+	width: 100%;
 }
 
 .boxHeader2 { 
@@ -65,16 +100,19 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 #unitcounter, #unitpersec, #currentLvl {
-    font-family: SherlockFont;
+    font-family: Livingst;
     font-size: 22px;
+	padding: 5px;
 }
 
-#unitpersec {
-   font-size: 18px;
+.diamondIcon {
+	color:brown;
+	font-size: 18px !important;
 }
 
 .theZoo {
     overflow: auto;
+    height: 100%;
 }
 
 .item-field {
