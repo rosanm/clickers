@@ -29,6 +29,7 @@ angular.module('Clickers', []).controller('setupController', function($scope) {
     var itemsString = "";    
             friends.forEach(function(e) {
                 if(e.count > 0){
+                    
                     itemsString += '<div class="whitebg">';
                     
                     var imgString ="";
@@ -37,7 +38,7 @@ angular.module('Clickers', []).controller('setupController', function($scope) {
                             imgString += '<img src="images/friends/'+e.img+'" width="35%">';
                         }
                         //Build text part
-                            itemsString += imgString + "<br/>" + e.name + ': ' + e.count + "x." + 
+                            itemsString += imgString + "<br/><div>" + e.name + ': ' + e.count + "x." + 
                              "<br/>DMG per second: " +e.gains*e.count;   
                         itemsString += '</div>';
                     }
