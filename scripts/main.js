@@ -27,7 +27,7 @@ function populateZoo() {
     var itemsString = "";    
             friends.forEach(function(e) {
                 if(e.count > 0){
-                    itemsString += '<div id="MonsterCard" class="whitebg">';
+                    itemsString += '<div class="whitebg, MonsterCard, section-monstercard">';
                     
                     var imgString ="";
                         //Build image part
@@ -135,7 +135,7 @@ gameLoop();
 $(document).ready(function(){
 
 updateGui();
-$("#MonsterCard").draggable();
+$(".MonsterCard").draggable({ containment: "parent", grid: [ 30, 30 ] });
 
     //Build image part                
     setDoor();
