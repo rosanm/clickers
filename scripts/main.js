@@ -17,11 +17,11 @@ var enemys = [{name:"Dropphin", hp:1500,    total: 1500,    img:"007_dropphin_by
             {name:"Cubern",     hp:500000,  total: 500000,  img:"036_cubern_by_deoxysdaniel-d5n1gqm.png"},
             {name:"Gigarotto",  hp:2000000, total: 200000,  img:"037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
-var friends = [{name:"Pandoo", level:1500,    count:1, gains:100, img:"001_pandoo_by_deoxysdaniel-d5j9po2.png"},
-            {name:"Blazby",    level:5000,    count:0, gains:200, img:"004_blazby_by_deoxysdaniel-d5j9qzc.png"},
-            {name:"Kniron",    level:20000,   count:0, gains:300, img:"038_kniron_by_deoxysdaniel-d5ncn7r.png"},
-            {name:"Eartail",   level:100000,  count:0, gains:500, img:"048_eartail_by_deoxysdaniel-d5nwewr.png"},
-            {name:"Phyracu",   level:500000,  count:0, gains:800, img:"053_phyracu_by_deoxysdaniel-d5nwexe.png"}]
+var friends = [{name:"Pandoo", level:1500,    count:4, gains:100, img:"001_pandoo_by_deoxysdaniel-d5j9po2.png"},
+            {name:"Blazby",    level:5000,    count:2, gains:200, img:"004_blazby_by_deoxysdaniel-d5j9qzc.png"},
+            {name:"Kniron",    level:20000,   count:1, gains:300, img:"038_kniron_by_deoxysdaniel-d5ncn7r.png"},
+            {name:"Eartail",   level:100000,  count:1, gains:500, img:"048_eartail_by_deoxysdaniel-d5nwewr.png"},
+            {name:"Phyracu",   level:500000,  count:1, gains:800, img:"053_phyracu_by_deoxysdaniel-d5nwexe.png"}]
 
 function populateZoo() {
     var itemsString = "";    
