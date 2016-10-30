@@ -51,9 +51,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	margin: 5px;
 	margin-top:0px;
 	width: 100%;
-    height: 50%;
+    height: 49.5%;
     float: left;
-    padding: 0;
     background:#FBCB81;
     border: 10px solid #300D0D;
 	border-radius: 10px;
@@ -62,12 +61,11 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .monster-box {
 	margin: 5px;
 	width: 100%;
-    height: 48%;
+    height: 49.5%;
 	float: left;
 	border: 10px solid #300D0D;
 	border-radius: 10px;
 	background:#FBCB81;
-	margin-bottom: 0px;
 }
 
 .section-center {
