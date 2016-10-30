@@ -126,7 +126,15 @@ app.controller('setupController', function($scope) {
     $(document).ready(function(){
 
     updateGui();
-    $(".MonsterCard").draggable({ containment: "parent", grid: [ 30, 30 ] });
+    $(".section-monstercard").draggable({ 
+                containment: "parent",
+                scroll: false,
+                cursor: "move"
+         });
+
+   
+    $(".section-center").resizable();
+    $(".section-right").resizable();
 
         //Build image part                
         setDoor();

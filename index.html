@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="content/bootstrap.css">
     <link rel="stylesheet" href="content/main.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
     
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -30,7 +31,9 @@
     <body>
 
         <div class="main-container" ng-app="Clickers" ng-controller="setupController">
+
             <div class="section-left">
+
                 <div class="section-left-top">
                     <div class="boxHeader" style="text-align: center;">
                         STATS
@@ -39,7 +42,8 @@
                     <div id="unitpersec"> <i class="diamondIcon fa fa-flash fa-lg"></i> p/s 0</div>
                     <div id="currentLvl">Level <i class="fa fa-level-up fa-lg"></i>: 0</div>
                 </div>
-                <div class="section-left-under">
+                
+                
                     <div class="monster-box">
                         <div class="boxHeader" style="text-align: center;">
                             ATTACK
@@ -54,17 +58,22 @@
                             </progress>           
                         </div>
                     </div>
-                </div>
+              
+
             </div>
+
+           
 
             <div class="section-center">
                 <div class="boxHeader">MONSTERS</div>
+                
                 <div class="theZoo">
-                    <div ng-repeat="friend in friends" class="MonsterCard section-monstercard">
+                    <div ng-repeat="friend in friends">
                         <div ng-repeat-while="{{friend.count}}"></div>
                     </div>
                 </div>
             </div>
+
             <div class="section-right">
                 <div class="boxHeader">ITEMS</div>
                 <div id="items-box">
