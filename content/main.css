@@ -36,6 +36,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .main-container {
     height: 100%;
+	padding: 10px;
 }
 
 .section-left {
@@ -44,9 +45,29 @@ html, body { height: 100%; margin: 0; padding: 0; }
     float: left;
     margin: 0;
     padding: 0;
+}
+
+.section-left-top {
+	margin: 5px;
+	margin-top:0px;
+	width: 100%;
+    height: 50%;
+    float: left;
+    padding: 0;
     background:#FBCB81;
     border: 10px solid #300D0D;
 	border-radius: 10px;
+}
+
+.monster-box {
+	margin: 5px;
+	width: 100%;
+    height: 48%;
+	float: left;
+	border: 10px solid #300D0D;
+	border-radius: 10px;
+	background:#FBCB81;
+	margin-bottom: 0px;
 }
 
 .section-center {
@@ -84,16 +105,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	overflow: hidden;
 }
 
-.monster-box {
-    width: 20%;
-    height: 50%;
-	margin: 0 0 0 -10px;
-    position: absolute;
-    bottom: 0;
-	border-right: 10px solid #300D0D;
-	border-left: 10px solid #300D0D;
-	border-radius: 10px;
-}
+
 
 .monster-box-enemy {
 	text-align: center;
@@ -123,12 +135,12 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .theZoo {
 	height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 #items-box{
 	height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .item-field {
