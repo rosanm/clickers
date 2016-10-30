@@ -60,7 +60,7 @@
             <div class="section-center">
                 <div class="boxHeader">MONSTERS</div>
                 <div class="theZoo">
-                    <div ng-repeat="friend in friends">
+                    <div ng-repeat="friend in friends" class="MonsterCard section-monstercard">
                         <img src="{{friend.img}}" width="35%">
                         <p>{{friend.name}}</p><p>{{friend.count}}</p>
                         <p>DMG per second:</p><span>{{friend.gains*e.count}}</span> 
