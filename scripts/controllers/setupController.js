@@ -8,11 +8,11 @@ app.controller('setupController', function($scope) {
     $scope.currentEnemy = {};
     $scope.door = "images/door.png";
     $scope.items = [{name:"Harder Bite",  img:"images/items/water.png",                count:0, price:10,     gains:1,     max:2},
-                    {name:"Super Bite",          img:"images/items/water-glass.png",          count:0, price:100,    gains:2,     max:10},
-                    {name:"Hyper Bite",      img:"images/items/water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
-                    {name:"Fire Saliva",             img:"images/items/orange-glass-round.png",   count:0, price:2500,   gains:50,    max:1},
-                    {name:"Poison Bite",         img:"images/items/green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
-                    {name:"Extra Damage",     img:"images/items/pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
+                    {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    gains:2,     max:10},
+                    {name:"Hyper Bite",   img:"images/items/water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
+                    {name:"Fire Saliva",  img:"images/items/orange-glass-round.png",   count:0, price:2500,   gains:50,    max:1},
+                    {name:"Poison Bite",  img:"images/items/green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
+                    {name:"Extra Damage", img:"images/items/pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
 
     $scope.enemys = [{name:"Dropphin",  hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
                     {name:"Dolswim",    hp:5000,    total: 5000,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
@@ -21,11 +21,16 @@ app.controller('setupController', function($scope) {
                     {name:"Cubern",     hp:500000,  total: 500000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
                     {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
-    $scope.friends = [{name:"Pandoo",   level:1500,   count:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1},
-                    {name:"Blazby",    level:5000,    count:1, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
-                    {name:"Kniron",    level:20000,   count:1, gains:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
-                    {name:"Eartail",   level:100000,  count:1, gains:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
-                    {name:"Phyracu",   level:500000,  count:1, gains:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}];
+    $scope.friends = [{name:"Pandoo", count: 1, lvl:1, levelUp: 10, nextStageId:0, stage:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1},
+                    {name:"Blazby",   count: 1, lvl:1, levelUp: 10, nextStageId:1, stage:1, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
+                    {name:"Kniron",   count: 1, lvl:1, levelUp: 10, nextStageId:2, stage:1, gains:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
+                    {name:"Eartail",  count: 1, lvl:1, levelUp: 10, nextStageId:3, stage:1, gains:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
+                    {name:"Phyracu",  count: 1, lvl:1, levelUp: 10, nextStageId:4, stage:1, gains:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}];
+
+    $scope.friends2 = [{name:"Pandoo2", count: 0, lvl:10, levelUp: 20, nextStageId:0, stage:2, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1}];
+
+    $scope.friends3 = [{name:"Pandoo3", count: 0, lvl:20, levelUp: 999, nextStageId:0, stage:3, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1}];                 
+
     //end variables
     
     function populateZoo() {  
@@ -79,6 +84,29 @@ app.controller('setupController', function($scope) {
             }
         }
     };
+
+    $scope.trainFriend = function(index){
+        var me =  $scope.friends[index];
+
+            $scope.friends[index].lvl++;
+
+            if(me.lvl > me.levelUp){
+
+                if(me.stage == 1){
+                    $scope.friends[index].count = 0;
+                    $scope.friends2[index].count = 1;
+                }
+
+                if(me.stage == 2){
+                    $scope.friends2[index].count = 0;
+                    $scope.friends3[index].count = 1;
+                }
+                
+            }
+
+        $scope.$apply();
+            
+    }
 
     function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
