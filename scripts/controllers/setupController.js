@@ -21,44 +21,35 @@ app.controller('setupController', function($scope) {
                     {name:"Cubern",     hp:500000,  total: 500000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
                     {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
-    $scope.friends = [{name:"Pandoo", level:1500,    count:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
-                    {name:"Blazby",    level:5000,    count:1, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
+    $scope.friends = [{name:"Pandoo", level:1500,    count:4, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1},
+                    {name:"Blazby",    level:5000,    count:2, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
                     {name:"Kniron",    level:20000,   count:1, gains:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
                     {name:"Eartail",   level:100000,  count:1, gains:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
                     {name:"Phyracu",   level:500000,  count:1, gains:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}];
     //end variables
     
-    function populateZoo() {
-            var itemsString = "";    
-            $scope.friends.forEach(function(e, i) {
-                if(e.count > 0){
-                      $scope.friends[i].ups = e.gains*e.count;
-                      $scope.$apply();
-                    }
-            }, this);
+    function populateZoo() {  
+        $scope.friends.forEach(function(e, i) {
+            if(e.count > 0){
+                    $scope.friends[i].ups = e.gains*e.count;
+                    $scope.$apply();
+                }
+        }, this);
     };
 
-    function populateEnemy() {
-        var itemsString = "";    
+    function populateEnemy() {   
         $scope.currentEnemy = $scope.enemys[$scope.level-1];       
         $scope.$apply();                 
-        var imgString ="";
-        //Build image part                
-        //imgString += '<img src="images/enemys/'+e.img+'" width="100%">';
-        //Build text part
-        //itemsString += imgString + "<br/>" + e.name;  
 
         var progress = $scope.currentEnemy.hp / $scope.currentEnemy.total * 100;
-
         $("progress").attr('value', progress);
-
-        //$(".monster-box-enemy").html(itemsString);
         $("#progresscontainer").show();
     };
 
     function attackEnemy() {
         $scope.currentEnemy = $scope.enemys[$scope.level-1];
         $scope.currentEnemy.hp = $scope.currentEnemy.hp - $scope.ups;
+        
         if($scope.currentEnemy.hp < 0){
             $scope.level = $scope.level + 1;
             $("#progresscontainer").hide();
