@@ -27,9 +27,9 @@ app.controller('setupController', function($scope) {
                     {name:"Eartail",  count: 1, lvl:1, levelUp: 10, stage:1, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
                     {name:"Phyracu",  count: 1, lvl:1, levelUp: 10, stage:1, dmg:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}];
 
-    $scope.friends2 = [{name:"Pandoo2", count: 1, lvl:10, levelUp: 20, stage:2, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"}];
+    $scope.friends2 = [{name:"Herbear", count: 1, lvl:10, levelUp: 20, stage:2, dmg:100, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"}];
 
-    $scope.friends3 = [{name:"Pandoo3", count: 1, lvl:20, levelUp: 999, stage:3, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"}];                 
+    $scope.friends3 = [{name:"Ursorest", count: 1, lvl:20, levelUp: 999, stage:3, dmg:100, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"}];                 
 
     //end variables
     
