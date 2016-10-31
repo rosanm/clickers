@@ -79,6 +79,17 @@
             <div class="section-right">
                 <div class="boxHeader">ITEMS</div>
                 <div id="items-box">
+                    <div class="item-field" ng-repeat="item in items">
+                        <img class="item-image" src="{{item.img}}"/>
+                        <div class="button-box">
+                            <button class="button-buy">Buy</button>
+                            <p class="text">{{item.price}}</p>
+                        </div>
+                        <div class="button-box">
+                            <button class="button-upgrade">Upgrade</button>
+                            <p class="text">{{item.price}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
