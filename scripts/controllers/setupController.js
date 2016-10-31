@@ -7,21 +7,21 @@ app.controller('setupController', function($scope) {
     $scope.level = 1;
     $scope.currentEnemy = {};
     $scope.door = "images/door.png";
-    $scope.items = [{name:"Maginifying glass", img:"images/items/water.png",                count:0, price:10,     gains:1,     max:2},
-                    {name:"Newspaper",          img:"images/items/water-glass.png",          count:0, price:100,    gains:2,     max:10},
-                    {name:"Anonymous tip",      img:"images/items/water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
-                    {name:"Watson",             img:"images/items/orange-glass-round.png",   count:0, price:2500,   gains:50,    max:1},
-                    {name:"Police dog",         img:"images/items/green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
-                    {name:"Police station",     img:"images/items/pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
+    $scope.items = [{name:"Harder Bite",  img:"images/items/water.png",                count:0, price:10,     gains:1,     max:2},
+                    {name:"Super Bite",          img:"images/items/water-glass.png",          count:0, price:100,    gains:2,     max:10},
+                    {name:"Hyper Bite",      img:"images/items/water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
+                    {name:"Fire Saliva",             img:"images/items/orange-glass-round.png",   count:0, price:2500,   gains:50,    max:1},
+                    {name:"Poison Bite",         img:"images/items/green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
+                    {name:"Extra Damage",     img:"images/items/pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
 
-    $scope.enemys = [{name:"Dropphin", hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+    $scope.enemys = [{name:"Dropphin",  hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
                     {name:"Dolswim",    hp:5000,    total: 5000,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
                     {name:"Arambly",    hp:20000,   total: 20000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
                     {name:"Umbrarach",  hp:100000,  total: 100000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
                     {name:"Cubern",     hp:500000,  total: 500000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
                     {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
-    $scope.friends = [{name:"Pandoo", level:1500,    count:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1},
+    $scope.friends = [{name:"Pandoo",   level:1500,   count:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1},
                     {name:"Blazby",    level:5000,    count:1, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
                     {name:"Kniron",    level:20000,   count:1, gains:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
                     {name:"Eartail",   level:100000,  count:1, gains:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
