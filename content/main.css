@@ -82,14 +82,21 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .section-monstercard {
 	float: left;
-    width: 350px;
-	height: 250px;
+    width: 325px;
+	height: 235px;
     margin: 10px;
     background: #FEF2E2;
     border: 10px solid #300D0D;
 	border-radius: 10px;
 	overflow: hidden;
 }
+
+
+.friendImg{
+	width: 50%;
+	float: left;
+}
+
 
 .section-right {
     width: 28%;
@@ -252,9 +259,4 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .button-buy:active {
 	position:relative;
 	top:1px;
-}
-
-.friendImg{
-width: 50%;
-margin-left: 25%;
 }
