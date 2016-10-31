@@ -82,11 +82,11 @@
                     <div class="item-field" ng-repeat="item in items">
                         <img class="item-image" src="{{item.img}}"/>
                         <div class="button-box">
-                            <button class="button-buy">Buy</button>
+                            <button class="button-buy" ng-click="buy($index);updateGui($index)">Buy</button>
                             <p class="text">{{item.price}}</p>
                         </div>
                         <div class="button-box">
-                            <button class="button-upgrade">Upgrade</button>
+                            <button class="button-upgrade" ng-click="buy($index);updateGui($index)">Upgrade</button>
                             <p class="text">{{item.price}}</p>
                         </div>
                     </div>

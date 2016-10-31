@@ -65,7 +65,7 @@ app.controller('setupController', function($scope) {
         
     };
 
-    function buy(itemNr){
+    $scope.buy = function(itemNr){
         //Can affound?
         if($scope.units >= $scope.items[itemNr].price){
             //Still in stock?
@@ -125,8 +125,57 @@ app.controller('setupController', function($scope) {
                 containment: "parent",
                 scroll: false,
                 cursor: "move"
-         });  
+         });
+
+   
     $(".section-center").resizable();
     $(".section-right").resizable();
+        // $scope.items.forEach(function(i, index){      
+        //     var div = $('<div/>',
+        //     {
+        //         class: 'item-field',
+        //     });
+
+        //     var image = $('<img/>',
+        //     {
+        //         class: 'item-image',
+        //     });
+        //     image.attr('src', 'images/Items/' + i.img);
+
+        //     var buttonBox = $('<div/>', {
+        //         class: 'button-box',
+        //     });
+
+        //     var buttonBox2 = $('<div/>', {
+        //         class: 'button-box',
+        //     });
+
+        //     var buttonBuy = $('<button/>',
+        //     {
+        //         text: "Buy",
+        //         class: 'button-buy',
+        //         click: function() { buy(index);updateGui(index) }
+        //     });
+
+        //     buttonBox.append(buttonBuy);
+        //     buttonBox.append('<p class="text">' + i.price + ' coins</p>');
+
+        //     var buttonUpgrade = $('<button/>',
+        //     {
+        //         text: "Upgrade",
+        //         class: 'button-upgrade',
+        //         click: function() { buy(index);updateGui(index) }
+        //     });
+
+        //     buttonBox2.append(buttonUpgrade);
+        //     buttonBox2.append('<p class="text">' + i.price + ' coins</p>');
+
+        //     div.append(image);
+        //     div.append(buttonBox);     
+        //     div.append(buttonBox2)
+            
+        //     $("#items-box").append(div);
+        // });
+
     });
 });
