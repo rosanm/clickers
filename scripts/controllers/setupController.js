@@ -83,6 +83,8 @@ app.controller('setupController', function($scope) {
                 $scope.items[itemNr].max +"/"+ $scope.items[itemNr].max )
             }
         }
+
+         $scope.$apply();
     };
 
     $scope.trainFriend = function(index){
@@ -90,7 +92,7 @@ app.controller('setupController', function($scope) {
 
             $scope.friends[index].lvl++;
 
-            if(me.lvl > me.levelUp){
+            if(me.lvl >= me.levelUp){
 
                 if(me.stage == 1){
                     $scope.friends[index].count = 0;
@@ -104,8 +106,7 @@ app.controller('setupController', function($scope) {
                 
             }
 
-        $scope.$apply();
-            
+            $scope.$apply();
     }
 
     function calcUnitsPerSec(itemsArray){
