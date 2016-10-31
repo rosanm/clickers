@@ -21,15 +21,15 @@ app.controller('setupController', function($scope) {
                     {name:"Cubern",     hp:500000,  total: 500000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
                     {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
 
-    $scope.friends = [{name:"Pandoo", count: 1, lvl:1, levelUp: 10, nextStageId:0, stage:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1},
-                    {name:"Blazby",   count: 1, lvl:1, levelUp: 10, nextStageId:1, stage:1, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
-                    {name:"Kniron",   count: 1, lvl:1, levelUp: 10, nextStageId:2, stage:1, gains:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
-                    {name:"Eartail",  count: 1, lvl:1, levelUp: 10, nextStageId:3, stage:1, gains:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
-                    {name:"Phyracu",  count: 1, lvl:1, levelUp: 10, nextStageId:4, stage:1, gains:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}];
+    $scope.friends = [{name:"Pandoo", count: 1, lvl:1, levelUp: 10, nextStageId:0, stage:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 0},
+                    {name:"Blazby",   count: 1, lvl:1, levelUp: 10, nextStageId:1, stage:1, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", ups: 0},
+                    {name:"Kniron",   count: 1, lvl:1, levelUp: 10, nextStageId:2, stage:1, gains:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", ups: 0},
+                    {name:"Eartail",  count: 1, lvl:1, levelUp: 10, nextStageId:3, stage:1, gains:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", ups: 0},
+                    {name:"Phyracu",  count: 1, lvl:1, levelUp: 10, nextStageId:4, stage:1, gains:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", ups: 0}];
 
-    $scope.friends2 = [{name:"Pandoo2", count: 0, lvl:10, levelUp: 20, nextStageId:0, stage:2, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1}];
+    $scope.friends2 = [{name:"Pandoo2", count: 0, lvl:10, levelUp: 20, nextStageId:0, stage:2, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 0}];
 
-    $scope.friends3 = [{name:"Pandoo3", count: 0, lvl:20, levelUp: 999, nextStageId:0, stage:3, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1}];                 
+    $scope.friends3 = [{name:"Pandoo3", count: 0, lvl:20, levelUp: 999, nextStageId:0, stage:3, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 0}];                 
 
     //end variables
     
