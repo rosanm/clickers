@@ -44,7 +44,9 @@ app.controller('setupController', function($scope) {
 
     function populateEnemy() {   
         $scope.currentEnemy = $scope.enemys[$scope.level-1];       
-        $scope.$apply();                 
+  
+         $scope.$apply();
+              
 
         var progress = $scope.currentEnemy.hp / $scope.currentEnemy.total * 100;
         $("progress").attr('value', progress);
@@ -85,6 +87,7 @@ app.controller('setupController', function($scope) {
         }
 
          $scope.$apply();
+
     };
 
     $scope.trainFriend = function(index){
@@ -106,7 +109,9 @@ app.controller('setupController', function($scope) {
                 
             }
 
-            $scope.$apply();
+          
+      //   $scope.$apply();
+        
     }
 
     function calcUnitsPerSec(itemsArray){

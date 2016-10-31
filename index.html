@@ -61,13 +61,9 @@
                                    
                         </div>
                         {{currentEnemy.name}}   
-                    </div>
-              
-
+                    </div>       
             </div>
-
-           
-
+        
             <div class="section-center">
                 <div class="boxHeader">FRIENDS</div>
                 
@@ -76,11 +72,15 @@
                         <div ng-repeat-while="{{friend.count}}"></div>
                         <button class="button-upgrade" ng-click="trainFriend($index)">Train</button>
                     </div>
-                    <div ng-repeat="friend in friends2" class="MonsterCard section-monstercard">
-                        <div ng-repeat-while="{{friend.count}}"></div>          
+                    <div ng-repeat="friend in friends2" class="MonsterCard section-monstercard section-monstercard2">
+                        <div ng-repeat-while="{{friend.count}}"></div> 
+                        <button class="button-upgrade" ng-click="trainFriend($index)">Train</button>           
                     </div>                   
-                        <div ng-repeat="friend in friends3" class="MonsterCard section-monstercard">                       
+                        <div ng-repeat="friend in friends3" class="MonsterCard section-monstercard section-monstercard3"> 
+                                              
                             <div ng-repeat-while="{{friend.count}}"></div>
+                             
+                            <button class="button-upgrade" ng-click="trainFriend($index)">Train</button>
                     </div>
                 </div>
             </div>
