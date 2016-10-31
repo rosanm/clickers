@@ -7,12 +7,12 @@ app.controller('setupController', function($scope) {
     $scope.level = 1;
     $scope.currentEnemy = {};
     $scope.door = "images/door.png";
-    $scope.items = [{name:"Maginifying glass", img:"water.png",                count:0, price:10,     gains:1,     max:2},
-                    {name:"Newspaper",          img:"water-glass.png",          count:0, price:100,    gains:2,     max:10},
-                    {name:"Anonymous tip",      img:"water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
-                    {name:"Watson",             img:"orange-glass-round.png",   count:0, price:2500,   gains:50,    max:1},
-                    {name:"Police dog",         img:"green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
-                    {name:"Police station",     img:"pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
+    $scope.items = [{name:"Maginifying glass", img:"images/items/water.png",                count:0, price:10,     gains:1,     max:2},
+                    {name:"Newspaper",          img:"images/items/water-glass.png",          count:0, price:100,    gains:2,     max:10},
+                    {name:"Anonymous tip",      img:"images/items/water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
+                    {name:"Watson",             img:"images/items/orange-glass-round.png",   count:0, price:2500,   gains:50,    max:1},
+                    {name:"Police dog",         img:"images/items/green-glass-round.png",    count:0, price:8000,   gains:500,   max:2},
+                    {name:"Police station",     img:"images/items/pink-glass-round.png",     count:0, price:50000,  gains:2000,  max:2}];
 
     $scope.enemys = [{name:"Dropphin", hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
                     {name:"Dolswim",    hp:5000,    total: 5000,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
@@ -125,57 +125,8 @@ app.controller('setupController', function($scope) {
                 containment: "parent",
                 scroll: false,
                 cursor: "move"
-         });
-
-   
+         });  
     $(".section-center").resizable();
     $(".section-right").resizable();
-        $scope.items.forEach(function(i, index){      
-            var div = $('<div/>',
-            {
-                class: 'item-field',
-            });
-
-            var image = $('<img/>',
-            {
-                class: 'item-image',
-            });
-            image.attr('src', 'images/Items/' + i.img);
-
-            var buttonBox = $('<div/>', {
-                class: 'button-box',
-            });
-
-            var buttonBox2 = $('<div/>', {
-                class: 'button-box',
-            });
-
-            var buttonBuy = $('<button/>',
-            {
-                text: "Buy",
-                class: 'button-buy',
-                click: function() { buy(index);updateGui(index) }
-            });
-
-            buttonBox.append(buttonBuy);
-            buttonBox.append('<p class="text">' + i.price + ' coins</p>');
-
-            var buttonUpgrade = $('<button/>',
-            {
-                text: "Upgrade",
-                class: 'button-upgrade',
-                click: function() { buy(index);updateGui(index) }
-            });
-
-            buttonBox2.append(buttonUpgrade);
-            buttonBox2.append('<p class="text">' + i.price + ' coins</p>');
-
-            div.append(image);
-            div.append(buttonBox);     
-            div.append(buttonBox2)
-            
-            $("#items-box").append(div);
-        });
-
     });
 });
