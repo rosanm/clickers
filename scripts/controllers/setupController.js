@@ -78,15 +78,13 @@ $(document).ready(function(){
             //Still in stock?
             if(ractive.get('items')[itemNr].count < ractive.get('items')[itemNr].max){
                 //Buy it
-                ractive.set('units', ractive.get('units')-$scope.items[itemNr].price);
+                ractive.set('units', ractive.get('units')-ractive.get('items')[itemNr].price);
                 ractive.get('items')[itemNr].count++;
             }else{
                 alert(ractive.get('items')[itemNr].name +" is out of stock, maximum reached. " +
                 ractive.get('items')[itemNr].max +"/"+ ractive.get('items')[itemNr].max )
             }
         }
-
-         $scope.$apply();
     };
 
     function trainFriend(index){
@@ -121,7 +119,7 @@ $(document).ready(function(){
     function gameLoop() {
         //update ups
         itemUps = calcUnitsPerSec(ractive.get('items'));
-            friendUps = calcUnitsPerSec($scope.friends) + calcUnitsPerSec($scope.friends2) + calcUnitsPerSec($scope.friends3);
+        friendUps = calcUnitsPerSec(ractive.get('friends') + calcUnitsPerSec(ractive.get('friends2')) + calcUnitsPerSec(ractive.get('friends3'));
         ractive.set('ups', itemUps + friendUps);      
         
         //Add units 
