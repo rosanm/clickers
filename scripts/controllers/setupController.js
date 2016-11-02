@@ -119,7 +119,7 @@ $(document).ready(function(){
     function gameLoop() {
         //update ups
         itemUps = calcUnitsPerSec(ractive.get('items'));
-        friendUps = calcUnitsPerSec(ractive.get('friends') + calcUnitsPerSec(ractive.get('friends2')) + calcUnitsPerSec(ractive.get('friends3'));
+        friendUps = calcUnitsPerSec(ractive.get('friends')) + calcUnitsPerSec(ractive.get('friends2')) + calcUnitsPerSec(ractive.get('friends3'));
         ractive.set('ups', itemUps + friendUps);      
         
         //Add units 
