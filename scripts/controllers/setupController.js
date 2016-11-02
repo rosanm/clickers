@@ -19,7 +19,8 @@ $(document).ready(function(){
                     },
 
 
-            items: [{name:"Harder Bite",  img:"images/items/water.png",                count:0, price:10,      dmg:1,     max:2},
+            items: 
+                    [{name:"Harder Bite",  img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
                      {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
                      {name:"Hyper Bite",   img:"images/items/water-glass-round.png",    count:0, price:500,    dmg:10,    max:100},
                      {name:"Fire Saliva",  img:"images/items/orange-glass-round.png",   count:0, price:2500,   dmg:50,    max:1},
@@ -27,41 +28,45 @@ $(document).ready(function(){
                      {name:"Extra Damage", img:"images/items/pink-glass-round.png",     count:0, price:50000,  dmg:2000,  max:2}],
             
             //Items For Pandoo
-            items0: [{name:"Harder Pandoo",  img:"images/items/water.png",                count:0, price:10,      dmg:1,     max:2},
+            items0: [{name:"Harder Pandoo",  img:"images/items/water.png",              count:0, price:10,     dmg:1,     max:2},
                      {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10}],
 
             //Items For Blazby
-            items1: [{name:"Harder Blazby",  img:"images/items/water.png",                count:0, price:10,      dmg:1,     max:2},
+            items1: [{name:"Harder Blazby",  img:"images/items/water.png",              count:0, price:10,     dmg:1,     max:2},
                      {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10}],
 
              //Items For Kniron
-            items2: [{name:"Harder Kniron",  img:"images/items/water.png",                count:0, price:10,      dmg:1,     max:2},
+            items2: [{name:"Harder Kniron",  img:"images/items/water.png",              count:0, price:10,     dmg:1,     max:2},
                      {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10}],
 
             //Items For Eartail
-            items3: [{name:"Harder Eartail",  img:"images/items/water.png",                count:0, price:10,      dmg:1,     max:2},
+            items3: [{name:"Harder Eartail",  img:"images/items/water.png",              count:0, price:10,    dmg:1,     max:2},
                      {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10}],
 
             //Items For Phyracu
-            items4: [{name:"Harder Phyracu",  img:"images/items/water.png",                count:0, price:10,      dmg:1,     max:2},
+            items4: 
+                     [{name:"Harder Phyracu",  img:"images/items/water.png",            count:0, price:10,     dmg:1,     max:2},
                      {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10}],
 
-            enemys: [{name:"Dropphin",   hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+            enemys: 
+                    [{name:"Dropphin",   hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
                      {name:"Dolswim",    hp:5000,    total: 5000,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
                      {name:"Arambly",    hp:20000,   total: 20000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
                      {name:"Umbrarach",  hp:100000,  total: 100000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
                      {name:"Cubern",     hp:500000,  total: 500000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
                      {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}],
 
-            friends: [{name:"Pandoo", id:1, count: 1, lvl:1, levelUp: 10, nextStageId:0, stage:1, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
-                     {name:"Blazby",  id:2, count: 0, lvl:1, levelUp: 10, nextStageId:1, stage:1, dmg:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
-                     {name:"Kniron",  id:3, count: 0, lvl:1, levelUp: 10, nextStageId:2, stage:1, dmg:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
-                     {name:"Eartail", id:4, count: 0, lvl:1, levelUp: 10, nextStageId:3, stage:1, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
-                     {name:"Phyracu", id:5, count: 0, lvl:1, levelUp: 10, nextStageId:4, stage:1, dmg:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}],
+            
+            friends: 
+                    [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
+                     {name:"Blazby",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
+                     {name:"Kniron",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
+                     {name:"Eartail", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
+                     {name:"Phyracu", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:4,  dmg:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}],
 
-            friends2: [{name:"Herbear", id:6, count: 0, lvl:10, levelUp: 20, stage:2, dmg:100, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"}],
-
-            friends3: [{name:"Ursorest", id:11, count: 0, lvl:20, levelUp: 999, stage:3, dmg:100, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"}]
+            friendsData: 
+                    [{name:"Herbear", levelUp: 20, nextStageIndex:1, dmg:200, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},
+                    {name:"Ursorest", levelUp: 999, nextStageIndex:999, dmg:300, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"}]
         }
     });
     //TODO: Doorset
@@ -114,24 +119,24 @@ $(document).ready(function(){
         }
     };
 
-    ractive.on('trainFriend', function(event, index) {
-        var i = event.index.i;
-            var me =  ractive.get('friends')[i];
+
+    ractive.on('trainFriend', function(event, index) { 
+            var me =  ractive.get('friends')[event.index.i];           
             me.lvl = me.lvl + 1;
 
             if(me.lvl >= me.levelUp) {
-                if(me.stage == 1) {
-                    me.count = 0;
-                    var evolution = ractive.get('friends2')[i];
-                    evolution.count = 1;
+                    //go stage up
+                    me.stage = me.stage++;
+
+                    //get all new data
+                    var evo = ractive.get('friendsData')[me.nextStageIndex];
+                    me.img = evo.img;
+                    me.name = evo.name;
+                    me.levelUp = evo.levelUp;
+                    me.nextStageIndex = evo.nextStageIndex;
+                    me.dmg = evo.dmg;
                 }
-                else {
-                    var evolution = ractive.get('friends2')[i];                    
-                    var secondEvolution = ractive.get('friends3')[i];
-                    evolution.count = 0;
-                    secondEvolution = 1;
-                }
-            }
+            
             ractive.update();        
     });
 
@@ -152,7 +157,7 @@ $(document).ready(function(){
     function gameLoop() {
         //update ups
         itemUps = calcUnitsPerSec(ractive.get('items'));
-        friendUps = calcUnitsPerSec(ractive.get('friends')) + calcUnitsPerSec(ractive.get('friends2')) + calcUnitsPerSec(ractive.get('friends3'));
+        friendUps = calcUnitsPerSec(ractive.get('friends'));
         ractive.set('ups', itemUps + friendUps);      
         
         //Add units 
@@ -179,7 +184,8 @@ $(document).ready(function(){
 
    $(".MonsterCard").click(function(e) {
 
-     //  alert("lol");
-     // alert($(this).attr('friendId'));
+      alert($(this).attr('friendId'));
+
+      items = item0;
     });
 });

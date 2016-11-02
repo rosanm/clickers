@@ -73,40 +73,14 @@
                                 <div>{{id}}</div>
                             </div>
                         {{/each}}
-                    {{/friends}}}
-
-                  {{#friends2:i}}
-                        {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard" friendId="{{id}}">
-                                <div class="boxHeader">{{name}}</div>
-                                <img src="{{img}}" class="friendImg">
-                                <p>DMG per second: {{dmg}}<p/>
-                                <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
-                                <div>{{id}}</div>
-                            </div>
-                        {{/each}}
-                    {{/friends2}}}
-
-                     {{#friends3:i}}
-                        {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard" friendId="{{id}}">
-                                <div class="boxHeader">{{name}}</div>
-                                <img src="{{img}}" class="friendImg">
-                                <p>DMG per second: {{dmg}}<p/>
-                                <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
-                                <div>{{id}}</div>
-                            </div>
-                        {{/each}}
-                    {{/friends3}}}
+                    {{/friends}}
                 </div>
             </div>
 
             <div class="section-right">
                 <div class="boxHeader">ITEMS</div>
                 <div id="items-box">
-                    {{#items0}}
+                    {{#items}}
                         <div class="item-field">
                             <img class="item-image" src="{{img}}"/>
                             <div>{{name}}</div>
@@ -119,7 +93,7 @@
                                 <p class="text">{{price}}</p>
                             </div>
                         </div>
-                    {{/items0}}
+                    {{/items}}
                 </div>
             </div>
         </script>
