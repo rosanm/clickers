@@ -60,19 +60,41 @@
                 </div>
             </div>              
             <div class="section-center">
-                <div class="boxHeader">FRIENDS</div>
-                
+                <div class="boxHeader">FRIENDS</div>               
                 <div class="theZoo">
-                    {{#friends}}
+                    {{#each friends:num}}
                         {{#each range(1, count)}}
                             <div class="MonsterCard section-monstercard">
                                 <div class="boxHeader">{{name}}</div>
                                 <img src="{{img}}" class="friendImg">
-                                <p>DMG per second:</p>
-                                <span>{{ups}} lvl: {{lvl}}</span>
-                    </div>
+                                <p>DMG per second: {{dmg}}<p/>
+                                <p>Lvl: {{lvl}}</p>
+                                <button class="button-upgrade" on-click="event.trainFriend">Train</button>
+                            </div>
                         {{/each}}
-                    {{/friends}}
+                    {{/each}}
+                    {{#each friends2:num}}
+                        {{#each range(1, count)}}
+                            <div class="MonsterCard section-monstercard">
+                                <div class="boxHeader">{{name}}</div>
+                                <img src="{{img}}" class="friendImg">
+                                <p>DMG per second: {{dmg}}<p/>
+                                <p>Lvl: {{lvl}}</p>
+                                <button class="button-upgrade" on-click="trainFriend">Train</button>
+                            </div>
+                        {{/each}}
+                    {{/each}}
+                    {{#each friends3:num}}
+                        {{#each range(1, count)}}
+                            <div class="MonsterCard section-monstercard">
+                                <div class="boxHeader">{{name}}</div>
+                                <img src="{{img}}" class="friendImg">
+                                <p>DMG per second: {{dmg}}<p/>
+                                <p>Lvl: {{lvl}}</p>
+                                <button class="button-upgrade" on-click="trainFriend">Train</button>
+                            </div>
+                        {{/each}}
+                    {{/each}}
                 </div>
             </div>
 

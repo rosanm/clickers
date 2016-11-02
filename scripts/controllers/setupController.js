@@ -87,20 +87,22 @@ $(document).ready(function(){
         }
     };
 
-    function trainFriend(index){
-        var me =  ractive.get('friends')[index];
+    ractive.on({
+        trainFriend: function(index) {
+            var me =  ractive.get('friends')[index];
             ractive.get('friends')[index].lvl++;
             if(me.lvl >= me.levelUp){
                 if(me.stage == 1){
-                  ractive.set(('friends')[index].count, 0);
-                  ractive.set(('friends2')[index].count, 1);
+                ractive.set(('friends')[index].count, 0);
+                ractive.set(('friends2')[index].count, 1);
                 }
                 if(me.stage == 2){
-                  ractive.set(('friends2')[index].count, 0);
-                  ractive.set(('friends3')[index].count, 1);
+                ractive.set(('friends2')[index].count, 0);
+                ractive.set(('friends3')[index].count, 1);
                 }
-            }   
-    }
+            } 
+        }  
+    });
 
     function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
