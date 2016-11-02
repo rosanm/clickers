@@ -9,6 +9,7 @@ $(document).ready(function(){
             currentEnemy: {},
             door:"images/door.png",
             doorSet: false,
+            selected: 0,
             range: function (low, high) {
                         var range = [];
                         for (i = low; i <= high; i += 1) {
@@ -16,6 +17,21 @@ $(document).ready(function(){
                         }
                         return range;
                     },
+            // trainFriend: function(index) {
+            //     alert(1);
+            //     var me =  ractive.get('friends')[index];
+            //     ractive.set(('friends')[index].lvl, ractive.get('friends')[index].lvl++);
+            //     if(me.lvl >= me.levelUp) {
+            //         if(me.stage == 1) {
+            //             ractive.set(('friends')[index].count, 0);
+            //             ractive.set(('friends2')[index].count, 1);
+            //         }
+            //         if(me.stage == 2){
+            //             ractive.set(('friends2')[index].count, 0);
+            //             ractive.set(('friends3')[index].count, 1);
+            //         }
+            //     } 
+            // }  ,
             friends: [{name:"Pandoo", count: 2, lvl:1, levelUp: 10, nextStageId:0, stage:1, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
                      {name:"Blazby",   count: 1, lvl:1, levelUp: 10, nextStageId:1, stage:1, dmg:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
                      {name:"Kniron",   count: 1, lvl:1, levelUp: 10, nextStageId:2, stage:1, dmg:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
@@ -87,21 +103,25 @@ $(document).ready(function(){
         }
     };
 
-    ractive.on({
-        trainFriend: function(index) {
-            var me =  ractive.get('friends')[index];
-            ractive.get('friends')[index].lvl++;
-            if(me.lvl >= me.levelUp){
-                if(me.stage == 1){
-                ractive.set(('friends')[index].count, 0);
-                ractive.set(('friends2')[index].count, 1);
+    ractive.on('trainFriend', function(event, index) {
+        var i = event.index.i;
+            var me =  ractive.get('friends')[i];
+            me.lvl = me.lvl + 1;
+
+            if(me.lvl >= me.levelUp) {
+                if(me.stage == 1) {
+                    me.count = 0;
+                    var evolution = ractive.get('friends2')[i];
+                    evolution.count = 1;
                 }
                 if(me.stage == 2){
-                ractive.set(('friends2')[index].count, 0);
-                ractive.set(('friends3')[index].count, 1);
+                    var evolution = ractive.get('friends2')[i];                    
+                    var secondEvolution = ractive.get('friends3')[i];
+                    evolution.count = 0;
+                    secondEvolution = 1;
                 }
-            } 
-        }  
+            }
+            ractive.update();        
     });
 
     function calcUnitsPerSec(itemsArray){
