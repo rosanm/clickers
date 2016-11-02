@@ -16,28 +16,49 @@ $(document).ready(function(){
                         }
                         return range;
                     },
-            friends: [{name:"Pandoo", count: 2, lvl:1, levelUp: 10, nextStageId:0, stage:1, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
-                     {name:"Blazby",   count: 1, lvl:1, levelUp: 10, nextStageId:1, stage:1, dmg:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
-                     {name:"Kniron",   count: 1, lvl:1, levelUp: 10, nextStageId:2, stage:1, dmg:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
-                     {name:"Eartail",  count: 1, lvl:1, levelUp: 10, nextStageId:3, stage:1, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
-                     {name:"Phyracu",  count: 1, lvl:1, levelUp: 10, nextStageId:4, stage:1, dmg:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}],
-            friends2: [{name:"Herbear", count: 1, lvl:10, levelUp: 20, stage:2, dmg:100, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"}],
-            friends3: [{name:"Ursorest", count: 1, lvl:20, levelUp: 999, stage:3, dmg:100, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"}],
+
             items: [{name:"Harder Bite",  img:"images/items/water.png",                count:0, price:10,      dmg:1,     max:2},
                      {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
                      {name:"Hyper Bite",   img:"images/items/water-glass-round.png",    count:0, price:500,    dmg:10,    max:100},
                      {name:"Fire Saliva",  img:"images/items/orange-glass-round.png",   count:0, price:2500,   dmg:50,    max:1},
                      {name:"Poison Bite",  img:"images/items/green-glass-round.png",    count:0, price:8000,   dmg:500,   max:2},
                      {name:"Extra Damage", img:"images/items/pink-glass-round.png",     count:0, price:50000,  dmg:2000,  max:2}],
+
             enemys: [{name:"Dropphin",  hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
                      {name:"Dolswim",    hp:5000,    total: 5000,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
                      {name:"Arambly",    hp:20000,   total: 20000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
                      {name:"Umbrarach",  hp:100000,  total: 100000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
                      {name:"Cubern",     hp:500000,  total: 500000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-                     {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
+                     {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}],
+
+            friends: [{name:"Pandoo", count: 2, lvl:1, levelUp: 10, nextStageId:0, stage:1, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
+                     {name:"Blazby",   count: 1, lvl:1, levelUp: 10, nextStageId:1, stage:1, dmg:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
+                     {name:"Kniron",   count: 1, lvl:1, levelUp: 10, nextStageId:2, stage:1, dmg:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
+                     {name:"Eartail",  count: 1, lvl:1, levelUp: 10, nextStageId:3, stage:1, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
+                     {name:"Phyracu",  count: 1, lvl:1, levelUp: 10, nextStageId:4, stage:1, dmg:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}],
+
+            friends2: [{name:"Herbear", count: 1, lvl:10, levelUp: 20, stage:2, dmg:100, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"}],
+
+            friends3: [{name:"Ursorest", count: 1, lvl:20, levelUp: 999, stage:3, dmg:100, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"}]
         }
     });
-    //TODO: Doorset
+
+    ractive.on({
+        trainFriend: function(index) {
+            var me =  ractive.get('friends')[index];
+            ractive.get('friends')[index].lvl++;
+            if(me.lvl >= me.levelUp){
+                if(me.stage == 1){
+                    ractive.set(('friends')[index].count, 0);
+                    ractive.set(('friends2')[index].count, 1);
+                }
+                if(me.stage == 2){
+                    ractive.set(('friends2')[index].count, 0);
+                    ractive.set(('friends3')[index].count, 1);
+                }
+            } 
+        }  
+    });
 
     function populateZoo() {  
         ractive.get('friends').forEach(function(e, i) {
@@ -87,22 +108,6 @@ $(document).ready(function(){
         }
     };
 
-    ractive.on({
-        trainFriend: function(index) {
-            var me =  ractive.get('friends')[index];
-            ractive.get('friends')[index].lvl++;
-            if(me.lvl >= me.levelUp){
-                if(me.stage == 1){
-                ractive.set(('friends')[index].count, 0);
-                ractive.set(('friends2')[index].count, 1);
-                }
-                if(me.stage == 2){
-                ractive.set(('friends2')[index].count, 0);
-                ractive.set(('friends3')[index].count, 1);
-                }
-            } 
-        }  
-    });
 
     function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
@@ -137,6 +142,9 @@ $(document).ready(function(){
     gameLoop();
 
     updateGui();
+
+
+    //Jquery-UI
     $(".section-monstercard").draggable({ 
                 containment: "parent",
                 scroll: false,
