@@ -1,5 +1,4 @@
-$(document).ready(function(){
-    
+$(document).ready(function(){    
     var ractive = new Ractive({
         el: "#container",
         template: "#template",
@@ -10,11 +9,20 @@ $(document).ready(function(){
             currentEnemy: {},
             door:"images/door.png",
             doorSet: false,
-            friends: [{name:"Pandoo", count: 1, lvl:1, levelUp: 10, nextStageId:0, stage:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
+            range: function (low, high) {
+                        var range = [];
+                        for (i = low; i <= high; i += 1) {
+                            range.push( i );
+                        }
+                        return range;
+                    },
+            friends: [{name:"Pandoo", count: 2, lvl:1, levelUp: 10, nextStageId:0, stage:1, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
                      {name:"Blazby",   count: 1, lvl:1, levelUp: 10, nextStageId:1, stage:1, gains:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
                      {name:"Kniron",   count: 1, lvl:1, levelUp: 10, nextStageId:2, stage:1, gains:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
                      {name:"Eartail",  count: 1, lvl:1, levelUp: 10, nextStageId:3, stage:1, gains:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
                      {name:"Phyracu",  count: 1, lvl:1, levelUp: 10, nextStageId:4, stage:1, gains:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}],
+            friends2: [{name:"Pandoo2", count: 0, lvl:10, levelUp: 20, nextStageId:0, stage:2, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1}],
+            friends3: [{name:"Pandoo3", count: 0, lvl:20, levelUp: 999, nextStageId:0, stage:3, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1}],
             items: [{name:"Harder Bite",  img:"images/items/water.png",                count:0, price:10,     gains:1,     max:2},
                      {name:"Super Bite",   img:"images/items/water-glass.png",          count:0, price:100,    gains:2,     max:10},
                      {name:"Hyper Bite",   img:"images/items/water-glass-round.png",    count:0, price:500,    gains:10,    max:100},
@@ -29,15 +37,7 @@ $(document).ready(function(){
                      {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}]
         }
     });
-
-    // friends2 = [{name:"Pandoo2", count: 0, lvl:10, levelUp: 20, nextStageId:0, stage:2, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1}]
-
-    // friends3 = [{name:"Pandoo3", count: 0, lvl:20, levelUp: 999, nextStageId:0, stage:3, gains:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", ups: 1}]               
-
-    //end variables
-    
     //TODO: Doorset
-
 
     function populateZoo() {  
         ractive.get('friends').forEach(function(e, i) {
@@ -69,14 +69,12 @@ $(document).ready(function(){
             $(".doorSet").hide();
             $(".enemySet").show();
             populateEnemy();
-        }
-
-        
+        }   
     };
 
     function buy(itemNr){
         //Can affound?
-        if($ractive.get('units') >= ractive.get('items')[itemNr].price){
+        if(ractive.get('units') >= ractive.get('items')[itemNr].price){
             //Still in stock?
             if(ractive.get('items')[itemNr].count < ractive.get('items')[itemNr].max){
                 //Buy it
@@ -91,25 +89,17 @@ $(document).ready(function(){
 
     function trainFriend(index){
         var me =  ractive.get('friends')[index];
-
             ractive.get('friends')[index].lvl++;
-
             if(me.lvl > me.levelUp){
-
                 if(me.stage == 1){
-                  //  ractive.get('friends')[index].count = 0;
-                  //  ractive.get('friends2')[index].count = 1;
+                  ractive.set(('friends')[index].count, 0);
+                  ractive.set(('friends2')[index].count, 1);
                 }
-
                 if(me.stage == 2){
-                   // ractive.get('friends2')[index].count = 0;
-                   // ractive.get('friends3')[index].count = 1;
+                  ractive.set(('friends2')[index].count, 0);
+                  ractive.set(('friends3')[index].count, 1);
                 }
-                
-            }
-
-        $scope.$apply();
-            
+            }   
     }
 
     function calcUnitsPerSec(itemsArray){
@@ -121,9 +111,6 @@ $(document).ready(function(){
     };
 
     function updateGui(){
-        // $("#unitcounter").html("<i class=\"diamondIcon fa fa-diamond fa-lg\"></i> " + $scope.units);
-        // $("#unitpersec").html("<i class=\"diamondIcon fa fa-flash fa-lg\"></i> p/s " + $scope.ups );
-        // $("#currentLvl").html("Level: " + $scope.level);
         populateZoo();
         populateEnemy();
     };
@@ -137,9 +124,6 @@ $(document).ready(function(){
         
         //Add units 
         ractive.set('units', ractive.get('units') + ractive.get('ups'));
-        
-        //Update units
-        //$("#unitcounter").html("<i class=\"diamondIcon fa fa-diamond fa-lg\"></i> " + ractive.get('units'));
         
         //Attack
         attackEnemy();
