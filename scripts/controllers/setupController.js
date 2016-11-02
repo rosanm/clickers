@@ -64,23 +64,7 @@ $(document).ready(function(){
             friends3: [{name:"Ursorest", id:11, count: 1, lvl:20, levelUp: 999, stage:3, dmg:100, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"}]
         }
     });
-
-    ractive.on({
-        trainFriend: function(index) {
-            var me =  ractive.get('friends')[index];
-            ractive.get('friends')[index].lvl++;
-            if(me.lvl >= me.levelUp){
-                if(me.stage == 1){
-                    ractive.set(('friends')[index].count, 0);
-                    ractive.set(('friends2')[index].count, 1);
-                }
-                if(me.stage == 2){
-                    ractive.set(('friends2')[index].count, 0);
-                    ractive.set(('friends3')[index].count, 1);
-                }
-            } 
-        }  
-    });
+    //TODO: Doorset
 
     function populateZoo() {  
         ractive.get('friends').forEach(function(e, i) {
@@ -130,6 +114,26 @@ $(document).ready(function(){
         }
     };
 
+    ractive.on('trainFriend', function(event, index) {
+        var i = event.index.i;
+            var me =  ractive.get('friends')[i];
+            me.lvl = me.lvl + 1;
+
+            if(me.lvl >= me.levelUp) {
+                if(me.stage == 1) {
+                    me.count = 0;
+                    var evolution = ractive.get('friends2')[i];
+                    evolution.count = 1;
+                }
+                else {
+                    var evolution = ractive.get('friends2')[i];                    
+                    var secondEvolution = ractive.get('friends3')[i];
+                    evolution.count = 0;
+                    secondEvolution = 1;
+                }
+            }
+            ractive.update();        
+    });
 
     function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
