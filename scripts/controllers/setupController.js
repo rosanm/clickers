@@ -24,14 +24,14 @@ $(document).ready(function(){
                      {name:"Poison Bite",  img:"images/items/green-glass-round.png",    count:0, price:8000,   dmg:500,   max:2},
                      {name:"Extra Damage", img:"images/items/pink-glass-round.png",     count:0, price:50000,  dmg:2000,  max:2}],
 
-            enemys: [{name:"Dropphin",  hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+            enemys: [{name:"Dropphin",   hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
                      {name:"Dolswim",    hp:5000,    total: 5000,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
                      {name:"Arambly",    hp:20000,   total: 20000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
                      {name:"Umbrarach",  hp:100000,  total: 100000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
                      {name:"Cubern",     hp:500000,  total: 500000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
                      {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}],
 
-            friends: [{name:"Pandoo", count: 2, lvl:1, levelUp: 10, nextStageId:0, stage:1, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
+            friends: [{name:"Pandoo", count: 200, lvl:1, levelUp: 10, nextStageId:0, stage:1, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
                      {name:"Blazby",   count: 1, lvl:1, levelUp: 10, nextStageId:1, stage:1, dmg:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
                      {name:"Kniron",   count: 1, lvl:1, levelUp: 10, nextStageId:2, stage:1, dmg:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
                      {name:"Eartail",  count: 1, lvl:1, levelUp: 10, nextStageId:3, stage:1, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
