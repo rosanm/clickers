@@ -64,34 +64,37 @@
                 <div class="theZoo">
                     {{#each friends:num}}
                         {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard">
+                            <div class="MonsterCard section-monstercard" friendId="{{id}}">
                                 <div class="boxHeader">{{name}}</div>
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
                                 <p>Lvl: {{lvl}}</p>
                                 <button class="button-upgrade" on-click="trainFriend">Train</button>
+                                <div>{{id}}</div>
                             </div>
                         {{/each}}
                     {{/each}}
                     {{#each friends2:num}}
                         {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard section-monstercard2">
+                            <div class="MonsterCard section-monstercard section-monstercard2" friendId="{{id}}">
                                 <div class="boxHeader">{{name}}</div>
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
                                 <p>Lvl: {{lvl}}</p>
                                 <button class="button-upgrade" on-click="trainFriend">Train</button>
+                                <div>{{id}}</div>
                             </div>
                         {{/each}}
                     {{/each}}
                     {{#each friends3:num}}
                         {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard section-monstercard3">
+                            <div class="MonsterCard section-monstercard section-monstercard3" friendId="{{id}}">
                                 <div class="boxHeader">{{name}}</div>
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
                                 <p>Lvl: {{lvl}}</p>
                                 <button class="button-upgrade" on-click="trainFriend">Train</button>
+                                <div>{{id}}</div>
                             </div>
                         {{/each}}
                     {{/each}}
@@ -101,8 +104,8 @@
             <div class="section-right">
                 <div class="boxHeader">ITEMS</div>
                 <div id="items-box">
-                    {{#items}}
-                        <div class="item-field" ng-repeat="item in items">
+                    {{#items0}}
+                        <div class="item-field">
                             <img class="item-image" src="{{img}}"/>
                             <div>{{name}}</div>
                             <div class="button-box">
@@ -114,7 +117,7 @@
                                 <p class="text">{{price}}</p>
                             </div>
                         </div>
-                    {{/items}}
+                    {{/items0}}
                 </div>
             </div>
         </script>
