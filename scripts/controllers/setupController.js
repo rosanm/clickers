@@ -59,9 +59,9 @@ $(document).ready(function(){
                      {name:"Eartail", id:4, count: 0, lvl:1, levelUp: 10, nextStageId:3, stage:1, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
                      {name:"Phyracu", id:5, count: 0, lvl:1, levelUp: 10, nextStageId:4, stage:1, dmg:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}],
 
-            friends2: [{name:"Herbear", id:6, count: 1, lvl:10, levelUp: 20, stage:2, dmg:100, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"}],
+            friends2: [{name:"Herbear", id:6, count: 0, lvl:10, levelUp: 20, stage:2, dmg:100, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"}],
 
-            friends3: [{name:"Ursorest", id:11, count: 1, lvl:20, levelUp: 999, stage:3, dmg:100, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"}]
+            friends3: [{name:"Ursorest", id:11, count: 0, lvl:20, levelUp: 999, stage:3, dmg:100, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"}]
         }
     });
     //TODO: Doorset
@@ -180,6 +180,6 @@ $(document).ready(function(){
    $(".MonsterCard").click(function(e) {
 
      //  alert("lol");
-      alert($(this).attr('friendId'));
+     // alert($(this).attr('friendId'));
     });
 });

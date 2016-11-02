@@ -62,42 +62,44 @@
             <div class="section-center">
                 <div class="boxHeader">FRIENDS</div>               
                 <div class="theZoo">
-                    {{#each friends:num}}
+                    {{#friends:i}}
                         {{#each range(1, count)}}
                             <div class="MonsterCard section-monstercard" friendId="{{id}}">
                                 <div class="boxHeader">{{name}}</div>
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
                                 <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade" on-click="trainFriend">Train</button>
+                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
                                 <div>{{id}}</div>
                             </div>
                         {{/each}}
-                    {{/each}}
-                    {{#each friends2:num}}
+                    {{/friends}}}
+
+                  {{#friends2:i}}
                         {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard section-monstercard2" friendId="{{id}}">
+                            <div class="MonsterCard section-monstercard" friendId="{{id}}">
                                 <div class="boxHeader">{{name}}</div>
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
                                 <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade" on-click="trainFriend">Train</button>
+                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
                                 <div>{{id}}</div>
                             </div>
                         {{/each}}
-                    {{/each}}
-                    {{#each friends3:num}}
+                    {{/friends2}}}
+
+                     {{#friends3:i}}
                         {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard section-monstercard3" friendId="{{id}}">
+                            <div class="MonsterCard section-monstercard" friendId="{{id}}">
                                 <div class="boxHeader">{{name}}</div>
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
                                 <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade" on-click="trainFriend">Train</button>
+                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
                                 <div>{{id}}</div>
                             </div>
                         {{/each}}
-                    {{/each}}
+                    {{/friends3}}}
                 </div>
             </div>
 
