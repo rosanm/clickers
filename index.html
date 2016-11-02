@@ -80,7 +80,7 @@
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
                                 <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade">Train</button>
+                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
                             </div>
                         {{/each}}
                     {{/friends2}}
@@ -91,7 +91,7 @@
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
                                 <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade">Train</button>
+                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
                             </div>
                         {{/each}}
                     {{/friends3}}

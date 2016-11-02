@@ -114,7 +114,7 @@ $(document).ready(function(){
                     var evolution = ractive.get('friends2')[i];
                     evolution.count = 1;
                 }
-                if(me.stage == 2){
+                else {
                     var evolution = ractive.get('friends2')[i];                    
                     var secondEvolution = ractive.get('friends3')[i];
                     evolution.count = 0;
