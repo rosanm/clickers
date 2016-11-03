@@ -59,7 +59,7 @@
                 <div class="boxHeader">FRIENDS</div>               
                 <div id="sortable" class="theZoo">
                     {{#friends}}
-                        <div class="MonsterCard section-monstercard" friendName="{{name}}" title="{{dmg}}">
+                        <div class="MonsterCard section-monstercard" friendName="{{name}}" title="Dps per {{name}}: {{dmg}} # of {{name}}: {{count}} Total dps {{dmg*count}} {{name}}s do {{dmg*count/100}}% of all dmg.">
                             <div class="boxHeader">{{name}}</div>
                             <img src="{{img}}" class="friendImg">
                             <p>DMG per second: {{dmg}}<p/>

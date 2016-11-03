@@ -59,7 +59,7 @@ $(document).ready(function(){
 
             //starters
             friends: 
-                    [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
+                    [{name:"Pandoo",  count: 15, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png"},
                      {name:"Blazby",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png"},
                      {name:"Kniron",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
                      {name:"Eartail", count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
@@ -184,7 +184,6 @@ $(document).ready(function(){
     gameLoop();
 
     updateGui();
-
 
     //Jquery-UI
     $("#sortable").sortable({
