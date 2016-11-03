@@ -54,8 +54,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
     height: 49.5%;
     float: left;
     background:#FBCB81;
-    border: 10px solid #300D0D;
-	border-radius: 10px;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
 }
 
 .monster-box {
@@ -63,9 +63,10 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	width: 100%;
     height: 49.5%;
 	float: left;
-	border: 10px solid #300D0D;
-	border-radius: 10px;
+	border: 5px solid #300D0D;
+	border-radius: 5px;
 	background:#FBCB81;
+	text-align: center;
 }
 
 .section-center {
@@ -75,8 +76,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
     margin: 0 1%;
     padding: 0;
     background: #FBCB81;
-    border: 10px solid #300D0D;
-	border-radius: 10px;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
 	overflow: hidden;
 }
 
@@ -86,8 +87,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	height: 235px;
     margin: 10px;
     background: #FEF2E2;
-    border: 10px solid #300D0D;
-	border-radius: 10px;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
 	overflow: hidden;
 }
 
@@ -113,8 +114,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
     margin: 0;
     padding: 0;
 	background:#FBCB81;
-    border: 10px solid #300D0D;
-	border-radius: 10px;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
 	overflow: hidden;
 }
 
@@ -274,5 +275,5 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .active{
-	border: 10px solid lightskyblue;
+	border: 5px solid lightskyblue;
 }
