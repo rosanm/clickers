@@ -4,10 +4,9 @@ $(document).ready(function(){
         template: "#template",
         data: {
             units: 1000,
-            ups: 0,
+            dps: 0,
             level: 1,
             currentEnemy: {},
-            selectedFriend: 0,
             door:"images/door.png",
             doorSet: false,
             range: function (low, high) {
@@ -23,23 +22,23 @@ $(document).ready(function(){
             
             //Items per starter
             itemsPandoo: 
-                    [{name:"Harder Pandoo",  img:"images/items/water.png",              count:0, price:10,     dmg:1,     max:2},
-                     {name:"Super Bite",     img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10}],
+                    [{name:"Harder Pandoo",     img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
+                     {name:"Super Bite",        img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10}],
 
             itemsBlazby: 
-                    [{name:"Harder Blazby", img:"images/items/water.png",              count:0, price:10,     dmg:1,     max:2},
-                     {name:"Mega Bite",    img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
-                     {name:"Dance Saliva",   img:"images/items/orange-glass-round.png",   count:0, price:2500,   dmg:50,    max:1},
-                     {name:"Crit Bite",   img:"images/items/green-glass-round.png",    count:0, price:8000,   dmg:500,   max:2},],
+                    [{name:"Harder Blazby",     img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
+                     {name:"Mega Bite",         img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
+                     {name:"Dance Saliva",      img:"images/items/orange-glass-round.png",   count:0, price:2500,   dmg:50,    max:1},
+                     {name:"Crit Bite",         img:"images/items/green-glass-round.png",    count:0, price:8000,   dmg:500,   max:2},],
 
             itemsKniron: 
-                    [{name:"Harder Kniron",img:"images/items/water.png",              count:0, price:10,     dmg:1,     max:2}],
+                    [{name:"Harder Kniron",     img:"images/items/water.png",               count:0, price:10,     dmg:1,     max:2}],
 
             itemsEartail:
-                    [{name:"Super Eartail",img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
-                     {name:"Low Kick",  img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
-                     {name:"Fighter Bite",   img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
-                     {name:"Hyper Bite",   img:"images/items/water-glass-round.png",    count:0, price:500,    dmg:10,    max:100}],
+                    [{name:"Super Eartail",     img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
+                     {name:"Low Kick",          img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
+                     {name:"Fighter Bite",      img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
+                     {name:"Hyper Bite",        img:"images/items/water-glass-round.png",    count:0, price:500,    dmg:10,    max:100}],
 
             itemsPhyracu: 
                      [{name:"Harder Phyracu",   img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
@@ -66,6 +65,7 @@ $(document).ready(function(){
                      {name:"Kniron",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png"},
                      {name:"Eartail", count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png"},
                      {name:"Phyracu", count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:4,  dmg:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png"}],
+            
             //upgrade data
             friendsData: 
                     [{name:"Herbear", levelUp: 20, nextStageIndex:1, dmg:200, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},
@@ -77,7 +77,7 @@ $(document).ready(function(){
     function populateZoo() {  
         ractive.get('friends').forEach(function(e, i) {
             if(e.count > 0){
-                   ractive.get('friends')[i].ups = e.dmg*e.count;
+                   ractive.get('friends')[i].dmg = e.dmg*e.count;
                 }
         }, this);
     };
@@ -92,7 +92,7 @@ $(document).ready(function(){
 
     function attackEnemy() {
         ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('level')-1]);
-        ractive.set('currentEnemy.hp', ractive.get('currentEnemy').hp - ractive.get('ups'));
+        ractive.set('currentEnemy.hp', ractive.get('currentEnemy').hp - ractive.get('dmg'));
         
         if(ractive.get('currentEnemy.hp') < 0){
             ractive.set('level', ractive.get('level') + 1);
@@ -158,13 +158,13 @@ $(document).ready(function(){
 
 
     function gameLoop() {
-        //update ups
-        itemUps = calcUnitsPerSec(ractive.get('items'));
-        friendUps = calcUnitsPerSec(ractive.get('friends'));
-        ractive.set('ups', itemUps + friendUps);      
+        //update dmg
+        itemDps = calcUnitsPerSec(ractive.get('items'));
+        friendDps = calcUnitsPerSec(ractive.get('friends'));
+        ractive.set('dps', itemDps + friendDps);      
         
         //Add units 
-        ractive.set('units', ractive.get('units') + ractive.get('ups'));
+        ractive.set('units', ractive.get('units') + ractive.get('dps'));
         
         //Attack
         attackEnemy();
