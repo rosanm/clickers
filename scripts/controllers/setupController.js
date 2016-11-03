@@ -21,33 +21,33 @@ $(document).ready(function(){
             
             //Items per starter
             itemsPandoo: 
-                    [{name:"Harder Pandoo",     img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
-                     {name:"Super Bite",        img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10}],
+                    [{name:"Harder Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:2},
+                     {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10}],
 
             itemsBlazby: 
-                    [{name:"Harder Blazby",     img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
-                     {name:"Mega Bite",         img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
-                     {name:"Dance Saliva",      img:"images/items/orange-glass-round.png",   count:0, price:2500,   dmg:50,    max:1},
-                     {name:"Crit Bite",         img:"images/items/green-glass-round.png",    count:0, price:8000,   dmg:500,   max:2},],
+                    [{name:"Harder Blazby",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:2},
+                     {name:"Mega Bite",         img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10},
+                     {name:"Dance Saliva",      img:"images/items/orange-glass-round.png", lvl:0,  count:0, price:2500,   dmg:50,    max:1},
+                     {name:"Crit Bite",         img:"images/items/green-glass-round.png",  lvl:0,  count:0, price:8000,   dmg:500,   max:2},],
 
             itemsKniron: 
-                    [{name:"Harder Kniron",     img:"images/items/water.png",               count:0, price:10,     dmg:1,     max:2}],
+                    [{name:"Harder Kniron",     img:"images/items/water.png",              lvl:0, count:0, price:10,     dmg:1,     max:2}],
 
             itemsEartail:
-                    [{name:"Super Eartail",     img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
-                     {name:"Low Kick",          img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
-                     {name:"Fighter Bite",      img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
-                     {name:"Hyper Bite",        img:"images/items/water-glass-round.png",    count:0, price:500,    dmg:10,    max:100}],
+                    [{name:"Super Eartail",     img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10},
+                     {name:"Low Kick",          img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:2},
+                     {name:"Fighter Bite",      img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10},
+                     {name:"Hyper Bite",        img:"images/items/water-glass-round.png",  lvl:0,  count:0, price:500,    dmg:10,    max:100}],
 
             itemsPhyracu: 
-                     [{name:"Harder Phyracu",   img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
-                     {name:"Super Bite",        img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
-                     {name:"Harder Bite",       img:"images/items/water.png",                count:0, price:10,     dmg:1,     max:2},
-                     {name:"Super Bite",        img:"images/items/water-glass.png",          count:0, price:100,    dmg:2,     max:10},
-                     {name:"Hyper Bite",        img:"images/items/water-glass-round.png",    count:0, price:500,    dmg:10,    max:100},
-                     {name:"Fire Saliva",       img:"images/items/orange-glass-round.png",   count:0, price:2500,   dmg:50,    max:1},
-                     {name:"Poison Bite",       img:"images/items/green-glass-round.png",    count:0, price:8000,   dmg:500,   max:2},
-                     {name:"Extra Damage",      img:"images/items/pink-glass-round.png",     count:0, price:50000,  dmg:2000,  max:2}],
+                     [{name:"Harder Phyracu",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:2},
+                     {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10},
+                     {name:"Harder Bite",       img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:2},
+                     {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10},
+                     {name:"Hyper Bite",        img:"images/items/water-glass-round.png",  lvl:0,  count:0, price:500,    dmg:10,    max:100},
+                     {name:"Fire Saliva",       img:"images/items/orange-glass-round.png", lvl:0,  count:0, price:2500,   dmg:50,    max:1},
+                     {name:"Poison Bite",       img:"images/items/green-glass-round.png",  lvl:0,  count:0, price:8000,   dmg:500,   max:2},
+                     {name:"Extra Damage",      img:"images/items/pink-glass-round.png",   lvl:0,  count:0, price:50000,  dmg:2000,  max:2}],
 
             enemys: 
                     [{name:"Dropphin",   hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
