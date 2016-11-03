@@ -110,7 +110,7 @@ $(document).ready(function(){
 
     ractive.on({
         trainFriend: function(event, index) { 
-            var me =  ractive.get('friends')[event.index.i];           
+            var me =  ractive.get('friends')[index];           
             me.lvl = me.lvl + 1;
 
             if(me.lvl >= me.levelUp) {

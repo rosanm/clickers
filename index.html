@@ -57,17 +57,15 @@
             <div class="section-center">
                 <div class="boxHeader">FRIENDS</div>               
                 <div id="sortable" class="theZoo">
-                    {{#friends:i}}
-                        {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard" friendName="{{name}}">
-                                <div class="boxHeader">{{name}}</div>
-                                <img src="{{img}}" class="friendImg">
-                                <p>DMG per second: {{dmg}}<p/>
-                                <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
-                                <div>{{id}}</div>
-                            </div>
-                        {{/each}}
+                    {{#friends}}
+                        <div class="MonsterCard section-monstercard" friendName="{{name}}">
+                            <div class="boxHeader">{{name}}</div>
+                            <img src="{{img}}" class="friendImg">
+                            <p>DMG per second: {{dmg}}<p/>
+                            <p>Lvl: {{lvl}}</p>
+                            <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)">Train</button>
+                            <div>{{id}}</div>
+                        </div>
                     {{/friends}}
                 </div>
             </div>
