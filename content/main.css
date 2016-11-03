@@ -277,3 +277,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .active{
 	border: 5px solid lightskyblue;
 }
+
+label {
+    display: inline-block;
+    width: 5em;
+  }

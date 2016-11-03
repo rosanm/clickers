@@ -18,10 +18,7 @@
         <script src="scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
         <script src='scripts/ractive.js'></script>
         <script src="scripts/controllers/setupController.js"></script>
-
-
-
-        
+      
     </head>
 
     <body>
@@ -61,15 +58,16 @@
             <div class="section-center">
                 <div class="boxHeader">FRIENDS</div>               
                 <div id="sortable" class="theZoo">
-                    {{#friends:i}}
-                            <div class="MonsterCard section-monstercard" friendName="{{name}}" title="{{dmg}}">
-                                <div class="boxHeader">{{name}}</div>
-                                <img src="{{img}}" class="friendImg">
-                                <p>DMG per second: {{dmg}}<p/>
-                                <p>Lvl: {{lvl}}</p>
-                                <button class="button-upgrade" on-click="trainFriend: {{event}}, {{i}}">Train</button>
-                                <div>{{id}}</div>
-                            </div>
+                    {{#friends}}
+                        <div class="MonsterCard section-monstercard" friendName="{{name}}" title="{{dmg}}">
+                            <div class="boxHeader">{{name}}</div>
+                            <img src="{{img}}" class="friendImg">
+                            <p>DMG per second: {{dmg}}<p/>
+                            <p>Stage: {{stage}}</p>
+                            <p>Lvl: {{lvl}}</p>
+                            <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)">Train</button>
+                            <div>{{id}}</div>
+                        </div>
                     {{/friends}}
                 </div>
             </div>
@@ -82,12 +80,12 @@
                             <img class="item-image" src="{{img}}"/>
                             <div>{{name}}</div>
                             <div class="button-box">
-                                <button class="button-buy" ng-click="buy($index);updateGui($index)">Buy</button>
-                                <p class="text">{{price}}</p>
-                            </div>
-                            <div class="button-box">
-                                <button class="button-upgrade" ng-click="buy($index);updateGui($index)">Upgrade</button>
-                                <p class="text">{{price}}</p>
+                                {{#if lvl == 0}}
+                                    <button class="button-buy" on-click="@this.fire('buyOrUpgrade', event, @index)">Buy</button>
+                                {{else}}
+                                    <button class="button-upgrade" on-click="@this.fire('buyOrUpgrade', event, @index)">Upgrade</button>                                
+                                {{/if}}
+                                <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>                            
                             </div>
                         </div>
                     {{/items}}
