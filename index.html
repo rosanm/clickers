@@ -80,12 +80,12 @@
                             <img class="item-image" src="{{img}}"/>
                             <div>{{name}}</div>
                             <div class="button-box">
-                                <button class="button-buy" ng-click="buy($index);updateGui($index)">Buy</button>
-                                <p class="text">{{price}}</p>
-                            </div>
-                            <div class="button-box">
-                                <button class="button-upgrade" ng-click="buy($index);updateGui($index)">Upgrade</button>
-                                <p class="text">{{price}}</p>
+                                {{#if lvl == 0}}
+                                    <button class="button-buy" on-click="@this.fire('buyOrUpgrade', event, @index)">Buy</button>
+                                {{else}}
+                                    <button class="button-upgrade" on-click="@this.fire('buyOrUpgrade', event, @index)">Upgrade</button>                                
+                                {{/if}}
+                                <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>                            
                             </div>
                         </div>
                     {{/items}}

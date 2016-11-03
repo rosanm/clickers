@@ -21,17 +21,17 @@ $(document).ready(function(){
             
             //Items per starter
             itemsPandoo: 
-                    [{name:"Harder Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:2},
-                     {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10}],
+                    [{name:"Harder Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:2},
+                     {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,     max:10}],
 
             itemsBlazby: 
-                    [{name:"Harder Blazby",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:2},
-                     {name:"Mega Bite",         img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10},
+                    [{name:"Harder Blazby",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:2},
+                     {name:"Mega Bite",         img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,     max:10},
                      {name:"Dance Saliva",      img:"images/items/orange-glass-round.png", lvl:0,  count:0, price:2500,   dmg:50,    max:1},
                      {name:"Crit Bite",         img:"images/items/green-glass-round.png",  lvl:0,  count:0, price:8000,   dmg:500,   max:2},],
 
             itemsKniron: 
-                    [{name:"Harder Kniron",     img:"images/items/water.png",              lvl:0, count:0, price:10,     dmg:1,     max:2}],
+                    [{name:"Harder Kniron",     img:"images/items/water.png",              lvl:0, count:0, price:10,     dmg:5,     max:2}],
 
             itemsEartail:
                     [{name:"Super Eartail",     img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:10},
@@ -108,23 +108,8 @@ $(document).ready(function(){
         }   
     };
 
-    function buy(itemNr){
-        //Can affound?
-        if(ractive.get('units') >= ractive.get('items')[itemNr].price){
-            //Still in stock?
-            if(ractive.get('items')[itemNr].count < ractive.get('items')[itemNr].max){
-                //Buy it
-                ractive.set('units', ractive.get('units')-ractive.get('items')[itemNr].price);
-                ractive.get('items')[itemNr].count++;
-            }else{
-                alert(ractive.get('items')[itemNr].name +" is out of stock, maximum reached. " +
-                ractive.get('items')[itemNr].max +"/"+ ractive.get('items')[itemNr].max )
-            }
-        }
-    };
-
-
-    ractive.on('trainFriend', function(event, index) { 
+    ractive.on({
+        trainFriend: function(event, index) { 
             var me =  ractive.get('friends')[event.index.i];           
             me.lvl = me.lvl + 1;
 
@@ -141,7 +126,28 @@ $(document).ready(function(){
                     me.dmg = evo.dmg;
                 }
             
-            ractive.update();        
+            ractive.update();
+        },
+        buyOrUpgrade: function (event, itemNr){
+            //Can affound?
+            if(ractive.get('units') >= ractive.get('items')[itemNr].price){
+                //Still in stock?
+                if(ractive.get('items')[itemNr].count < ractive.get('items')[itemNr].max){
+                    //Buy it
+                    var diamonds = ractive.get('units');
+                    var priceOfItem = ractive.get('items')[itemNr].price;
+                    ractive.set('units', diamonds - priceOfItem);
+                    var upgradedItem = ractive.get('items')[itemNr];
+                    upgradedItem.lvl = upgradedItem.lvl +1;
+                    upgradedItem.price = Math.round(upgradedItem.price * 1.2);
+                    upgradedItem.dmg = Math.round(upgradedItem.dmg * 1.2);
+                    ractive.update();
+                }else{
+                    alert(ractive.get('items')[itemNr].name +" is out of stock, maximum reached. " +
+                    ractive.get('items')[itemNr].max +"/"+ ractive.get('items')[itemNr].max )
+                }
+            }
+        }
     });
 
     function calcUnitsPerSec(itemsArray){
@@ -181,6 +187,10 @@ $(document).ready(function(){
 
     //Jquery-UI
     $("#sortable").sortable({
+        revert: true,
+    });
+
+    $("#items-box").sortable({
         revert: true,
     });
 
