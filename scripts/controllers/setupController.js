@@ -17,8 +17,7 @@ $(document).ready(function(){
                         return range;
                     },
 
-            items: 
-                    [],
+            items: [],
             
             //Items per starter
             itemsPandoo: 
