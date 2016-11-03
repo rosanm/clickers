@@ -184,6 +184,9 @@ $(document).ready(function(){
         revert: true,
     });
 
+
+    $(".MonsterCard").tooltip();
+
    $(".MonsterCard").click(function() {
         //selection 
         $(".MonsterCard").removeClass("active");
@@ -194,3 +197,4 @@ $(document).ready(function(){
         ractive.set('items', ractive.get('items'+ name));   
     });
 });
+
