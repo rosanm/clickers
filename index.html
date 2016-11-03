@@ -18,6 +18,7 @@
         <script src="scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
         <script src='scripts/ractive.js'></script>
         <script src="scripts/controllers/setupController.js"></script>
+      
     </head>
 
     <body>
@@ -58,10 +59,11 @@
                 <div class="boxHeader">FRIENDS</div>               
                 <div id="sortable" class="theZoo">
                     {{#friends}}
-                        <div class="MonsterCard section-monstercard" friendName="{{name}}">
+                        <div class="MonsterCard section-monstercard" friendName="{{name}}" title="{{dmg}}">
                             <div class="boxHeader">{{name}}</div>
                             <img src="{{img}}" class="friendImg">
                             <p>DMG per second: {{dmg}}<p/>
+                            <p>Stage: {{stage}}</p>
                             <p>Lvl: {{lvl}}</p>
                             <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)">Train</button>
                             <div>{{id}}</div>
@@ -93,3 +95,5 @@
     </body>
 
 </html>
+
+

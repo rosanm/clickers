@@ -114,14 +114,15 @@ $(document).ready(function(){
             me.lvl = me.lvl + 1;
 
             if(me.lvl >= me.levelUp) {
-                    //go stage up
-                    me.stage = me.stage++;
 
-                    //get all new data
+                    
+
+                    //set all new data
                     var evo = ractive.get('friendsData')[me.nextStageIndex];
                     me.img = evo.img;
                     me.name = evo.name;
                     me.levelUp = evo.levelUp;
+                    me.stage = me.stage + 1;
                     me.nextStageIndex = evo.nextStageIndex;
                     me.dmg = evo.dmg;
                 }
@@ -194,6 +195,8 @@ $(document).ready(function(){
         revert: true,
     });
 
+    $(".MonsterCard").tooltip();
+
    $(".MonsterCard").click(function() {
         //selection 
         $(".MonsterCard").removeClass("active");
@@ -218,3 +221,4 @@ $(document).ready(function(){
         }
     }
 });
+
