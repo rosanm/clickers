@@ -91,7 +91,9 @@ $(document).ready(function(){
 
     function attackEnemy() {
         ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('level')-1]);
-        ractive.set('currentEnemy.hp', ractive.get('currentEnemy').hp - ractive.get('dmg'));
+        var currentEnemy = ractive.get('currentEnemy');
+        currentEnemy.hp = ractive.get('currentEnemy').hp - ractive.get('dps');
+        ractive.update();
         
         if(ractive.get('currentEnemy.hp') < 0){
             ractive.set('level', ractive.get('level') + 1);
