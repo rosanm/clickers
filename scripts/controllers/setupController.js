@@ -180,10 +180,8 @@ $(document).ready(function(){
 
 
     //Jquery-UI
-    $(".section-monstercard").draggable({ 
-                containment: "parent",
-                scroll: false,
-                cursor: "move"
+    $("#sortable").sortable({
+        revert: true,
     });
 
    $(".MonsterCard").click(function() {

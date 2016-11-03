@@ -187,6 +187,10 @@ html, body { height: 100%; margin: 0; padding: 0; }
     color: black;
 }
 
+.MonsterCard {
+	cursor: move;
+}
+
 .button-upgrade {
 	-moz-box-shadow:inset 0px 1px 0px 0px #9fb4f2;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #9fb4f2;
