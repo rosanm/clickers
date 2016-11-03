@@ -53,8 +53,7 @@
                             <div class="progress-bar">
                                 <span id="hp-progress"></span>
                             </div>
-                            </progress>           
-                                   
+                            </progress>                                            
                     </div>
                         {{currentEnemy.name}}   
                 </div>
@@ -64,7 +63,7 @@
                 <div class="theZoo">
                     {{#friends:i}}
                         {{#each range(1, count)}}
-                            <div class="MonsterCard section-monstercard" friendId="{{id}}">
+                            <div class="MonsterCard section-monstercard" friendName="{{name}}">
                                 <div class="boxHeader">{{name}}</div>
                                 <img src="{{img}}" class="friendImg">
                                 <p>DMG per second: {{dmg}}<p/>
