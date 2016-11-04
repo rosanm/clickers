@@ -169,10 +169,7 @@ $(document).ready(function(){
         itemDps = calcUnitsPerSec(ractive.get('items'));
         friendDps = calcUnitsPerSec(ractive.get('friends'));
         ractive.set('dps', itemDps + friendDps);      
-        
-        //Add units 
-        ractive.set('units', ractive.get('units') + ractive.get('dps'));
-        
+                
         //Attack
         attackEnemy();
         //this must be the last statment
@@ -181,6 +178,22 @@ $(document).ready(function(){
 
     //Start the game the first time
     gameLoop();
+
+
+    function smoothScoreLoop() {
+
+        //berekend hoeveel je er per 100/ste seconden bij krijgt
+        var addPer100stSec = ractive.get('dps') / 100;
+
+        //tel je units erbij
+        ractive.set('units', ractive.get('units') + addPer100stSec);
+
+        //this must be the last statment
+        setTimeout(smoothScoreLoop, 10); //loop 100x per sec
+    }
+
+    //start the smoothscore
+    smoothScoreLoop();
 
     updateGui();
 
