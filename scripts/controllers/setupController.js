@@ -6,6 +6,7 @@ $(document).ready(function(){
             units: 0,
             dps: 0,
             level: 1,
+            enemyIndex: 0,
             currentEnemy: {},
             door:"images/door.png",
             doorSet: false,
@@ -50,20 +51,20 @@ $(document).ready(function(){
                      {name:"Extra Damage",      img:"images/items/pink-glass-round.png",   lvl:0,  count:0, price:50000,  dmg:2000,  max:2}],
 
             enemys: 
-                    [{name:"Dropphin",   hp:1500,    total: 1500,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
-                     {name:"Dolswim",    hp:5000,    total: 5000,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
-                     {name:"Arambly",    hp:20000,   total: 20000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
-                     {name:"Umbrarach",  hp:100000,  total: 100000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
-                     {name:"Cubern",     hp:500000,  total: 500000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-                     {name:"Gigarotto",  hp:2000000, total: 200000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}],
+                    [{name:"Dropphin",   hp:150,    total: 150,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+                     {name:"Dolswim",    hp:500,    total: 500,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
+                     {name:"Arambly",    hp:2000,   total: 2000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
+                     {name:"Umbrarach",  hp:1000,  total: 10000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
+                     {name:"Cubern",     hp:5000,  total: 5000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
+                     {name:"Gigarotto",  hp:20000, total: 2000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}],
 
             //starters
             friends: 
                     [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:2, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
-                     {name:"Blazby",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:3, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
-                     {name:"Kniron",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:5, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
-                     {name:"Eartail", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:8, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
-                     {name:"Phyracu", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:4, dmg:13, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
+                     {name:"Blazby",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:3, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
+                     {name:"Kniron",  count: 2, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:5, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
+                     {name:"Eartail", count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:8, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
+                     {name:"Phyracu", count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:4, dmg:13, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
             //upgrade data
             friendsData: 
                     [{name:"Herbear", levelUp: 20, nextStageIndex:1, dmg:200, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},
@@ -80,22 +81,32 @@ $(document).ready(function(){
         }, this);
     };
 
-    function populateEnemy() {   
-        ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('level')-1]);          
-
+    function populateEnemy() {
         var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
         $("progress").attr('value', progress);
         $("#progresscontainer").show();
     };
 
     function attackEnemy() {
-        ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('level')-1]);
+        ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
         var currentEnemy = ractive.get('currentEnemy');
         currentEnemy.hp = ractive.get('currentEnemy').hp - ractive.get('dps');
         ractive.update();
         
         if(ractive.get('currentEnemy.hp') < 0){
             ractive.set('level', ractive.get('level') + 1);
+            currentEnemy.hp = currentEnemy.total + 1000;
+
+            var enemyIndex = ractive.get('enemyIndex');
+            if(enemyIndex == ractive.get('enemys').length)
+                enemyIndex = 0;
+            else
+                ractive.set('enemyIndex', enemyIndex + 1);
+                  
+            ractive.set('currentEnemy', ractive.get('enemys')[enemyIndex]);  
+            
+            ractive.update();
+
             $("#progresscontainer").hide();
             $(".doorSet").show();
             $(".enemySet").hide();
@@ -111,11 +122,9 @@ $(document).ready(function(){
         trainFriend: function(event, index) { 
             var me =  ractive.get('friends')[index];           
             me.lvl = me.lvl + 1;
+            me.dmg = me.dmg + 3;
 
             if(me.lvl >= me.levelUp) {
-
-                    
-
                     //set all new data
                     var evo = ractive.get('friendsData')[me.nextStageIndex];
                     me.img = evo.img;
@@ -152,22 +161,16 @@ $(document).ready(function(){
 
     function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
-        itemsArray.forEach(function(e) {
-                    unitsPerSec += (e.count*e.dmg);
-                }, this);
-        return unitsPerSec;
+            itemsArray.forEach(function(e) {
+                        unitsPerSec += (e.count*e.dmg);
+                    }, this);
+            return unitsPerSec;
     };
-
-    function updateGui(){
-       // populateZoo();
-        populateEnemy();
-    };
-
 
     function gameLoop() {
         //update dmg
-        itemDps = calcUnitsPerSec(ractive.get('items'));
-        friendDps = calcUnitsPerSec(ractive.get('friends'));
+        var itemDps = calcUnitsPerSec(ractive.get('items'));
+        var friendDps = calcUnitsPerSec(ractive.get('friends'));
         ractive.set('dps', itemDps + friendDps);      
                 
         //Attack
@@ -176,40 +179,28 @@ $(document).ready(function(){
         setTimeout(gameLoop, 1000);
     }
 
-    //Start the game the first time
-    gameLoop();
-
-
     function smoothScoreLoop() {
-
         //berekend hoeveel je er per 100/ste seconden bij krijgt
         var addPer100stSec = ractive.get('dps') / 100;
 
-
-
-
-
         //tel je units erbij en rond af op 1 decimaal
         var unrounded = ractive.get('units') + addPer100stSec
+        var roundend = unrounded;
+        if(addPer100stSec > 0.1)
+            rounded = Math.round(unrounded * 10 ) / 10;  //1 decimaal
+        else
+            rounded = Math.round(unrounded * 100 ) / 100;  //2 decimaal
 
-        if(addPer100stSec > 0.1){
-            var rounded = Math.round(unrounded * 10 ) / 10;  //1 decimaal
-        }
-        else{
-           var rounded = Math.round(unrounded * 100 ) / 100;  //2 decimaal
-        }
-
-
-        ractive.set('units', rounded );
+        ractive.set('units', rounded);
 
         //this must be the last statment
         setTimeout(smoothScoreLoop, 10); //loop 100x per sec
     }
 
+    //Start the game the first time
+    gameLoop();
     //start the smoothscore
     smoothScoreLoop();
-
-    updateGui();
 
     //Jquery-UI
     $("#sortable").sortable({
@@ -220,7 +211,7 @@ $(document).ready(function(){
         revert: true,
     });
 
-    $(".MonsterCard").tooltip();
+    //$(".MonsterCard").tooltip();
 
    $(".MonsterCard").click(function() {
         //selection 

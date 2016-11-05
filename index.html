@@ -59,7 +59,7 @@
                 <div class="boxHeader">FRIENDS</div>               
                 <div id="sortable" class="theZoo">
                     {{#friends}}
-                        <div class="MonsterCard section-monstercard" friendName="{{name}}" title="Dps per {{name}}: {{dmg}} # of {{name}}: {{count}} Total dps {{dmg*count}} {{name}}s do {{dmg*count/100}}% of all dmg.">
+                        <div class="MonsterCard section-monstercard" friendName="{{name}}">
                             <div class="boxHeader">{{name}}</div>
                             <img src="{{img}}" class="friendImg">
                             <p>DMG per second: {{dmg}}<p/>
@@ -67,6 +67,12 @@
                             <p>Lvl: {{lvl}}</p>
                             <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)">Train</button>
                             <div>{{id}}</div>
+                             <div class="hoverBox">
+                            <div class="arrow-up"></div>
+                            <div>
+                                Dps per {{name}}: {{dmg}} # of {{name}}: {{count}} Total dps {{dmg*count}} {{name}}s do {{dmg*count/100}}% of all dmg.                      
+                            </div>
+                            </div>
                         </div>
                     {{/friends}}
                 </div>

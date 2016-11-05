@@ -19,7 +19,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
     color: #9A7C4A;
 }
 
-.boxHeader, .boxHeader2 { 
+.boxHeader, .boxHeader2 {
     /*background-color: darkslategray;*/
     font-size: 34px;
     color: #222;
@@ -89,7 +89,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
     background: #FEF2E2;
     border: 5px solid #300D0D;
 	border-radius: 5px;
-	overflow: hidden;
 }
 
 .section-monstercard2 {
@@ -132,7 +131,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	width: 100%;
 }
 
-.boxHeader2 { 
+.boxHeader2 {
     padding: 0;
 }
 
@@ -184,12 +183,13 @@ html, body { height: 100%; margin: 0; padding: 0; }
     border-radius: 15px;
 }
 
-.text { 
+.text {
     color: black;
 }
 
 .MonsterCard {
 	cursor: move;
+	position: relative;
 }
 
 .button-upgrade {
@@ -279,16 +279,44 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 
-  .ui-tooltip {
+/*.ui-tooltip {
 	background-color: black !important;
 	opacity: 1 !important;
-	color: white !important;
+	color: #FBCB81 !important;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font: bold 14px "Helvetica Neue", Sans-Serif;
+	text-transform: uppercase;
+	box-shadow: 0 0 7px black;
+}*/
 
-    padding: 10px 20px;
-    
-    border-radius: 4px;
-    font: bold 14px "Helvetica Neue", Sans-Serif;
-    text-transform: uppercase;
-    box-shadow: 0 0 7px black;
-	
-  }
+.hoverBox {
+	border: 1px solid white;
+	position: absolute;
+	bottom: -55px;
+	background-color: #bfd255;
+	opacity:0.9;
+	z-index: 99;
+	cursor: auto;
+	left: 5px;
+	right: 5px;
+	height: 100px;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0;
+  top: -6px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent; 
+  border-bottom: 5px solid #bfd255;
+  position:absolute;
+}
+
+.hoverBox{
+	display: none;
+}
+.MonsterCard:hover .hoverBox{
+	display : block;
+}
+
