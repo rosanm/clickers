@@ -53,10 +53,10 @@ $(document).ready(function(){
             enemys: 
                     [{name:"Dropphin",   hp:150,    total: 150,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
                      {name:"Dolswim",    hp:500,    total: 500,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
-                     {name:"Arambly",    hp:2000,   total: 2000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
-                     {name:"Umbrarach",  hp:1000,  total: 10000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
-                     {name:"Cubern",     hp:5000,  total: 5000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-                     {name:"Gigarotto",  hp:20000, total: 2000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}],
+                     {name:"Arambly",    hp:1000,   total: 1000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
+                     {name:"Umbrarach",  hp:2000,   total: 2000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
+                     {name:"Cubern",     hp:4000,   total: 4000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
+                     {name:"Gigarotto",  hp:8000,   total: 8000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}],
 
             //starters
             friends: 
@@ -96,10 +96,11 @@ $(document).ready(function(){
         if(ractive.get('currentEnemy.hp') < 0){
             ractive.set('level', ractive.get('level') + 1);
             currentEnemy.hp = currentEnemy.total + 1000;
+            currentEnemy.total = currentEnemy.hp;
 
             var enemyIndex = ractive.get('enemyIndex');
-            if(enemyIndex == ractive.get('enemys').length)
-                enemyIndex = 0;
+            if(enemyIndex == ractive.get('enemys').length - 1)
+                ractive.set('enemyIndex', 0);
             else
                 ractive.set('enemyIndex', enemyIndex + 1);
                   
