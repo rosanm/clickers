@@ -81,21 +81,25 @@ $(document).ready(function(){
         }, this);
     };
 
-    function populateEnemy() {
-        var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
-        $("progress").attr('value', progress);
-        $("#progresscontainer").show();
-    };
 
     function attackEnemy() {
         ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
         var currentEnemy = ractive.get('currentEnemy');
-        currentEnemy.hp = ractive.get('currentEnemy').hp - ractive.get('dps');
+       
+        //Dmg word nonstop gedaan in de progressbarr
+        currentEnemy.hp = ractive.get('currentEnemy').hp - (ractive.get('dps')/100);
+
+        var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
+        $("progress").attr('value', progress);
+        $("#progresscontainer").show();
+
         ractive.update();
         
         if(ractive.get('currentEnemy.hp') < 0){
+            //verhoog level met 1
             ractive.set('level', ractive.get('level') + 1);
-            currentEnemy.hp = currentEnemy.total + 1000;
+            //zet de nieuwe 20% sterker
+            currentEnemy.hp = currentEnemy.total + (currentEnemy.total * 0.2);
             currentEnemy.total = currentEnemy.hp;
 
             var enemyIndex = ractive.get('enemyIndex');
@@ -115,9 +119,12 @@ $(document).ready(function(){
         else {
             $(".doorSet").hide();
             $(".enemySet").show();
-            populateEnemy();
-        }   
+        } 
+
+        setTimeout(attackEnemy, 10); //loop 100x per sec  
     };
+
+    attackEnemy();
 
     ractive.on({
         trainFriend: function(event, index) { 
@@ -174,8 +181,6 @@ $(document).ready(function(){
         var friendDps = calcUnitsPerSec(ractive.get('friends'));
         ractive.set('dps', itemDps + friendDps);      
                 
-        //Attack
-        attackEnemy();
         //this must be the last statment
         setTimeout(gameLoop, 1000);
     }
