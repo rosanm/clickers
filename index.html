@@ -1,108 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <title>Clickers</title>
 
-    <link rel="icon" 
-      type="image/ico" 
-      href="images/smile.ico">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="content/bootstrap.css">
-    <link rel="stylesheet" href="content/main.css">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
-    
-    <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-    <script src="scripts/angular/angular.min.js"></script>
-    <script src="scripts/bootstrap/bootstrap.min.js"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/controllers/setupController.js"></script>
-    <script src="scripts/directives/ngRepeatWhile.js"></script>
+        <meta name="description" content="Game">
+        <meta name="author" content="Leo en Rosan van Essen">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="icon" type="image/ico" href="images/smile.ico">
+        <link rel="stylesheet" href="content/bootstrap.css">
+        <link rel="stylesheet" href="content/main.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="content/jquery-ui.css">
+        
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+        <script src='scripts/ractive.js'></script>
+        <script src="scripts/controllers/setupController.js"></script>
+      
     </head>
 
     <body>
 
-        <div class="main-container" ng-app="Clickers" ng-controller="setupController">
-
+        <div id="container" class="main-container">
+            <script id="template" class="section-left-top" type='text/ractive'>
             <div class="section-left">
-
-                <div class="section-left-top">
+                <div class="section-left-top" type='text/ractive'>
                     <div class="boxHeader" style="text-align: center;">
                         STATS
                     </div>
-                    <div id="unitcounter"><i class="diamondIcon fa fa-diamond fa-lg"></i> 0.00</div>
-                    <div id="unitpersec"> <i class="diamondIcon fa fa-flash fa-lg"></i> p/s 0</div>
-                    <div id="currentLvl">Level <i class="fa fa-level-up fa-lg"></i>: 0</div>
+                    <div id="unitcounter"><i class="diamondIcon fa fa-diamond fa-lg"></i>  {{units}}</div>
+                    <div id="unitpersec"> <i class="diamondIcon fa fa-flash fa-lg"></i> p/s  {{dps}}</div>
+                    <div id="currentLvl">Level <i class="fa fa-level-up fa-lg"></i>:  {{level}}</div>
                 </div>
-                
-                
-                    <div class="monster-box">
-                        <div class="boxHeader" style="text-align: center;">
-                            ATTACK
-                        </div>
-                        <div class="monster-box-enemy" >
-                            <img class="doorSet" ng-src="{{door}}" width="100%">
-                            <img class="enemySet" ng-src="{{currentEnemy.img}}" width="100%">
-                        </div>
-                       <div id="progresscontainer" style="text-align: center; display: none;">
-                            <progress max="100" value="80">
-                                <div class="progress-bar">
-                                    <span id="hp-progress"></span>
-                                </div>
-                            </progress>
-                                   
-                        </div>
+                <div class="monster-box">
+                    <div class="boxHeader" style="text-align: center;">
+                        ATTACK
+                    </div>
+                    <div class="monster-box-enemy" >
+                        {{#if doorSet}}
+                            <img class="doorSet" src={{door}} width="100%">
+                        {{else}}
+                            <img class="enemySet" src={{currentEnemy.img}} width="100%">
+                        {{/if}}
+                    </div>
+                    <div id="progresscontainer" style="text-align: center; display: none;">
+                        <progress max="100" value="80">
+                            <div class="progress-bar">
+                                <span id="hp-progress"></span>
+                            </div>
+                            </progress>                                            
+                    </div>
                         {{currentEnemy.name}}   
-                    </div>       
-            </div>
-        
+                </div>
+            </div>              
             <div class="section-center">
-                <div class="boxHeader">FRIENDS</div>
-                
-                <div class="theZoo">
-                    <div ng-repeat="friend in friends" class="MonsterCard section-monstercard">
-                        <div ng-repeat-while="{{friend.count}}"></div>
-                        <button class="button-upgrade" ng-click="trainFriend($index)">Train</button>
-                    </div>
-                    <div ng-repeat="friend in friends2" class="MonsterCard section-monstercard section-monstercard2">
-                        <div ng-repeat-while="{{friend.count}}"></div> 
-                        <button class="button-upgrade" ng-click="trainFriend($index)">Train</button>           
-                    </div>                   
-                        <div ng-repeat="friend in friends3" class="MonsterCard section-monstercard section-monstercard3"> 
-                                              
-                            <div ng-repeat-while="{{friend.count}}"></div>
-                             
-                            <button class="button-upgrade" ng-click="trainFriend($index)">Train</button>
-                    </div>
+                <div class="boxHeader">FRIENDS</div>               
+                <div id="sortable" class="theZoo">
+                    {{#friends}}
+                        <div class="MonsterCard section-monstercard" friendName="{{name}}">
+                            <div class="boxHeader">{{name}}</div>
+                            <img src="{{img}}" class="friendImg">
+                            <p>DMG per second: {{dmg}}<p/>
+                            <p>Stage: {{stage}}</p>
+                            <p>Lvl: {{lvl}}</p>
+                            <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)">Train</button>
+                            <div>{{id}}</div>
+                             <div class="hoverBox">
+                            <div class="arrow-up"></div>
+                            <div>
+                                <p>Dps per {{name}}: {{dmg}}</p>
+                                <p># of {{name}}: {{count}}</p>
+                                <p>Total dps {{dmg*count}}</p>
+                                <p>{{name}}s do {{((dmg*count)/dps)*100}}% of all dmg.</p>                    
+                            </div>
+                            </div>
+                        </div>
+                    {{/friends}}
                 </div>
             </div>
 
             <div class="section-right">
                 <div class="boxHeader">ITEMS</div>
                 <div id="items-box">
-                    <div class="item-field" ng-repeat="item in items">
-                        <img class="item-image" src="{{item.img}}"/>
-                        <div>{{item.name}}</div>
-                        <div class="button-box">
-                            <button class="button-buy" ng-click="buy($index);updateGui($index)">Buy</button>
-                            <p class="text">{{item.price}}</p>
+                    {{#items}}
+                        <div class="item-field">
+                            <img class="item-image" src="{{img}}"/>
+                            <div>{{name}}</div>
+                            <div class="button-box">
+                                {{#if lvl == 0}}
+                                    <button class="button-buy" on-click="@this.fire('buyOrUpgrade', event, @index)">Buy</button>
+                                {{else}}
+                                    <button class="button-upgrade" on-click="@this.fire('buyOrUpgrade', event, @index)">Upgrade</button>                                
+                                {{/if}}
+                                <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>                            
+                            </div>
                         </div>
-                        <div class="button-box">
-                            <button class="button-upgrade" ng-click="buy($index);updateGui($index)">Upgrade</button>
-                            <p class="text">{{item.price}}</p>
-                        </div>
-                    </div>
+                    {{/items}}
                 </div>
             </div>
-        </div>
+        </script>
     </body>
 
 </html>
+
+

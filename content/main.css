@@ -19,7 +19,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
     color: #9A7C4A;
 }
 
-.boxHeader, .boxHeader2 { 
+.boxHeader, .boxHeader2 {
     /*background-color: darkslategray;*/
     font-size: 34px;
     color: #222;
@@ -54,8 +54,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
     height: 49.5%;
     float: left;
     background:#FBCB81;
-    border: 10px solid #300D0D;
-	border-radius: 10px;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
 }
 
 .monster-box {
@@ -63,9 +63,10 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	width: 100%;
     height: 49.5%;
 	float: left;
-	border: 10px solid #300D0D;
-	border-radius: 10px;
+	border: 5px solid #300D0D;
+	border-radius: 5px;
 	background:#FBCB81;
+	text-align: center;
 }
 
 .section-center {
@@ -75,8 +76,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
     margin: 0 1%;
     padding: 0;
     background: #FBCB81;
-    border: 10px solid #300D0D;
-	border-radius: 10px;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
 	overflow: hidden;
 }
 
@@ -86,9 +87,16 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	height: 235px;
     margin: 10px;
     background: #FEF2E2;
-    border: 10px solid #300D0D;
-	border-radius: 10px;
-	overflow: hidden;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
+}
+
+.section-monstercard2 {
+    background: lightsalmon;
+}
+
+.section-monstercard3 {
+    background: darkorange;
 }
 
 .section-monstercard2 {
@@ -113,8 +121,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
     margin: 0;
     padding: 0;
 	background:#FBCB81;
-    border: 10px solid #300D0D;
-	border-radius: 10px;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
 	overflow: hidden;
 }
 
@@ -124,6 +132,11 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	text-align: center;
 	font-family: Livingst;
 	font-size: 22px;
+
+}
+
+.monster-box-enemy img{
+	max-height: 260px;
 }
 
 #door {
@@ -131,7 +144,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	width: 100%;
 }
 
-.boxHeader2 { 
+.boxHeader2 {
     padding: 0;
 }
 
@@ -183,8 +196,13 @@ html, body { height: 100%; margin: 0; padding: 0; }
     border-radius: 15px;
 }
 
-.text { 
+.text {
     color: black;
+}
+
+.MonsterCard {
+	cursor: move;
+	position: relative;
 }
 
 .button-upgrade {
@@ -268,3 +286,56 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	position:relative;
 	top:1px;
 }
+
+.active{
+	border: 5px solid lightskyblue;
+}
+
+
+/*.ui-tooltip {
+	background-color: black !important;
+	opacity: 1 !important;
+	color: #FBCB81 !important;
+	padding: 10px 20px;
+	border-radius: 4px;
+	font: bold 14px "Helvetica Neue", Sans-Serif;
+	text-transform: uppercase;
+	box-shadow: 0 0 7px black;
+}*/
+
+.hoverBox {
+	border: 1px solid black;
+	position: absolute;
+	bottom: -55px;
+	background-color: #bfd255;
+	opacity: 0.95;
+	z-index: 99;
+	cursor: auto;
+	left: 5px;
+	right: 5px;
+	padding: 5px;	
+}
+
+.hoverBox p {
+    margin: 0em;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0;
+  top: -14px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent; 
+  border-bottom: 15px solid #bfd255;
+  position:absolute;
+  opacity: 0.95;
+
+}
+
+.hoverBox{
+	display: none;
+}
+.MonsterCard:hover .hoverBox{
+	display : block;
+}
+
