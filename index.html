@@ -90,9 +90,9 @@
                             <div>{{name}}</div>
                             <div class="button-box">
                                 {{#if lvl == 0}}
-                                    <button class="button-buy" on-click="@this.fire('buyOrUpgrade', event, @index)">Buy</button>
+                                    <button class="button-buy" on-click="@this.fire('buyOrUpgrade', event, @index)" disabled="{{ price > units }}">Buy</button>
                                 {{else}}
-                                    <button class="button-upgrade" on-click="@this.fire('buyOrUpgrade', event, @index)">Upgrade</button>                                
+                                    <button class="button-upgrade" on-click="@this.fire('buyOrUpgrade', event, @index)" disabled="{{ price > units }}">Upgrade</button>                                
                                 {{/if}}
                                 <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>                            
                             </div>
