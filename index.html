@@ -65,7 +65,7 @@
                             <p>Stage: {{stage}}</p>
                             <p>Lvl: {{lvl}}</p>
                             <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)" disabled="{{ price > units }}">Train</button>
-                            <div>{{id}}</div>
+                            <button class="button-buy" on-click="@this.fire('trainFriend', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button>
                              <div class="hoverBox">
                             <div class="arrow-up"></div>
                             <div>
