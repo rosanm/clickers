@@ -228,7 +228,8 @@ $(document).ready(function(){
         //update dmg
         var itemDps = calcUnitsPerSec(ractive.get('items'));
         var friendDps = calcUnitsPerSec(ractive.get('friends'));
-        ractive.set('dps', itemDps + friendDps);      
+        ractive.set('dps', itemDps + friendDps);    
+        document.title = ractive.get('units') + " Diamonds"; 
 
         //this must be the last statment
         setTimeout(gameLoop, 1000);
@@ -238,6 +239,7 @@ $(document).ready(function(){
     gameLoop();
     //start the smoothscore
     smoothScoreLoop();
+
 
     //Jquery-UI
     $("#sortable").sortable({
