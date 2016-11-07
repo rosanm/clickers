@@ -17,7 +17,9 @@ $(document).ready(function(){
                         }
                         return range;
                     },
-
+            
+            selectedFriend: '',
+            
             items: [],
             
             //Items per starter
@@ -146,18 +148,21 @@ $(document).ready(function(){
             ractive.update();
         },
         buyOrUpgrade: function (event, itemNr){
+            //name of selectedFriend
+            var selectedFriend = ractive.get('selectedFriend');
             //Can affound?
-            if(ractive.get('units') >= ractive.get('items')[itemNr].price){
+            if(ractive.get('units') >= ractive.get('items' + selectedFriend)[itemNr].price){
                 //Still in stock?
-                if(ractive.get('items')[itemNr].count < ractive.get('items')[itemNr].max){
+                if(ractive.get('items' + selectedFriend)[itemNr].count < ractive.get('items' + selectedFriend)[itemNr].max){
                     //Buy it
                     var diamonds = ractive.get('units');
-                    var priceOfItem = ractive.get('items')[itemNr].price;
+                    var priceOfItem = ractive.get('items' + selectedFriend)[itemNr].price;
                     ractive.set('units', diamonds - priceOfItem);
-                    var upgradedItem = ractive.get('items')[itemNr];
+                    var upgradedItem = ractive.get('items' + selectedFriend)[itemNr];
                     upgradedItem.lvl = upgradedItem.lvl +1;
                     upgradedItem.price = Math.round(upgradedItem.price * 1.2);
                     upgradedItem.dmg = Math.round(upgradedItem.dmg * 1.2);
+                    upgradedItem.count = upgradedItem.count + 1;
                     ractive.update();
                 }else{
                     alert(ractive.get('items')[itemNr].name +" is out of stock, maximum reached. " +
@@ -226,6 +231,7 @@ $(document).ready(function(){
         
         //load itemset
         var name = $(this).attr('friendName');
+        ractive.set('selectedFriend', name);
         var selectedFriend = getObjectFromListByName('friends', name);
         var items = getByName(selectedFriend.itemListName)
         ractive.set('items', items);   
