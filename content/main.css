@@ -89,8 +89,12 @@ html, body { height: 100%; margin: 0; padding: 0; }
     background: #FEF2E2;
     border: 5px solid #300D0D;
 	border-radius: 5px;
-}
 
+}
+.disabled{
+	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
 
 .friendImg{
 	width: 50%;

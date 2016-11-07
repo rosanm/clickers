@@ -59,7 +59,7 @@
                 <div class="boxHeader">FRIENDS</div>               
                 <div id="sortable" class="theZoo">
                     {{#friends}}
-                        <div class="MonsterCard section-monstercard" friendName="{{name}}">
+                        <div class="MonsterCard section-monstercard {{ count ? '0' : 'disabled' }}" friendName="{{name}}">
                             <div class="boxHeader">{{name}}</div>
                             <img src="{{img}}" class="friendImg">
                             <p>Stage: {{stage}}</p>
