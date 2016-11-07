@@ -62,11 +62,11 @@ $(document).ready(function(){
 
             //starters
             friends: 
-                    [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:2, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
-                     {name:"Blazby",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:3, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
-                     {name:"Kniron",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:5, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
-                     {name:"Eartail", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:8, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
-                     {name:"Phyracu", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:4, dmg:13, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
+                    [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:2, lifeTimeDmg:0, price:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
+                     {name:"Blazby",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:3, lifeTimeDmg:0, price:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
+                     {name:"Kniron",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:5, lifeTimeDmg:0, price:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
+                     {name:"Eartail", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:8, lifeTimeDmg:0, price:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
+                     {name:"Phyracu", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:4, dmg:13,lifeTimeDmg:0, price:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
             //upgrade data
             friendsData: 
                     [{name:"Herbear", levelUp: 20, nextStageIndex:1, dmg:200, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},
@@ -133,6 +133,7 @@ $(document).ready(function(){
             var me =  ractive.get('friends')[index];           
             me.lvl = me.lvl + 1;
             me.dmg = me.dmg + 3;
+            me.price = me.price * 1.3;
 
             if(me.lvl >= me.levelUp) {
                     //set all new data
@@ -176,6 +177,7 @@ $(document).ready(function(){
         var unitsPerSec = 0;
             itemsArray.forEach(function(e) {
                         unitsPerSec += (e.count*e.dmg);
+                        e.lifeTimeDmg += (e.count*e.dmg);
                     }, this);
             return unitsPerSec;
     };
@@ -185,10 +187,19 @@ $(document).ready(function(){
         var itemDps = calcUnitsPerSec(ractive.get('items'));
         var friendDps = calcUnitsPerSec(ractive.get('friends'));
         ractive.set('dps', itemDps + friendDps);      
-                
+
+       // updateLifeTimeDmg();
+
         //this must be the last statment
         setTimeout(gameLoop, 1000);
     }
+
+
+    // function updateLifeTimeDmg(){
+    //         friends.forEach(function(f) {
+    //                     f.lifeTimeDmg += (f.count*f.dmg);
+    //                 }, this);
+    // }
 
     function smoothScoreLoop() {
         //berekend hoeveel je er per 100/ste seconden bij krijgt

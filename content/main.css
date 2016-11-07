@@ -91,26 +91,14 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	border-radius: 5px;
 }
 
-.section-monstercard2 {
-    background: lightsalmon;
-}
-
-.section-monstercard3 {
-    background: darkorange;
-}
-
-.section-monstercard2 {
-    background: lightsalmon;
-}
-
-.section-monstercard3 {
-    background: darkorange;
-}
-
 
 .friendImg{
 	width: 50%;
 	float: left;
+}
+
+.section-monstercard span{
+	font-weight: bold;
 }
 
 
