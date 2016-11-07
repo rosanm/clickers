@@ -82,8 +82,8 @@ $(document).ready(function(){
             //starters
             friends: 
                     [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:2, lifeTimeDmg:0, price:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
-                     {name:"Blazby",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:3, lifeTimeDmg:0, price:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
-                     {name:"Kniron",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:5, lifeTimeDmg:0, price:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
+                     {name:"Blazby",  count: 20, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:3, lifeTimeDmg:0, price:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
+                     {name:"Kniron",  count: 99, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:5, lifeTimeDmg:0, price:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
                      {name:"Eartail", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:8, lifeTimeDmg:0, price:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
                      {name:"Phyracu", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:4, dmg:13,lifeTimeDmg:0, price:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
             //upgrade data

@@ -91,6 +91,12 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	border-radius: 5px;
 
 }
+
+.section-monstercard .count_label{
+ font-size: 50pt;
+ float: right;
+ margin-right: 10px;
+}
 .disabled{
 	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
@@ -99,6 +105,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .friendImg{
 	width: 50%;
 	float: left;
+	max-height: 125px;
 }
 
 .section-monstercard span{

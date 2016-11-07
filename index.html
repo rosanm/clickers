@@ -62,8 +62,9 @@
                         <div class="MonsterCard section-monstercard {{ count ? '0' : 'disabled' }}" friendName="{{name}}">
                             <div class="boxHeader">{{name}}</div>
                             <img src="{{img}}" class="friendImg">
-                            <p>Stage: {{stage}}</p>
-                            <p>Lvl: {{lvl}}</p>
+                            <p>Stage: {{stage}} Lvl: {{lvl}}</p>
+
+                            <div class="count_label">{{count}}x</div>
                             <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)" disabled="{{ price > units }}">Train</button>
                             <button class="button-buy" on-click="@this.fire('trainFriend', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button>
                              <div class="hoverBox">
