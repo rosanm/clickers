@@ -65,7 +65,9 @@
                             <p>DMG per second: {{dmg}}<p/>
                             <p>Stage: {{stage}}</p>
                             <p>Lvl: {{lvl}}</p>
-                            <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)">Train</button>
+                            {{#if price > units}}
+                                <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)">Train</button>
+                            {{/if}}
                             <div>{{id}}</div>
                              <div class="hoverBox">
                             <div class="arrow-up"></div>
