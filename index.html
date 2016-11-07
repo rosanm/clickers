@@ -62,7 +62,6 @@
                         <div class="MonsterCard section-monstercard" friendName="{{name}}">
                             <div class="boxHeader">{{name}}</div>
                             <img src="{{img}}" class="friendImg">
-                            <p>DMG per second: {{dmg}}<p/>
                             <p>Stage: {{stage}}</p>
                             <p>Lvl: {{lvl}}</p>
                             {{#if price > units}}
@@ -72,10 +71,11 @@
                              <div class="hoverBox">
                             <div class="arrow-up"></div>
                             <div>
-                                <p>Dps per {{name}}: {{dmg}}</p>
-                                <p># of {{name}}: {{count}}</p>
-                                <p>Total dps {{dmg*count}}</p>
-                                <p>{{name}}s do {{((dmg*count)/dps)*100}}% of all dmg.</p>                    
+                                <div>Each <span>{{name}}</span> deals <span>{{dmg}}</span> damage per second.</div>
+                                <div><span>{{count}}</span> {{name}}'s deal <span>{{dmg*count}}</span> dps. (<span>{{((dmg*count)/dps)*100}}%</span>)</div>
+                                <div>In total they dealt <span>{{lifeTimeDmg}}</span> dmg.</div>
+                                <div>&nbsp;</div>
+                                <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{dmg*0.2}}</span> dmg. For <span>{{price}}</span> diamonds.</div>                                                     
                             </div>
                             </div>
                         </div>
