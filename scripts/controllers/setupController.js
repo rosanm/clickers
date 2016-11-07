@@ -60,7 +60,7 @@ $(document).ready(function(){
                      {name:"Giksy",      hp:8000,   total: 8000,  img:"images/enemys/041_giksy_by_deoxysdaniel-d5ncn82.png"},
                      {name:"Scrysee",    hp:8000,   total: 8000,  img:"images/enemys/042_scrysee_by_deoxysdaniel-d5ngh83.png"},
                      {name:"Hitkid",     hp:8000,   total: 8000,  img:"images/enemys/043_hitkid_by_deoxysdaniel-d5ncn8n.png"},
-                     {name:"",           hp:8000,   total: 8000,  img:"images/enemys/044_hitkayow_by_deoxysdaniel-d5ngh88.png"},
+                     {name:"Ssnogoat",   hp:8000,   total: 8000,  img:"images/enemys/044_hitkayow_by_deoxysdaniel-d5ngh88.png"},
                      {name:"",           hp:8000,   total: 8000,  img:"images/enemys/045_snogoat_by_deoxysdaniel-d5nwevp.png"},
                      {name:"",           hp:8000,   total: 8000,  img:"images/enemys/046_firnhorn_by_deoxysdaniel-d5o36ot.png"},
                      {name:"",           hp:8000,   total: 8000,  img:"images/enemys/047_glacyak_by_deoxysdaniel-d5oh0h6.png"},
@@ -120,7 +120,7 @@ $(document).ready(function(){
         setTimeout(smoothScoreLoop, 10); //loop 100x per sec
     }
 
-    function attackEnemy() {
+    function smoothAttackEnemy() {
         ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
         var currentEnemy = ractive.get('currentEnemy');
        
@@ -141,10 +141,10 @@ $(document).ready(function(){
             $(".enemySet").show();
         } 
 
-        setTimeout(attackEnemy, 10); //loop 100x per sec  
+        setTimeout(smoothAttackEnemy, 10); //loop 100x per sec  
     };
 
-    attackEnemy();
+    smoothAttackEnemy();
 
     function NextEnemy() {
         var currentEnemy = ractive.get('currentEnemy');
@@ -234,8 +234,6 @@ $(document).ready(function(){
         setTimeout(gameLoop, 1000);
     }
 
-
-
     //Start the game the first time
     gameLoop();
     //start the smoothscore
@@ -249,8 +247,6 @@ $(document).ready(function(){
     $("#items-box").sortable({
         revert: true,
     });
-
-    //$(".MonsterCard").tooltip();
 
    $(".MonsterCard").click(function() {
         //selection 
