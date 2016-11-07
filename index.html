@@ -64,9 +64,7 @@
                             <img src="{{img}}" class="friendImg">
                             <p>Stage: {{stage}}</p>
                             <p>Lvl: {{lvl}}</p>
-                            {{#if price > units}}
-                                <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)">Train</button>
-                            {{/if}}
+                            <button class="button-upgrade" on-click="@this.fire('trainFriend', event, @index)" disabled="{{ price > units }}">Train</button>
                             <div>{{id}}</div>
                              <div class="hoverBox">
                             <div class="arrow-up"></div>
