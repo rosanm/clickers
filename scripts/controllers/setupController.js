@@ -3,7 +3,7 @@ $(document).ready(function(){
         el: "#container",
         template: "#template",
         data: {
-            units: 0,
+            units: 4000,
             dps: 0,
             level: 1,
             enemyIndex: 0,
@@ -18,10 +18,8 @@ $(document).ready(function(){
                         return range;
                     },
             
-            selectedFriend: '',
-            
-            items: [],
-            
+            selectedFriend: '',           
+            items: [],           
             //Items per starter
             itemsPandoo: 
                     [{name:"Harder Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
@@ -53,12 +51,33 @@ $(document).ready(function(){
                      {name:"Extra Damage",      img:"images/items/pink-glass-round.png",   lvl:0,  count:0, price:50000,  dmg:34,    max:999}],
 
             enemys: 
-                    [{name:"Dropphin",   hp:150,    total: 150,    img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
-                     {name:"Dolswim",    hp:500,    total: 500,    img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
-                     {name:"Arambly",    hp:1000,   total: 1000,   img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
+                    [{name:"Dropphin",   hp:150,    total: 150,   img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+                     {name:"Dolswim",    hp:500,    total: 500,   img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
+                     {name:"Arambly",    hp:1000,   total: 1000,  img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
                      {name:"Umbrarach",  hp:2000,   total: 2000,  img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
                      {name:"Cubern",     hp:4000,   total: 4000,  img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-                     {name:"Gigarotto",  hp:8000,   total: 8000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"}],
+                     {name:"Gigarotto",  hp:8000,   total: 8000,  img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"},
+                     {name:"Giksy",      hp:8000,   total: 8000,  img:"images/enemys/041_giksy_by_deoxysdaniel-d5ncn82.png"},
+                     {name:"Scrysee",    hp:8000,   total: 8000,  img:"images/enemys/042_scrysee_by_deoxysdaniel-d5ngh83.png"},
+                     {name:"Hitkid",     hp:8000,   total: 8000,  img:"images/enemys/043_hitkid_by_deoxysdaniel-d5ncn8n.png"},
+                     {name:"",           hp:8000,   total: 8000,  img:"images/enemys/044_hitkayow_by_deoxysdaniel-d5ngh88.png"},
+                     {name:"",           hp:8000,   total: 8000,  img:"images/enemys/045_snogoat_by_deoxysdaniel-d5nwevp.png"},
+                     {name:"",           hp:8000,   total: 8000,  img:"images/enemys/046_firnhorn_by_deoxysdaniel-d5o36ot.png"},
+                     {name:"",           hp:8000,   total: 8000,  img:"images/enemys/047_glacyak_by_deoxysdaniel-d5oh0h6.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/051_anemo_by_deoxysdaniel-d5nwex0.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/052_nemonish_by_deoxysdaniel-d5o375e.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/056_ancshark_by_deoxysdaniel-d5p8brn.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/057_ankammer_by_deoxysdaniel-d5p8ici.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/058_hammerank_by_deoxysdaniel-d5p9sfq.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/059_leafllen_by_deoxysdaniel-d5pg65m.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/060_spectree_by_deoxysdaniel-d5pg6nk.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/061_treethom_by_deoxysdaniel-d5pg7k8.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/062_macombu_by_deoxysdaniel-d5pmg6t.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/063_eumovolt_by_deoxysdaniel-d5pmg70.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/064_____by_deoxysdaniel-d5pqlrv.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/065_____by_deoxysdaniel-d5psbvj.png"},
+                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/066_____by_deoxysdaniel-d5pqls8.png"},
+                     ],
 
             //starters
             friends: 
@@ -83,6 +102,23 @@ $(document).ready(function(){
         }, this);
     };
 
+    function smoothScoreLoop() {
+        //berekend hoeveel je er per 100/ste seconden bij krijgt
+        var addPer100stSec = ractive.get('dps') / 100;
+
+        //tel je units erbij en rond af op 1 decimaal
+        var unrounded = ractive.get('units') + addPer100stSec
+        var roundend = unrounded;
+        if(addPer100stSec > 0.1)
+            rounded = Math.round(unrounded * 10 ) / 10;  //1 decimaal
+        else
+            rounded = Math.round(unrounded * 100 ) / 100;  //2 decimaal
+
+        ractive.set('units', rounded);
+
+        //this must be the last statment
+        setTimeout(smoothScoreLoop, 10); //loop 100x per sec
+    }
 
     function attackEnemy() {
         ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
@@ -98,25 +134,7 @@ $(document).ready(function(){
         ractive.update();
         
         if(ractive.get('currentEnemy.hp') < 0){
-            //verhoog level met 1
-            ractive.set('level', ractive.get('level') + 1);
-            //zet de nieuwe 20% sterker
-            currentEnemy.hp = currentEnemy.total + (currentEnemy.total * 0.2);
-            currentEnemy.total = currentEnemy.hp;
-
-            var enemyIndex = ractive.get('enemyIndex');
-            if(enemyIndex == ractive.get('enemys').length - 1)
-                ractive.set('enemyIndex', 0);
-            else
-                ractive.set('enemyIndex', enemyIndex + 1);
-                  
-            ractive.set('currentEnemy', ractive.get('enemys')[enemyIndex]);  
-            
-            ractive.update();
-
-            $("#progresscontainer").hide();
-            $(".doorSet").show();
-            $(".enemySet").hide();
+            NextEnemy();
         }
         else {
             $(".doorSet").hide();
@@ -127,6 +145,30 @@ $(document).ready(function(){
     };
 
     attackEnemy();
+
+    function NextEnemy() {
+        var currentEnemy = ractive.get('currentEnemy');
+
+                //verhoog level met 1
+                ractive.set('level', ractive.get('level') + 1);
+                //zet de nieuwe 61% sterker
+                currentEnemy.hp = currentEnemy.total * 1.61803398875; //Golden Ratio
+                currentEnemy.total = currentEnemy.hp;
+
+                var enemyIndex = ractive.get('enemyIndex');
+                if(enemyIndex == ractive.get('enemys').length - 1)
+                    ractive.set('enemyIndex', 0);
+                else
+                    ractive.set('enemyIndex', enemyIndex + 1);
+                    
+                ractive.set('currentEnemy', ractive.get('enemys')[enemyIndex]);  
+                
+                ractive.update();
+
+                $("#progresscontainer").hide();
+                $(".doorSet").show();
+                $(".enemySet").hide();
+    };
 
     ractive.on({
         trainFriend: function(event, index) { 
@@ -161,7 +203,7 @@ $(document).ready(function(){
                     ractive.set('units', diamonds - priceOfItem);
                     var upgradedItem = ractive.get('items' + selectedFriend)[itemNr];
                     upgradedItem.lvl = upgradedItem.lvl +1;
-                    upgradedItem.price = Math.round(upgradedItem.price * 1.2);
+                    upgradedItem.price = Math.round(upgradedItem.price * 1.3);
                     upgradedItem.dmg = Math.round(upgradedItem.dmg * 1.2);
                     upgradedItem.count = upgradedItem.count + 1;
                     ractive.update();
@@ -188,36 +230,11 @@ $(document).ready(function(){
         var friendDps = calcUnitsPerSec(ractive.get('friends'));
         ractive.set('dps', itemDps + friendDps);      
 
-       // updateLifeTimeDmg();
-
         //this must be the last statment
         setTimeout(gameLoop, 1000);
     }
 
 
-    // function updateLifeTimeDmg(){
-    //         friends.forEach(function(f) {
-    //                     f.lifeTimeDmg += (f.count*f.dmg);
-    //                 }, this);
-    // }
-
-    function smoothScoreLoop() {
-        //berekend hoeveel je er per 100/ste seconden bij krijgt
-        var addPer100stSec = ractive.get('dps') / 100;
-
-        //tel je units erbij en rond af op 1 decimaal
-        var unrounded = ractive.get('units') + addPer100stSec
-        var roundend = unrounded;
-        if(addPer100stSec > 0.1)
-            rounded = Math.round(unrounded * 10 ) / 10;  //1 decimaal
-        else
-            rounded = Math.round(unrounded * 100 ) / 100;  //2 decimaal
-
-        ractive.set('units', rounded);
-
-        //this must be the last statment
-        setTimeout(smoothScoreLoop, 10); //loop 100x per sec
-    }
 
     //Start the game the first time
     gameLoop();
