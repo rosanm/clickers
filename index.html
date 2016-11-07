@@ -30,9 +30,11 @@
                     <div class="boxHeader" style="text-align: center;">
                         STATS
                     </div>
-                    <div id="unitcounter"><i class="diamondIcon fa fa-diamond fa-lg"></i>  {{units}}</div>
-                    <div id="unitpersec"> <i class="diamondIcon fa fa-flash fa-lg"></i> p/s  {{dps}}</div>
-                    <div id="currentLvl">Level <i class="fa fa-level-up fa-lg"></i>:  {{level}}</div>
+                    <div class="top_left_padding">
+                        <div id="unitcounter"><p> <i class="diamondIcon fa fa-diamond fa-lg"></i>{{units}}</p></div>
+                        <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{dps}} DPS</p></div>
+                        <div id="currentLvl">{{level}} Kills</div>
+                    </div>
                 </div>
                 <div class="monster-box">
                     <div class="boxHeader" style="text-align: center;">
@@ -83,7 +85,7 @@
             </div>
 
             <div class="section-right">
-                <div class="boxHeader">ITEMS</div>
+                <div class="boxHeader">  {{selectedFriendName}}'S ITEMS</div>
                 <div id="items-box">
                     {{#items}}
                         <div class="item-field">

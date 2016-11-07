@@ -18,7 +18,8 @@ $(document).ready(function(){
                         return range;
                     },
             
-            selectedFriend: '',           
+            selectedFriend: '',
+            selectedFriendName: 'No one',           
             items: [],           
             //Items per starter
             itemsPandoo: 
@@ -257,8 +258,9 @@ $(document).ready(function(){
         
         //load itemset
         var name = $(this).attr('friendName');
-        ractive.set('selectedFriend', name);
+        ractive.set('selectedFriend', name); //eeeh dubbel??
         var selectedFriend = getObjectFromListByName('friends', name);
+        ractive.set('selectedFriendName', selectedFriend.name);  // HALP > Doet dit nu hetzelfde als de regel hier 2 boven //het lijkt erop dat friendName en friend hetzelfde bevatten
         var items = getByName(selectedFriend.itemListName)
         ractive.set('items', items);   
     });
