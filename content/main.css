@@ -215,7 +215,7 @@ p{
 }
 
 .MonsterCard {
-	cursor: move;
+	cursor:pointer;
 	position: relative;
 }
 
@@ -382,4 +382,36 @@ button:disabled:hover {
   100% {
     transform: translate(0px, 0px);
   }
+}
+
+@keyframes openDown {
+  0% {
+    transform: translate(0px, -20px);    
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+
+@media (max-width: 1455px) {
+	.hoverBox {
+		margin: 20px 10px 10px 10px;
+		animation: openDown 1s;
+		animation-direction: normal;
+		position:initial;
+	}
+
+	.arrow-right {
+		width: 0; 
+		height: 0; 
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent; 
+		border-top: 20px solid #87cefa;
+		position:relative;
+		left: 0;
+		top: 20px;
+		float:none;
+		display:none;
+	}
 }

@@ -301,13 +301,13 @@ $(document).ready(function(){
     smoothScoreLoop();
 
     //Jquery-UI
-    $("#sortable").sortable({
-        revert: true,
-    });
+    // $("#sortable").sortable({
+    //     revert: true,
+    // });
 
-    $("#items-box").sortable({
-        revert: true,
-    });
+    // $("#items-box").sortable({
+    //     revert: true,
+    // });
 
    $(".MonsterCard").click(function() {
        var selectedItem = $(this);
