@@ -87,7 +87,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .section-monstercard {
-	float: left;
     width: 325px;
 	height: 235px;
     margin: 10px;
@@ -302,38 +301,28 @@ p{
 
 .hoverBox {
 	border: 1px solid black;
-	position: absolute;
-	bottom: -130px;
 	background-color: #bfd255;
 	opacity: 0.95;
 	z-index: 99;
 	cursor: auto;
-	left: 5px;
-	right: 5px;
-	padding: 5px;	
+	margin: 10px;
+	animation: open 1s;
+  	animation-direction: normal;
 }
 
 .hoverBox p {
     margin: 0em;
 }
 
-.arrow-up {
+.arrow-left {
   width: 0; 
   height: 0;
   top: -14px;
-  border-left: 15px solid transparent;
+  border-left: 15px solid #bfd255;
   border-right: 15px solid transparent; 
-  border-bottom: 15px solid #bfd255;
+  border-bottom: 15px solid transparent;
   position:absolute;
   opacity: 0.95;
-
-}
-
-.hoverBox{
-	display: none;
-}
-.MonsterCard:hover .hoverBox{
-	display : block;
 }
 
 button:disabled,button:disabled:hover  {
@@ -365,4 +354,19 @@ button:disabled,button:disabled:hover  {
 
 button:disabled:hover {
 	cursor: not-allowed;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+	justify-content: center;
+}
+
+@keyframes open {
+  0% {
+    transform: translate(-20px, 0);    
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
