@@ -10,7 +10,8 @@ $(document).ready(function(){
             currentEnemy: {},
             door:"images/door.png",
             doorSet: false,
-            attack: true,
+            attack: false,
+            mine: true,
             // range: function (low, high) {
             //             var range = [];
             //             for (i = low; i <= high; i += 1) {
@@ -121,32 +122,52 @@ $(document).ready(function(){
         else
             rounded = Math.round(unrounded * 100 ) / 100;  //2 decimaal
 
-        ractive.set('units', rounded);
-
+        //if your mining
+        if(ractive.get('mine')){
+            ractive.set('units', rounded);
+        }
+        
         //this must be the last statment
         setTimeout(smoothScoreLoop, 10); //loop 100x per sec
     }
 
     function smoothAttackEnemy() {
-        ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
-        var currentEnemy = ractive.get('currentEnemy');
-       
-        //Dmg word nonstop gedaan in de progressbarr
-        currentEnemy.hp = ractive.get('currentEnemy').hp - (ractive.get('dps')/100);
-
-        var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
-        $("progress").attr('value', progress);
-        $("#progresscontainer").show();
-
-        ractive.update();
         
-        if(ractive.get('currentEnemy.hp') < 0){
-            NextEnemy();
+        //Show enemy en progressbar part
+                    ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
+                    var currentEnemy = ractive.get('currentEnemy');
+
+                    var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
+                    $("progress").attr('value', progress);
+                    $("#progresscontainer").show();
+
+        //Deal DMG part
+        if(ractive.get('attack')){
+                  
+                    currentEnemy.hp = ractive.get('currentEnemy').hp - (ractive.get('dps')/100);
+
+                    var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
+                    $("progress").attr('value', progress);
+                    $("#progresscontainer").show();
+
+                    ractive.update();
+                    
+                    if(ractive.get('currentEnemy.hp') < 0){
+                        NextEnemy();
+                    }
+                    else {
+                        $(".doorSet").hide();
+                        $(".enemySet").show();
+                    } 
         }
-        else {
-            $(".doorSet").hide();
-            $(".enemySet").show();
-        } 
+                //Control the attack/min variables
+                if(ractive.get('mine')){
+                    ractive.set('attack', false);
+                }
+
+                if(ractive.get('attack')){
+                    ractive.set('mine', false);
+                }
 
         setTimeout(smoothAttackEnemy, 10); //loop 100x per sec  
     };
@@ -235,7 +256,9 @@ $(document).ready(function(){
         //update dmg
         var itemDps = calcUnitsPerSec(ractive.get('items'));
         var friendDps = calcUnitsPerSec(ractive.get('friends'));
-        ractive.set('dps', itemDps + friendDps);    
+
+        ractive.set('dps', itemDps + friendDps); 
+
         document.title = ractive.get('units') + " Diamonds"; 
 
         //this must be the last statment
@@ -246,7 +269,6 @@ $(document).ready(function(){
     gameLoop();
     //start the smoothscore
     smoothScoreLoop();
-
 
     //Jquery-UI
     $("#sortable").sortable({
