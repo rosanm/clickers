@@ -10,13 +10,14 @@ $(document).ready(function(){
             currentEnemy: {},
             door:"images/door.png",
             doorSet: false,
-            range: function (low, high) {
-                        var range = [];
-                        for (i = low; i <= high; i += 1) {
-                            range.push( i );
-                        }
-                        return range;
-                    },
+            attack: true,
+            // range: function (low, high) {
+            //             var range = [];
+            //             for (i = low; i <= high; i += 1) {
+            //                 range.push( i );
+            //             }
+            //             return range;
+            //         },
             round: function(number){
                 return Math.round(number);
             },
