@@ -5,7 +5,7 @@ $(document).ready(function(){
         data: {
             units: 0,
             dps: 0,
-            level: 1,
+            level: 0,
             enemyIndex: 0,
             currentEnemy: {},
             door:"images/door.png",
@@ -30,7 +30,7 @@ $(document).ready(function(){
             items: [],           
             //Items per starter
             itemsPandoo: 
-                    [{name:"Harder Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
+                    [{name:"Harder Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:500000,     max:999},
                      {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsBlazby: 
@@ -60,16 +60,16 @@ $(document).ready(function(){
 
             enemys: 
                     [{name:"Dropphin",   hp:150,    total: 150,         img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
-                     {name:"Dolswim",    hp:500,    total: 500,         img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
-                     {name:"Arambly",    hp:1000,   total: 1000,        img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
-                     {name:"Umbrarach",  hp:2000,   total: 2000,        img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
-                     {name:"Cubern",     hp:4000,   total: 4000,        img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-                     {name:"Gigarotto",  hp:8000,   total: 8000,        img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"},
-                     {name:"Giksy",      hp:13000,   total: 13000,      img:"images/enemys/041_giksy_by_deoxysdaniel-d5ncn82.png"},
-                     {name:"Scrysee",    hp:21000,   total: 8000,       img:"images/enemys/042_scrysee_by_deoxysdaniel-d5ngh83.png"},
-                     {name:"Hitkid",     hp:29000,   total: 29000,      img:"images/enemys/043_hitkid_by_deoxysdaniel-d5ncn8n.png"},
-                     {name:"Hitkayow",   hp:50000,   total: 50000,      img:"images/enemys/044_hitkayow_by_deoxysdaniel-d5ngh88.png"},                  
-                     {name:"Snogoat",    hp:79000,   total: 79000,      img:"images/enemys/045_snogoat_by_deoxysdaniel-d5nwevp.png"},
+                     {name:"Dolswim",    hp:0,    total: 0,         img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
+                     {name:"Arambly",    hp:0,   total: 0,        img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
+                     {name:"Umbrarach",  hp:0,   total: 0,        img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
+                     {name:"Cubern",     hp:0,   total: 0,        img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
+                     {name:"Gigarotto",  hp:0,   total: 0,        img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"},
+                     {name:"Giksy",      hp:0,   total: 0,      img:"images/enemys/041_giksy_by_deoxysdaniel-d5ncn82.png"},
+                     {name:"Scrysee",    hp:0,   total: 0,       img:"images/enemys/042_scrysee_by_deoxysdaniel-d5ngh83.png"},
+                     {name:"Hitkid",     hp:0,   total: 0,      img:"images/enemys/043_hitkid_by_deoxysdaniel-d5ncn8n.png"},
+                     {name:"Hitkayow",   hp:0,   total: 0,      img:"images/enemys/044_hitkayow_by_deoxysdaniel-d5ngh88.png"},                  
+                     {name:"Snogoat",    hp:0,   total: 0,      img:"images/enemys/045_snogoat_by_deoxysdaniel-d5nwevp.png"},
                      //BELOW HERE IS NOT FIXED YET
                      {name:"Firnhorn",   hp:0,   total: 0,              img:"images/enemys/046_firnhorn_by_deoxysdaniel-d5o36ot.png"},
                      {name:"Glacyak",    hp:0,   total: 0,              img:"images/enemys/047_glacyak_by_deoxysdaniel-d5oh0h6.png"},
@@ -77,22 +77,22 @@ $(document).ready(function(){
                      {name:"Nemonish",  hp:0,   total: 0,               img:"images/enemys/052_nemonish_by_deoxysdaniel-d5o375e.png"},
                      {name:"Ancshark",  hp:0,   total: 0,               img:"images/enemys/056_ancshark_by_deoxysdaniel-d5p8brn.png"},
                      {name:"Ankammer",  hp:0,   total: 0,               img:"images/enemys/057_ankammer_by_deoxysdaniel-d5p8ici.png"},
-                     {name:"Hammerank",  hp:0,   total: 0,     img:"images/enemys/058_hammerank_by_deoxysdaniel-d5p9sfq.png"},
-                     {name:"Leafllen",  hp:0,   total: 0,      img:"images/enemys/059_leafllen_by_deoxysdaniel-d5pg65m.png"},
-                     {name:"Spectree",  hp:0,   total: 0,      img:"images/enemys/060_spectree_by_deoxysdaniel-d5pg6nk.png"},
-                     {name:"Treethom",  hp:0,   total: 0,      img:"images/enemys/061_treethom_by_deoxysdaniel-d5pg7k8.png"},
-                     {name:"Macombu",  hp:0,   total: 0,      img:"images/enemys/062_macombu_by_deoxysdaniel-d5pmg6t.png"},
-                     {name:"Eumovolt",  hp:0,   total: 0,     img:"images/enemys/063_eumovolt_by_deoxysdaniel-d5pmg70.png"},
-                     {name:"Spookola",  hp:0,   total: 0,    img:"images/enemys/064_____by_deoxysdaniel-d5pqlrv.png"},
-                     {name:"Bookola",  hp:0,   total: 0,    img:"images/enemys/065_____by_deoxysdaniel-d5psbvj.png"},
-                     {name:"Sparkle",  hp:0,   total: 0,    img:"images/enemys/066_____by_deoxysdaniel-d5pqls8.png"},
-                     {name:"The Don",  hp:0,   total: 0,    img:"images/enemys/067_____by_deoxysdaniel-d5psbvs.png"},
-                     {name:"Zenkqwaak",  hp:0,   total: 0,                  img:"images/enemys/068_last_fakemon_of_the_year_by_deoxysdaniel-d5px255.png"},
-                     {name:"Tribuno",  hp:0,   total: 0,                    img:"images/enemys/069_tribuno_by_deoxysdaniel-d5q5kzq.png"},
-                     {name:"Tributoo",  hp:0,   total: 0,                   img:"images/enemys/070_tributoo_by_deoxysdaniel-d5q7s8m.png"},
-                     {name:"Tycub",  hp:0,   total: 0,                      img:"images/enemys/071_tycub_by_deoxysdaniel-d5qbho6.png"},
-                     {name:"Lycub",  hp:0,   total: 0,                      img:"images/enemys/072_lycub_by_deoxysdaniel-d5quelj.png"},
-                     {name:"Lycantrix",  hp:0,   total: 0,                  img:"images/enemys/073_____by_deoxysdaniel-d5r6whv.png"},
+                     {name:"Hammerank",  hp:0,   total: 0,              img:"images/enemys/058_hammerank_by_deoxysdaniel-d5p9sfq.png"},
+                     {name:"Leafllen",  hp:0,   total: 0,               img:"images/enemys/059_leafllen_by_deoxysdaniel-d5pg65m.png"},
+                     {name:"Spectree",  hp:0,   total: 0,               img:"images/enemys/060_spectree_by_deoxysdaniel-d5pg6nk.png"},
+                     {name:"Treethom",  hp:0,   total: 0,               img:"images/enemys/061_treethom_by_deoxysdaniel-d5pg7k8.png"},
+                     {name:"Macombu",  hp:0,   total: 0,                img:"images/enemys/062_macombu_by_deoxysdaniel-d5pmg6t.png"},
+                     {name:"Eumovolt",  hp:0,   total: 0,               img:"images/enemys/063_eumovolt_by_deoxysdaniel-d5pmg70.png"},
+                     {name:"Spookola",  hp:0,   total: 0,               img:"images/enemys/064_____by_deoxysdaniel-d5pqlrv.png"},
+                     {name:"Bookola",  hp:0,   total: 0,                img:"images/enemys/065_____by_deoxysdaniel-d5psbvj.png"},
+                     {name:"Sparkle",  hp:0,   total: 0,                img:"images/enemys/066_____by_deoxysdaniel-d5pqls8.png"},
+                     {name:"The Don",  hp:0,   total: 0,                img:"images/enemys/067_____by_deoxysdaniel-d5psbvs.png"},
+                     {name:"Zenkqwaak",  hp:0,   total: 0,              img:"images/enemys/068_last_fakemon_of_the_year_by_deoxysdaniel-d5px255.png"},
+                     {name:"Tribuno",  hp:0,   total: 0,                img:"images/enemys/069_tribuno_by_deoxysdaniel-d5q5kzq.png"},
+                     {name:"Tributoo",  hp:0,   total: 0,               img:"images/enemys/070_tributoo_by_deoxysdaniel-d5q7s8m.png"},
+                     {name:"Tribarrior",  hp:0,   total: 0,              img:"images/enemys/071_tribarrior_by_deoxysdaniel-d5qbho6"},
+                     {name:"Lycub",  hp:0,   total: 0,                  img:"images/enemys/072_lycub_by_deoxysdaniel-d5quelj.png"},
+                     {name:"Lycantrix",  hp:0,   total: 0,              img:"images/enemys/073_____by_deoxysdaniel-d5r6whv.png"},
                      {name:"Companyan",  hp:0,   total: 0,            img:"images/enemys/074_companyan_by_deoxysdaniel-d5quelr.png"},
                      {name:"Felomnious",  hp:0,   total: 0,         img:"images/enemys/075_felomnious_by_deoxysdaniel-d5r55wu.png"},
                      {name:"Lumbrunnel",  hp:0,   total: 0,       img:"images/enemys/076_lumbrunnel_by_deoxysdaniel-d5qzbiv.png"},
@@ -112,7 +112,7 @@ $(document).ready(function(){
                      {name:"Unihund",  hp:0,   total: 0,    img:"images/enemys/unihund_by_deoxysdaniel-d5ru0dg.png"}],
             //starters
             friends: 
-                    [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:2, lifeTimeDmg:0, price:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
+                    [{name:"Pandoo",  count: 10, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:2, lifeTimeDmg:0, price:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
                      {name:"Blazby",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:1, dmg:3, lifeTimeDmg:0, price:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
                      {name:"Kniron",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:5, lifeTimeDmg:0, price:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
                      {name:"Eartail", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:3, dmg:8, lifeTimeDmg:0, price:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
@@ -198,21 +198,28 @@ $(document).ready(function(){
     smoothAttackEnemy();
 
     function NextEnemy() {
-        var currentEnemy = ractive.get('currentEnemy');
+        //verhoog level met 1
+        ractive.set('level', ractive.get('level') + 1);
 
-                //verhoog level met 1
-                ractive.set('level', ractive.get('level') + 1);
-                //zet de nieuwe 61% sterker
-                currentEnemy.hp = currentEnemy.total * 1.61803398875; //Golden Ratio
-                currentEnemy.total = currentEnemy.hp;
-
+            var currentEnemy = ractive.get('currentEnemy');
+        
                 var enemyIndex = ractive.get('enemyIndex');
-                if(enemyIndex == ractive.get('enemys').length - 1)
-                    ractive.set('enemyIndex', 0);
-                else
-                    ractive.set('enemyIndex', enemyIndex + 1);
+                if(enemyIndex == ractive.get('enemys').length - 1){           
+                    enemyIndex = 0;
+                }
+                else{
+                    enemyIndex = enemyIndex + 1;
+                }
                     
-                ractive.set('currentEnemy', ractive.get('enemys')[enemyIndex]);  
+                var newEnemy = ractive.get('enemys')[enemyIndex];
+
+                //pak de volgende enemy met 61% meer hp als de vorige
+                newEnemy.hp = currentEnemy.total * 1.61803398875; //Golden Ratio;
+                newEnemy.total = newEnemy.hp;
+            
+
+                ractive.set('enemyIndex', enemyIndex);
+                ractive.set('currentEnemy', newEnemy);  
                 
                 ractive.update();
 
