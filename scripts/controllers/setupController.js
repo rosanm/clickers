@@ -310,10 +310,25 @@ $(document).ready(function(){
     });
 
    $(".MonsterCard").click(function() {
+       var selectedItem = $(this);
         //selection 
         $(".MonsterCard").removeClass("active");
-        $(this).addClass("active");
+        selectedItem.addClass("active");
         
+        $('.MonsterCard').each(function(i, e){
+            if(selectedItem[0] != e)
+            {
+                $(this).addClass('test');
+                $(this).addClass('move');
+                $(this).find('.arrow-right').hide();
+            }
+            else{
+                $(this).removeClass('test');
+                $(this).removeClass('move');
+                $(this).find('.arrow-right').show();
+            }
+        });
+
         //load itemset
         var name = $(this).attr('friendName');
         ractive.set('selectedFriend', name); //eeeh dubbel??
