@@ -20,6 +20,9 @@ $(document).ready(function(){
             round: function(number){
                 return Math.round(number);
             },
+            isFriendAvailable: function(name){
+                return getObjectFromListByName('friends', name).count > 0;
+            },
             selectedFriend: '',
             selectedFriendName: 'No one',           
             items: [],           
