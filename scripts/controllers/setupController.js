@@ -72,19 +72,19 @@ $(document).ready(function(){
                      {name:"",           hp:8000,   total: 8000,  img:"images/enemys/045_snogoat_by_deoxysdaniel-d5nwevp.png"},
                      {name:"",           hp:8000,   total: 8000,  img:"images/enemys/046_firnhorn_by_deoxysdaniel-d5o36ot.png"},
                      {name:"",           hp:8000,   total: 8000,  img:"images/enemys/047_glacyak_by_deoxysdaniel-d5oh0h6.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/051_anemo_by_deoxysdaniel-d5nwex0.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/052_nemonish_by_deoxysdaniel-d5o375e.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/056_ancshark_by_deoxysdaniel-d5p8brn.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/057_ankammer_by_deoxysdaniel-d5p8ici.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/058_hammerank_by_deoxysdaniel-d5p9sfq.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/059_leafllen_by_deoxysdaniel-d5pg65m.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/060_spectree_by_deoxysdaniel-d5pg6nk.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/061_treethom_by_deoxysdaniel-d5pg7k8.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/062_macombu_by_deoxysdaniel-d5pmg6t.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/063_eumovolt_by_deoxysdaniel-d5pmg70.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/064_____by_deoxysdaniel-d5pqlrv.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/065_____by_deoxysdaniel-d5psbvj.png"},
-                     {name:"",  hp:8000,   total: 8000,  img:"images/enemys/066_____by_deoxysdaniel-d5pqls8.png"},
+                     {name:"",  hp:18000,   total: 8000,          img:"images/enemys/051_anemo_by_deoxysdaniel-d5nwex0.png"},
+                     {name:"",  hp:280000,   total: 8000,  img:"images/enemys/052_nemonish_by_deoxysdaniel-d5o375e.png"},
+                     {name:"",  hp:380000,   total: 8000,  img:"images/enemys/056_ancshark_by_deoxysdaniel-d5p8brn.png"},
+                     {name:"",  hp:4800000,   total: 8000,  img:"images/enemys/057_ankammer_by_deoxysdaniel-d5p8ici.png"},
+                     {name:"",  hp:5800000,   total: 8000,  img:"images/enemys/058_hammerank_by_deoxysdaniel-d5p9sfq.png"},
+                     {name:"",  hp:6800000,   total: 8000,  img:"images/enemys/059_leafllen_by_deoxysdaniel-d5pg65m.png"},
+                     {name:"",  hp:7800000,   total: 8000,  img:"images/enemys/060_spectree_by_deoxysdaniel-d5pg6nk.png"},
+                     {name:"",  hp:8800000,   total: 8000,  img:"images/enemys/061_treethom_by_deoxysdaniel-d5pg7k8.png"},
+                     {name:"",  hp:98000000,   total: 8000,  img:"images/enemys/062_macombu_by_deoxysdaniel-d5pmg6t.png"},
+                     {name:"",  hp:10800000,   total: 8000,  img:"images/enemys/063_eumovolt_by_deoxysdaniel-d5pmg70.png"},
+                     {name:"",  hp:118000000,   total: 8000,  img:"images/enemys/064_____by_deoxysdaniel-d5pqlrv.png"},
+                     {name:"",  hp:1280000000,   total: 8000,  img:"images/enemys/065_____by_deoxysdaniel-d5psbvj.png"},
+                     {name:"",  hp:1380000000,   total: 8000,  img:"images/enemys/066_____by_deoxysdaniel-d5pqls8.png"},
                      ],
 
             //starters
@@ -126,7 +126,7 @@ $(document).ready(function(){
         if(ractive.get('mine')){
             ractive.set('units', rounded);
         }
-        
+
         //this must be the last statment
         setTimeout(smoothScoreLoop, 10); //loop 100x per sec
     }
