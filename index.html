@@ -68,12 +68,10 @@
 
             </div>              
             <div class="section-center">
-                <div class="boxHeader">FRIENDS</div>
-                    <div class="flex-container">  
-                                        <div class="box">            
+                <div class="boxHeader">FRIENDS</div>      
                         <div id="sortable" class="theZoo">
                             {{#friends}}
-                                <div class="flex-container">
+                                <div class="box">
                                     <div class="MonsterCard section-monstercard {{ count ? '0' : 'disabled' }}" friendName="{{name}}">
                                         <div class="boxHeader">{{name}}</div>
                                         <img src="{{img}}" class="friendImg">
@@ -99,8 +97,6 @@
                                     {{/if}}
                                 </div>
                             {{/friends}}
-                        </div>
-                    </div>
                 </div>
             </div>
 

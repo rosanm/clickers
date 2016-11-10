@@ -310,14 +310,15 @@ p{
 	opacity: 0.95;
 	z-index: 99;
 	cursor: auto;
-	margin: 10px;
+	margin: 10px 20px;
 	animation: open 1s;
   	animation-direction: normal;
-	position:relative;
+	position:absolute;
 	padding: 5px;
 	height: 130px;
 	width: 325px;
-	top: 40px;
+	top: 30px;
+	left: 345px;
 }
 
 .hoverBox p {
@@ -369,33 +370,14 @@ button:disabled:hover {
 	cursor: not-allowed;
 }
 
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-	justify-content: center;
+.box {
+	position: relative;
 }
 
-.move {
-	animation: moveAside 1s;
-  	animation-direction: normal;
-}
-
-.test {
-	left: -170px !important;
-}
 
 @keyframes open {
   0% {
     transform: translate(-20px, 0);    
-  }
-  100% {
-    transform: translate(0px, 0px);
-  }
-}
-
-@keyframes moveAside {
-  0% {
-    transform: translate(50px, 0);    
   }
   100% {
     transform: translate(0px, 0px);
