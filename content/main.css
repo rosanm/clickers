@@ -83,7 +83,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
     background: #FBCB81;
     border: 5px solid #300D0D;
 	border-radius: 5px;
-	overflow: auto;
+	overflow: hidden;
 }
 
 .section-monstercard {
