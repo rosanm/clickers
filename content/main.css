@@ -86,6 +86,18 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	overflow: hidden;
 }
 
+.itemcard {
+	height: 110px;
+    margin: 10px;
+    background: #FEF2E2;
+    border: 5px solid #300D0D;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	-moz-box-shadow: 0 8px 6px -6px black;
+	box-shadow: 0 8px 6px -6px black;
+
+}
+
 .section-monstercard {
     width: 325px;
 	height: 235px;
