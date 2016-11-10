@@ -83,7 +83,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
     background: #FBCB81;
     border: 5px solid #300D0D;
 	border-radius: 5px;
-	overflow: hidden;
+	overflow: auto;
 }
 
 .section-monstercard {
@@ -93,13 +93,17 @@ html, body { height: 100%; margin: 0; padding: 0; }
     background: #FEF2E2;
     border: 5px solid #300D0D;
 	border-radius: 5px;
+	  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
 
 }
 
 .section-monstercard .count_label{
  	font-size: 50pt;
- 	float: right;
 	margin-right: 10px;
+	position:absolute;
+	right: 0;
 }
 .disabled{
 	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
@@ -129,6 +133,9 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	overflow: hidden;
 }
 
+.clear {
+	clear:both;
+}
 
 
 .monster-box-enemy {
@@ -300,30 +307,36 @@ p{
 
 
 .hoverBox {
-	border: 1px solid black;
-	background-color: #bfd255;
 	opacity: 0.95;
 	z-index: 99;
 	cursor: auto;
 	margin: 10px;
 	animation: open 1s;
   	animation-direction: normal;
+	position:relative;
+	padding: 5px;
+	height: 130px;
+	width: 325px;
+	top: 40px;
 }
 
 .hoverBox p {
     margin: 0em;
 }
 
-.arrow-left {
+.arrow-right {
   width: 0; 
-  height: 0;
-  top: -14px;
-  border-left: 15px solid #bfd255;
-  border-right: 15px solid transparent; 
+  height: 0; 
+  border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  position:absolute;
-  opacity: 0.95;
+  border-left: 15px solid #87cefa;
+  position:relative;
+  left: 20px;
+  top: -130px;
+  float:right;
+  display:none;
 }
+
 
 button:disabled,button:disabled:hover  {
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -362,9 +375,27 @@ button:disabled:hover {
 	justify-content: center;
 }
 
+.move {
+	animation: moveAside 1s;
+  	animation-direction: normal;
+}
+
+.test {
+	left: -170px !important;
+}
+
 @keyframes open {
   0% {
     transform: translate(-20px, 0);    
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes moveAside {
+  0% {
+    transform: translate(50px, 0);    
   }
   100% {
     transform: translate(0px, 0px);
