@@ -303,7 +303,7 @@ p{
 .hoverBox {
 	border: 1px solid black;
 	position: absolute;
-	bottom: -55px;
+	bottom: -130px;
 	background-color: #bfd255;
 	opacity: 0.95;
 	z-index: 99;

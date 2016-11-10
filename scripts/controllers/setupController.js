@@ -17,7 +17,9 @@ $(document).ready(function(){
                         }
                         return range;
                     },
-            
+            round: function(number){
+                return Math.round(number);
+            },
             selectedFriend: '',
             selectedFriendName: 'No one',           
             items: [],           
@@ -176,7 +178,7 @@ $(document).ready(function(){
             var me =  ractive.get('friends')[index];           
             me.lvl = me.lvl + 1;
             me.dmg = me.dmg + 3;
-            me.price = me.price * 1.3;
+            me.price = ractive.get('round')(me.price * 1.3);
 
             if(me.lvl >= me.levelUp) {
                     //set all new data
