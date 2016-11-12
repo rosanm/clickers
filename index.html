@@ -72,19 +72,21 @@
                             {{#friends}}
                                 <div class="box">
                                     <div class="MonsterCard section-monstercard {{ count ? '0' : 'disabled' }}" friendName="{{name}}">
-                                        <div class="boxHeader">{{name}}</div>
+                                        <div class="boxHeader">{{#if count > 0}}{{name}}{{else}}???{{/if}}</div>
                                         <img src="{{img}}" class="friendImg">
                                         <div class="friendsLabels">
-                                            <div class="level_label">
-                                                <p>Stage: {{stage}}</p>
-                                                <p>Level: {{lvl}}</p>
-                                            </div>
-                                            <div class="count_label">{{count}}x</div>
+                                            {{#if count > 0}}
+                                                <div class="level_label">
+                                                    <p>Stage: {{stage}}</p>
+                                                    <p>Level: {{lvl}}</p>
+                                                </div>                                          
+                                                <div class="count_label">{{count}}x</div>
+                                             {{/if}}
                                         </div>
                                         <div class="clear">
-                                            {{#if count > 0}}
+                                           
                                             <button style="margin-left:5px;" class="button-buy" on-click="@this.fire('trainFriend', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button> 
-                                             {{/if}}
+                                            
                                         </div>
                                         <div class="arrow-right"></div>
                                     </div>
