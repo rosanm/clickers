@@ -30,17 +30,17 @@ $(document).ready(function(){
             items: [],           
             //Items per starter
             itemsPandoo: 
-                    [{name:"Harder Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:500000,     max:999},
+                    [{name:"Train Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:500000,     max:999},
                      {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsBlazby: 
-                    [{name:"Harder Blazby",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
+                    [{name:"Train Blazby",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
                      {name:"Mega Bite",         img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999},
                      {name:"Dance Saliva",      img:"images/items/orange-glass-round.png", lvl:0,  count:0, price:2500,   dmg:50,    max:999},
                      {name:"Crit Bite",         img:"images/items/green-glass-round.png",  lvl:0,  count:0, price:8000,   dmg:500,   max:999},],
 
             itemsKniron: 
-                    [{name:"Harder Kniron",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,      max:999}],
+                    [{name:"Train Kniron",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,      max:999}],
 
             itemsEartail:
                     [{name:"Super Eartail",     img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:1,     max:999},
@@ -49,9 +49,9 @@ $(document).ready(function(){
                      {name:"Hyper Bite",        img:"images/items/water-glass-round.png",  lvl:0,  count:0, price:500,    dmg:5,     max:999}],
 
             itemsPhyracu: 
-                     [{name:"Harder Phyracu",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:999},
+                     [{name:"Train Phyracu",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:999},
                      {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:999},
-                     {name:"Harder Bite",       img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:3,     max:999},
+                     {name:"Train Bite",       img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:3,     max:999},
                      {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:5,     max:999},
                      {name:"Hyper Bite",        img:"images/items/water-glass-round.png",  lvl:0,  count:0, price:500,    dmg:8,     max:999},
                      {name:"Fire Saliva",       img:"images/items/orange-glass-round.png", lvl:0,  count:0, price:2500,   dmg:13,    max:999},
