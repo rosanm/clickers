@@ -35,6 +35,15 @@
                         <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{dps}} DPS</p></div>
                         <div id="currentLvl">{{level}} Kills</div>
                         <p>Unlock a new friend  in {number} more kills!</p>
+
+                        <p>Use your friends to:</p>
+                           <fieldset>
+                                    <label for="radio-1">Attack!</label>
+                                    <input type="radio" name="radio-1" id="radio-1" checked="{{attack}}"><br/>
+                                    <label for="radio-2">Mine for diamonds</label>
+                                    <input type="radio" name="radio-1" id="radio-2" checked="{{mine}}">
+                         </fieldset>
+
                     </div>
                 </div>
 
@@ -58,12 +67,7 @@
                     </div>
                         {{currentEnemy.name}}
                         <br/>
-                        <fieldset>
-                                    <label for="radio-1">Attack!</label>
-                                    <input type="radio" name="radio-1" id="radio-1" checked="{{attack}}">
-                                    <label for="radio-2">Mine</label>
-                                    <input type="radio" name="radio-1" id="radio-2" checked="{{mine}}">
-                         </fieldset>
+
                 </div>
 
             </div>              
@@ -98,10 +102,15 @@
                                             <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dps. (<span>{{round(((dmg*count)/dps)*100)}}%</span>)</div>
                                             <div>In total they dealt <span>{{lifeTimeDmg}}</span> dmg.</div>
                                             <div>&nbsp;</div>
-                                            <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg. For <span>{{price}}</span> diamonds.</div>                                                     
+                                            <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg. For <span>{{price}}</span> diamonds.</div>  
+                                                                                               
                                         </div>
+          
                                     </div>
                                     {{/if}}
+
+
+
                                 </div>
                             {{/friends}}
                 </div>
