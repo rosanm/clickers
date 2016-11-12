@@ -82,7 +82,9 @@
                                             <div class="count_label">{{count}}x</div>
                                         </div>
                                         <div class="clear">
+                                            {{#if count > 0}}
                                             <button style="margin-left:5px;" class="button-buy" on-click="@this.fire('trainFriend', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button> 
+                                             {{/if}}
                                         </div>
                                         <div class="arrow-right"></div>
                                     </div>
