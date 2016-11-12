@@ -111,11 +111,23 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 }
 
+.friendsLabels {
+	position: absolute;
+	right: 0;
+	text-align: center;
+}
+
+.level_label {
+	width: 100%;
+}
+
+.count_label {
+	opacity: 0.4;
+}
+
 .section-monstercard .count_label{
  	font-size: 50pt;
 	margin-right: 10px;
-	position:absolute;
-	right: 0;
 }
 .disabled{
 	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
