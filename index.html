@@ -26,7 +26,7 @@
         <div id="container" class="main-container">
             <script id="template" class="section-left-top" type='text/ractive'>
             <div class="section-left">
-                <div class="section-left-top" type='text/ractive'>
+                <div class="section-left-top background" type='text/ractive'>
                     <div class="boxHeader" style="text-align: center;">
                         STATS
                     </div>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="monster-box">
+                <div class="monster-box background">
                     <div class="boxHeader" style="text-align: center;">
                         ATTACK
                     </div>
@@ -66,7 +66,7 @@
                 </div>
 
             </div>              
-            <div class="section-center">
+            <div class="section-center gradient">
                 <div class="boxHeader">FRIENDS</div>      
                         <div id="sortable" class="theZoo">
                             {{#friends}}
@@ -102,7 +102,7 @@
                 </div>
             </div>
 
-            <div class="section-right">
+            <div class="section-right background">
                 <div class="boxHeader">  {{selectedFriendName}}'S ITEMS</div>
                 <div id="items-box">
                     {{#if isFriendAvailable(selectedFriendName)}}

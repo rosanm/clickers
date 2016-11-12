@@ -4,6 +4,16 @@
 }
 
 @font-face {
+    font-family: CaviarDreams;
+    src: url(../fonts/CaviarDreams.ttf);
+}
+
+@font-face {
+    font-family: LemonMilk;
+    src: url(../fonts/LemonMilk.otf);
+}
+
+@font-face {
     font-family: Livingst;
     src: url(../fonts/Livingst.ttf);
 }
@@ -33,6 +43,20 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 ); /* IE6-9 */
 }
 
+.background {
+	background: #FBCB81;
+}
+
+.gradient {
+  background: #FBCB81;
+  background: linear-gradient(-180deg,#FBCB81, #8eb92a 200%);
+}
+
+.gradientRed {
+  background: #FBCB81;
+  background: linear-gradient(90deg,#FBCB81, #000 150%);
+}
+
 
 .main-container {
     height: 100%;
@@ -53,7 +77,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	width: 100%;
     height: 49.5%;
     float: left;
-    background:#FBCB81;
     border: 5px solid #300D0D;
 	border-radius: 5px;
 	
@@ -70,7 +93,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	float: left;
 	border: 5px solid #300D0D;
 	border-radius: 5px;
-	background:#FBCB81;
 	text-align: center;
 }
 
@@ -80,7 +102,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
     float: left;
     margin: 0 1%;
     padding: 0;
-    background: #FBCB81;
     border: 5px solid #300D0D;
 	border-radius: 5px;
 	overflow: hidden;
@@ -119,6 +140,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .level_label {
 	width: 100%;
+	font-family: CaviarDreams;
 }
 
 .count_label {
@@ -151,7 +173,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
     float: left;
     margin: 0;
     padding: 0;
-	background:#FBCB81;
     border: 5px solid #300D0D;
 	border-radius: 5px;
 	overflow: hidden;
