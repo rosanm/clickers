@@ -118,20 +118,20 @@ $(document).ready(function(){
                      {name:"Phyracu", count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:8, dmg:13,lifeTimeDmg:0, price:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
             //upgrade data
             friendsData: 
-                    [{name:"Herbear", levelUp: 20, nextStageIndex:1, dmg:200, img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},//0
-                    {name:"Ursorest", levelUp: 999, nextStageIndex:999, dmg:300, img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"},//1
+                    [{name:"Herbear", levelUp: 20,      nextStageIndex:1,       dmg:200,   img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},//0
+                    {name:"Ursorest", levelUp: 9999,    nextStageIndex:9999,    dmg:300,   img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"},//1
 
-                    {name:"Blazemour", levelUp: 20, nextStageIndex:3, dmg:200, img:"images/friends/005_blazemour_by_deoxysdaniel-d5jhcw5.png"},//2
-                    {name:"Blazieval", levelUp: 999, nextStageIndex:999, dmg:300, img:"images/friends/006_blazieval_by_deoxysdaniel-d5jv6uh.png"},//3
+                    {name:"Blazemour", levelUp: 20,     nextStageIndex:3,       dmg:200,   img:"images/friends/005_blazemour_by_deoxysdaniel-d5jhcw5.png"},//2
+                    {name:"Blazieval", levelUp: 9999,   nextStageIndex:9999,    dmg:300,   img:"images/friends/006_blazieval_by_deoxysdaniel-d5jv6uh.png"},//3
 
-                    {name:"Kniveroon_", levelUp: 20, nextStageIndex:5, dmg:200, img:"images/friends/039_kniveroon_by_deoxysdaniel-d5ngh7v.png"},//4
-                    {name:"Kniferros", levelUp: 999, nextStageIndex:999, dmg:300, img:"images/friends/040_kniferros_by_deoxysdaniel-d5nq2wl.png"},//5
+                    {name:"Kniveroon_", levelUp: 20,    nextStageIndex:5,       dmg:200,   img:"images/friends/039_kniveroon_by_deoxysdaniel-d5ngh7v.png"},//4
+                    {name:"Kniferros", levelUp: 9999,   nextStageIndex:9999,    dmg:300,   img:"images/friends/040_kniferros_by_deoxysdaniel-d5nq2wl.png"},//5
 
-                    {name:"Quaketai", levelUp: 20, nextStageIndex:7, dmg:200, img:"images/friends/049_quaketail_by_deoxysdaniel-d5ob4xn.png"},//6
-                    {name:"Seismitail", levelUp: 999, nextStageIndex:999, dmg:300, img:"images/friends/050_seismitail_by_deoxysdaniel-d5ol2uq.png"},//7
+                    {name:"Quaketai", levelUp: 20,      nextStageIndex:7,       dmg:200,   img:"images/friends/049_quaketail_by_deoxysdaniel-d5ob4xn.png"},//6
+                    {name:"Seismitail", levelUp: 9999,  nextStageIndex:9999,    dmg:300,   img:"images/friends/050_seismitail_by_deoxysdaniel-d5ol2uq.png"},//7
 
-                    {name:"Corhyncu", levelUp: 20, nextStageIndex:9, dmg:200, img:"images/friends/054_corhyncu_by_deoxysdaniel-d5ob5z7.png"},//8
-                    {name:"Togarucu", levelUp: 999, nextStageIndex:999, dmg:300, img:"images/friends/055_togarucu_by_deoxysdaniel-d5oi8h5.png"},//9
+                    {name:"Corhyncu", levelUp: 20,      nextStageIndex:9,       dmg:200,   img:"images/friends/054_corhyncu_by_deoxysdaniel-d5ob5z7.png"},//8
+                    {name:"Togarucu", levelUp: 9999,    nextStageIndex:9999,    dmg:300,   img:"images/friends/055_togarucu_by_deoxysdaniel-d5oi8h5.png"},//9
                                       
                     ]
         }
@@ -243,23 +243,27 @@ $(document).ready(function(){
 
     ractive.on({
         trainFriend: function(event, index) { 
-            var me =  ractive.get('friends')[index];           
-            me.lvl = me.lvl + 1;
-            me.dmg = me.dmg + 3;
-            me.price = ractive.get('round')(me.price * 1.3);
+            var me =  ractive.get('friends')[index];
 
-            if(me.lvl >= me.levelUp) {
-                    //set all new data
-                    var evo = ractive.get('friendsData')[me.nextStageIndex];
-                    me.img = evo.img;
-                    me.name = evo.name;
-                    me.levelUp = evo.levelUp;
-                    me.stage = me.stage + 1;
-                    me.nextStageIndex = evo.nextStageIndex;
-                    me.dmg = evo.dmg;
-                }
-            
-            ractive.update();
+        if(me.lvl < 999){
+                me.lvl = me.lvl + 1;
+                me.dmg = me.dmg + 3;
+                me.price = ractive.get('round')(me.price * 1.3);
+
+                if(me.lvl >= me.levelUp) {
+                        //set all new data
+                        var evo = ractive.get('friendsData')[me.nextStageIndex];
+                        me.img = evo.img;
+                        me.name = evo.name;
+                        me.levelUp = evo.levelUp;
+                        me.stage = me.stage + 1;
+                        me.nextStageIndex = evo.nextStageIndex;
+                        me.dmg = evo.dmg;
+                    }
+                
+                ractive.update();
+
+            }
         },
         buyOrUpgrade: function (event, itemNr){
             //name of selectedFriend
@@ -312,15 +316,6 @@ $(document).ready(function(){
     gameLoop();
     //start the smoothscore
     smoothScoreLoop();
-
-    //Jquery-UI
-    // $("#sortable").sortable({
-    //     revert: true,
-    // });
-
-    // $("#items-box").sortable({
-    //     revert: true,
-    // });
 
    $(".MonsterCard").click(function() {
        var selectedItem = $(this);
