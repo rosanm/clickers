@@ -151,9 +151,9 @@ html, body { height: 100%; margin: 0; padding: 0; }
  	font-size: 50pt;
 	margin-right: 10px;
 }
-.disabled{
-	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+.disabled{	
+	-webkit-filter: grayscale(100%) brightness(60%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%) brightness(60%); 
 }
 
 .friendImg{
