@@ -34,6 +34,7 @@
                         <div id="unitcounter"><p> <i class="diamondIcon fa fa-diamond fa-lg"></i>{{units}}</p></div>
                         <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{dps}} DPS</p></div>
                         <div id="currentLvl">{{level}} Kills</div>
+                        <p>Unlock a new friend  in {number} more kills!</p>
                     </div>
                 </div>
 
@@ -114,13 +115,16 @@
                             <div class="itemcard">
                                 <img class="item-image" src="{{img}}"/>
                                 <div>{{name}}</div>
+                                <p class="text">{{description}}</p>  
                                 <div class="button-box">
                                     {{#if lvl == 0}}
                                         <button class="button-buy" on-click="@this.fire('buyOrUpgrade', event, @index)" disabled="{{ price > units }}">Buy</button>
                                     {{else}}
                                         <button class="button-upgrade" on-click="@this.fire('buyOrUpgrade', event, @index)" disabled="{{ price > units }}">Upgrade</button>                                
                                     {{/if}}
-                                    <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>                            
+                                     
+                                    <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>  
+                                                          
                                 </div>
                             </div>
                         {{/items}}
