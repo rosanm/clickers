@@ -30,33 +30,24 @@ $(document).ready(function(){
             items: [],           
             //Items per starter
             itemsPandoo: 
-                    [{name:"Train Pandoo",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:500000,     max:999},
-                     {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
+                    [{name:"Train Pandoo",   description:"Train Pandoo to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:500000,     max:999},
+                     {name:"+1% DMG",       description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsBlazby: 
-                    [{name:"Train Blazby",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
-                     {name:"Mega Bite",         img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999},
-                     {name:"Dance Saliva",      img:"images/items/orange-glass-round.png", lvl:0,  count:0, price:2500,   dmg:50,    max:999},
-                     {name:"Crit Bite",         img:"images/items/green-glass-round.png",  lvl:0,  count:0, price:8000,   dmg:500,   max:999},],
+                    [{name:"Train Blazby",   description:"Train Blazby to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
+                     {name:"+1% DMG",       description:"Add 1% bonus damage to the base dmg.",      img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsKniron: 
-                    [{name:"Train Kniron",     img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,      max:999}],
+                    [{name:"Train Kniron",      description:"Train Kniron to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,      max:999},
+                     {name:"+1% DMG",       description:"Add 1% bonus damage to the base dmg.",       img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:2,     max:999}],
 
             itemsEartail:
-                    [{name:"Super Eartail",     img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:1,     max:999},
-                     {name:"Low Kick",          img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:2,     max:999},
-                     {name:"Fighter Bite",      img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:3,     max:999},
-                     {name:"Hyper Bite",        img:"images/items/water-glass-round.png",  lvl:0,  count:0, price:500,    dmg:5,     max:999}],
+                    [{name:"Train Eartail",  description:"Train Eartail to increase its base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:1,     max:999},
+                     {name:"+1% DMG",       description:"Add 1% bonus damage to the base dmg.",       img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:2,     max:999}],
 
             itemsPhyracu: 
-                     [{name:"Train Phyracu",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:999},
-                     {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:999},
-                     {name:"Train Bite",       img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:3,     max:999},
-                     {name:"Super Bite",        img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:5,     max:999},
-                     {name:"Hyper Bite",        img:"images/items/water-glass-round.png",  lvl:0,  count:0, price:500,    dmg:8,     max:999},
-                     {name:"Fire Saliva",       img:"images/items/orange-glass-round.png", lvl:0,  count:0, price:2500,   dmg:13,    max:999},
-                     {name:"Poison Bite",       img:"images/items/green-glass-round.png",  lvl:0,  count:0, price:8000,   dmg:21,    max:999},
-                     {name:"Extra Damage",      img:"images/items/pink-glass-round.png",   lvl:0,  count:0, price:50000,  dmg:34,    max:999}],
+                     [{name:"Train Phyracu",  description:"Train Phyracu to increase its base dmg.",  img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:999},
+                     {name:"+1% DMG",           description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,     max:999}],
 
             enemys: 
                     [{name:"Dropphin",   hp:150, total: 150, img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
@@ -112,26 +103,26 @@ $(document).ready(function(){
             //starters
             friends: 
                     [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, dmg:2, lifeTimeDmg:0, price:100, img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
-                     {name:"Blazby",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:2, dmg:3, lifeTimeDmg:0, price:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
-                     {name:"Kniron",  count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:4, dmg:5, lifeTimeDmg:0, price:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
-                     {name:"Eartail", count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:6, dmg:8, lifeTimeDmg:0, price:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
-                     {name:"Phyracu", count: 0, lvl:1, levelUp: 10, stage:1, nextStageIndex:8, dmg:13,lifeTimeDmg:0, price:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
+                     {name:"Blazby",  count: 1, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, dmg:3, lifeTimeDmg:0, price:200, img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
+                     {name:"Kniron",  count: 0, lvl:1, levelUp: 30, stage:1, nextStageIndex:4, dmg:5, lifeTimeDmg:0, price:300, img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
+                     {name:"Eartail", count: 1, lvl:1, levelUp: 50, stage:1, nextStageIndex:6, dmg:8, lifeTimeDmg:0, price:500, img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
+                     {name:"Phyracu", count: 0, lvl:1, levelUp: 80, stage:1, nextStageIndex:8, dmg:13,lifeTimeDmg:0, price:800, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
             //upgrade data
             friendsData:
                     //Pandoo - Line
-                    [{name:"Herbear", levelUp: 20,      nextStageIndex:1,       dmg:200,   img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},       //0
+                    [{name:"Herbear", levelUp: 100,      nextStageIndex:1,       dmg:1000,   img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},       //0
                     {name:"Ursorest", levelUp: 9999,    nextStageIndex:9999,    dmg:300,   img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"},      //1
                     //Blazby - Line
-                    {name:"Blazemour", levelUp: 20,     nextStageIndex:3,       dmg:200,   img:"images/friends/005_blazemour_by_deoxysdaniel-d5jhcw5.png"},     //2
+                    {name:"Blazemour", levelUp: 200,     nextStageIndex:3,       dmg:2000,   img:"images/friends/005_blazemour_by_deoxysdaniel-d5jhcw5.png"},     //2
                     {name:"Blazieval", levelUp: 9999,   nextStageIndex:9999,    dmg:300,   img:"images/friends/006_blazieval_by_deoxysdaniel-d5jv6uh.png"},     //3
                     //Kniron - Line
-                    {name:"Kniveroon", levelUp: 20,    nextStageIndex:5,       dmg:200,   img:"images/friends/039_kniveroon_by_deoxysdaniel-d5ngh7v.png"},     //4
+                    {name:"Kniveroon", levelUp: 300,     nextStageIndex:5,       dmg:3000,   img:"images/friends/039_kniveroon_by_deoxysdaniel-d5ngh7v.png"},     //4
                     {name:"Kniferros", levelUp: 9999,   nextStageIndex:9999,    dmg:300,   img:"images/friends/040_kniferros_by_deoxysdaniel-d5nq2wl.png"},     //5
                     //Eartail - Line
-                    {name:"Quaketai", levelUp: 20,      nextStageIndex:7,       dmg:200,   img:"images/friends/049_quaketail_by_deoxysdaniel-d5ob4xn.png"},     //6
+                    {name:"Quaketai", levelUp: 500,      nextStageIndex:7,       dmg:4000,   img:"images/friends/049_quaketail_by_deoxysdaniel-d5ob4xn.png"},     //6
                     {name:"Seismitail", levelUp: 9999,  nextStageIndex:9999,    dmg:300,   img:"images/friends/050_seismitail_by_deoxysdaniel-d5ol2uq.png"},    //7
                     //Phyracu - Line
-                    {name:"Corhyncu", levelUp: 20,      nextStageIndex:9,       dmg:200,   img:"images/friends/054_corhyncu_by_deoxysdaniel-d5ob5z7.png"},      //8
+                    {name:"Corhyncu", levelUp: 800,      nextStageIndex:9,       dmg:5000,   img:"images/friends/054_corhyncu_by_deoxysdaniel-d5ob5z7.png"},      //8
                     {name:"Togarucu", levelUp: 9999,    nextStageIndex:9999,    dmg:300,   img:"images/friends/055_togarucu_by_deoxysdaniel-d5oi8h5.png"},      //9
                                       
                     ]
