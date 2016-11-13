@@ -109,6 +109,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .itemcard {
     margin: 10px;
+	padding: 2px;
     background: #FEF2E2;
     border: 5px solid #300D0D;
 	border-radius: 5px;
@@ -168,10 +169,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
  	font-size: 50pt;
 	margin-right: 10px;
 }
-
-/*.section-monstercard .button-buy{
- 	
-}*/
 
 
 .disabled{	
