@@ -34,7 +34,6 @@
                         <div id="unitcounter"><p> <i class="diamondIcon fa fa-diamond fa-lg"></i>{{units}}</p></div>
                         <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{dps}} DPS</p></div>
                         <div id="currentLvl">{{level}} Kills</div>
-                        <p>Unlock a new friend  in {number} more kills!</p>
 
                         <p>Use your friends to:</p>
                            <fieldset>
@@ -94,6 +93,7 @@
                                             {{else}}
                                                 <button style="margin-left:5px;" disabled="disabled">maximum reached</button>                                             
                                             {{/if}}
+                                            {{#if minKills > level}} Unlocks after {{minKills}} kills. {{/if}}
                                         </div>
                                         <div class="arrow-right"></div>
                                     </div>
