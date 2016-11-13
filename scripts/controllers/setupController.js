@@ -183,7 +183,12 @@ $(document).ready(function(){
             return false;
         },
         selectFriend: function(event, index){
+            
             var friend = ractive.get('friends')[index];
+
+            var trainButton = ractive.get('trainButton');
+            var evolveButton = ractive.get('evolveButton');
+
             if(friend.count == 0)
                 return false;
             if(friend.isSelected) {
@@ -196,6 +201,20 @@ $(document).ready(function(){
                 friend.isSelected = true;
                 showItemsOfFriend(friend.name);
                 ractive.set('selectedFriendName', friend.name);
+            }
+
+            //Check if the friend can evolve or train
+            if(friend.lvl == friend.levelUp -1 ){
+                trainButton.isVisble = false;
+                evolveButton.isVisble = true;
+            }else{
+                trainButton.isVisble = true;
+                evolveButton.isVisble = false;
+            }
+
+            //max level
+            if(friend.lvl == 999){
+                trainButton.isVisble = true;
             }
             ractive.update();
         }
