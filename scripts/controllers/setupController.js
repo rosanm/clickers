@@ -1,5 +1,4 @@
 $(document).ready(function(){    
-    
     function populateZoo() {  
         ractive.get('friends').forEach(function(e, i) {
             if(e.count > 0){
@@ -113,28 +112,29 @@ $(document).ready(function(){
             me.stage = me.stage + 1;
             me.nextStageIndex = evo.nextStageIndex;
             me.dmg = evo.dmg;
+
+            ractive.update();
+            
         },
         trainFriend: function(event) {
-        var button = ractive.get('trainButton');
-        var name = ractive.get('selectedFriend');
-        var me = getObjectFromListByName('friends', name);
+            var button = ractive.get('trainButton');
+            var name = ractive.get('selectedFriendName');
+            var me = getObjectFromListByName('friends', name);
 
-        if(me.lvl < 999){
-            me.lvl = me.lvl + 1;
-            me.dmg = me.dmg + 3;
-            me.price = ractive.get('round')(me.price * 1.3);
+            if(me.lvl < 999){
+                me.lvl = me.lvl + 1;
+                me.dmg = me.dmg + 3;
+                me.price = ractive.get('round')(me.price * 1.3);
 
-            if(me.lvl == me.levelUp - 1) {
+                if(me.lvl == me.levelUp - 1) {
                     button.isVisble = false;;
-            }
-            
-            ractive.update();
-
+                }
+                ractive.update();
             }
         },
         buyOrUpgrade: function (event, itemNr){
             //name of selectedFriend
-            var selectedFriend = ractive.get('selectedFriend');
+            var selectedFriend = ractive.get('selectedFriendName');
             //Can affound?
             if(ractive.get('units') >= ractive.get('items' + selectedFriend)[itemNr].price){
                 //Still in stock?
@@ -162,6 +162,22 @@ $(document).ready(function(){
                 ractive.update();
             }
             return false;
+        },
+        selectFriend: function(event, index){
+            var friend = ractive.get('friends')[index];
+
+            if(friend.isSelected) {
+                friend.isSelected = false;
+                ractive.set('selectedFriendName', 'No one');
+                ractive.set('items', []); 
+            }
+            else {
+                deselectAllFriends();
+                friend.isSelected = true;
+                showItemsOfFriend(friend.name);
+                ractive.set('selectedFriendName', friend.name);
+            }
+            ractive.update();
         }
     });
 
@@ -187,49 +203,10 @@ $(document).ready(function(){
         setTimeout(gameLoop, 1000);
     }
 
-    //Start the game the first time
-    gameLoop();
-    //start the smoothscore
-    smoothScoreLoop();
-
-   $(".MonsterCard").click(function() {
-//TODOset train button visible when needed!!!
-
-       var selectedItem = $(this);
-       if(selectedItem.hasClass('active')){
-           unSelectFriend();
-           return;       
-        }
-        //selection 
-        $(".MonsterCard").removeClass("active");
-        selectedItem.addClass("active");
-        
-        $('.MonsterCard').each(function(i, e){
-            if(selectedItem[0] != e)
-            {
-                $(this).find('.arrow-right').hide();
-            }
-            else{
-                $(this).find('.arrow-right').show();
-            }
-        });
-
-        //load itemset
-        var name = $(this).attr('friendName');
-        ractive.set('selectedFriend', name); //eeeh dubbel??
-        var selectedFriend = getObjectFromListByName('friends', name);
-        ractive.set('selectedFriendName', selectedFriend.name);  // HALP > Doet dit nu hetzelfde als de regel hier 2 boven //het lijkt erop dat friendName en friend hetzelfde bevatten
-        var items = getByName(selectedFriend.itemListName)
-        ractive.set('items', items);   
-    });
-
-    function unSelectFriend(){
-        $(".MonsterCard").removeClass("active");
-        $(".MonsterCard").find('.arrow-right').hide();
-        //load itemset
-        ractive.set('selectedFriend', '');
-        ractive.set('selectedFriendName', 'No one');
-        ractive.set('items', []);  
+    function showItemsOfFriend(name){
+        //var selectedFriend = getObjectFromListByName('friends', name);
+        var items = getByName('items' + name);
+        ractive.set('items', items);  
     }
 
     function getByName(name){
@@ -244,6 +221,16 @@ $(document).ready(function(){
         }
     }
 
+    function deselectAllFriends(){
+        var friends = ractive.get('friends');
+        for(var i = 0; i < friends.length; i++){
+            friends[i].isSelected = false;
+        }
+    }
 
+    //Start the game the first time
+    gameLoop();
+    //start the smoothscore
+    smoothScoreLoop();
 });
 
