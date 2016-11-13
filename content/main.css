@@ -170,10 +170,15 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	margin-right: 10px;
 }
 
+.section-monstercard.disabled, .itemcard.disabled {
+	background: #999;
+}
 
-.disabled{	
-	-webkit-filter: grayscale(100%) brightness(60%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%) brightness(60%); 
+.disabled :not(.button-buy) {	
+	-webkit-filter: grayscale(100%) brightness(60%);
+    -moz-filter: grayscale(100%) brightness(60%);
+	filter: grayscale(100%) brightness(60%);
+	cursor: auto !important;
 }
 
 .friendImg{
@@ -184,7 +189,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .section-monstercard span{
 	font-weight: bold;
 }
-
 
 .section-right {
     width: 28%;

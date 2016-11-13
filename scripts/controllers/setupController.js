@@ -165,7 +165,8 @@ $(document).ready(function(){
         },
         selectFriend: function(event, index){
             var friend = ractive.get('friends')[index];
-
+            if(friend.count == 0)
+                return false;
             if(friend.isSelected) {
                 friend.isSelected = false;
                 ractive.set('selectedFriendName', 'No one');
