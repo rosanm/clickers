@@ -119,8 +119,7 @@
                     {name:"Seismitail", levelUp: 9999,  nextStageIndex:9999,    dmg:300,   img:"images/friends/050_seismitail_by_deoxysdaniel-d5ol2uq.png"},    //7
                     //Phyracu - Line
                     {name:"Corhyncu", levelUp: 800,     nextStageIndex:9,       dmg:5000,  img:"images/friends/054_corhyncu_by_deoxysdaniel-d5ob5z7.png"},      //8
-                    {name:"Togarucu", levelUp: 9999,    nextStageIndex:9999,    dmg:300,   img:"images/friends/055_togarucu_by_deoxysdaniel-d5oi8h5.png"},      //9
-                                      
+                    {name:"Togarucu", levelUp: 9999,    nextStageIndex:9999,    dmg:300,   img:"images/friends/055_togarucu_by_deoxysdaniel-d5oi8h5.png"},      //9                                     
                     ]
         }
     });
