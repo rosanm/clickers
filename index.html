@@ -126,9 +126,9 @@
                                 <div class="itemName">{{trainButton.name}} {{selectedFriendName}}</div>
                                 <p class="text">{{trainButton.description}}</p>
                                 <p class="text">
-                                    <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{trainButton.price}}</span>                                                                
-                                <div class="button-box">                                         
-                                </div>    
+                                    <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{selectedFriend(selectedFriendName).price}}</span>                                                                
+                                    <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{round(selectedFriend(selectedFriendName).dmg*0.2)}} p/s</span>   
+                                </p>  
                             </div>
                         {{/if}}
                         {{#if evolveButton.isVisble}}

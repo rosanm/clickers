@@ -19,9 +19,14 @@
                     return getObjectFromListByName('friends', name).count > 0;
                 }
             },
+            selectedFriend: function(name){
+                if(name != 'No one'){
+                    return getObjectFromListByName('friends', name);
+                }
+            },
             selectedFriendName: 'No one',  
-            trainButton: { name: "Train", description: "Train friend to increase its base dmg.", img:"", isVisble: true, price: 100},
-            evolveButton: { name: "Evolve", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: false, price: 100},                              
+            trainButton: { name: "Train", description: "Train friend to increase its base dmg.", img:"", isVisble: true },
+            evolveButton: { name: "Evolve", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: false },                              
             items: [],                    
             // itemsGeneric: [{name:"Train {{name}}",   description:"Increase damage per second of {{name}} by 1%.", img:"images/items/water.png", count:0, price:10, dmg:50, max:999}],            
             //Items per starter
