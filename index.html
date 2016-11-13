@@ -95,7 +95,7 @@
                                             {{/if}}
                                             {{#if minKills > level}} Unlocks after {{minKills}} kills. {{/if}}
                                         </div>
-                                        <div class="arrow-right"></div>
+                                        {{#if count > 0}}<div class="arrow-right"></div>{{/if}}
                                     </div>
                                     {{#if selectedFriendName == name && count > 0}}
                                     <div class="hoverBox section-monstercard">
