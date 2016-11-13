@@ -132,6 +132,18 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 }
 
+.itemcard:hover {
+	border: 5px solid #999;
+	-webkit-box-shadow: 0 15px 13px -13px black;
+    -moz-box-shadow: 0 15px 13px -13px black;
+	box-shadow: 0 4px 8px 1px black;
+	cursor:pointer;
+}
+
+.itemcard:active {
+	border: 5px solid #222;
+}
+
 .friendsLabels {
 	position: absolute;
 	right: 0;
@@ -258,6 +270,7 @@ p{
 
 .text {
     color: black;
+	font-family: CaviarDreams;
 }
 
 .MonsterCard {
@@ -347,7 +360,7 @@ p{
 	top:1px;
 }
 
-.active{
+.active {
 	border: 5px solid lightskyblue;
 }
 

@@ -104,10 +104,8 @@
                                             <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dps. (<span>{{round(((dmg*count)/dps)*100)}}%</span>)</div>
                                             <div>In total they dealt <span>{{lifeTimeDmg}}</span> dmg.</div>
                                             <div>&nbsp;</div>
-                                            <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg. For <span>{{price}}</span> diamonds.</div>  
-                                                                                               
-                                        </div>
-          
+                                            <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg. For <span>{{price}}</span> diamonds.</div>                                                                                         
+                                        </div> 
                                     </div>
                                     {{/if}}
 
@@ -123,19 +121,12 @@
                 <div id="items-box">
                     {{#if isFriendAvailable(selectedFriendName)}}
                         {{#items}}
-                            <div class="itemcard">
+                            <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('buyOrUpgrade', event, @index)">  
                                 <img class="item-image" src="{{img}}"/>
                                 <div>{{name}}</div>
-                                <p class="text">{{description}}</p>  
-                                <div class="button-box">
-                                    {{#if lvl == 0}}
-                                        <button class="button-buy" on-click="@this.fire('buyOrUpgrade', event, @index)" disabled="{{ price > units }}">Buy</button>
-                                    {{else}}
-                                        <button class="button-upgrade" on-click="@this.fire('buyOrUpgrade', event, @index)" disabled="{{ price > units }}">Upgrade</button>                                
-                                    {{/if}}
-                                     
-                                    <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>  
-                                                          
+                                <p class="text">{{description}}</p>
+                                <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>                                                                  
+                                <div class="button-box">                                         
                                 </div>
                             </div>
                         {{/items}}
