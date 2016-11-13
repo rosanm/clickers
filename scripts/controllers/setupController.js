@@ -129,8 +129,11 @@ $(document).ready(function(){
                 if(me.lvl == me.levelUp - 1) {
                     button.isVisble = false;;
                 }
+                }else{ //max level
+                button.isVisble = false;               
+                 }
                 ractive.update();
-            }
+            
         },
         buyOrUpgrade: function (event, itemNr){
             //name of selectedFriend

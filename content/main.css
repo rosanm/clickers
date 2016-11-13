@@ -172,13 +172,13 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .section-monstercard.disabled, .itemcard.disabled {
 	background: #999;
+		cursor: auto !important;
 }
 
 .disabled :not(.button-buy) {	
 	-webkit-filter: grayscale(100%) brightness(60%);
     -moz-filter: grayscale(100%) brightness(60%);
 	filter: grayscale(100%) brightness(60%);
-	cursor: auto !important;
 }
 
 .friendImg{
