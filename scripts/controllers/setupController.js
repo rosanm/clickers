@@ -80,7 +80,7 @@ $(document).ready(function(){
                      {name:"Zenkqwaak",  hp:0,   total: 0,   img:"images/enemys/068_last_fakemon_of_the_year_by_deoxysdaniel-d5px255.png"},
                      {name:"Tribuno",    hp:0,   total: 0,   img:"images/enemys/069_tribuno_by_deoxysdaniel-d5q5kzq.png"},
                      {name:"Tributoo",   hp:0,   total: 0,   img:"images/enemys/070_tributoo_by_deoxysdaniel-d5q7s8m.png"},
-                     {name:"Tribarrior", hp:0,   total: 0,   img:"images/enemys/071_tribarrior_by_deoxysdaniel-d5qbho6"},
+                     {name:"Tribarrior", hp:0,   total: 0,   img:"images/enemys/071_tribarrior_by_deoxysdaniel-d5qbho6.png"},
                      {name:"Lycub",      hp:0,   total: 0,   img:"images/enemys/072_lycub_by_deoxysdaniel-d5quelj.png"},
                      {name:"Lycantrix",  hp:0,   total: 0,   img:"images/enemys/073_____by_deoxysdaniel-d5r6whv.png"},
                      {name:"Companyan",  hp:0,   total: 0,   img:"images/enemys/074_companyan_by_deoxysdaniel-d5quelr.png"},
