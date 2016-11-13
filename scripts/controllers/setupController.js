@@ -26,27 +26,30 @@ $(document).ready(function(){
                 return getObjectFromListByName('friends', name).count > 0;
             },
             selectedFriend: '',
-            selectedFriendName: 'No one',           
+            selectedFriendName: 'No one',  
+            trainButton: { name: "Train friend", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: true, price: 100},         
             items: [],           
             //Items per starter
+            // itemsGeneric: [{name:"Train {{name}}",   description:"Increase damage per second of {{name}} by 1%.", img:"images/items/water.png", count:0, price:10, dmg:50, max:999}],            
+
             itemsPandoo: 
-                    [{name:"Train Pandoo",   description:"Train Pandoo to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:50,     max:999},
+                    [{name:"Train Pandoo",   description:"Fake Train Pandoo to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:50,     max:999},
                      {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",     img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsBlazby: 
-                    [{name:"Train Blazby",   description:"Train Blazby to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
+                    [{name:"Train Blazby",   description:"Fake Train Blazby to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
                      {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",      img:"images/items/water-glass.png",       lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsKniron: 
-                    [{name:"Train Kniron",   description:"Train Kniron to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,      max:999},
+                    [{name:"Train Kniron",   description:"Fake Train Kniron to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,      max:999},
                      {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",       img:"images/items/water.png",            lvl:0,  count:0, price:10,     dmg:2,     max:999}],
 
             itemsEartail:
-                    [{name:"Train Eartail",  description:"Train Eartail to increase its base dmg.",   img:"images/items/water-glass.png",       lvl:0,  count:0, price:100,    dmg:1,     max:999},
+                    [{name:"Train Eartail",  description:"Fake Train Eartail to increase its base dmg.",   img:"images/items/water-glass.png",       lvl:0,  count:0, price:100,    dmg:1,     max:999},
                      {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",       img:"images/items/water.png",            lvl:0,  count:0, price:10,     dmg:2,     max:999}],
 
             itemsPhyracu: 
-                     [{name:"Train Phyracu", description:"Train Phyracu to increase its base dmg.",  img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:999},
+                     [{name:"Train Phyracu", description:"Fake Train Phyracu to increase its base dmg.",  img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:999},
                      {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",          lvl:0,  count:0, price:100,    dmg:2,     max:999}],
 
             enemys: 
@@ -128,7 +131,6 @@ $(document).ready(function(){
                     ]
         }
     });
-    //TODO: Doorset
 
     function populateZoo() {  
         ractive.get('friends').forEach(function(e, i) {
@@ -234,26 +236,31 @@ $(document).ready(function(){
     };
 
     ractive.on({
-        trainFriend: function(event, index) { 
-            var me =  ractive.get('friends')[index];
+        evolveFriend: function(event){
+            //set all new data
+            var evo = ractive.get('friendsData')[me.nextStageIndex];
+            me.img = evo.img;
+            me.name = evo.name;
+            me.levelUp = evo.levelUp;
+            me.stage = me.stage + 1;
+            me.nextStageIndex = evo.nextStageIndex;
+            me.dmg = evo.dmg;
+        },
+        trainFriend: function(event) {
+        var button = ractive.get('trainButton');
+        var name = ractive.get('selectedFriend');
+        var me = getObjectFromListByName('friends', name);
 
         if(me.lvl < 999){
-                me.lvl = me.lvl + 1;
-                me.dmg = me.dmg + 3;
-                me.price = ractive.get('round')(me.price * 1.3);
+            me.lvl = me.lvl + 1;
+            me.dmg = me.dmg + 3;
+            me.price = ractive.get('round')(me.price * 1.3);
 
-                if(me.lvl >= me.levelUp) {
-                        //set all new data
-                        var evo = ractive.get('friendsData')[me.nextStageIndex];
-                        me.img = evo.img;
-                        me.name = evo.name;
-                        me.levelUp = evo.levelUp;
-                        me.stage = me.stage + 1;
-                        me.nextStageIndex = evo.nextStageIndex;
-                        me.dmg = evo.dmg;
-                    }
-                
-                ractive.update();
+            if(me.lvl == me.levelUp - 1) {
+                    button.isVisble = false;;
+            }
+            
+            ractive.update();
 
             }
         },
@@ -318,6 +325,8 @@ $(document).ready(function(){
     smoothScoreLoop();
 
    $(".MonsterCard").click(function() {
+//TODOset train button visible when needed!!!
+
        var selectedItem = $(this);
        if(selectedItem.hasClass('active')){
            unSelectFriend();

@@ -120,6 +120,17 @@
                 <div class="boxHeader">  {{selectedFriendName}}'S ITEMS</div>
                 <div id="items-box">
                     {{#if isFriendAvailable(selectedFriendName)}}
+                        {{#if trainButton.isVisble}}
+                            <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('trainFriend', event)">  
+                                <img class="item-image" src="{{trainButton.img}}"/>
+                                <div class="itemName">{{trainButton.name}}</div>
+                                <p class="text">{{trainButton.description}}</p>
+                                <p class="text">
+                                    <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{trainButton.price}}</span>                                                                
+                                <div class="button-box">                                         
+                                </div>    
+                            </div>
+                        {{/if}}
                         {{#items}}
                             <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('buyOrUpgrade', event, @index)">  
                                 <img class="item-image" src="{{img}}"/>
