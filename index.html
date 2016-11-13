@@ -80,43 +80,35 @@
                                         <div class="boxHeader">{{#if count > 0}}{{name}}{{else}}???{{/if}}</div>
                                         <img src="{{img}}" class="friendImg">
                                         <div class="friendsLabels">
-                                            {{#if count > 0}}
-                                                <div class="level_label">
-                                                    <p>Stage: {{stage}}</p>
-                                                    <p>Level: {{lvl}}</p>
-                                                </div>                                          
-                                                <div class="count_label">{{count}}x</div>
-                                             {{/if}}
+                                            <div class="level_label">
+                                                <p>Stage: {{stage}}</p>
+                                                <p>Level: {{lvl}}</p>
+                                            </div>                                          
+                                            <div class="count_label">{{count}}x</div>
                                         </div>
-                                        <div class="clear">
-                                            {{#if count < 99}}
-                                                <button style="margin-left:5px;" class="button-buy" on-click="@this.fire('buy', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button> 
-                                            {{else}}
-                                                <button style="margin-left:5px;" disabled="disabled">maximum reached</button>                                             
-                                            {{/if}}
-                                            {{#if minKills > level}} Unlocks after {{minKills}} kills. {{/if}}
-                                        </div>
-
-                                        {{#if count > 0}}
-                                            {{#isSelected}}
-                                                <div class="arrow-right"></div>
-                                            {{/isSelected}}
+                                        <div class="clear"></div>
+                                        {{#if count < 99}}
+                                            <button style="margin-left:5px;" class="button-buy" on-click="@this.fire('buy', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button> 
+                                        {{else}}
+                                            <button style="margin-left:5px;" disabled="disabled">maximum reached</button>                                             
                                         {{/if}}
+                                        {{#if minKills > level}} Unlocks after {{minKills}} kills. {{/if}}
+                                        {{#isSelected}}
+                                            <div class="arrow-right"></div>
+                                        {{/isSelected}}
 
                                     </div>
-                                     {{#if count > 0}}
-                                        {{#isSelected}}
-                                            <div class="hoverBox section-monstercard">
-                                                <div>
-                                                    <div>Each <span>{{name}}</span> deals <span>{{dmg}}</span> damage per second.</div>
-                                                    <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dps. (<span>{{round(((dmg*count)/dps)*100)}}%</span>)</div>
-                                                    <div>In total they dealt <span>{{lifeTimeDmg}}</span> dmg.</div>
-                                                    <div>&nbsp;</div>
-                                                    <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg. For <span>{{price}}</span> diamonds.</div>                                                                                         
-                                                </div> 
-                                            </div>
-                                        {{/isSelected}}
-                                     {{/if}}
+                                    {{#isSelected}}
+                                        <div class="hoverBox section-monstercard">
+                                            <div>
+                                                <div>Each <span>{{name}}</span> deals <span>{{dmg}}</span> damage per second.</div>
+                                                <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dps. (<span>{{round(((dmg*count)/dps)*100)}}%</span>)</div>
+                                                <div>In total they dealt <span>{{lifeTimeDmg}}</span> dmg.</div>
+                                                <div>&nbsp;</div>
+                                                <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg. For <span>{{price}}</span> diamonds.</div>                                                                                         
+                                            </div> 
+                                        </div>
+                                    {{/isSelected}}
                                 </div>
                             {{/friends}}
                 </div>
