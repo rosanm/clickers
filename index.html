@@ -131,6 +131,17 @@
                                 </div>    
                             </div>
                         {{/if}}
+                        {{#if evolveButton.isVisble}}
+                            <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('evolveFriend', event)">  
+                                <img class="item-image" src="images/items/lvlUpItems/{{selectedFriendName}}.png"/>
+                                <div class="itemName">{{evolveButton.name}} {{selectedFriendName}}</div>
+                                <p class="text">{{evolveButton.description}}</p>
+                                <p class="text">
+                                    <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{evolveButton.price}}</span>                                                                
+                                <div class="button-box">                                         
+                                </div>    
+                            </div>
+                        {{/if}}
                         {{#items}}
                             <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('buyOrUpgrade', event, @index)">  
                                 <img class="item-image" src="{{img}}"/>

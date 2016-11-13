@@ -104,6 +104,16 @@ $(document).ready(function(){
 
     ractive.on({
         evolveFriend: function(event){
+        var trainButton = ractive.get('trainButton');
+        var evolveButton = ractive.get('evolveButton');   
+        var name = ractive.get('selectedFriendName');
+        var me = getObjectFromListByName('friends', name);
+
+        //do normal lvl-up stuff
+        me.lvl = me.lvl + 1;
+        me.dmg = me.dmg + 3;
+        me.price = ractive.get('round')(me.price * 1.3);
+
             //set all new data
             var evo = ractive.get('friendsData')[me.nextStageIndex];
             me.img = evo.img;
@@ -113,11 +123,16 @@ $(document).ready(function(){
             me.nextStageIndex = evo.nextStageIndex;
             me.dmg = evo.dmg;
 
+            //stop evolving
+            evolveButton.isVisble = false;
+            trainButton.isVisble = true;
+
             ractive.update();
             
         },
         trainFriend: function(event) {
-            var button = ractive.get('trainButton');
+            var trainButton = ractive.get('trainButton');
+            var evolveButton = ractive.get('evolveButton');
             var name = ractive.get('selectedFriendName');
             var me = getObjectFromListByName('friends', name);
 
@@ -126,11 +141,12 @@ $(document).ready(function(){
                 me.dmg = me.dmg + 3;
                 me.price = ractive.get('round')(me.price * 1.3);
 
-                if(me.lvl == me.levelUp - 1) {
-                    button.isVisble = false;;
-                }
+                    if(me.lvl == me.levelUp -1) {
+                        trainButton.isVisble = false;
+                        evolveButton.isVisble = true;
+                    }
                 }else{ //max level
-                button.isVisble = false;               
+                trainButton.isVisble = false;               
                  }
                 ractive.update();
             
