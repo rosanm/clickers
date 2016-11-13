@@ -126,9 +126,8 @@ $(document).ready(function(){
             //stop evolving
             evolveButton.isVisble = false;
             trainButton.isVisble = true;
-
-            ractive.update();
-            
+            ractive.set('selectedFriendName', evo.name);
+            ractive.update();         
         },
         trainFriend: function(event) {
             var trainButton = ractive.get('trainButton');
