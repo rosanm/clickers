@@ -279,6 +279,14 @@ $(document).ready(function(){
                     ractive.get('items')[itemNr].max +"/"+ ractive.get('items')[itemNr].max )
                 }
             }
+        },
+        buy: function (event, index){            
+            if(ractive.get('units') >= ractive.get('friends')[index].price) {
+                var selectedFriend =  ractive.get('friends')[index];
+                selectedFriend.count++;
+                ractive.update();
+            }
+            return false;
         }
     });
 

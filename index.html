@@ -89,9 +89,11 @@
                                              {{/if}}
                                         </div>
                                         <div class="clear">
-                                           
-                                            <button style="margin-left:5px;" class="button-buy" on-click="@this.fire('trainFriend', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button> 
-                                            
+                                            {{#if count < 99}}
+                                                <button style="margin-left:5px;" class="button-buy" on-click="@this.fire('buy', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button> 
+                                            {{else}}
+                                                <button style="margin-left:5px;" disabled="disabled">maximum reached</button>                                             
+                                            {{/if}}
                                         </div>
                                         <div class="arrow-right"></div>
                                     </div>

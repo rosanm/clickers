@@ -145,6 +145,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .count_label {
 	opacity: 0.4;
+	font-family: CaviarDreams;	
 }
 
 .section-monstercard .count_label{
