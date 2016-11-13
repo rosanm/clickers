@@ -20,26 +20,26 @@
                 }
             },
             selectedFriendName: 'No one',  
-            trainButton: { name: "Train friend", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: true, price: 100},
-            evolveButton: { name: "Evolve friend", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: true, price: 100},                              
+            trainButton: { name: "Train", description: "Train friend to increase its base dmg.", img:"", isVisble: true, price: 100},
+            evolveButton: { name: "Evolve", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: true, price: 100},                              
             items: [],           
             //Items per starter
             // itemsGeneric: [{name:"Train {{name}}",   description:"Increase damage per second of {{name}} by 1%.", img:"images/items/water.png", count:0, price:10, dmg:50, max:999}],            
 
             itemsPandoo: 
                     [{name:"Train Pandoo",   description:"Fake Train Pandoo to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:50,     max:999},
-                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",     img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
+                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsBlazby: 
                     [{name:"Train Blazby",   description:"Fake Train Blazby to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
-                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",      img:"images/items/water-glass.png",       lvl:0,  count:0, price:100,    dmg:25,    max:999}],
+                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",       lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsKniron: 
                     [{name:"Train Kniron",   description:"Fake Train Kniron to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,      max:999},
-                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",       img:"images/items/water.png",            lvl:0,  count:0, price:10,     dmg:2,     max:999}],
+                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water.png",            lvl:0,  count:0, price:10,     dmg:2,     max:999}],
 
             itemsEartail:
-                    [{name:"Train Eartail",  description:"Fake Train Eartail to increase its base dmg.",   img:"images/items/water-glass.png",       lvl:0,  count:0, price:100,    dmg:1,     max:999},
+                    [{name:"Train Eartail",  description:"Fake Train Eartail to increase its base dmg.",  img:"images/items/water-glass.png",       lvl:0,  count:0, price:100,    dmg:1,     max:999},
                      {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",       img:"images/items/water.png",            lvl:0,  count:0, price:10,     dmg:2,     max:999}],
 
             itemsPhyracu: 
@@ -100,10 +100,10 @@
             //starters
             friends: 
                     [{name:"Pandoo",  count: 1, isSelected: false, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, minKills:0, dmg:2, lifeTimeDmg:0, price:100, unlockedAt:0,   img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
-                     {name:"Blazby",  count: 0, isSelected: false, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, minKills:20, dmg:3, lifeTimeDmg:0, price:200, unlockedAt:5,   img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
+                     {name:"Blazby",  count: 1, isSelected: false, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, minKills:20, dmg:3, lifeTimeDmg:0, price:200, unlockedAt:5,   img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
                      {name:"Kniron",  count: 1, isSelected: false, lvl:1, levelUp: 30, stage:1, nextStageIndex:4, minKills:50, dmg:5, lifeTimeDmg:0, price:300, unlockedAt:25,  img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
                      {name:"Eartail", count: 1, isSelected: false, lvl:1, levelUp: 50, stage:1, nextStageIndex:6, minKills:100, dmg:8, lifeTimeDmg:0, price:500, unlockedAt:50,  img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
-                     {name:"Phyracu", count: 0, isSelected: false, lvl:1, levelUp: 80, stage:1, nextStageIndex:8, minKills:200, dmg:13,lifeTimeDmg:0, price:800,unlockedAt:100,   img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
+                     {name:"Phyracu", count: 1, isSelected: false, lvl:1, levelUp: 80, stage:1, nextStageIndex:8, minKills:200, dmg:13,lifeTimeDmg:0, price:800,unlockedAt:100,   img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
             //upgrade data
             friendsData:
                     //Pandoo - Line
