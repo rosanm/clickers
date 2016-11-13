@@ -311,6 +311,10 @@ $(document).ready(function(){
 
    $(".MonsterCard").click(function() {
        var selectedItem = $(this);
+       if(selectedItem.hasClass('active')){
+           unSelectFriend();
+           return;       
+        }
         //selection 
         $(".MonsterCard").removeClass("active");
         selectedItem.addClass("active");
@@ -318,13 +322,9 @@ $(document).ready(function(){
         $('.MonsterCard').each(function(i, e){
             if(selectedItem[0] != e)
             {
-                $(this).addClass('test');
-                $(this).addClass('move');
                 $(this).find('.arrow-right').hide();
             }
             else{
-                $(this).removeClass('test');
-                $(this).removeClass('move');
                 $(this).find('.arrow-right').show();
             }
         });
@@ -337,6 +337,15 @@ $(document).ready(function(){
         var items = getByName(selectedFriend.itemListName)
         ractive.set('items', items);   
     });
+
+    function unSelectFriend(){
+        $(".MonsterCard").removeClass("active");
+        $(".MonsterCard").find('.arrow-right').hide();
+        //load itemset
+        ractive.set('selectedFriend', '');
+        ractive.set('selectedFriendName', 'No one');
+        ractive.set('items', []);  
+    }
 
     function getByName(name){
         return ractive.get(name);
