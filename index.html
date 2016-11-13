@@ -123,9 +123,11 @@
                         {{#items}}
                             <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('buyOrUpgrade', event, @index)">  
                                 <img class="item-image" src="{{img}}"/>
-                                <div>{{name}}</div>
+                                <div class="itemName">{{name}}</div>
                                 <p class="text">{{description}}</p>
-                                <p class="text">price: {{price}} <span>dmg: {{dmg}}</span></p>                                                                  
+                                <p class="text">
+                                    <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{price}}</span>
+                                    <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{dmg}} p/s</span></p>                                                                  
                                 <div class="button-box">                                         
                                 </div>
                             </div>

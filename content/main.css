@@ -108,7 +108,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .itemcard {
-	height: 110px;
+	height: 90px;
     margin: 10px;
     background: #FEF2E2;
     border: 5px solid #300D0D;
@@ -116,7 +116,11 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	-webkit-box-shadow: 0 8px 6px -6px black;
 	-moz-box-shadow: 0 8px 6px -6px black;
 	box-shadow: 0 8px 6px -6px black;
+}
 
+.itemName {
+	border-bottom: 1px solid black;
+	margin: 0 15px;
 }
 
 .section-monstercard {
@@ -256,6 +260,7 @@ p{
     height: 60px;
     display: block;
     margin-left: 5px;
+	margin-top: 20px;
 }
 
 .button-box {
