@@ -108,7 +108,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .itemcard {
-	height: 90px;
     margin: 10px;
     background: #FEF2E2;
     border: 5px solid #300D0D;
@@ -168,13 +167,17 @@ html, body { height: 100%; margin: 0; padding: 0; }
  	font-size: 50pt;
 	margin-right: 10px;
 }
+
+.section-monstercard .button-buy{
+ 	
+}
+x
 .disabled{	
 	-webkit-filter: grayscale(100%) brightness(60%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%) brightness(60%); 
 }
 
 .friendImg{
-	width: 50%;
 	float: left;
 	max-height: 125px;
 }
