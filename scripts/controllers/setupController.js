@@ -12,22 +12,15 @@ $(document).ready(function(){
             doorSet: false,
             attack: false,
             mine: true,
-            // range: function (low, high) {
-            //             var range = [];
-            //             for (i = low; i <= high; i += 1) {
-            //                 range.push( i );
-            //             }
-            //             return range;
-            //         },
             round: function(number){
                 return Math.round(number);
             },
             isFriendAvailable: function(name){
                 return getObjectFromListByName('friends', name).count > 0;
             },
-            selectedFriend: '',
             selectedFriendName: 'No one',  
-            trainButton: { name: "Train friend", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: true, price: 100},         
+            trainButton: { name: "Train friend", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: true, price: 100},
+            evolveButton: { name: "Evolve friend", description: "Train friend to increase its base dmg.", img:"images/items/water.png", isVisble: true, price: 100},                              
             items: [],           
             //Items per starter
             // itemsGeneric: [{name:"Train {{name}}",   description:"Increase damage per second of {{name}} by 1%.", img:"images/items/water.png", count:0, price:10, dmg:50, max:999}],            
@@ -105,11 +98,11 @@ $(document).ready(function(){
                      {name:"Unihund",    hp:0,   total: 0,   img:"images/enemys/unihund_by_deoxysdaniel-d5ru0dg.png"}],
             //starters
             friends: 
-                    [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, minKills:0, dmg:2, lifeTimeDmg:0, price:100, unlockedAt:0,   img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
-                     {name:"Blazby",  count: 0, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, minKills:20, dmg:3, lifeTimeDmg:0, price:200, unlockedAt:5,   img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
-                     {name:"Kniron",  count: 1, lvl:1, levelUp: 30, stage:1, nextStageIndex:4, minKills:50, dmg:5, lifeTimeDmg:0, price:300, unlockedAt:25,  img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
-                     {name:"Eartail", count: 1, lvl:1, levelUp: 50, stage:1, nextStageIndex:6, minKills:100, dmg:8, lifeTimeDmg:0, price:500, unlockedAt:50,  img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
-                     {name:"Phyracu", count: 0, lvl:1, levelUp: 80, stage:1, nextStageIndex:8, minKills:200, dmg:13,lifeTimeDmg:0, price:800,unlockedAt:100,   img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
+                    [{name:"Pandoo",  count: 1, isSelected: false, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, minKills:0, dmg:2, lifeTimeDmg:0, price:100, unlockedAt:0,   img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
+                     {name:"Blazby",  count: 0, isSelected: false, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, minKills:20, dmg:3, lifeTimeDmg:0, price:200, unlockedAt:5,   img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
+                     {name:"Kniron",  count: 1, isSelected: false, lvl:1, levelUp: 30, stage:1, nextStageIndex:4, minKills:50, dmg:5, lifeTimeDmg:0, price:300, unlockedAt:25,  img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
+                     {name:"Eartail", count: 1, isSelected: false, lvl:1, levelUp: 50, stage:1, nextStageIndex:6, minKills:100, dmg:8, lifeTimeDmg:0, price:500, unlockedAt:50,  img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
+                     {name:"Phyracu", count: 0, isSelected: false, lvl:1, levelUp: 80, stage:1, nextStageIndex:8, minKills:200, dmg:13,lifeTimeDmg:0, price:800,unlockedAt:100,   img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu" }],          
             //upgrade data
             friendsData:
                     //Pandoo - Line
@@ -245,28 +238,29 @@ $(document).ready(function(){
             me.stage = me.stage + 1;
             me.nextStageIndex = evo.nextStageIndex;
             me.dmg = evo.dmg;
+
+            ractive.update();
+            
         },
         trainFriend: function(event) {
-        var button = ractive.get('trainButton');
-        var name = ractive.get('selectedFriend');
-        var me = getObjectFromListByName('friends', name);
+            var button = ractive.get('trainButton');
+            var name = ractive.get('selectedFriendName');
+            var me = getObjectFromListByName('friends', name);
 
-        if(me.lvl < 999){
-            me.lvl = me.lvl + 1;
-            me.dmg = me.dmg + 3;
-            me.price = ractive.get('round')(me.price * 1.3);
+            if(me.lvl < 999){
+                me.lvl = me.lvl + 1;
+                me.dmg = me.dmg + 3;
+                me.price = ractive.get('round')(me.price * 1.3);
 
-            if(me.lvl == me.levelUp - 1) {
+                if(me.lvl == me.levelUp - 1) {
                     button.isVisble = false;;
-            }
-            
-            ractive.update();
-
+                }
+                ractive.update();
             }
         },
         buyOrUpgrade: function (event, itemNr){
             //name of selectedFriend
-            var selectedFriend = ractive.get('selectedFriend');
+            var selectedFriend = ractive.get('selectedFriendName');
             //Can affound?
             if(ractive.get('units') >= ractive.get('items' + selectedFriend)[itemNr].price){
                 //Still in stock?
@@ -294,6 +288,22 @@ $(document).ready(function(){
                 ractive.update();
             }
             return false;
+        },
+        selectFriend: function(event, index){
+            var friend = ractive.get('friends')[index];
+
+            if(friend.isSelected) {
+                friend.isSelected = false;
+                ractive.set('selectedFriendName', 'No one');
+                ractive.set('items', []); 
+            }
+            else {
+                deselectAllFriends();
+                friend.isSelected = true;
+                showItemsOfFriend(friend.name);
+                ractive.set('selectedFriendName', friend.name);
+            }
+            ractive.update();
         }
     });
 
@@ -319,49 +329,10 @@ $(document).ready(function(){
         setTimeout(gameLoop, 1000);
     }
 
-    //Start the game the first time
-    gameLoop();
-    //start the smoothscore
-    smoothScoreLoop();
-
-   $(".MonsterCard").click(function() {
-//TODOset train button visible when needed!!!
-
-       var selectedItem = $(this);
-       if(selectedItem.hasClass('active')){
-           unSelectFriend();
-           return;       
-        }
-        //selection 
-        $(".MonsterCard").removeClass("active");
-        selectedItem.addClass("active");
-        
-        $('.MonsterCard').each(function(i, e){
-            if(selectedItem[0] != e)
-            {
-                $(this).find('.arrow-right').hide();
-            }
-            else{
-                $(this).find('.arrow-right').show();
-            }
-        });
-
-        //load itemset
-        var name = $(this).attr('friendName');
-        ractive.set('selectedFriend', name); //eeeh dubbel??
+    function showItemsOfFriend(name){
         var selectedFriend = getObjectFromListByName('friends', name);
-        ractive.set('selectedFriendName', selectedFriend.name);  // HALP > Doet dit nu hetzelfde als de regel hier 2 boven //het lijkt erop dat friendName en friend hetzelfde bevatten
-        var items = getByName(selectedFriend.itemListName)
-        ractive.set('items', items);   
-    });
-
-    function unSelectFriend(){
-        $(".MonsterCard").removeClass("active");
-        $(".MonsterCard").find('.arrow-right').hide();
-        //load itemset
-        ractive.set('selectedFriend', '');
-        ractive.set('selectedFriendName', 'No one');
-        ractive.set('items', []);  
+        var items = getByName('items' + name);
+        ractive.set('items', items);  
     }
 
     function getByName(name){
@@ -375,5 +346,17 @@ $(document).ready(function(){
                 return list[i];
         }
     }
+
+    function deselectAllFriends(){
+        var friends = ractive.get('friends');
+        for(var i = 0; i < friends.length; i++){
+            friends[i].isSelected = false;
+        }
+    }
+
+    //Start the game the first time
+    gameLoop();
+    //start the smoothscore
+    smoothScoreLoop();
 });
 
