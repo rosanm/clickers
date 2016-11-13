@@ -346,7 +346,7 @@ $(document).ready(function(){
                 return list[i];
         }
     }
-
+    
     function deselectAllFriends(){
         var friends = ractive.get('friends');
         for(var i = 0; i < friends.length; i++){
