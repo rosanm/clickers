@@ -219,28 +219,6 @@ $(document).ready(function(){
         }
     });
 
-    function calcUnitsPerSec(itemsArray){
-        var unitsPerSec = 0;
-            itemsArray.forEach(function(e) {
-                        unitsPerSec += (e.count*e.dmg);
-                        e.lifeTimeDmg += (e.count*e.dmg);
-                    }, this);
-            return unitsPerSec;
-    };
-
-    function gameLoop() {
-        //update dmg
-        var itemDps = calcUnitsPerSec(ractive.get('items'));
-        var friendDps = calcUnitsPerSec(ractive.get('friends'));
-
-        ractive.set('dps', itemDps + friendDps); 
-
-        document.title = ractive.get('units') + " Diamonds"; 
-
-        //this must be the last statment
-        setTimeout(gameLoop, 1000);
-    }
-
     function showItemsOfFriend(name){
         //var selectedFriend = getObjectFromListByName('friends', name);
         var items = getByName('items' + name);
@@ -264,6 +242,28 @@ $(document).ready(function(){
         for(var i = 0; i < friends.length; i++){
             friends[i].isSelected = false;
         }
+    }
+
+        function calcUnitsPerSec(itemsArray){
+        var unitsPerSec = 0;
+            itemsArray.forEach(function(e) {
+                        unitsPerSec += (e.count*e.dmg);
+                        e.lifeTimeDmg += (e.count*e.dmg);
+                    }, this);
+            return unitsPerSec;
+    };
+
+    function gameLoop() {
+        //update dmg
+        var itemDps = calcUnitsPerSec(ractive.get('items'));
+        var friendDps = calcUnitsPerSec(ractive.get('friends'));
+
+        ractive.set('dps', itemDps + friendDps); 
+
+        document.title = ractive.get('units') + " Diamonds"; 
+
+        //this must be the last statment
+        setTimeout(gameLoop, 1000);
     }
 
     //Start the game the first time
