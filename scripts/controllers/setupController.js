@@ -247,20 +247,19 @@ $(document).ready(function(){
         function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
             itemsArray.forEach(function(e) {
-                        var boost = ((e.dmg*count)/100)*e.boost; //bereken de boost
-                        unitsPerSec += (e.count*e.dmg)+boost;
-                        e.lifeTimeDmg += (e.count*e.dmg)+boost;
+                    unitsPerSec += ractive.get('TotalDmgOfFriendType')(e.name);
+                    e.lifeTimeDmg += ractive.get('TotalDmgOfFriendType')(e.name);
                     }, this);
             return unitsPerSec;
     };
 
     function gameLoop() {
+        
         //update dmg
-
         var friendDps = calcUnitsPerSec(ractive.get('friends'));
-
         ractive.set('dps', friendDps); 
-
+        
+        //update title
         document.title = ractive.get('units') + " Diamonds"; 
 
         //this must be the last statment
