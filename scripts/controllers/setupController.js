@@ -244,6 +244,10 @@ $(document).ready(function(){
         }
     }
 
+    function kFormatter(num) {
+        return num > 999 ? (num/1000).toFixed(1) + 'k' : num
+    }
+
         function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
             itemsArray.forEach(function(e) {

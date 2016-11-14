@@ -31,7 +31,7 @@
             },
             selectedFriendName: 'No one',  
             trainButton: { name: "Train", description: "Train friend to increase its base dmg.", img:"", isVisble: true },
-            evolveButton: { name: "Evolve", description: "Evolve this friend to a new and more powerfull stage!", img:"images/items/water.png", isVisble: false },                              
+            evolveButton: { name: "Evolve", description: "Evolve this friend to a new and more powerfull form!", img:"images/items/stars.png", price:1000, isVisble: false },                              
             items: [],                    
            
             //Items per starter

@@ -113,7 +113,7 @@
                                                 <div>&nbsp;</div> 
                                                 <div>{{name}} are boosted <span>{{boost}}%</span> to <span>{{round(TotalDmgOfFriendType(name))}}</span> dp/s. (<span>{{round(((dmg*count)/dps)*100)}}%</span> of total)</div>
                                                 <div>&nbsp;</div>                                               
-                                                <div>Train to lvl <span>{{lvl+1}}</span> for <span>{{round(dmg + dmg*0.2)}}</span> dmg.  (<span>+{{round(dmg*0.2)}}</span>)</div>                                                
+                                                <div>Train to lvl <span>{{lvl+1}}</span> for <span>{{round(dmg + dmg*0.2)}}</span> dmg.  (<span>+{{round(dmg*0.2)}}</span> dmg)</div>                                                
                                             </div> 
                                         </div>
                                     {{/isSelected}}
@@ -139,7 +139,7 @@
                         {{/if}}
                         {{#if evolveButton.isVisble}}
                             <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('evolveFriend', event)">  
-                                <img class="item-image" src="images/items/lvlUpItems/{{selectedFriendName}}.png"/>
+                                <img class="item-image" src="images/items/stars.png"/>
                                 <div class="itemName">{{evolveButton.name}} {{selectedFriendName}}</div>
                                 <p class="text">{{evolveButton.description}}</p>
                                 <p class="text">
