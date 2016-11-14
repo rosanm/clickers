@@ -31,7 +31,6 @@
             // itemsGeneric: [{name:"Train {{name}}",   description:"Increase damage per second of {{name}} by 1%.", img:"images/items/water.png", count:0, price:10, dmg:50, max:999}],            
             //Items per starter
             itemsPandoo: 
-                    [{name:"Train Pandoo",   description:"Fake Train Pandoo to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:50,     max:999},
                      {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsBlazby: 
