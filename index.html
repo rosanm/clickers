@@ -96,7 +96,10 @@
                                                     <p class="buyButtonText">maximum</p>
                                                 {{/if}}
                                             </div>
-                                            {{#if minKills > level}} Unlocks after {{minKills}} kills. {{/if}}                                 
+                                            {{#if minKills > level}} Unlocks after {{minKills}} kills. 
+                                            {{else}}
+                                                <div style="font-size: 11px">In total they dealt <span>{{lifeTimeDmg}}</span> dmg.</div>                                                
+                                            {{/if}}                                 
                                         </div>
                                         <div class="clear"></div>
                                         {{#isSelected}}
@@ -106,11 +109,12 @@
                                     {{#isSelected}}
                                         <div class="hoverBox section-monstercard">
                                             <div>
-                                                <div>Each <span>{{name}}</span> deals <span>{{dmg}}</span> damage per second.</div>
+                                                <div>Each <span>{{name}}</span> deals <span>{{dmg}}</span> base damage per second.</div>
                                                 <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dps. (<span>{{round(((dmg*count)/dps)*100)}}%</span>)</div>
-                                                <div>In total they dealt <span>{{lifeTimeDmg}}</span> dmg.</div>
                                                 <div>&nbsp;</div>
-                                                <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg. For <span>{{price}}</span> diamonds.</div>                                                                                         
+                                                <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg.</div>
+                                                <div>&nbsp;</div>
+                                                <div>Each {{name}} is boosted by <span>{{boost}}%</span> and gives a total damage of <span>{{dmg}} p/s</span></div>                                                
                                             </div> 
                                         </div>
                                     {{/isSelected}}
