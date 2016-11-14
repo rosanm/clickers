@@ -35,8 +35,8 @@
                         <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{round(dps)}} DPS</p></div>
                         <div id="currentLvl">{{level}} Kills</div>
                         
-
-                        <p class="CaviarDreamsBold" >Use your friends to:</p>
+                        <br/>
+                        <p class="CaviarDreamsBold" >Friend Mode:</p>
                            <fieldset class="CaviarDreamsBold">
                                     <label for="radio-1">Attack the enemy!</label>
                                     <input type="radio" name="radio-1" id="radio-1" checked="{{attack}}"><br/>
@@ -89,7 +89,7 @@
                                             <div class="friendcard {{ price >= units ? 'notClickable' : '' }} {{count >= 999 ? 'notClickable' : '' }}" 
                                                 on-click="@this.fire('buy', event, @index)">                       
                                                 {{#if count < 999}}
-                                                    <p class="buyButtonText">buy</p>
+                                                    <p class="buyButtonText">Buy</p>
                                                     <p class="text"><i class="diamondIcon fa fa-diamond fa-lg"></i> {{price}}</p>
                                                 {{else}}
                                                     <p class="buyButtonText">maximum</p>
@@ -97,7 +97,7 @@
                                             </div>
                                             {{#if minKills > level}} Unlocks after {{minKills}} kills. 
                                             {{else}}
-                                                <div style="font-size: 11px">In total they dealt <span>{{round(lifeTimeDmg)}}</span> dmg.</div>                                                
+                                                <div style="font-size: 11px">Dealt <span>{{round(lifeTimeDmg)}}</span> dmg so far.</div>                                                
                                             {{/if}}                                 
                                         </div>
                                         <div class="clear"></div>
@@ -109,11 +109,11 @@
                                         <div class="hoverBox section-monstercard">
                                             <div>
                                                 <div>Each <span>{{name}}</span> deals <span>{{dmg}}</span> base damage per second.</div>
-                                                <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dps. (<span>{{round(((dmg*count)/dps)*100)}}%</span>)</div>
-                                                <div>&nbsp;</div>
-                                                <div>Train to lvl <span>{{lvl+1}}</span> for +<span>{{round(dmg*0.2)}}</span> dmg.</div>
-                                                <div>&nbsp;</div>
-                                                <div>{{name}} are boosted by <span>{{boost}}%</span> for a total of <span>{{TotalDmgOfFriendType(name)}}</span>dp/s.</div>                                                
+                                                <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dp/s. </div>
+                                                <div>&nbsp;</div> 
+                                                <div>{{name}} are boosted <span>{{boost}}%</span> to <span>{{TotalDmgOfFriendType(name)}}</span> dp/s. (<span>{{round(((dmg*count)/dps)*100)}}%</span> of total)</div>
+                                                <div>&nbsp;</div>                                               
+                                                <div>Train to lvl <span>{{lvl+1}}</span> for <span>{{round(dmg + dmg*0.2)}}</span> dmg.  (<span>+{{round(dmg*0.2)}}</span>)</div>                                                
                                             </div> 
                                         </div>
                                     {{/isSelected}}

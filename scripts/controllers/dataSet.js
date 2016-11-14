@@ -108,7 +108,7 @@
                      {name:"Unihund",    hp:0,   total: 0,   img:"images/enemys/unihund_by_deoxysdaniel-d5ru0dg.png"}],
             //starters
             friends: 
-                    [{name:"Pandoo",  count: 1, isSelected: false, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, minKills:0,   dmg:2, boost:0,  lifeTimeDmg:0, price:100, unlockedAt:0,   img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
+                    [{name:"Pandoo",  count: 5, isSelected: false, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, minKills:0,   dmg:2, boost:60,  lifeTimeDmg:0, price:100, unlockedAt:0,   img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo" },
                      {name:"Blazby",  count: 0, isSelected: false, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, minKills:20,  dmg:3, boost:0,  lifeTimeDmg:0, price:200, unlockedAt:5,   img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby" },
                      {name:"Kniron",  count: 0, isSelected: false, lvl:1, levelUp: 30, stage:1, nextStageIndex:4, minKills:50,  dmg:5, boost:0,  lifeTimeDmg:0, price:300, unlockedAt:25,  img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron" },
                      {name:"Eartail", count: 0, isSelected: false, lvl:1, levelUp: 50, stage:1, nextStageIndex:6, minKills:100, dmg:8, boost:0,  lifeTimeDmg:0, price:500, unlockedAt:50,  img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail" },
