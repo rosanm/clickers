@@ -79,26 +79,29 @@
                                 <div class="box">
                                     <div class="MonsterCard section-monstercard {{ count ? '0' : 'disabled' }} {{isSelected ? 'active' : ''}}"
                                     on-click="@this.fire('selectFriend', event, @index)">
-                                        <div class="boxHeader">{{#if count > 0}}{{name}}{{else}}???{{/if}}</div>
+                                        <div class="itemName">{{#if count > 0}}{{name}}{{else}}???{{/if}}</div>
                                         <img src="{{img}}" class="friendImg">
                                         <div class="friendsLabels">
-                                            <div class="level_label">
-                                                <p>Stage: {{stage}}</p>
-                                                <p>Level: {{lvl}}</p>
-                                            </div>                                          
-                                            <div class="count_label">{{count}}x</div>
+                                            <div class="level_label" style="margin-top:5px">
+                                                <p><span class="levelIcon"><i class="fa fa-paw fa-lg" aria-hidden="true"></i> {{stage}}</span>
+                                                <span class="levelIcon"><i class="fa fa-level-up fa-lg" aria-hidden="true"></i> {{lvl}}</span>
+                                                <span class="levelIcon"><i class="fa fa-group" aria-hidden="true"></i> {{count}}x</span></p>
+                                            </div>         
+                                            <div class="friendcard {{ price >= units ? 'notClickable' : '' }} {{count >= 999 ? 'notClickable' : '' }}" 
+                                                on-click="@this.fire('buy', event, @index)">                       
+                                                {{#if count < 999}}
+                                                    <p class="buyButtonText">buy</p>
+                                                    <p class="text"><i class="diamondIcon fa fa-diamond fa-lg"></i> {{price}}</p>
+                                                {{else}}
+                                                    <p class="buyButtonText">maximum</p>
+                                                {{/if}}
+                                            </div>
+                                            {{#if minKills > level}} Unlocks after {{minKills}} kills. {{/if}}                                 
                                         </div>
                                         <div class="clear"></div>
-                                        {{#if count < 99}}
-                                            <button style="margin-left:5px;" class="button-buy" on-click="@this.fire('buy', event, @index)" disabled="{{ price > units }}">&nbsp;Buy&nbsp;</button> 
-                                        {{else}}
-                                            <button style="margin-left:5px;" disabled="disabled">maximum reached</button>                                             
-                                        {{/if}}
-                                        {{#if minKills > level}} Unlocks after {{minKills}} kills. {{/if}}
                                         {{#isSelected}}
                                             <div class="arrow-right"></div>
                                         {{/isSelected}}
-
                                     </div>
                                     {{#isSelected}}
                                         <div class="hoverBox section-monstercard">

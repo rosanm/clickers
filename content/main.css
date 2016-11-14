@@ -107,7 +107,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	overflow: hidden;
 }
 
-.itemcard {
+.itemcard, .friendcard {
     margin: 10px;
 	padding: 2px;
     background: #FEF2E2;
@@ -118,6 +118,18 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	box-shadow: 0 8px 6px -6px black;
 }
 
+.buyButtonText {
+	float:left;
+	margin-left: 5px;
+}
+
+.friendcard {
+	background-color:#dcc668;
+	width:120px;
+	height:50px;
+	padding: 10px 0;
+}
+
 .itemName {
 	border-bottom: 1px solid black;
 	margin: 0 15px;
@@ -126,7 +138,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .section-monstercard {
     width: 325px;
-	height: 235px;
+	height: 180px;
     margin: 10px;
     background: #FEF2E2;
     border: 5px solid #300D0D;
@@ -157,7 +169,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 .level_label {
 	width: 100%;
-	font-family: CaviarDreams;
+	font-family: LemonMilk;
 }
 
 .count_label {
@@ -240,10 +252,25 @@ p{
 	font-family: CaviarDreams;
 }
 
+.notClickable {
+	background: #999;
+	-webkit-filter: grayscale(100%) brightness(60%);
+    -moz-filter: grayscale(100%) brightness(60%);
+	filter: grayscale(100%) brightness(60%);
+}
 
-.diamondIcon {
+.notClickable:hover {
+	cursor: not-allowed !important;
+}
+
+
+.diamondIcon, .levelIcon i {
 	color:brown;
 	font-size: 18px !important;
+}
+
+.levelIcon {
+	margin-right: 8px;
 }
 
 .theZoo {
@@ -377,7 +404,9 @@ p{
 }
 
 .active {
-	border: 5px solid lightskyblue;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 10px 15px -1px black;
 }
 
 
@@ -405,10 +434,10 @@ p{
   height: 0; 
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
-  border-left: 15px solid #87cefa;
+  border-left: 15px solid #300d0d;
   position:relative;
-  left: 20px;
-  top: -130px;
+  left: 19px;
+  top: -100px;
   float:right;
 }
 
@@ -481,10 +510,10 @@ button:disabled:hover {
 		height: 0; 
 		border-left: 20px solid transparent;
 		border-right: 20px solid transparent; 
-		border-top: 20px solid #87cefa;
+		border-top: 20px solid #300d0d;
 		position:relative;
 		left: 0;
-		top: 20px;
+		top: 25px;
 		float:none;
 	}
 }
