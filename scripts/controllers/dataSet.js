@@ -31,6 +31,7 @@
             // itemsGeneric: [{name:"Train {{name}}",   description:"Increase damage per second of {{name}} by 1%.", img:"images/items/water.png", count:0, price:10, dmg:50, max:999}],            
             //Items per starter
             itemsPandoo: 
+                    [{name:"Focus Cube",     description:"Double base Dmg.",                              img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:4,     max:1},
                      {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
 
             itemsBlazby: 
