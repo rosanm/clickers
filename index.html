@@ -32,10 +32,9 @@
                     </div>
                     <div class="top_left_padding">
                         <div id="unitcounter"><p> <i class="diamondIcon fa fa-diamond fa-lg"></i>{{units}}</p></div>
-                        <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{dps}} DPS</p></div>
+                        <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{round(dps)}} DPS</p></div>
                         <div id="currentLvl">{{level}} Kills</div>
                         
-                        <hr>
 
                         <p class="CaviarDreamsBold" >Use your friends to:</p>
                            <fieldset class="CaviarDreamsBold">
@@ -79,7 +78,7 @@
                                 <div class="box">
                                     <div class="MonsterCard section-monstercard {{ count ? '0' : 'disabled' }} {{isSelected ? 'active' : ''}}"
                                     on-click="@this.fire('selectFriend', event, @index)">
-                                        <div class="itemName">{{#if count > 0}}{{name}}{{else}}???{{/if}}</div>
+                                        <div class="itemName">{{#if count > 0}}{{count}} {{name}}{{else}}???{{/if}}</div>
                                         <img src="{{img}}" class="friendImg">
                                         <div class="friendsLabels">
                                             <div class="level_label" style="margin-top:5px">
@@ -98,7 +97,7 @@
                                             </div>
                                             {{#if minKills > level}} Unlocks after {{minKills}} kills. 
                                             {{else}}
-                                                <div style="font-size: 11px">In total they dealt <span>{{lifeTimeDmg}}</span> dmg.</div>                                                
+                                                <div style="font-size: 11px">In total they dealt <span>{{round(lifeTimeDmg)}}</span> dmg.</div>                                                
                                             {{/if}}                                 
                                         </div>
                                         <div class="clear"></div>
