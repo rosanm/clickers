@@ -31,24 +31,24 @@
             // itemsGeneric: [{name:"Train {{name}}",   description:"Increase damage per second of {{name}} by 1%.", img:"images/items/water.png", count:0, price:10, dmg:50, max:999}],            
             //Items per starter
             itemsPandoo: 
-                    [{name:"Focus Cube",     description:"Double base Dmg.",                              img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:4,     max:1},
-                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
+                    [{name:"Focus Cube",     description:"Double base Dmg.",                              img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:2,     boost:0,     max:1},
+                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,     boost:0,    max:999}],
 
             itemsBlazby: 
-                    [{name:"Train Blazby",   description:"Fake Train Blazby to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,     max:999},
-                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,    max:999}],
+                    [{name:"Focus Cube",   description:"Double base Dmg.",                                img:"images/items/weird-cube.png",              lvl:0,  count:0, price:10,     dmg:3,      boost:0,    max:1},
+                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:25,     boost:0,    max:999}],
 
             itemsKniron: 
-                    [{name:"Train Kniron",   description:"Fake Train Kniron to increase its base dmg.",   img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:5,      max:999},
-                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:2,     max:999}],
+                    [{name:"Focus Cube",   description:"Double base Dmg.",                                img:"images/items/weird-cube.png",              lvl:0,  count:0, price:10,     dmg:5,      boost:0,     max:1},
+                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:2,      boost:0,     max:999}],
 
             itemsEartail:
-                    [{name:"Train Eartail",  description:"Fake Train Eartail to increase its base dmg.",  img:"images/items/water-glass.png",       lvl:0,  count:0, price:100,    dmg:1,     max:999},
-                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",       img:"images/items/water.png",                lvl:0,  count:0, price:10,     dmg:2,     max:999}],
+                    [{name:"Focus Cube",  description:"Double base Dmg.",                                 img:"images/items/weird-cube.png",        lvl:0,  count:0, price:100,    dmg:8,      boost:0,     max:1},
+                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:2,      boost:0,     max:999}],
 
             itemsPhyracu: 
-                     [{name:"Train Phyracu", description:"Fake Train Phyracu to increase its base dmg.",  img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:1,     max:999},
-                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",               lvl:0,  count:0, price:100,    dmg:2,     max:999}],
+                     [{name:"Focus Cube", description:"Double base Dmg.",                                 img:"images/items/weird-cube.png",              lvl:0,  count:0, price:10,     dmg:13,     boost:0,     max:1},
+                     {name:"+1% DMG",        description:"Add 1% bonus damage to the base dmg.",          img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:2,      boost:0,     max:999}],
 
             enemys: 
                     [{name:"Dropphin",   hp:150, total: 150, img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
