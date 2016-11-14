@@ -111,7 +111,7 @@
                                                 <div>Each <span>{{name}}</span> deals <span>{{dmg}}</span> base damage per second.</div>
                                                 <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dp/s. </div>
                                                 <div>&nbsp;</div> 
-                                                <div>{{name}} are boosted <span>{{boost}}%</span> to <span>{{TotalDmgOfFriendType(name)}}</span> dp/s. (<span>{{round(((dmg*count)/dps)*100)}}%</span> of total)</div>
+                                                <div>{{name}} are boosted <span>{{boost}}%</span> to <span>{{round(TotalDmgOfFriendType(name))}}</span> dp/s. (<span>{{round(((dmg*count)/dps)*100)}}%</span> of total)</div>
                                                 <div>&nbsp;</div>                                               
                                                 <div>Train to lvl <span>{{lvl+1}}</span> for <span>{{round(dmg + dmg*0.2)}}</span> dmg.  (<span>+{{round(dmg*0.2)}}</span>)</div>                                                
                                             </div> 
