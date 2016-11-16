@@ -239,21 +239,21 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .underAttack{
-	-moz-animation: blink normal 0.35s infinite ease-in-out; /* Firefox */
-    -webkit-animation: blink normal 0.35s infinite ease-in-out; /* Webkit */
-    -ms-animation: blink normal 0.35s infinite ease-in-out; /* IE */
-    animation: blink normal 0.35s infinite ease-in-out; /* Opera and prob css3 final iteration */
+	-moz-animation: blink normal 0.2s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 0.2s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 0.2s infinite ease-in-out; /* IE */
+    animation: blink normal 0.2s infinite ease-in-out; /* Opera and prob css3 final iteration */	
 }
 
 @keyframes blink {
     0% {
-        opacity:1;
+        filter: invert(90%);
     }
     50% {
-        opacity:0;
+        filter: invert(20%);
     }
     100% {
-        opacity:1;
+        filter: invert(90%);
     }
 }
 
