@@ -104,15 +104,15 @@ $(document).ready(function(){
 
     ractive.on({
         evolveFriend: function(event){
-        var trainButton = ractive.get('trainButton');
-        var evolveButton = ractive.get('evolveButton');   
-        var name = ractive.get('selectedFriendName');
-        var me = getObjectFromListByName('friends', name);
+            var trainButton = ractive.get('trainButton');
+            var evolveButton = ractive.get('evolveButton');   
+            var name = ractive.get('selectedFriendName');
+            var me = getObjectFromListByName('friends', name);
 
-        //do normal lvl-up stuff
-        me.lvl = me.lvl + 1;
-        me.dmg = me.dmg + 3;
-        me.price = ractive.get('round')(me.price * 1.3);
+            //do normal lvl-up stuff
+            me.lvl = me.lvl + 1;
+            me.dmg = me.dmg + 3;
+            me.price = ractive.get('round')(me.price * 1.3);
 
             //set all new data
             var evo = ractive.get('friendsData')[me.nextStageIndex];
@@ -127,6 +127,7 @@ $(document).ready(function(){
             evolveButton.isVisble = false;
             trainButton.isVisble = true;
             ractive.set('selectedFriendName', evo.name);
+            showItemsOfFriend(me.itemListName);
             ractive.update();         
         },
         trainFriend: function(event) {
@@ -152,24 +153,25 @@ $(document).ready(function(){
         },
         buyOrUpgrade: function (event, itemNr){
             //name of selectedFriend
-            var selectedFriend = ractive.get('selectedFriendName');
+            var selectedFriend = ractive.get('selectedFriend')(getByName('selectedFriendName'));
+            var clickedItem = ractive.get(selectedFriend.itemListName)[itemNr];
             //Can affound?
-            if(ractive.get('units') >= ractive.get('items' + selectedFriend)[itemNr].price){
+            if(ractive.get('units') >= clickedItem.price){
                 //Still in stock?
-                if(ractive.get('items' + selectedFriend)[itemNr].count < ractive.get('items' + selectedFriend)[itemNr].max){
+                if(clickedItem.count < clickedItem.max){
                     //Buy it
                     var diamonds = ractive.get('units');
-                    var priceOfItem = ractive.get('items' + selectedFriend)[itemNr].price;
+                    var priceOfItem = clickedItem.price;
                     ractive.set('units', diamonds - priceOfItem);
-                    var upgradedItem = ractive.get('items' + selectedFriend)[itemNr];
+                    var upgradedItem = clickedItem;
                     upgradedItem.lvl = upgradedItem.lvl +1;
                     upgradedItem.price = Math.round(upgradedItem.price * 1.3);
                     upgradedItem.dmg = Math.round(upgradedItem.dmg * 1.2);
                     upgradedItem.count = upgradedItem.count + 1;
                     ractive.update();
-                }else{
-                    alert(ractive.get('items')[itemNr].name +" is out of stock, maximum reached. " +
-                    ractive.get('items')[itemNr].max +"/"+ ractive.get('items')[itemNr].max )
+                }
+                else {
+                    ractive.get('items')[itemNr].max +"/"+ ractive.get('items')[itemNr].max;
                 }
             }
         },
@@ -198,7 +200,7 @@ $(document).ready(function(){
             else {
                 deselectAllFriends();
                 friend.isSelected = true;
-                showItemsOfFriend(friend.name);
+                showItemsOfFriend(friend.itemListName);
                 ractive.set('selectedFriendName', friend.name);
             }
 
@@ -219,9 +221,8 @@ $(document).ready(function(){
         }
     });
 
-    function showItemsOfFriend(name){
-        //var selectedFriend = getObjectFromListByName('friends', name);
-        var items = getByName('items' + name);
+    function showItemsOfFriend(itemListName){
+        var items = getByName(itemListName);
         ractive.set('items', items);  
     }
 
@@ -244,11 +245,13 @@ $(document).ready(function(){
         }
     }
 
-        function calcUnitsPerSec(itemsArray){
+    function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
             itemsArray.forEach(function(e) {
                     unitsPerSec += ractive.get('TotalDmgOfFriendType')(e.name);
-                    e.lifeTimeDmg += ractive.get('TotalDmgOfFriendType')(e.name);
+                        if(ractive.get('attack')) {
+                            e.lifeTimeDmg += ractive.get('TotalDmgOfFriendType')(e.name);
+                        }
                     }, this);
             return unitsPerSec;
     };
