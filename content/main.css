@@ -235,8 +235,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
 
 }
 
-.monster-box-enemy img{
-	max-height: 260px;
+.monster-box-enemy img {
+	max-height: 260px;	
 }
 
 #door {

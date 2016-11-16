@@ -97,6 +97,8 @@ $(document).ready(function(){
                 
                 ractive.update();
 
+                var random = Math.floor((Math.random() * 250) + 1);
+                $('.enemySet').css('filter', 'hue-rotate(' + random + 'deg) saturate(3.3)');
                 $("#progresscontainer").hide();
                 $(".doorSet").show();
                 $(".enemySet").hide();
