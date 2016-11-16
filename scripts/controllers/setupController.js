@@ -253,7 +253,9 @@ $(document).ready(function(){
         var unitsPerSec = 0;
             itemsArray.forEach(function(e) {
                     unitsPerSec += ractive.get('TotalDmgOfFriendType')(e.name);
-                    e.lifeTimeDmg += ractive.get('TotalDmgOfFriendType')(e.name);
+                        if(ractive.get('attack')) {
+                            e.lifeTimeDmg += ractive.get('TotalDmgOfFriendType')(e.name);
+                        }
                     }, this);
             return unitsPerSec;
     };
