@@ -51,7 +51,7 @@
                     <div class="boxHeader" style="text-align: center;">
                         ATTACK
                     </div>
-                    <div class="monster-box-enemy" >
+                    <div class="monster-box-enemy {{ attack ? 'underAttack' : '' }}" >
                         {{#if doorSet}}
                             <img class="doorSet" src={{door}} width="100%">
                         {{else}}
