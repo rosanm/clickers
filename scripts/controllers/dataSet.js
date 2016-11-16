@@ -2,7 +2,7 @@
         el: "#container",
         template: "#template",
         data: {
-            units: 0,
+            units: 998000,
             dps: 0,
             level: 0,
             enemyIndex: 0,
@@ -28,6 +28,9 @@
                 if(name != 'No one'){
                     return getTotalDmgOfFriendType(name);
                 }
+            },
+            nFormat: function(number){
+                    return nFormatter(number,1);               
             },
             selectedFriendName: 'No one',  
             trainButton: { name: "Train", description: "Train friend to increase its base dmg.", img:"", isVisble: true },
@@ -154,3 +157,25 @@ function getTotalDmgOfFriendType(name){
     return totalDamageOfThisFriendType;
 
 }
+
+    // function kFormatter(num) {
+    //     return num > 999 ? (num/1000).toFixed(1) + 'k' : num
+    // }
+
+function nFormatter(num, digits) {
+    var si = [                                  //ENG             //NL        //Si-units
+        { value: 1E18, symbol: "Qt" },          //Quintillion     //Triljoen  //E
+        { value: 1E15, symbol: "Q" },           //Quadrillion     //Biljard   //P
+        { value: 1E12, symbol: "T" },           //Trillion        //Biljoen   //T
+        { value: 1E9,  symbol: "B" },           //Bilion          //Miljard   //G
+        { value: 1E6,  symbol: "M" },           //Million         //Miljoen   //M
+        { value: 1E3,  symbol: "k" }            //Kilo            //Duizend   //k
+    ], rx = /\.0+$|(\.[0-9]*[1-9])0+$/, i;
+    for (i = 0; i < si.length; i++) {
+        if (num >= si[i].value) {
+        return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
+        }
+    }
+    return num.toFixed(digits).replace(rx, " $1");
+    }
+
