@@ -108,27 +108,28 @@ $(document).ready(function(){
             var evolveButton = ractive.get('evolveButton');   
             var name = ractive.get('selectedFriendName');
             var me = getObjectFromListByName('friends', name);
+            if(hasEnoughDiamonds(me.price)) { 
+                //do normal lvl-up stuff
+                me.lvl = me.lvl + 1;
+                me.dmg = me.dmg + 3;
+                me.price = ractive.get('round')(me.price * 1.3);
 
-            //do normal lvl-up stuff
-            me.lvl = me.lvl + 1;
-            me.dmg = me.dmg + 3;
-            me.price = ractive.get('round')(me.price * 1.3);
+                //set all new data
+                var evo = ractive.get('friendsData')[me.nextStageIndex];
+                me.img = evo.img;
+                me.name = evo.name;
+                me.levelUp = evo.levelUp;
+                me.stage = me.stage + 1;
+                me.nextStageIndex = evo.nextStageIndex;
+                me.dmg = evo.dmg;
 
-            //set all new data
-            var evo = ractive.get('friendsData')[me.nextStageIndex];
-            me.img = evo.img;
-            me.name = evo.name;
-            me.levelUp = evo.levelUp;
-            me.stage = me.stage + 1;
-            me.nextStageIndex = evo.nextStageIndex;
-            me.dmg = evo.dmg;
-
-            //stop evolving
-            evolveButton.isVisble = false;
-            trainButton.isVisble = true;
-            ractive.set('selectedFriendName', evo.name);
-            showItemsOfFriend(me.itemListName);
-            ractive.update();         
+                //stop evolving
+                evolveButton.isVisble = false;
+                trainButton.isVisble = true;
+                ractive.set('selectedFriendName', evo.name);
+                showItemsOfFriend(me.itemListName);
+                ractive.update();    
+            }     
         },
         trainFriend: function(event) {
             var trainButton = ractive.get('trainButton');
@@ -137,32 +138,35 @@ $(document).ready(function(){
             var me = getObjectFromListByName('friends', name);
 
             if(me.lvl < 999){
-                me.lvl = me.lvl + 1;
-                me.dmg = me.dmg + 3;
-                me.price = ractive.get('round')(me.price * 1.3);
+                if(hasEnoughDiamonds(me.trainPrice)) { 
+                    ractive.set('units', ractive.get('units') - me.trainPrice);
 
-                    if(me.lvl == me.levelUp -1) {
-                        trainButton.isVisble = false;
-                        evolveButton.isVisble = true;
-                    }
-                }else{ //max level
+                    me.lvl = me.lvl + 1;
+                    me.dmg = me.dmg + 3;
+                    me.trainPrice = ractive.get('round')(me.trainPrice * 1.3);
+
+                        if(me.lvl == me.levelUp -1) {
+                            trainButton.isVisble = false;
+                            evolveButton.isVisble = true;
+                        }
+                }
+            }
+            else { //max level
                 trainButton.isVisble = false;               
-                 }
-                ractive.update();
-            
+            }
+            ractive.update();          
         },
-        buyOrUpgrade: function (event, itemNr){
+        buyItem: function (event, itemNr){
             //name of selectedFriend
             var selectedFriend = ractive.get('selectedFriend')(getByName('selectedFriendName'));
             var clickedItem = ractive.get(selectedFriend.itemListName)[itemNr];
             //Can affound?
-            if(ractive.get('units') >= clickedItem.price){
+            if(hasEnoughDiamonds(clickedItem.price)) {
                 //Still in stock?
                 if(clickedItem.count < clickedItem.max){
                     //Buy it
-                    var diamonds = ractive.get('units');
-                    var priceOfItem = clickedItem.price;
-                    ractive.set('units', diamonds - priceOfItem);
+                    ractive.set('units', ractive.get('units') - clickedItem.price);
+
                     var upgradedItem = clickedItem;
                     upgradedItem.lvl = upgradedItem.lvl +1;
                     upgradedItem.price = Math.round(upgradedItem.price * 1.3);
@@ -176,8 +180,11 @@ $(document).ready(function(){
             }
         },
         buy: function (event, index){            
-            if(ractive.get('units') >= ractive.get('friends')[index].price) {
+            if(hasEnoughDiamonds(ractive.get('friends')[index].price)) {
                 var selectedFriend =  ractive.get('friends')[index];
+                ractive.set('units', ractive.get('units') - selectedFriend.price);
+
+                selectedFriend.price = ractive.get('round')(selectedFriend.price * 1.3);
                 selectedFriend.count++;
                 ractive.update();
             }
@@ -220,6 +227,10 @@ $(document).ready(function(){
             ractive.update();
         }
     });
+
+    function hasEnoughDiamonds(amount){
+        return ractive.get('units') >= amount;
+    }
 
     function showItemsOfFriend(itemListName){
         var items = getByName(itemListName);
