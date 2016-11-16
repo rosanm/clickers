@@ -2,7 +2,7 @@
         el: "#container",
         template: "#template",
         data: {
-            units: 998000,
+            units: 0,
             dps: 0,
             level: 0,
             enemyIndex: 0,
@@ -30,7 +30,7 @@
                 }
             },
             nFormat: function(number){
-                    return nFormatter(number,1);               
+                    return nFormatter(number,2);               
             },
             selectedFriendName: 'No one',  
             trainButton: { name: "Train", description: "Train friend to increase its base dmg.", img:"", isVisble: true },
