@@ -28,15 +28,14 @@ $(document).ready(function(){
         setTimeout(smoothScoreLoop, 10); //loop 100x per sec
     }
 
-    function smoothAttackEnemy() {
-        
+    function smoothAttackEnemy() {        
         //Show enemy en progressbar part
-                    ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
-                    var currentEnemy = ractive.get('currentEnemy');
+        ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
+        var currentEnemy = ractive.get('currentEnemy');
 
-                    var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
-                    $("progress").attr('value', progress);
-                    $("#progresscontainer").show();
+        var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
+        $("progress").attr('value', progress);
+        $("#progresscontainer").show();
 
         //Deal DMG part
         if(ractive.get('attack')) {                
@@ -52,6 +51,7 @@ $(document).ready(function(){
                 ractive.set('doorSet', true);
                 ractive.set('mine', true);
                 ractive.set('attack', false);
+                NextEnemy();
             }
         }
 
@@ -67,40 +67,32 @@ $(document).ready(function(){
         setTimeout(smoothAttackEnemy, 10); //loop 100x per sec  
     };
 
-    smoothAttackEnemy();
-
     function NextEnemy() {
-        //verhoog level met 1
+        ractive.set('level', ractive.get('level') + 1);
 
-        if(!ractive.get('doorSet')){
-            ractive.set('mine', false);
-            ractive.set('attack', true);
-            ractive.set('level', ractive.get('level') + 1);
-
-            var currentEnemy = ractive.get('currentEnemy');        
-            var enemyIndex = ractive.get('enemyIndex');
-            if(enemyIndex == ractive.get('enemys').length - 1){           
-                enemyIndex = 0;
-            }
-            else {
-                enemyIndex = enemyIndex + 1;
-            }
-                
-            var newEnemy = ractive.get('enemys')[enemyIndex];
-
-            //pak de volgende enemy met 61% meer hp als de vorige
-            newEnemy.hp = currentEnemy.total * 1.61803398875; //Golden Ratio;
-            newEnemy.total = newEnemy.hp;
-        
-
-            ractive.set('enemyIndex', enemyIndex);
-            ractive.set('currentEnemy', newEnemy);  
-            
-            ractive.update();
-
-            var random = Math.floor((Math.random() * 250) + 1);
-            $('.enemySet').css('filter', 'hue-rotate(' + random + 'deg) saturate(3.3) drop-shadow(2px 2px 2px #222)');
+        var currentEnemy = ractive.get('currentEnemy');        
+        var enemyIndex = ractive.get('enemyIndex');
+        if(enemyIndex == ractive.get('enemys').length - 1){           
+            enemyIndex = 0;
         }
+        else {
+            enemyIndex = enemyIndex + 1;
+        }
+            
+        var newEnemy = ractive.get('enemys')[enemyIndex];
+
+        //pak de volgende enemy met 61% meer hp als de vorige
+        newEnemy.hp = currentEnemy.total * 1.61803398875; //Golden Ratio;
+        newEnemy.total = newEnemy.hp;
+    
+
+        ractive.set('enemyIndex', enemyIndex);
+        ractive.set('currentEnemy', newEnemy);  
+        
+        ractive.update();
+
+        var random = Math.floor((Math.random() * 250) + 1);
+        $('.enemySet').css('filter', 'hue-rotate(' + random + 'deg) saturate(3.3) drop-shadow(2px 2px 2px #222)');
     };
 
     ractive.on({
@@ -229,9 +221,10 @@ $(document).ready(function(){
         },
         kickDoor: function(event) {
             ractive.set('doorSet', false);
-            NextEnemy();
-            var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 1 * 60 * 1000);
-            initializeClock('clockdiv', deadline);
+            smoothAttackEnemy();
+            ractive.set('mine', false);
+            ractive.set('attack', true);
+            initializeClock('clockdiv', 1, 0);
         },
     });
 

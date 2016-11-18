@@ -1,30 +1,31 @@
-function getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+function getTimeRemaining(minutes, seconds) {
+    if(seconds == 0){
+        minutes = minutes - 1;
+        seconds = 59;
+    }
+    else {
+        var seconds = seconds - 1;
+        var minutes = minutes;
+    }
     return {
-        'total': t,
-        'days': days,
-        'hours': hours,
         'minutes': minutes,
         'seconds': seconds
     };
 }
 
-function initializeClock(id, endtime) {
+function initializeClock(id, minutes, seconds) {
     var clock = document.getElementById(id);
     var minutesSpan = clock.querySelector('.minutes');
     var secondsSpan = clock.querySelector('.seconds');
 
     function updateClock() {
-        var t = getTimeRemaining(endtime);
-
+        var t = getTimeRemaining(minutes, seconds);
+        minutes = t.minutes;
+        seconds = t.seconds;
         minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-        if (t.total <= 0) {
+        if ($(".minutes").text() == '00' && $(".seconds").text() == '00') {
             clearInterval(timeinterval);
 
             var enemy = ractive.get('currentEnemy');
@@ -32,7 +33,12 @@ function initializeClock(id, endtime) {
             ractive.update();
 
             //stopattacking
+            ractive.set('mine', true);
+            ractive.set('attack', false);
+            
             //setdoor
+            ractive.set('doorSet', true);
+            alert('bam close door');
         }
     }
 
