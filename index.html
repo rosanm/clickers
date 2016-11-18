@@ -35,11 +35,8 @@
                         <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</p></div>
                         <div id="currentLvl">{{level}} Kills</div>                    
                         <br/>
-
                         {{#each diceList}}
-                            <div class="dice">
-                                {{value}}
-                            <div/>
+                            <div class="dice" style='background-image: url("images/items/Dice/d{{value}}.png")'><div/>
                         {{/each diceList}}
                     </div>
                 </div>
