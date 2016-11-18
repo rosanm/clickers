@@ -224,7 +224,13 @@ $(document).ready(function(){
             smoothAttackEnemy();
             ractive.set('mine', false);
             ractive.set('attack', true);
-            initializeClock('clockdiv', 1, 0);
+            initializeClock('clockdiv', 0, 30);
+        },
+        closeWindow: function(event) {
+            $(".diceBox").hide();
+            $(".overlay").hide();
+            ractive.set('mine', true);
+            ractive.set('doorSet', true);
         },
     });
 

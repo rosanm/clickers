@@ -22,9 +22,24 @@
     </head>
 
     <body class="unselectable">
-
+        <div class="overlay" style="display:none"></div>   
         <div id="container" class="main-container">
             <script id="template" class="section-left-top" type='text/ractive'>
+            
+            <div class="diceBox" style="display:none">   
+                <div class="boxHeader" style="text-align: center;">
+                    <p class="shadowed noMargin">Role the dice</p>
+                    <div class="closeButton" on-click="@this.fire('closeWindow', event)">
+                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                    </div>
+                </div>     
+                <div style="margin-top: 50px"></div>                  
+                {{#each diceList}}
+                    <div class="dice shadowed" style='background-image: url("images/items/Dice/d{{value}}.png"); margin: 0 auto;'></div>
+                {{/each diceList}}
+                <p>Throw 6 and escape from the dungeon!</p>
+            </div>    
+
             <div class="section-left">
                 <div class="section-left-top" type='text/ractive'>
                     <div class="boxHeader" style="text-align: center;">
@@ -42,7 +57,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="monster-box background">
                     <div class="boxHeader" style="text-align: center;">
                         <p class="shadowed noMargin">ATTACK</p>

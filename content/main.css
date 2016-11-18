@@ -20,6 +20,57 @@
 
 html, body { height: 100%; margin: 0; padding: 0; }
 
+body {
+	position: relative;
+}
+/* overlay styles, all needed */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+/* just some content with arbitrary styles for explanation purposes */
+.diceBox {
+    width: 50%;
+    height: 25%;
+    position: fixed;
+	top: 50%;
+    bottom: 50%; 
+    left: 50%;
+    margin-bottom: -15%;
+	margin-top:-15%;
+    margin-left: -25%;
+    background-color: #FEF2E2;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+.diceBox p {
+	width:90%;
+	padding-left:10%;
+}
+
+.closeButton {
+	margin-top:-60px;
+	margin-right:10px;
+	padding:10px;
+	float:right;
+	cursor:pointer;
+}
+
+.closeButton:hover {
+	-webkit-filter: drop-shadow(2px 2px 2px #222);
+	filter: drop-shadow(2px 2px 2px #222);
+	cursor:pointer;
+	z-index: 12;
+}
+
 .main-container {
 	background-size: cover;
 	background: url(../images/trees.jpg);
@@ -456,7 +507,7 @@ p{
 
 .hoverBox {
 	opacity: 0.95;
-	z-index: 99;
+	z-index: 8;
 	cursor: auto;
 	margin: 0 20px;
 	animation: open 1s;
@@ -578,8 +629,8 @@ button:disabled:hover {
 }
 
 .dice{
-	width: 32px;
-	height: 32px;
+	width: 46px;
+	height: 46px;
 	background-size: 100% 100%;
 }
 

@@ -32,16 +32,15 @@ function initializeClock(id, minutes, seconds) {
             enemy.hp = enemy.total;
             ractive.update();
 
-            //stopattacking
-            ractive.set('mine', true);
+            //stopattacking (not mining yet)
             ractive.set('attack', false);
             
             //beforeSetDoor roll the dice only if there is a dice
+            $(".diceBox").show();
+            $(".overlay").show();
 
-
-            //setdoor
-            ractive.set('doorSet', true);
-            alert('bam close door');
+            //setdoor and start mining
+            //in closing window function
         }
     }
 
