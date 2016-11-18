@@ -224,15 +224,43 @@ $(document).ready(function(){
             smoothAttackEnemy();
             ractive.set('mine', false);
             ractive.set('attack', true);
-            initializeClock('clockdiv', 0, 30);
+            initializeClock('clockdiv', 0, 5);
         },
         closeWindow: function(event) {
             $(".diceBox").hide();
             $(".overlay").hide();
             ractive.set('mine', true);
             ractive.set('doorSet', true);
+            ractive.set('diceMessage', '');
+        },
+        roleDice: function(event) {
+            $(".dice").addClass("diceRoll");
+            setTimeout(stopSpin, 300); 
+            var dieList = ractive.get('diceList');
+                dieList.forEach(function(die) {
+                    die.value = Math.floor((Math.random()*6)+1);
+                    if(die.value == 6) {
+                        ractive.set('doorSet', true);
+                        
+                        NextEnemy();
+                        setMessage('win');
+                        return;
+                    }
+                    else {
+                        setMessage('lost'); 
+                    }
+                }, this);
+            
+            ractive.set('diceList',dieList);
         },
     });
+
+    function setMessage(messageType){
+        if(messageType == 'win')
+            ractive.set('diceMessage', 'You escaped from the dungeon!');
+        else
+            ractive.set('diceMessage', 'You lost, try again! Items can help you defeat the enemies!');
+    }
 
     function hasEnoughDiamonds(amount){
         return ractive.get('units') >= amount;
@@ -290,17 +318,6 @@ $(document).ready(function(){
     gameLoop();
     //start the smoothscore
     smoothScoreLoop();
-
-
-    $( ".dice" ).click(function() {  
-        $(".dice").addClass("diceRoll");
-        setTimeout(stopSpin, 300); 
-        var dieList = ractive.get('diceList');
-            dieList.forEach(function(die) {
-                die.value = Math.floor((Math.random()*6)+1);
-            }, this);
-       ractive.set('diceList',dieList);
-    });
 
     function stopSpin() {
         $(".dice").removeClass("diceRoll");

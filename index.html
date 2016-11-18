@@ -35,8 +35,9 @@
                 </div>     
                 <div style="margin-top: 50px"></div>                  
                 {{#each diceList}}
-                    <div class="dice shadowed" style='background-image: url("images/items/Dice/d{{value}}.png"); margin: 0 auto;'></div>
+                    <div class="dice shadowed" style='background-image: url("images/items/Dice/d{{value}}.png"); margin: 0 auto;' on-click="@this.fire('roleDice', event)"></div>
                 {{/each diceList}}
+                <p class="noMargin">{{diceMessage}}</p>
                 <p>Throw 6 and escape from the dungeon!</p>
             </div>    
 
@@ -50,10 +51,6 @@
                             <div id="unitcounter"><p> <i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(units)}}</p></div>
                             <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</p></div>
                             <div id="currentLvl">{{level}} Kills</div>                    
-                            <br/>
-                            {{#each diceList}}
-                                <div class="dice shadowed" style='background-image: url("images/items/Dice/d{{value}}.png")'><div/>
-                            {{/each diceList}}
                         </div>
                     </div>
                 </div>
