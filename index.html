@@ -28,17 +28,20 @@
             
             <div class="diceBox" style="display:none">   
                 <div class="boxHeader" style="text-align: center;">
-                    <p class="shadowed noMargin">Role the dice</p>
+                    <p class="shadowed noMargin">Role the dice!</p>
                     <div class="closeButton" on-click="@this.fire('closeWindow', event)">
                         <i class="fa fa-window-close" aria-hidden="true"></i>
                     </div>
-                </div>     
-                <div style="margin-top: 50px"></div>                  
-                {{#each diceList}}
-                    <div class="dice shadowed" style='background-image: url("images/items/Dice/d{{value}}.png"); margin: 0 auto;' on-click="@this.fire('roleDice', event)"></div>
-                {{/each diceList}}
-                <p class="noMargin">{{diceMessage}}</p>
+                </div>
                 <p>Throw 6 and escape from the dungeon!</p>
+                <div style="margin-top: 20px"></div>
+                {{#if diceMessage == ''}}               
+                    {{#each diceList}}
+                        <div class="dice shadowed" style='background-image: url("images/items/Dice/d{{value}}.png"); margin: 0 auto;' on-click="@this.fire('roleDice', event)"></div>
+                    {{/each diceList}}
+                {{/if}}
+                <div style="margin-top: 20px"></div>  
+                <p class="noMargin diceMessage">{{diceMessage}}</p>
             </div>    
 
             <div class="section-left">
@@ -47,10 +50,23 @@
                         <p class="shadowed noMargin">STATS</p>
                     </div>
                     <div class="transparent" style="height: 91%;">
-                        <div class="top_left_padding">
-                            <div id="unitcounter"><p> <i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(units)}}</p></div>
-                            <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</p></div>
-                            <div id="currentLvl">{{level}} Kills</div>                    
+                        <div class="top_left_padding" style="width: 100%; display:block;">
+                            <span id="unitcounter" style="width: 35%; height: 60px; display:block; float:left;"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{roundedUnits}}</span>
+                            <span id="unitpersec" style="width: 42%; height: 60px; display:block; float:left;"><i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</span>
+                            <span id="currentLvl" style="width: 20%; height: 60px; display:block; float:left; line-height:20px;"><span class="weaponIcon">S</span>{{level}}</span>                    
+                        </div>
+                        <div class="itemName">Achievements</div>
+                        <div class="achievements">
+                            <i class="shadowed fa fa-cube fa-lg"></i>
+                            <i class="shadowed fa fa-cubes fa-lg"></i>
+                            <i class="shadowed fa fa-gift fa-lg"></i>
+                            <i class="shadowed fa fa-heart fa-lg"></i>
+                            <i class="shadowed fa fa-hourglass-1 fa-lg"></i>
+                            <i class="shadowed fa fa-trophy fa-lg"></i>   
+                            <i class="shadowed fa fa-unlock fa-lg"></i>                            
+                            <i class="shadowed fa fa-rocket fa-lg"></i>                            
+                            <i class="shadowed fa fa-fast-forward fa-lg"></i>                            
+                            <i class="shadowed fa fa-star fa-lg"></i>                                                     
                         </div>
                     </div>
                 </div>

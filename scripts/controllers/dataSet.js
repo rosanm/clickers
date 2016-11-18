@@ -31,6 +31,7 @@
                     return getTotalDmgOfFriendType(name);
                 }
             },
+            roundedUnits: 0,
             nFormat: function(number){
                     return nFormatter(number,2);               
             },

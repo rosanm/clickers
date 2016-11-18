@@ -18,11 +18,33 @@
     src: url(../fonts/Livingst.ttf);
 }
 
+@font-face {
+	font-family: weapons;
+	src: url(../fonts/AncientWeapons.ttf);
+}
+
 html, body { height: 100%; margin: 0; padding: 0; }
 
 body {
 	position: relative;
 }
+
+.weaponIcon {
+	font-family: weapons;
+	font-size: 32px;
+	color: brown;
+}
+
+.achievements {
+	padding: 5px 5px 5px 15px;
+	color: #222;
+	font-size: 20px;
+}
+
+.diceMessage {
+	font-family: CaviarDreams;
+}
+
 /* overlay styles, all needed */
 .overlay {
     position: fixed;
@@ -46,8 +68,9 @@ body {
 	margin-top:-15%;
     margin-left: -25%;
     background-color: #FEF2E2;
-    border-radius: 5px;
     text-align: center;
+	border: 5px solid #300D0D;
+	border-radius: 5px;
     z-index: 11; /* 1px higher than the overlay layer */
 }
 
@@ -632,6 +655,12 @@ button:disabled:hover {
 	width: 46px;
 	height: 46px;
 	background-size: 100% 100%;
+	cursor:pointer;
+}
+
+.dice:hover {
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+ 	 filter: drop-shadow(3px 3px 3px #222);	
 }
 
 .diceRoll {
@@ -654,3 +683,8 @@ button:disabled:hover {
     -webkit-filter: drop-shadow(2px 2px 2px #222);
  	 filter: drop-shadow(2px 2px 2px #222);
 }
+
+.achievements.shadowed {
+    -webkit-filter: drop-shadow(1px 1px 1px #222);
+ 	 filter: drop-shadow(1px 1px 1px #222);
+}	

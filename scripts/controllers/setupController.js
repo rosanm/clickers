@@ -221,7 +221,6 @@ $(document).ready(function(){
         },
         kickDoor: function(event) {
             ractive.set('doorSet', false);
-            smoothAttackEnemy();
             ractive.set('mine', false);
             ractive.set('attack', true);
             initializeClock('clockdiv', 0, 5);
@@ -235,31 +234,33 @@ $(document).ready(function(){
         },
         roleDice: function(event) {
             $(".dice").addClass("diceRoll");
-            setTimeout(stopSpin, 300); 
-            var dieList = ractive.get('diceList');
-                dieList.forEach(function(die) {
-                    die.value = Math.floor((Math.random()*6)+1);
-                    if(die.value == 6) {
-                        ractive.set('doorSet', true);
-                        
-                        NextEnemy();
-                        setMessage('win');
-                        return;
-                    }
-                    else {
-                        setMessage('lost'); 
-                    }
-                }, this);
-            
-            ractive.set('diceList',dieList);
+            setTimeout(spinDice, 500); 
         },
     });
+
+    function spinDice() {
+        $(".dice").removeClass("diceRoll");
+        var diceList = ractive.get('diceList');
+        diceList.forEach(function(die) {
+            die.value = Math.floor((Math.random()*6)+1);
+            if(die.value == 6) {
+                ractive.set('doorSet', true);
+                NextEnemy();
+                setMessage('win');
+                return;
+            }
+            else {
+                setMessage('lost'); 
+            }
+        }, this);
+        ractive.set('diceList',diceList);
+    }
 
     function setMessage(messageType){
         if(messageType == 'win')
             ractive.set('diceMessage', 'You escaped from the dungeon!');
         else
-            ractive.set('diceMessage', 'You lost, try again! Items can help you defeat the enemies!');
+            ractive.set('diceMessage', 'You lost! Items can help you defeat the enemies!');
     }
 
     function hasEnoughDiamonds(amount){
@@ -306,7 +307,7 @@ $(document).ready(function(){
         //update dmg
         var friendDps = calcUnitsPerSec(ractive.get('friends'));
         ractive.set('dps', friendDps); 
-        
+        ractive.set('roundedUnits', nFormatter(ractive.get('units')));
         //update title
         document.title = ractive.get('units') + " Diamonds"; 
 
@@ -318,10 +319,8 @@ $(document).ready(function(){
     gameLoop();
     //start the smoothscore
     smoothScoreLoop();
-
-    function stopSpin() {
-        $(".dice").removeClass("diceRoll");
-    }
+    //attack
+    smoothAttackEnemy();
    
 });
 
