@@ -25,7 +25,14 @@ function initializeClock(id, endtime) {
         secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
         if (t.total <= 0) {
-        clearInterval(timeinterval);
+            clearInterval(timeinterval);
+
+            var enemy = ractive.get('currentEnemy');
+            enemy.hp = enemy.total;
+            ractive.update();
+
+            //stopattacking
+            //setdoor
         }
     }
 
