@@ -238,10 +238,13 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	text-align: center;
 	font-family: Livingst;
 	font-size: 22px;
+	padding-top: 10px;
 }
 
 .monster-box-enemy img {
 	max-height: 260px;	
+	width: 80%;
+	height:70%;
 }
 
 .underAttack{
