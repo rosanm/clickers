@@ -289,5 +289,14 @@ $(document).ready(function(){
     gameLoop();
     //start the smoothscore
     smoothScoreLoop();
+
+
+    $( ".dice" ).click(function() {
+       var dieList = ractive.get('diceList');
+            dieList.forEach(function(die) {
+                die.value = Math.floor((Math.random()*6)+1);
+            }, this);
+       ractive.set('diceList',dieList);
+    });
 });
 
