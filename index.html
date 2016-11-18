@@ -47,14 +47,14 @@
                     </div>
                     <div class="monster-box-enemy" >
                         {{#if doorSet}}
-                            <img class="doorSet" src={{door}} width="100%" on-click="@this.fire('kickDoor', event)">
+                            <img class="doorSet shadowed" src={{door}} width="100%" on-click="@this.fire('kickDoor', event)">
                         {{else}}
                             <div id="clockdiv">
                                 <div>
                                     <span class="minutes"></span>:<span class="seconds"></span>
                                 </div>
                             </div>
-                            <img class="enemySet {{ attack ? 'underAttack' : '' }}" src={{currentEnemy.img}} width="100%">
+                            <img class="enemySet shadowed" src={{currentEnemy.img}} width="100%">
                         {{/if}}
                     </div>
                     {{#if !doorSet}}
