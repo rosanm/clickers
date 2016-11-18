@@ -206,6 +206,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .friendImg{
 	float: left;
 	max-height: 125px;
+	-webkit-filter: drop-shadow(3px 3px 3px #222);
+ 	 filter: drop-shadow(3px 3px 3px #222);
 }
 
 .section-monstercard span{
@@ -563,4 +565,25 @@ button:disabled:hover {
 	width: 32px;
 	height: 32px;
 	background-size: 100% 100%;
+}
+
+.diceRoll {
+	-webkit-filter: blur(1px);
+	-moz-filter: blur(1px);
+	-o-filter: blur(1px);
+	-ms-filter: blur(1px);
+	filter: blur(1px);
+
+    -webkit-animation:spin 0.3s linear;
+    -moz-animation:spin 0.3s linear;
+    animation:spin 0.3s linear;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+.shadowed {
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+ 	 filter: drop-shadow(2px 2px 2px #222);
 }
