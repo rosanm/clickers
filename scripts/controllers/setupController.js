@@ -293,12 +293,19 @@ $(document).ready(function(){
     smoothScoreLoop();
 
 
-    $( ".dice" ).click(function() {
-       var dieList = ractive.get('diceList');
+    $( ".dice" ).click(function() {  
+        $(".dice").addClass("diceRoll");
+        setTimeout(stopSpin, 300); 
+        var dieList = ractive.get('diceList');
             dieList.forEach(function(die) {
                 die.value = Math.floor((Math.random()*6)+1);
             }, this);
        ractive.set('diceList',dieList);
     });
+
+    function stopSpin() {
+        $(".dice").removeClass("diceRoll");
+    }
+   
 });
 
