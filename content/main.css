@@ -206,8 +206,8 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .friendImg{
 	float: left;
 	max-height: 125px;
-	-webkit-filter: drop-shadow(3px 3px 3px #222);
- 	 filter: drop-shadow(3px 3px 3px #222);
+	-webkit-filter: drop-shadow(2px 2px 2px #222);
+ 	 filter: drop-shadow(2px 2px 2px #222);
 }
 
 .section-monstercard span{
