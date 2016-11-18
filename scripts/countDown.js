@@ -36,6 +36,9 @@ function initializeClock(id, minutes, seconds) {
             ractive.set('mine', true);
             ractive.set('attack', false);
             
+            //beforeSetDoor roll the dice only if there is a dice
+
+
             //setdoor
             ractive.set('doorSet', true);
             alert('bam close door');

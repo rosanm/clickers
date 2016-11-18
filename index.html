@@ -26,24 +26,26 @@
         <div id="container" class="main-container">
             <script id="template" class="section-left-top" type='text/ractive'>
             <div class="section-left">
-                <div class="section-left-top background" type='text/ractive'>
+                <div class="section-left-top" type='text/ractive'>
                     <div class="boxHeader" style="text-align: center;">
-                        STATS
+                        <p class="shadowed noMargin">STATS</p>
                     </div>
-                    <div class="top_left_padding">
-                        <div id="unitcounter"><p> <i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(units)}}</p></div>
-                        <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</p></div>
-                        <div id="currentLvl">{{level}} Kills</div>                    
-                        <br/>
-                        {{#each diceList}}
-                            <div class="dice shadowed" style='background-image: url("images/items/Dice/d{{value}}.png")'><div/>
-                        {{/each diceList}}
+                    <div class="transparent" style="height: 91%;">
+                        <div class="top_left_padding">
+                            <div id="unitcounter"><p> <i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(units)}}</p></div>
+                            <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</p></div>
+                            <div id="currentLvl">{{level}} Kills</div>                    
+                            <br/>
+                            {{#each diceList}}
+                                <div class="dice shadowed" style='background-image: url("images/items/Dice/d{{value}}.png")'><div/>
+                            {{/each diceList}}
+                        </div>
                     </div>
                 </div>
 
                 <div class="monster-box background">
                     <div class="boxHeader" style="text-align: center;">
-                        ATTACK
+                        <p class="shadowed noMargin">ATTACK</p>
                     </div>
                     <div class="monster-box-enemy" >
                         {{#if doorSet}}
@@ -72,8 +74,9 @@
                 </div>
 
             </div>              
-            <div class="section-center gradient">
-                <div class="boxHeader">FRIENDS</div>      
+            <div class="section-center">
+                <div class="boxHeader"><p class="shadowed noMargin">FRIENDS</p></div>      
+                    <div class="gradient transparent" style="height:100%">
                         <div id="sortable" class="theZoo">
                             {{#each friends}}
                                 <div class="box">
@@ -120,48 +123,51 @@
                                     {{/isSelected}}
                                 </div>
                             {{/each friends}}
+                    </div>
                 </div>
             </div>
 
-            <div class="section-right background">
-                <div class="boxHeader">{{selectedFriendName}}'S ITEMS</div>
-                <div id="items-box">
-                    {{#if isFriendAvailable(selectedFriendName)}}
-                        {{#if trainButton.isVisble}}
-                            <div class="itemcard {{ selectedFriend(selectedFriendName).trainPrice > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('trainFriend', event)">  
-                                <img class="item-image shadowed" src="images/items/lvlUpItems/{{selectedFriendName}}.png"/>
-                                <div class="itemName">{{trainButton.name}} {{selectedFriendName}}</div>
-                                <p class="text">{{trainButton.description}}</p>
-                                <p class="text">
-                                    <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(selectedFriend(selectedFriendName).trainPrice)}}</span>                                                                
-                                    <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{nFormat(selectedFriend(selectedFriendName).dmg*0.2)}} p/s</span>   
-                                </p>  
-                            </div>
-                        {{/if}}
-                        {{#if evolveButton.isVisble}}
-                            <div class="itemcard {{ selectedFriend(selectedFriendName).price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('evolveFriend', event)">  
-                                <img class="item-image shadowed" src="images/items/stars.png"/>
-                                <div class="itemName">{{evolveButton.name}} {{selectedFriendName}}</div>
-                                <p class="text">{{evolveButton.description}}</p>
-                                <p class="text">
-                                    <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(evolveButton.trainPrice)}}</span>                                                                
-                                <div class="button-box">                                         
-                                </div>    
-                            </div>
-                        {{/if}}
-                        {{#each items}}
-                            <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('buyItem', event, @index)">  
-                                <img class="item-image shadowed" src="{{img}}"/>
-                                <div class="itemName">{{name}}</div>
-                                <p class="text">{{description}}</p>
-                                <p class="text">
-                                    <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(price)}}</span>
-                                    <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{dmg}} p/s</span></p>                                                                  
-                                <div class="button-box">                                         
+            <div class="section-right">
+                <div class="boxHeader"><p class="shadowed noMargin">{{selectedFriendName}}'S ITEMS</p></div>
+                <div class="transparent" style="height:100%">
+                    <div id="items-box">
+                        {{#if isFriendAvailable(selectedFriendName)}}
+                            {{#if trainButton.isVisble}}
+                                <div class="itemcard {{ selectedFriend(selectedFriendName).trainPrice > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('trainFriend', event)">  
+                                    <img class="item-image shadowed" src="images/items/lvlUpItems/{{selectedFriendName}}.png"/>
+                                    <div class="itemName">{{trainButton.name}} {{selectedFriendName}}</div>
+                                    <p class="text">{{trainButton.description}}</p>
+                                    <p class="text">
+                                        <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(selectedFriend(selectedFriendName).trainPrice)}}</span>                                                                
+                                        <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{nFormat(selectedFriend(selectedFriendName).dmg*0.2)}} p/s</span>   
+                                    </p>  
                                 </div>
-                            </div>
-                        {{/each items}}
-                    {{/if}}
+                            {{/if}}
+                            {{#if evolveButton.isVisble}}
+                                <div class="itemcard {{ selectedFriend(selectedFriendName).price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('evolveFriend', event)">  
+                                    <img class="item-image shadowed" src="images/items/stars.png"/>
+                                    <div class="itemName">{{evolveButton.name}} {{selectedFriendName}}</div>
+                                    <p class="text">{{evolveButton.description}}</p>
+                                    <p class="text">
+                                        <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(evolveButton.trainPrice)}}</span>                                                                
+                                    <div class="button-box">                                         
+                                    </div>    
+                                </div>
+                            {{/if}}
+                            {{#each items}}
+                                <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('buyItem', event, @index)">  
+                                    <img class="item-image shadowed" src="{{img}}"/>
+                                    <div class="itemName">{{name}}</div>
+                                    <p class="text">{{description}}</p>
+                                    <p class="text">
+                                        <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(price)}}</span>
+                                        <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{dmg}} p/s</span></p>                                                                  
+                                    <div class="button-box">                                         
+                                    </div>
+                                </div>
+                            {{/each items}}
+                        {{/if}}
+                    </div>
                 </div>
             </div>
         </script>

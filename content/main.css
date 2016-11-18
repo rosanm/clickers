@@ -21,7 +21,8 @@
 html, body { height: 100%; margin: 0; padding: 0; }
 
 .main-container {
-	background: url(http://www.mb3d.co.uk/mb3d/Wood_Seamless_and_Tileable_High_Res_Textures_files/Wood_14_UV_H_CM_1.jpg) repeat;
+	background-size: cover;
+	background: url(../images/trees.jpg);
 }
 
 .header h1 {
@@ -29,11 +30,15 @@ html, body { height: 100%; margin: 0; padding: 0; }
     color: #9A7C4A;
 }
 
+.transparent {
+	background-color: rgba(251,203,129,0.5);
+}
+
 .boxHeader, .boxHeader2 {
     /*background-color: darkslategray;*/
     font-size: 34px;
-    color: #222;
-    font-family: Windlass;
+    color: #fff;
+    font-family: LemonMilk;
     text-align: center;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bfd255+0,8eb92a+50,72aa00+51,9ecb2d+100;Green+Gloss */
 	background: #bfd255; /* Old browsers */
@@ -95,7 +100,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	border-radius: 5px;
 	text-align: center;
 	position:relative;
-	background: #FBCB81 url(../images/grass.png) no-repeat;
+	background: rgba(251,203,129,0.5) url(../images/grass.png) no-repeat;
     background-size: 550px;
     background-position: -100px bottom;
 }
@@ -453,14 +458,14 @@ p{
 	opacity: 0.95;
 	z-index: 99;
 	cursor: auto;
-	margin: 10px 20px;
+	margin: 0 20px;
 	animation: open 1s;
   	animation-direction: normal;
 	position:absolute;
 	padding: 5px;
-	height: 150px;
+	height: 180px;
 	width: 325px;
-	top: 30px;
+	top: 0;
 	left: 345px;
 	font-size: 12px;
 }
@@ -519,7 +524,7 @@ button:disabled:hover {
 }
 
 #clockdiv{
-    font-family: sans-serif;
+    font-family: CaviarDreams;
     color: #000;
     display: inline-block;
     font-weight: 100;
@@ -543,6 +548,10 @@ button:disabled:hover {
   100% {
     transform: translate(0px, 0px);
   }
+}
+
+.noMargin {
+	margin: 0;
 }
 
 
