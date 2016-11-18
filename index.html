@@ -53,22 +53,23 @@
                     </div>
                     <div class="monster-box-enemy {{ attack ? 'underAttack' : '' }}" >
                         {{#if doorSet}}
-                            <img class="doorSet" src={{door}} width="100%">
+                            <img class="doorSet" src={{door}} width="100%" on-click="@this.fire('kickDoor', event)">
                         {{else}}
                             <img class="enemySet" src={{currentEnemy.img}} width="100%">
                         {{/if}}
                     </div>
-                    <div id="progresscontainer" style="text-align: center; display: none;">
-                        <progress max="100" value="80">
-                            <div class="progress-bar">
-                                <span id="hp-progress"></span>
-                            </div>
-                            </progress>                                            
-                    </div>
-                       <p class=CaviarDreamsBold> {{currentEnemy.name}} <br/>
-                       {{nFormat(currentEnemy.hp)}}/{{nFormat(currentEnemy.total)}}HP</p> 
+                    {{#if !doorSet}}
+                        <div id="progresscontainer" style="text-align: center; display: none;">
+                            <progress max="100" value="80">
+                                <div class="progress-bar">
+                                    <span id="hp-progress"></span>
+                                </div>
+                                </progress>                                            
+                        </div>
+                        <p class=CaviarDreamsBold> {{currentEnemy.name}} <br/>
+                        {{nFormat(currentEnemy.hp)}}/{{nFormat(currentEnemy.total)}}HP</p> 
                         <br/>
-
+                    {{/if}}
                 </div>
 
             </div>              
