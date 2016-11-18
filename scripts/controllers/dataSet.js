@@ -11,6 +11,7 @@
             doorSet: true,
             attack: false,
             mine: true,
+            diceList: [{value:1}],
             round: function(number){
                 return Math.round(number * 10) / 10;
             },
