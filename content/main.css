@@ -508,6 +508,14 @@ button:disabled:hover {
 	position: relative;
 }
 
+#clockdiv{
+    font-family: sans-serif;
+    color: #000;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+}
 
 @keyframes open {
   0% {

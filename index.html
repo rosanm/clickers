@@ -42,11 +42,16 @@
                     <div class="boxHeader" style="text-align: center;">
                         ATTACK
                     </div>
-                    <div class="monster-box-enemy {{ attack ? 'underAttack' : '' }}" >
+                    <div class="monster-box-enemy" >
                         {{#if doorSet}}
                             <img class="doorSet" src={{door}} width="100%" on-click="@this.fire('kickDoor', event)">
                         {{else}}
-                            <img class="enemySet" src={{currentEnemy.img}} width="100%">
+                            <div id="clockdiv">
+                                <div>
+                                    <span class="minutes"></span>:<span class="seconds"></span>
+                                </div>
+                            </div>
+                            <img class="enemySet {{ attack ? 'underAttack' : '' }}" src={{currentEnemy.img}} width="100%">
                         {{/if}}
                     </div>
                     {{#if !doorSet}}
@@ -163,6 +168,7 @@
 
 
 <script src="scripts/controllers/dataSet.js"></script>
+<script src="scripts/countDown.js"></script>
 <script src="scripts/controllers/setupController.js"></script>
 
         

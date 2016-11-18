@@ -230,6 +230,8 @@ $(document).ready(function(){
         kickDoor: function(event) {
             ractive.set('doorSet', false);
             NextEnemy();
+            var deadline = new Date(Date.parse(new Date()) + 1 * 1 * 5 * 60 * 1000);
+            initializeClock('clockdiv', deadline);
         },
     });
 
