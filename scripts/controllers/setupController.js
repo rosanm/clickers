@@ -50,12 +50,10 @@ $(document).ready(function(){
                     ractive.update();
                     
                     if(ractive.get('currentEnemy.hp') < 0){
+                        ractive.set('doorSet', true);
                         NextEnemy();
                     }
-                    else {
-                        $(".doorSet").hide();
-                        $(".enemySet").show();
-                    } 
+
         }
                 //Control the attack/min variables
                 if(ractive.get('mine')){
@@ -73,6 +71,12 @@ $(document).ready(function(){
 
     function NextEnemy() {
         //verhoog level met 1
+
+        if(!ractive.get('doorSet')){
+
+                $(".doorSet").hide();
+                $(".enemySet").show()
+
         ractive.set('level', ractive.get('level') + 1);
 
             var currentEnemy = ractive.get('currentEnemy');
@@ -99,9 +103,11 @@ $(document).ready(function(){
 
                 var random = Math.floor((Math.random() * 250) + 1);
                 $('.enemySet').css('filter', 'hue-rotate(' + random + 'deg) saturate(3.3)');
-                $("#progresscontainer").hide();
+
+        }else{
                 $(".doorSet").show();
-                $(".enemySet").hide();
+                $(".enemySet").hide()
+        }
     };
 
     ractive.on({
@@ -286,5 +292,9 @@ $(document).ready(function(){
     gameLoop();
     //start the smoothscore
     smoothScoreLoop();
+
+            $( ".doorSet" ).click(function() {
+            ractive.set('doorSet', false);
+            });
 });
 

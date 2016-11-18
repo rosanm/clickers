@@ -8,7 +8,7 @@
             enemyIndex: 0,
             currentEnemy: {},
             door:"images/door.png",
-            doorSet: false,
+            doorSet: true,
             attack: false,
             mine: true,
             round: function(number){
