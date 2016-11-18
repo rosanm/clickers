@@ -73,6 +73,8 @@ $(document).ready(function(){
         //verhoog level met 1
 
         if(!ractive.get('doorSet')){
+            ractive.set('mine', false);
+            ractive.set('attack', true);
             ractive.set('level', ractive.get('level') + 1);
 
             var currentEnemy = ractive.get('currentEnemy');        
