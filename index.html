@@ -35,6 +35,9 @@
                         <div id="unitpersec"><p> <i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</p></div>
                         <div id="currentLvl">{{level}} Kills</div>                    
                         <br/>
+                        {{#each dice}}
+                            {{die}}
+                        {{/each dice}}
                     </div>
                 </div>
 
@@ -67,7 +70,7 @@
             <div class="section-center gradient">
                 <div class="boxHeader">FRIENDS</div>      
                         <div id="sortable" class="theZoo">
-                            {{#friends}}
+                            {{#each friends}}
                                 <div class="box">
                                     <div class="MonsterCard section-monstercard {{ count ? '0' : 'disabled' }} {{isSelected ? 'active' : ''}}"
                                     on-click="@this.fire('selectFriend', event, @index)">
@@ -111,7 +114,7 @@
                                         </div>
                                     {{/isSelected}}
                                 </div>
-                            {{/friends}}
+                            {{/each friends}}
                 </div>
             </div>
 
@@ -141,7 +144,7 @@
                                 </div>    
                             </div>
                         {{/if}}
-                        {{#items}}
+                        {{#each items}}
                             <div class="itemcard {{ price > units ? 'disabled' : 'enabled' }}" on-click="@this.fire('buyItem', event, @index)">  
                                 <img class="item-image" src="{{img}}"/>
                                 <div class="itemName">{{name}}</div>
@@ -152,7 +155,7 @@
                                 <div class="button-box">                                         
                                 </div>
                             </div>
-                        {{/items}}
+                        {{/each items}}
                     {{/if}}
                 </div>
             </div>
