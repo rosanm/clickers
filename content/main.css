@@ -44,7 +44,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 }
 
 .background {
-	background: #FBCB81;
+	background-color: #FBCB81;
 }
 
 .gradient {
@@ -94,6 +94,10 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	border: 5px solid #300D0D;
 	border-radius: 5px;
 	text-align: center;
+	position:relative;
+	background: #FBCB81 url(../images/grass.png) no-repeat;
+    background-size: 550px;
+    background-position: -100px bottom;
 }
 
 .section-center {
