@@ -22,7 +22,7 @@ $(document).ready(function(){
         //if your mining
         if(ractive.get('mine')){
             ractive.set('units', rounded);
-            ractive.set('roundedUnits', rounded);
+            ractive.set('roundedUnits', ractive.get('nFormat')(rounded));
         }
 
         //this must be the last statment
