@@ -176,5 +176,5 @@ function nFormatter(num, digits) {
         }
     }
     return num.toFixed(digits).replace(rx, " $1");
-    }
+}
 
