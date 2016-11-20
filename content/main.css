@@ -41,10 +41,6 @@ body {
 	font-size: 20px;
 }
 
-.diceMessage {
-	font-family: CaviarDreams;
-}
-
 /* overlay styles, all needed */
 .overlay {
     position: fixed;
@@ -54,29 +50,6 @@ body {
     width: 100%;
     background-color: rgba(0,0,0,0.5);
     z-index: 10;
-}
-
-/* just some content with arbitrary styles for explanation purposes */
-.diceBox {
-    width: 50%;
-    height: 25%;
-    position: fixed;
-	top: 50%;
-    bottom: 50%; 
-    left: 50%;
-    margin-bottom: -15%;
-	margin-top:-15%;
-    margin-left: -25%;
-    background-color: #FEF2E2;
-    text-align: center;
-	border: 5px solid #300D0D;
-	border-radius: 5px;
-    z-index: 11; /* 1px higher than the overlay layer */
-}
-
-.diceBox p {
-	width:90%;
-	padding-left:10%;
 }
 
 .closeButton {
@@ -157,26 +130,11 @@ body {
     height: 49.5%;
     float: left;
     border: 5px solid #300D0D;
-	border-radius: 5px;
-	
+	border-radius: 5px;	
 }
 
 .top_left_padding{
 	padding: 10px;
-}
-
-.monster-box {
-	margin: 5px;
-	width: 100%;
-    height: 49.5%;
-	float: left;
-	border: 5px solid #300D0D;
-	border-radius: 5px;
-	text-align: center;
-	position:relative;
-	background: rgba(251,203,129,0.5) url(../images/grass.png) no-repeat;
-    background-size: 550px;
-    background-position: -100px bottom;
 }
 
 .section-center {
@@ -188,18 +146,6 @@ body {
     border: 5px solid #300D0D;
 	border-radius: 5px;
 	overflow: hidden;
-}
-
-.itemcard, .friendcard {
-    margin: 10px;
-	padding: 2px;
-    background: #FEF2E2;
-    border: 5px solid #300D0D;
-	border-radius: 5px;
-	-webkit-box-shadow: 0 8px 6px -6px black;
-	-moz-box-shadow: 0 8px 6px -6px black;
-	box-shadow: 0 8px 6px -6px black;
-
 }
 
 .unselectable{
@@ -216,19 +162,6 @@ body {
 	margin-left: 5px;
 }
 
-.friendcard {
-	background-color:#dcc668;
-	width:120px;
-	height:50px;
-	padding: 10px 0;
-}
-
-.itemName {
-	border-bottom: 1px solid black;
-	margin: 0 15px;
-	font-weight: bolder;
-}
-
 .section-monstercard {
     width: 325px;
 	height: 180px;
@@ -240,24 +173,6 @@ body {
      -moz-box-shadow: 0 8px 6px -6px black;
           box-shadow: 0 8px 6px -6px black;
 
-}
-
-.itemcard:hover, .friendcard:hover {
-	border: 5px solid #999;
-	-webkit-box-shadow: 0 15px 13px -13px black;
-    -moz-box-shadow: 0 15px 13px -13px black;
-	box-shadow: 0 4px 8px 1px black;
-	cursor:pointer;
-}
-
-.itemcard:active {
-	border: 5px solid #222;
-}
-
-.friendsLabels {
-	position: absolute;
-	right: 0;
-	text-align: center;
 }
 
 .level_label {
@@ -275,7 +190,7 @@ body {
 	margin-right: 10px;
 }
 
-.section-monstercard.disabled, .itemcard.disabled {
+.section-monstercard.disabled {
 	background: #999;
 		cursor: auto !important;
 }
@@ -284,13 +199,6 @@ body {
 	-webkit-filter: grayscale(100%) brightness(60%);
     -moz-filter: grayscale(100%) brightness(60%);
 	filter: grayscale(100%) brightness(60%);
-}
-
-.friendImg{
-	float: left;
-	max-height: 125px;
-	-webkit-filter: drop-shadow(2px 2px 2px #222);
- 	 filter: drop-shadow(2px 2px 2px #222);
 }
 
 .section-monstercard span{
@@ -310,20 +218,6 @@ body {
 
 .clear {
 	clear:both;
-}
-
-
-.monster-box-enemy {
-	text-align: center;
-	font-family: Livingst;
-	font-size: 22px;
-	padding-top: 10px;
-}
-
-.monster-box-enemy img {
-	max-height: 260px;	
-	width: 80%;
-	height:70%;
 }
 
 .underAttack{
@@ -394,29 +288,6 @@ p{
 .theZoo {
 	height: calc(100% - 48px);
     overflow-y: auto;
-}
-
-#items-box{
-	height: 100%;
-    overflow-y: auto;
-}
-
-.item-field {
-    display: block;
-    float: left;
-    width: 100%;
-    margin: 10px 0;
-    padding: 0 0 25px 0;
-    border-bottom: 1px solid black;
-}
-
-.item-image {
-    float: left;
-    width: 60px;
-    height: 60px;
-    display: block;
-    margin-left: 5px;
-	margin-top: 20px;
 }
 
 .button-box {
@@ -628,52 +499,6 @@ button:disabled:hover {
 	margin: 0;
 }
 
-
-@media (max-width: 1455px) {
-	.hoverBox {
-		margin: 20px 10px 10px 10px;
-		animation: openDown 1s;
-		animation-direction: normal;
-		position:initial;
-	}
-
-	.arrow-right {
-		width: 0; 
-		height: 0; 
-		border-left: 20px solid transparent;
-		border-right: 20px solid transparent; 
-		border-top: 20px solid #300d0d;
-		position:relative;
-		left: 0;
-		top: 25px;
-		float:none;
-		filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.8));
-	}
-}
-
-.dice{
-	width: 46px;
-	height: 46px;
-	background-size: 100% 100%;
-	cursor:pointer;
-}
-
-.dice:hover {
-    -webkit-filter: drop-shadow(3px 3px 3px #222);
- 	 filter: drop-shadow(3px 3px 3px #222);	
-}
-
-.diceRoll {
-	-webkit-filter: blur(1px);
-	-moz-filter: blur(1px);
-	-o-filter: blur(1px);
-	-ms-filter: blur(1px);
-	filter: blur(1px);
-
-    -webkit-animation:spin 0.3s linear;
-    -moz-animation:spin 0.3s linear;
-    animation:spin 0.3s linear;
-}
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

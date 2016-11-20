@@ -1,0 +1,21 @@
+@media (max-width: 1455px) {
+	.hoverBox {
+		margin: 20px 10px 10px 10px;
+		animation: openDown 1s;
+		animation-direction: normal;
+		position:initial;
+	}
+
+	.arrow-right {
+		width: 0; 
+		height: 0; 
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent; 
+		border-top: 20px solid #300d0d;
+		position:relative;
+		left: 0;
+		top: 25px;
+		float:none;
+		filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.8));
+	}
+}

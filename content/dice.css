@@ -1,0 +1,50 @@
+/* just some content with arbitrary styles for explanation purposes */
+.diceBox {
+    width: 50%;
+    height: 25%;
+    position: fixed;
+	top: 50%;
+    bottom: 50%; 
+    left: 50%;
+    margin-bottom: -15%;
+	margin-top:-15%;
+    margin-left: -25%;
+    background-color: #FEF2E2;
+    text-align: center;
+	border: 5px solid #300D0D;
+	border-radius: 5px;
+    z-index: 11; /* 1px higher than the overlay layer */
+}
+
+    .diceBox p {
+        width:90%;
+        padding-left:10%;
+    }
+
+.dice {
+	width: 46px;
+	height: 46px;
+	background-size: 100% 100%;
+	cursor:pointer;
+}
+
+    .dice:hover {
+        -webkit-filter: drop-shadow(3px 3px 3px #222);
+        filter: drop-shadow(3px 3px 3px #222);	
+    }
+
+.diceMessage {
+	font-family: CaviarDreams;
+}
+
+.diceRoll {
+	-webkit-filter: blur(1px);
+	-moz-filter: blur(1px);
+	-o-filter: blur(1px);
+	-ms-filter: blur(1px);
+	filter: blur(1px);
+
+    -webkit-animation:spin 0.3s linear;
+    -moz-animation:spin 0.3s linear;
+    animation:spin 0.3s linear;
+}
