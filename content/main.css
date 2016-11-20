@@ -515,10 +515,10 @@ button:disabled:hover {
 }
 
 .bonus-item{
-	 width: 80px;
-	 height: 80px;
+	 width: 50px;
+	 height: 50px;
 	 position:absolute;
 	 z-index: 999999;
 	 background-size: contain;
-	 background-image: url("../images/items/BonusItems/diamond.png");
+	 background-image: url("../images/items/BonusItems/diamond_red.png");
 }	

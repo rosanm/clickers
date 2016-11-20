@@ -38,12 +38,17 @@ var itemController = {
 };
 
 
+var verdwijnNa = 10000; //10seconden
+var spawnNieuweNa = 20000; //20seconden
+
 $('.bonus-item').click(function() {
     //Do the bonus item logica hier
 
     $('.bonus-item').hide();
-    setTimeout(randomBonusGeneratorShow, 5000); //5sec debug
+    setTimeout(randomBonusGeneratorShow, spawnNieuweNa); //5sec debug
 });
+
+
 
 var randomBonusGeneratorShow = function(){
     var docHeight = $(document).height(),
@@ -60,10 +65,10 @@ var randomBonusGeneratorShow = function(){
     });
 
     $('.bonus-item').show();
-    setTimeout(randomBonusGeneratorHide, 10000); //verdwijn na 10 seconde
+    setTimeout(randomBonusGeneratorHide, verdwijnNa); e
 }
 
 var randomBonusGeneratorHide = function(){
     $('.bonus-item').hide();
-    setTimeout(randomBonusGeneratorShow, 5000);
+    setTimeout(randomBonusGeneratorShow, spawnNieuweNa);
 }
