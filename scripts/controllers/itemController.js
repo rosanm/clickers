@@ -45,9 +45,8 @@ $('.bonus-item').click(function() {
     //Do the bonus item logica hier
 
     $('.bonus-item').hide();
-    setTimeout(randomBonusGeneratorShow, spawnNieuweNa); //5sec debug
+    setTimeout(randomBonusGeneratorShow, spawnNieuweNa); 
 });
-
 
 
 var randomBonusGeneratorShow = function(){
