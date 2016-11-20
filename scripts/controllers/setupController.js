@@ -29,73 +29,6 @@ $(document).ready(function(){
         setTimeout(smoothScoreLoop, 10); //loop 100x per sec
     }
 
-    function smoothAttackEnemy() {        
-        //Show enemy en progressbar part
-        ractive.set('currentEnemy', ractive.get('enemys')[ractive.get('enemyIndex')]);
-        var currentEnemy = ractive.get('currentEnemy');
-
-        var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
-        $("progress").attr('value', progress);
-        $("#progresscontainer").show();
-
-        //Deal DMG part
-        if(ractive.get('attack')) {                
-            currentEnemy.hp = ractive.get('currentEnemy').hp - (ractive.get('dps')/100);
-
-            var progress = ractive.get('currentEnemy').hp / ractive.get('currentEnemy').total * 100;
-            $("progress").attr('value', progress);
-            $("#progresscontainer").show();
-
-            ractive.update();
-            
-            if(ractive.get('currentEnemy.hp') < 0){
-                ractive.set('doorSet', true);
-                ractive.set('mine', true);
-                ractive.set('attack', false);
-                NextEnemy();
-            }
-        }
-
-        //Control the attack/min variables
-        if(ractive.get('mine')){
-            ractive.set('attack', false);
-        }
-
-        if(ractive.get('attack')){
-            ractive.set('mine', false);
-        }
-
-        setTimeout(smoothAttackEnemy, 10); //loop 100x per sec  
-    };
-
-    function NextEnemy() {
-        ractive.set('level', ractive.get('level') + 1);
-
-        var currentEnemy = ractive.get('currentEnemy');        
-        var enemyIndex = ractive.get('enemyIndex');
-        if(enemyIndex == ractive.get('enemys').length - 1){           
-            enemyIndex = 0;
-        }
-        else {
-            enemyIndex = enemyIndex + 1;
-        }
-            
-        var newEnemy = ractive.get('enemys')[enemyIndex];
-
-        //pak de volgende enemy met 61% meer hp als de vorige
-        newEnemy.hp = currentEnemy.total * 1.61803398875; //Golden Ratio;
-        newEnemy.total = newEnemy.hp;
-    
-
-        ractive.set('enemyIndex', enemyIndex);
-        ractive.set('currentEnemy', newEnemy);  
-        
-        ractive.update();
-
-        var random = Math.floor((Math.random() * 250) + 1);
-        $('.enemySet').css('filter', 'hue-rotate(' + random + 'deg) saturate(3.3) drop-shadow(2px 2px 2px #222)');
-    };
-
     ractive.on({
         evolveFriend: function(event){
             friendController.evolveFriend();   
@@ -126,45 +59,9 @@ $(document).ready(function(){
             ractive.set('diceMessage', '');
         },
         roleDice: function(event) {
-            $(".dice").addClass("diceRoll");
-            spinDice();
-            setTimeout(stopDice, 300);
-            setTimeout(checkDiceValue, 1000);
+            diceController.roleDice();
         },
     });
-
-    function checkDiceValue() {
-        var diceList = ractive.get('diceList');
-        diceList.forEach(function(die) {
-            if(die.value == 6) {
-                ractive.set('doorSet', true);
-                NextEnemy();
-                setMessage('win');
-            }
-            else {
-                setMessage('lost');
-            }
-        });
-    }
-
-    function spinDice() {
-        var diceList = ractive.get('diceList');
-        diceList.forEach(function(die) {
-            die.value = Math.floor((Math.random()*6)+1);
-        }, this);
-        ractive.set('diceList',diceList);
-    }
-
-    function stopDice() {
-        $(".dice").removeClass("diceRoll");
-    }
-
-    function setMessage(messageType){
-        if(messageType == 'win')
-            ractive.set('diceMessage', 'You escaped from the dungeon!');
-        else
-            ractive.set('diceMessage', 'You lost! Items can help you defeat the enemies!');
-    }
 
     function calcUnitsPerSec(itemsArray){
         var unitsPerSec = 0;
@@ -193,7 +90,7 @@ $(document).ready(function(){
     //start the smoothscore
     smoothScoreLoop();
     //attack
-    smoothAttackEnemy();
+    enemyController.attack();
    
 });
 
