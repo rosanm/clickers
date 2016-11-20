@@ -512,4 +512,13 @@ button:disabled:hover {
 .achievements.shadowed {
     -webkit-filter: drop-shadow(1px 1px 1px #222);
  	 filter: drop-shadow(1px 1px 1px #222);
+}
+
+.bonus-item{
+	 width: 80px;
+	 height: 80px;
+	 position:absolute;
+	 z-index: 999999;
+	 background-size: contain;
+	 background-image: url("../images/items/BonusItems/diamond.png");
 }	

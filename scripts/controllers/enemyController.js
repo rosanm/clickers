@@ -62,7 +62,7 @@ var attackEnemy = function(){
         }
     }
 
-    //Control the attack/min variables
+    //Control the attack/mine variables
     if(ractive.get('mine')){
         ractive.set('attack', false);
     }

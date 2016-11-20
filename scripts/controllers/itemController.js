@@ -28,5 +28,42 @@ var itemController = {
     },
     clearCurrentItems: function(){
         ractive.set('items', []);        
-    }
+    },
+    randomBonusGeneratorShow: function(){
+        randomBonusGeneratorShow(); 
+    },
+    randomBonusGeneratorHide: function(){
+        randomBonusGeneratorHide(); 
+    },
 };
+
+
+$('.bonus-item').click(function() {
+    //Do the bonus item logica hier
+
+    $('.bonus-item').hide();
+    setTimeout(randomBonusGeneratorShow, 5000); //5sec debug
+});
+
+var randomBonusGeneratorShow = function(){
+    var docHeight = $(document).height(),
+        docWidth = $(document).width(),
+        $div = $('.bonus-item'),
+        divWidth = $div.width(),
+        divHeight = $div.height(),
+        heightMax = docHeight - divHeight,
+        widthMax = docWidth - divWidth;
+
+    $div.css({
+        left: Math.floor( Math.random() * widthMax ),
+        top: Math.floor( Math.random() * heightMax )
+    });
+
+    $('.bonus-item').show();
+    setTimeout(randomBonusGeneratorHide, 10000); //verdwijn na 10 seconde
+}
+
+var randomBonusGeneratorHide = function(){
+    $('.bonus-item').hide();
+    setTimeout(randomBonusGeneratorShow, 5000);
+}

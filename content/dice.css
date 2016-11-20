@@ -16,10 +16,10 @@
     z-index: 11; /* 1px higher than the overlay layer */
 }
 
-    .diceBox p {
+.diceBox p {
         width:90%;
         padding-left:10%;
-    }
+}
 
 .dice {
 	width: 46px;
@@ -28,10 +28,10 @@
 	cursor:pointer;
 }
 
-    .dice:hover {
+.dice:hover {
         -webkit-filter: drop-shadow(3px 3px 3px #222);
         filter: drop-shadow(3px 3px 3px #222);	
-    }
+}
 
 .diceMessage {
 	font-family: CaviarDreams;

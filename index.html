@@ -24,11 +24,11 @@
         <script src='scripts/ractive.js'></script>
     </head>
 
-    <body class="unselectable">
+    <body class="unselectable">      
         <div class="overlay" style="display:none"></div>   
         <div id="container" class="main-container">
             <script id="template" class="section-left-top" type='text/ractive'>
-            
+            <div class="bonus-item" style="display:none"></div>
             <div class="diceBox" style="display:none">   
                 <div class="boxHeader" style="text-align: center;">
                     <p class="shadowed noMargin">Role the dice!</p>
@@ -52,7 +52,7 @@
                     <div class="boxHeader" style="text-align: center;">
                         <p class="shadowed noMargin">STATS</p>
                     </div>
-                    <div class="transparent" style="height: 91%;">
+                    <div class="transparent" style="height: calc(100% - 48px);">
                         <div class="top_left_padding" style="width: 100%; display:block;">
                             <span id="unitcounter" style="width: 35%; height: 60px; display:block; float:left;"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{roundedUnits}}</span>
                             <span id="unitpersec" style="width: 42%; height: 60px; display:block; float:left;"><i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</span>

@@ -1,5 +1,7 @@
 $(document).ready(function(){   
-    function gameLoop() {      
+    function gameLoop() {  
+
+
         //update dmg
         var friendDps = scoreController.calcUnitsPerSec(ractive.get('friends'));
         ractive.set('dps', friendDps); 
@@ -16,4 +18,6 @@ $(document).ready(function(){
     scoreController.smoothScore();
     //attack
     enemyController.attack();
+    //start giving out bonuses     
+    setTimeout(itemController.randomBonusGeneratorShow, 3000);
 });

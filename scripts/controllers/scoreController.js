@@ -35,3 +35,5 @@ var smoothScoreLoop = function(){
     //this must be the last statment
     setTimeout(smoothScoreLoop, 10); //loop 100x per sec
 }
+
+
