@@ -121,7 +121,7 @@ $(document).ready(function(){
                 evolveButton.isVisble = false;
                 trainButton.isVisble = true;
                 ractive.set('selectedFriendName', evo.name);
-                showItemsOfFriend(me.itemListName);
+                itemController.getItemsOfFriendByItemListName(me.itemListName);
                 ractive.update();    
             }     
         },
@@ -150,28 +150,8 @@ $(document).ready(function(){
             }
             ractive.update();          
         },
-        buyItem: function (event, itemNr){
-            //name of selectedFriend
-            var selectedFriend = ractive.get('selectedFriend')(getByName('selectedFriendName'));
-            var clickedItem = ractive.get(selectedFriend.itemListName)[itemNr];
-            //Can affound?
-            if(hasEnoughDiamonds(clickedItem.price)) {
-                //Still in stock?
-                if(clickedItem.count < clickedItem.max){
-                    //Buy it
-                    ractive.set('units', ractive.get('units') - clickedItem.price);
-
-                    var upgradedItem = clickedItem;
-                    upgradedItem.lvl = upgradedItem.lvl +1;
-                    upgradedItem.price = Math.round(upgradedItem.price * 1.3);
-                    upgradedItem.dmg = Math.round(upgradedItem.dmg * 1.2);
-                    upgradedItem.count = upgradedItem.count + 1;
-                    ractive.update();
-                }
-                else {
-                    ractive.get('items')[itemNr].max +"/"+ ractive.get('items')[itemNr].max;
-                }
-            }
+        buyItem: function (event, itemNr) {
+            itemController.buyItem(itemNr);
         },
         buy: function (event, index){            
             if(hasEnoughDiamonds(ractive.get('friends')[index].price)) {
@@ -196,12 +176,12 @@ $(document).ready(function(){
             if(friend.isSelected) {
                 friend.isSelected = false;
                 ractive.set('selectedFriendName', 'No one');
-                ractive.set('items', []); 
+                itemController.clearCurrentItems();
             }
             else {
                 deselectAllFriends();
                 friend.isSelected = true;
-                showItemsOfFriend(friend.itemListName);
+                itemController.getItemsOfFriendByItemListName(friend.itemListName);
                 ractive.set('selectedFriendName', friend.name);
             }
 
@@ -276,11 +256,6 @@ $(document).ready(function(){
 
     function hasEnoughDiamonds(amount){
         return ractive.get('units') >= amount;
-    }
-
-    function showItemsOfFriend(itemListName){
-        var items = getByName(itemListName);
-        ractive.set('items', items);  
     }
 
     function getByName(name){
