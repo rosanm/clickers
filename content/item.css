@@ -63,7 +63,7 @@
 	 background-size: contain;
 	 background-image: url("../images/items/BonusItems/diamond_red.png");
 	 -webkit-animation: fadeinout 10s linear forwards;
-    animation: fadeinout 10s linear forwards;
+     animation: fadeinout 10s linear forwards;
 }
 
 @-webkit-keyframes fadeinout {
