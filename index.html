@@ -238,9 +238,11 @@
 <!--Map-->
 <div>
      {{#each maplevel}}
-               <div  style="width:100px; height:100px; float:left;" class="{{ levelCode > level ? 'blue' : 'green' }}">  
-                       <div>{{areaName}}</div>                                                                
+     
+               <div class="mapPoint {{ levelCode > level ? 'blue' : 'green' }} {{ levelCode == level ? 'yellow' : '' }}">  
+                       <div class="mapFont">{{levelCode}}</div>    {{areaName}}                                                              
                </div>
+               
      {{/each maplevel}}
 </div>
 <!--/Map-->
