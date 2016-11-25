@@ -15,7 +15,8 @@
         <link rel="stylesheet" href="content/dice.css">        
         <link rel="stylesheet" href="content/enemy.css">
         <link rel="stylesheet" href="content/dex.css">         
-        <link rel="stylesheet" href="content/friend.css">        
+        <link rel="stylesheet" href="content/friend.css">
+        <link rel="stylesheet" href="content/map.css">         
         <link rel="stylesheet" href="content/mobile.css">        
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="content/jquery-ui.css">
@@ -219,7 +220,7 @@
             </div>
 
 <!--Dex-->
-<div>
+<div style="margin-top:1500px;">
 
      {{#each enemys}}
                <div  style="width:100px; height:120px; float:left;">  
@@ -232,6 +233,17 @@
      {{/each enemys}}
 
 </div>
+<!--/Dex-->
+
+<!--Map-->
+<div>
+     {{#each maplevel}}
+               <div  style="width:100px; height:100px; float:left;" class="{{ levelCode > level ? 'blue' : 'green' }}">  
+                       <div>{{areaName}}</div>                                                                
+               </div>
+     {{/each maplevel}}
+</div>
+<!--/Map-->
 
         </script>
     </body>
