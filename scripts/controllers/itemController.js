@@ -64,7 +64,7 @@ var randomBonusGeneratorShow = function(){
     });
 
     $('.bonus-item').show();
-    setTimeout(randomBonusGeneratorHide, verdwijnNa); e
+    setTimeout(randomBonusGeneratorHide, verdwijnNa);
 }
 
 var randomBonusGeneratorHide = function(){

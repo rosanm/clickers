@@ -13,7 +13,8 @@
         <link rel="stylesheet" href="content/main.css">
         <link rel="stylesheet" href="content/item.css">
         <link rel="stylesheet" href="content/dice.css">        
-        <link rel="stylesheet" href="content/enemy.css">        
+        <link rel="stylesheet" href="content/enemy.css">
+        <link rel="stylesheet" href="content/dex.css">         
         <link rel="stylesheet" href="content/friend.css">        
         <link rel="stylesheet" href="content/mobile.css">        
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -216,6 +217,22 @@
                     </div>
                 </div>
             </div>
+
+<!--Dex-->
+<div>
+
+     {{#each enemys}}
+               <div  style="width:100px; height:120px; float:left;">  
+                   <img class="item-image-enemy shadowed" src="{{img}}"/>
+                       <div>{{name}}</div>
+                         <p class="text">
+                            <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{power}}</span>
+                         </p>                                                                  
+               </div>
+     {{/each enemys}}
+
+</div>
+
         </script>
     </body>
 
