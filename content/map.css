@@ -39,3 +39,8 @@
 
 	
 }
+
+connection {
+		border-radius: 25px;
+		z-index: -1;
+	}
