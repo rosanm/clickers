@@ -237,13 +237,14 @@
 <!--/Dex-->
 
 <!--Map-->
-<div style="width:100px;">
+<div style="width:150px;">
      {{#each maplevel}}
-     
+     <div>
+     <span style="float:right;">{{areaName}}</span>
                <div class="mapPoint mapPoint{{levelCode}} {{ levelCode > level ? 'gray' : 'green' }} {{ levelCode == level ? 'yellow' : '' }}">  
-                       <div class="mapFont">{{#if levelCode<10}}0{{/if}}{{levelCode}}</div>                                                             
+                       <div class="mapFont">{{#if levelCode<10}}0{{/if}}{{levelCode}}</div>                                                            
                </div>
-               
+      </div>         
      {{/each maplevel}}
 </div>
 <!--/Map-->
