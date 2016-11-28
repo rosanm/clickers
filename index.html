@@ -24,6 +24,7 @@
         <script src="scripts/jquery.min.js"></script>
         <script src="scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
         <script src='scripts/ractive.js'></script>
+        <script src='scripts/jquery.connections.js'></script>
     </head>
 
     <body class="unselectable">      
@@ -239,8 +240,8 @@
 <div>
      {{#each maplevel}}
      
-               <div class="mapPoint {{ levelCode > level ? 'blue' : 'green' }} {{ levelCode == level ? 'yellow' : '' }}">  
-                       <div class="mapFont">{{levelCode}}</div>    {{areaName}}                                                              
+               <div class="mapPoint mapPoint{{levelCode}} {{ levelCode > level ? 'gray' : 'green' }} {{ levelCode == level ? 'yellow' : '' }}">  
+                       <div class="mapFont">{{#if levelCode<10}}0{{/if}}{{levelCode}}</div>                                                             
                </div>
                
      {{/each maplevel}}

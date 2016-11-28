@@ -20,4 +20,19 @@ $(document).ready(function(){
     enemyController.attack();
     //start giving out bonuses     
     setTimeout(itemController.randomBonusGeneratorShow, 3000);
+
+
+//Draw connections last
+  
+     //draw a line for each level that is defined in dataSet.js to the next level
+     for (var index = 0; index < ractive.get('maplevel').length; index++) {
+         $().connections({ from: '.mapPoint'+index, to: '.mapPoint'+(index+1) });
+         
+     }
+ 
+    //Draw all connections again after a resize
+    $( window ).resize(function() {
+        $('*').connections('update');
+    });
+
 });

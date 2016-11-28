@@ -139,13 +139,11 @@
                     ],
             //Levels
             maplevel: [
-                        {areaName: "forest", levelCode: 1},
-                        {areaName: "forest", levelCode: 2},
-                        {areaName: "forest", levelCode: 3},
-                        {areaName: "forest", levelCode: 4},
-                        {areaName: "forest", levelCode: 5},
-                        {areaName: "forest", levelCode: 6},
-                        {areaName: "forest", levelCode: 7}
+                        {areaName: "forest", levelCode: 1},{areaName: "forest", levelCode: 2},{areaName: "forest", levelCode: 3},{areaName: "forest", levelCode: 4},
+                        {areaName: "forest", levelCode: 5},{areaName: "forest", levelCode: 6},{areaName: "forest", levelCode: 7},{areaName: "forest", levelCode: 8},
+
+                        {areaName: "plains", levelCode: 9},{areaName: "plains", levelCode: 10},{areaName: "plains", levelCode: 11},{areaName: "plains", levelCode: 12},
+                        {areaName: "plains", levelCode: 13},{areaName: "plains", levelCode: 14},{areaName: "plains", levelCode: 15},{areaName: "plains", levelCode: 16},
             ]
         }
     });
