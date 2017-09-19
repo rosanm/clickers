@@ -2,9 +2,9 @@
         el: "#container",
         template: "#template",
         data: {
-            units: 0,
+            units: 99999999, //TODO SET TO 1000 FOR GAMPLAY
             dps: 0,
-            level: 3,
+            level: 0,
             enemyIndex: 0,
             currentEnemy: {},
             door:"images/door.png",
