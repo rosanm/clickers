@@ -49,8 +49,8 @@ var friendController = {
                 ractive.set('units', ractive.get('units') - me.trainPrice);
 
                 me.lvl = me.lvl + 1;
-                me.dmg = me.dmg + 3;
-                me.trainPrice = ractive.get('round')(me.trainPrice * 1.3);
+                me.dmg = me.dmg * 1.8;
+                me.trainPrice = ractive.get('round')(me.trainPrice * 2);
 
                     if(me.lvl == me.levelUp -1) {
                         trainButton.isVisble = false;

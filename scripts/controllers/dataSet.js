@@ -36,29 +36,29 @@
                     return nFormatter(number,2);               
             },
             selectedFriendName: 'No one',  
-            trainButton: { name: "Train", description: "Train friend to increase its base dmg.", img:"", isVisble: true },
+            trainButton: { name: "Train", description: "Level up your friend. Increases base damge and unlocks evolutions.", img:"", isVisble: true },
             evolveButton: { name: "Evolve", description: "Evolve this friend to a new and more powerfull form!", img:"images/items/stars.png", price:1000, isVisble: false },                              
             items: [],                    
            
             //Items per starter
             itemsPandoo: 
-                    [{name:"Focus Cube",   description:"Increase base Dmg.",                     img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:20,    boost:0,    max:1}, 
+                    [{name:"Focus Cube",   description:"Increase Pandoo's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:20,    boost:0,    max:999}, 
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,     boost:1,    max:999}],
 
             itemsBlazby: 
-                    [{name:"Focus Cube",   description:"Increase base Dmg.",                     img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:30,    boost:0,    max:1},
+                    [{name:"Focus Cube",   description:"Increase Blazby's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:30,    boost:0,    max:999},
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,     boost:1,    max:999}],
 
             itemsKniron: 
-                    [{name:"Focus Cube",   description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:50,     boost:0,     max:1},
+                    [{name:"Focus Cube",   description:"Increase Knirion's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:50,     boost:0,     max:999},
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:0,      boost:1,     max:999}],
 
             itemsEartail:
-                    [{name:"Focus Cube",   description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:100,    dmg:80,     boost:0,     max:1},
+                    [{name:"Focus Cube",   description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:100,    dmg:80,     boost:0,     max:999},
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:0,      boost:1,     max:999}],
 
             itemsPhyracu: 
-                     [{name:"Focus Cube",  description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:130,    boost:0,     max:1},
+                     [{name:"Focus Cube",  description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:130,    boost:0,     max:999},
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,      boost:1,     max:999}],
 
             enemys: 
@@ -115,26 +115,26 @@
             //starters
             friends: 
                     [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, minKills:0,   dmg:2, boost:0,  lifeTimeDmg:0, price:100, trainPrice: 100,   unlockedAt:0,   img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo",  isSelected: false },
-                     {name:"Blazby",  count: 0, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, minKills:1,  dmg:3, boost:0,  lifeTimeDmg:0, price:200,  trainPrice: 100,   unlockedAt:5,   img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby",   isSelected: false },
+                     {name:"Blazby",  count: 0, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, minKills:10,  dmg:3, boost:0,  lifeTimeDmg:0, price:200,  trainPrice: 100,   unlockedAt:5,   img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby",   isSelected: false },
                      {name:"Kniron",  count: 0, lvl:1, levelUp: 30, stage:1, nextStageIndex:4, minKills:50,  dmg:5, boost:0,  lifeTimeDmg:0, price:300,  trainPrice: 100,   unlockedAt:25,  img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron",   isSelected: false },
                      {name:"Eartail", count: 0, lvl:1, levelUp: 50, stage:1, nextStageIndex:6, minKills:100, dmg:8, boost:0,  lifeTimeDmg:0, price:500,  trainPrice: 100,   unlockedAt:50,  img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail", isSelected: false },
                      {name:"Phyracu", count: 0, lvl:0, levelUp: 80, stage:1, nextStageIndex:8, minKills:200, dmg:13,boost:0,  lifeTimeDmg:0, price:800,  trainPrice: 100,   unlockedAt:100, img:"images/friends/053_phyracu_by_deoxysdaniel-d5nwexe.png", itemListName: "Phyracu",      isSelected: false }],          
             //upgrade data
             friendsData:
                     //Pandoo - Line
-                    [{name:"Herbear", levelUp: 100,     nextStageIndex:1,       dmg:1000,  img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},       //0
+                    [{name:"Herbear", levelUp: 20,     nextStageIndex:1,       dmg:1000,  img:"images/friends/002_herbear_by_deoxysdaniel-d5jhct0.png"},       //0
                     {name:"Ursorest", levelUp: 9999,    nextStageIndex:9999,    dmg:300,   img:"images/friends/003_ursorest_by_deoxysdaniel-d5jv6td.png"},      //1
                     //Blazby - Line
-                    {name:"Blazemour", levelUp: 200,    nextStageIndex:3,       dmg:2000,  img:"images/friends/005_blazemour_by_deoxysdaniel-d5jhcw5.png"},     //2
+                    {name:"Blazemour", levelUp: 40,    nextStageIndex:3,       dmg:2000,  img:"images/friends/005_blazemour_by_deoxysdaniel-d5jhcw5.png"},     //2
                     {name:"Blazieval", levelUp: 9999,   nextStageIndex:9999,    dmg:300,   img:"images/friends/006_blazieval_by_deoxysdaniel-d5jv6uh.png"},     //3
                     //Kniron - Line
-                    {name:"Kniveroon", levelUp: 300,    nextStageIndex:5,       dmg:3000,  img:"images/friends/039_kniveroon_by_deoxysdaniel-d5ngh7v.png"},     //4
+                    {name:"Kniveroon", levelUp: 60,    nextStageIndex:5,       dmg:3000,  img:"images/friends/039_kniveroon_by_deoxysdaniel-d5ngh7v.png"},     //4
                     {name:"Kniferros", levelUp: 9999,   nextStageIndex:9999,    dmg:300,   img:"images/friends/040_kniferros_by_deoxysdaniel-d5nq2wl.png"},     //5
                     //Eartail - Line
-                    {name:"Quaketai", levelUp: 500,     nextStageIndex:7,       dmg:4000,  img:"images/friends/049_quaketail_by_deoxysdaniel-d5ob4xn.png"},     //6
+                    {name:"Quaketai", levelUp: 100,     nextStageIndex:7,       dmg:4000,  img:"images/friends/049_quaketail_by_deoxysdaniel-d5ob4xn.png"},     //6
                     {name:"Seismitail", levelUp: 9999,  nextStageIndex:9999,    dmg:300,   img:"images/friends/050_seismitail_by_deoxysdaniel-d5ol2uq.png"},    //7
                     //Phyracu - Line
-                    {name:"Corhyncu", levelUp: 800,     nextStageIndex:9,       dmg:5000,  img:"images/friends/054_corhyncu_by_deoxysdaniel-d5ob5z7.png"},      //8
+                    {name:"Corhyncu", levelUp: 160,     nextStageIndex:9,       dmg:5000,  img:"images/friends/054_corhyncu_by_deoxysdaniel-d5ob5z7.png"},      //8
                     {name:"Togarucu", levelUp: 9999,    nextStageIndex:9999,    dmg:300,   img:"images/friends/055_togarucu_by_deoxysdaniel-d5oi8h5.png"},      //9                                     
                     ],
             //Levels

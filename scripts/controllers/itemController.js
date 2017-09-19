@@ -11,7 +11,7 @@ var itemController = {
         if(ractive.get('units') >= clickedItem.price) {
             //Still in stock?
             if(clickedItem.count < clickedItem.max){
-                //Buy it
+                //Buy it (update in je inventory)
                 ractive.set('units', ractive.get('units') - clickedItem.price);
                
                 var upgradedItem = clickedItem;
@@ -22,7 +22,9 @@ var itemController = {
 
                 //als het een boost item is, de boost percentage erbij optellen
                 selectedFriend.boost = selectedFriend.boost + upgradedItem.boost;
-                
+
+                //als het een cube is, gelijk base dmg verhogen
+                //selectedFriend.dmg = selectedFriend.dmg + upgradedItem.dmg;
                 ractive.update();
             }
             else {

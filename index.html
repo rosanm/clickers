@@ -164,12 +164,13 @@
                                     {{#isSelected}}
                                         <div class="hoverBox section-monstercard">
                                             <div>
-                                                <div>Each <span>{{name}}</span> deals <span>{{dmg}}</span> base damage per second.</div>
-                                                <div><span>{{count}}</span> {{name}} deal <span>{{dmg*count}}</span> dp/s. </div>
+                                                <div>Each <span>{{name}}</span> deals <span>{{nFormat(dmg)}}</span> base damage per second.</div>
+                                                <div><span>{{count}}</span> {{name}} deal <span>{{nFormat(dmg*count)}}</span> dp/s. </div>
                                                 <div>&nbsp;</div> 
-                                                <div>{{name}} are boosted <span>{{boost}}%</span> to <span>{{nFormat(TotalDmgOfFriendType(name))}}</span> dp/s. (<span>{{nFormat(((dmg*count)/dps)*100)}}%</span> of total)</div>
+                                                <div>All your {{name}} are boosted <span>{{boost}}%</span> to <span>{{nFormat(TotalDmgOfFriendType(name))}}</span> dp/s.</div>
                                                 <div>&nbsp;</div>                                               
-                                                <div>Train to lvl <span>{{lvl+1}}</span> for <span>{{nFormat(dmg + dmg*0.2)}}</span> dmg.  (<span>+{{nFormat(dmg*0.2)}}</span> dmg)</div>                                                
+                                                <div>Train to lvl <span>{{lvl+1}}</span> for <span>+{{nFormat(dmg*1.8)}}</span> dmg!</div>
+                                                <div>All {{count}} {{name}} deal <span>{{nFormat(((TotalDmgOfFriendType(name)*count)/dps)*100)/count}}%</span> of all damage.</div>                                                
                                             </div> 
                                         </div>
                                     {{/isSelected}}
@@ -191,7 +192,7 @@
                                     <p class="text">{{trainButton.description}}</p>
                                     <p class="text">
                                         <span style="margin-right: 10px"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{nFormat(selectedFriend(selectedFriendName).trainPrice)}}</span>                                                                
-                                        <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{nFormat(selectedFriend(selectedFriendName).dmg*0.2)}} p/s</span>   
+                                        <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{nFormat(selectedFriend(selectedFriendName).dmg*1.8)}} p/s</span>   
                                     </p>  
                                 </div>
                             {{/if}}
