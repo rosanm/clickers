@@ -7,4 +7,10 @@
 .item-image-enemy {
     width: 60px;
     height: 60px;
+}
+
+.item-image-enemy:hover {
+  -moz-transform: scale(2);
+  -webkit-transform: scale(2);
+  transform: scale(2);
 }	
