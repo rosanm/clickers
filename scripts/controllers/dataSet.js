@@ -2,11 +2,7 @@
         el: "#container",
         template: "#template",
         data: {
-<<<<<<< HEAD
             units: 9999999999999, //TODO SET TO 1000 FOR GAMPLAY
-=======
-            units: 99999999999, //TODO SET TO 1000 FOR GAMPLAY
->>>>>>> 8eea20c305709e7f684e01f2d3aafed9a9a4ccf2
             dps: 0,
             level: 0, //aantalKills
             enemyIndex: 0,
