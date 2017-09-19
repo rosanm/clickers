@@ -8,8 +8,9 @@ ractive.on({
     buyItem: function (event, itemNr) {
         itemController.buyItem(itemNr);
     },
-    buy: function (event, index){            
+    buy: function (event, index){           
         friendController.buyFriend(index);
+        return false;
     },
     selectFriend: function(event, index){
         friendController.selectFriend(index);

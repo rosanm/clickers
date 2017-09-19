@@ -9,7 +9,6 @@ var friendController = {
             selectedFriend.count++;
             ractive.update();
         }
-        return false;
     },
     evolveFriend: function(){
         var trainButton = ractive.get('trainButton');
