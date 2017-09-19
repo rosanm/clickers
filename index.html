@@ -101,10 +101,8 @@
                         {{#if doorSet}}
                             <img class="doorSet shadowed" src={{door}} width="100%" on-click="@this.fire('kickDoor', event)">
                         {{else}}
-                            <div id="clockdiv">
-                                <div>
-                                    <span class="minutes"></span>:<span class="seconds"></span>
-                                </div>
+                            <div id="clockdiv">                              
+                                    <span class="minutes"></span>:<span class="seconds"></span>                        
                             </div>
                             <img class="enemySet" src={{currentEnemy.img}} width="100%">
                         {{/if}}
