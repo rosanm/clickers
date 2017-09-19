@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Clickers</title>
 
-        <meta name="description" content="Game">
-        <meta name="author" content="Leo en Rosan van Essen">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="icon" type="image/ico" href="images/smile.ico">
-        <link rel="stylesheet" href="content/bootstrap.css">
-        <link rel="stylesheet" href="content/main.css">
-        <link rel="stylesheet" href="content/item.css">
-        <link rel="stylesheet" href="content/dice.css">        
-        <link rel="stylesheet" href="content/enemy.css">
-        <link rel="stylesheet" href="content/dex.css">         
-        <link rel="stylesheet" href="content/friend.css">
-        <link rel="stylesheet" href="content/map.css">         
-        <link rel="stylesheet" href="content/mobile.css">        
-        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="content/jquery-ui.css">
-        
-        <script src="scripts/jquery.min.js"></script>
-        <script src="scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-        <script src='scripts/ractive.js'></script>
-        <script src='scripts/jquery.connections.js'></script>
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Clickers</title>
 
-    <body class="unselectable">      
-        <div class="overlay" style="display:none"></div>   
-        <div id="container" class="main-container">
-            <script id="template" class="section-left-top" type='text/ractive'>
+    <meta name="description" content="Game">
+    <meta name="author" content="Leo en Rosan van Essen">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/ico" href="images/smile.ico">
+    <link rel="stylesheet" href="content/bootstrap.css">
+    <link rel="stylesheet" href="content/main.css">
+    <link rel="stylesheet" href="content/item.css">
+    <link rel="stylesheet" href="content/dice.css">
+    <link rel="stylesheet" href="content/enemy.css">
+    <link rel="stylesheet" href="content/dex.css">
+    <link rel="stylesheet" href="content/friend.css">
+    <link rel="stylesheet" href="content/map.css">
+    <link rel="stylesheet" href="content/mobile.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="content/jquery-ui.css">
+
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src='scripts/ractive.js'></script>
+    <script src='scripts/jquery.connections.js'></script>
+</head>
+
+<body class="unselectable">
+    <div class="overlay" style="display:none"></div>
+    <div id="container" class="main-container">
+        <script id="template" class="section-left-top" type='text/ractive'>
             <div class="bonus-item shadowed" style="display:none"></div>
             <div class="diceBox" style="display:none">   
                 <div class="boxHeader" style="text-align: center;">
@@ -73,9 +74,9 @@
                     </div>
                     <div class="transparent" style="height: calc(100% - 48px);">
                         <div class="top_left_padding" style="width: 100%; display:block;">
-                            <span id="unitcounter" style="width: 35%; height: 60px; display:block; float:left;"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{roundedUnits}}</span>
-                            <span id="unitpersec" style="width: 42%; height: 60px; display:block; float:left;"><i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</span>
-                            <span id="currentLvl" style="width: 20%; height: 60px; display:block; float:left; line-height:20px;"><span class="weaponIcon">S</span>{{level}}</span>                    
+                            <div id="unitcounter"><i class="diamondIcon fa fa-diamond fa-lg"></i>{{roundedUnits}}</div><br/>
+                            <div id="unitpersec"><i class="diamondIcon fa fa-flash fa-lg"></i>{{nFormat(dps)}} DPS</div><br/>
+                            <div id="currentLvl"><span class="weaponIcon">S</span>{{level}} Kills</div><br/>                    
                         </div>
                         <div class="itemName">Achievements</div>
                         <div class="achievements">
@@ -135,9 +136,11 @@
                                         <img src="{{img}}" class="friendImg">
                                         <div class="friendsLabels">
                                             <div class="level_label" style="margin-top:5px">
-                                                <p><span class="levelIcon"><i class="fa fa-paw fa-lg" aria-hidden="true"></i> {{stage}}</span>
-                                                <span class="levelIcon"><i class="fa fa-level-up fa-lg" aria-hidden="true"></i> {{lvl}}</span>
-                                                <span class="levelIcon"><i class="fa fa-group" aria-hidden="true"></i> {{count}}x</span></p>
+                                                <p>
+                                                    <span class="levelIcon"><i class="fa fa-paw fa-lg" aria-hidden="true"></i> {{stage}}</span>
+                                                    <span class="levelIcon"><i class="fa fa-level-up fa-lg" aria-hidden="true"></i> {{lvl}}</span>
+                                                    <span class="levelIcon"><i class="fa fa-group" aria-hidden="true"></i> {{count}}x</span>
+                                                </p>
                                             </div>         
                                             <div class="friendcard {{ price >= units ? 'notClickable' : '' }} {{count >= 999 ? 'notClickable' : '' }}" 
                                                 on-click="@this.fire('buy', event, @index)">                       
@@ -250,7 +253,7 @@
 <!--/Map-->
 
         </script>
-    </body>
+</body>
 
 </html>
 
@@ -265,7 +268,3 @@
 <script src="scripts/controllers/scoreController.js"></script>
 <script src="scripts/controllers/clickController.js"></script>
 <script src="scripts/controllers/mainController.js"></script>
-
-
-
-        
