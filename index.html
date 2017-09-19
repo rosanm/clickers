@@ -227,37 +227,24 @@
                 </div>
                 <div class="section-right-bottom">
                     <div class="boxHeader" style="text-align: center;">
-                        <p class="shadowed noMargin">MAP</p>
+                        <p class="shadowed noMargin">GRAVEYARD</p>
                     </div>
                     <div class="maps-box">
+                            {{#each enemys}}
+                            <div class="killedEnemy"> 
+                                <!--al gedood--> 
+                               {{#if index <= level}} 
+                                <img class="item-image-enemy shadowed" src="{{img}}"/>
+                                    <div>{{name}}</div>
+                                      <p class="text">
+                                         <span><i class="diamondIcon fa fa-flash fa-lg"></i> {{power}}</span>
+                                      </p>   
+                                 {{/if}}
+                            </div>
+                  {{/each enemys}}
                     </div>
                 </div>
             </div>
-
-<!--Dex-->
-<div>
-     {{#each enemys}}
-               <div  style="width:100px; height:120px; float:left;"> 
-                   <!--al gedood--> 
-                  {{#if index <= level}} 
-                   <img class="item-image-enemy shadowed" src="{{img}}"/>
-                       <div>{{name}}</div>
-                         <p class="text">
-                            <span><i class="diamondIcon fa fa-flash fa-lg"></i> {{power}}</span>
-                         </p>   
-                    {{/if}}
-                    <!--nog niet gedood-->
-                    {{#if index > level}} 
-                   <img class="item-image-enemy-dark shadowed" src="{{img}}"/>
-                       <div>???</div>
-                         <p class="text">
-                            <span><i class="diamondIcon fa fa-flash fa-lg"></i> {{power}}</span>
-                         </p>   
-                    {{/if}}
-               </div>
-     {{/each enemys}}
-</div>
-<!--/Dex-->
 
 <!--Map-->
 <!--<div style="width:150px;">
