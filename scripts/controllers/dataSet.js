@@ -42,23 +42,23 @@
            
             //Items per starter
             itemsPandoo: 
-                    [{name:"Focus Cube",   description:"Increase Pandoo's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:20,    boost:0,    max:999}, 
-                     {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,     boost:1,    max:999}],
+                    [{name:"Focus Cube",   description:"Increase Pandoo's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:100,    boost:0,    max:10}, 
+                     {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,     boost:1,    max:100}],
 
             itemsBlazby: 
-                    [{name:"Focus Cube",   description:"Increase Blazby's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:30,    boost:0,    max:999},
-                     {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,     boost:1,    max:999}],
+                    [{name:"Focus Cube",   description:"Increase Blazby's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:6000,     dmg:300,    boost:0,    max:10},
+                     {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,     boost:1,    max:200}],
 
             itemsKniron: 
-                    [{name:"Focus Cube",   description:"Increase Knirion's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:50,     boost:0,     max:999},
-                     {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:0,      boost:1,     max:999}],
+                    [{name:"Focus Cube",   description:"Increase Knirion's base damage.",         img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10000,     dmg:500,     boost:0,     max:10},
+                     {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:0,      boost:1,     max:300}],
 
             itemsEartail:
-                    [{name:"Focus Cube",   description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:100,    dmg:80,     boost:0,     max:999},
-                     {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:0,      boost:1,     max:999}],
+                    [{name:"Focus Cube",   description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:16000,    dmg:800,     boost:0,     max:10},
+                     {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water.png",              lvl:0,  count:0, price:10,     dmg:0,      boost:1,     max:500}],
 
             itemsPhyracu: 
-                     [{name:"Focus Cube",  description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:10,     dmg:130,    boost:0,     max:999},
+                     [{name:"Focus Cube",  description:"Increase base Dmg.",                      img:"images/items/weird-cube.png",         lvl:0,  count:0, price:26000,     dmg:1300,    boost:0,     max:10},
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,      boost:1,     max:999}],
 
             enemys: 
