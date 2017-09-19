@@ -1,5 +1,10 @@
-.item-image-enemy {
+.item-image-enemy-dark {
     width: 60px;
     height: 60px;
     filter: contrast(0%);  
+}	
+
+.item-image-enemy {
+    width: 60px;
+    height: 60px;
 }	

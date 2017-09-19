@@ -2,7 +2,7 @@
         el: "#container",
         template: "#template",
         data: {
-            units: 99999999, //TODO SET TO 1000 FOR GAMPLAY
+            units: 99999999999, //TODO SET TO 1000 FOR GAMPLAY
             dps: 0,
             level: 0,
             enemyIndex: 0,
@@ -42,7 +42,7 @@
            
             //Items per starter
             itemsPandoo: 
-                    [{name:"Focus Cube",   description:"Increase base Dmg.",                     img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:20,    boost:0,    max:1},
+                    [{name:"Focus Cube",   description:"Increase base Dmg.",                     img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:2000000,    boost:0,    max:1}, //TODO dmg normaal zetten
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,     boost:1,    max:999}],
 
             itemsBlazby: 
@@ -62,12 +62,12 @@
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,      boost:1,     max:999}],
 
             enemys: 
-                    [{name:"Dropphin",   hp:150, total: 150, power:'easy', img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
-                     {name:"Dolswim",    hp:0,   total: 0,   power:'easy', img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
-                     {name:"Arambly",    hp:0,   total: 0,   power:'easy', img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
-                     {name:"Umbrarach",  hp:0,   total: 0,   power:'easy', img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
-                     {name:"Cubern",     hp:0,   total: 0,   power:'easy', img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-                     {name:"Gigarotto",  hp:0,   total: 0,   power:'easy', img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"},
+                    [{name:"Dropphin",   hp:150, total: 150, power:'easy', index: 1, img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+                     {name:"Dolswim",    hp:0,   total: 0,   power:'easy', index: 2, img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
+                     {name:"Arambly",    hp:0,   total: 0,   power:'easy', index: 3, img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
+                     {name:"Umbrarach",  hp:0,   total: 0,   power:'easy', index: 4, img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
+                     {name:"Cubern",     hp:0,   total: 0,   power:'easy', index: 5, img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
+                     {name:"Gigarotto",  hp:0,   total: 0,   power:'easy', index: 6, img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"},
                      {name:"Giksy",      hp:0,   total: 0,   power:'easy', img:"images/enemys/041_giksy_by_deoxysdaniel-d5ncn82.png"},
                      {name:"Scrysee",    hp:0,   total: 0,   power:'easy', img:"images/enemys/042_scrysee_by_deoxysdaniel-d5ngh83.png"},
                      {name:"Hitkid",     hp:0,   total: 0,   power:'easy', img:"images/enemys/043_hitkid_by_deoxysdaniel-d5ncn8n.png"},
@@ -139,11 +139,22 @@
                     ],
             //Levels
             maplevel: [
-                        {areaName: "Forest", levelCode: 1},         {areaName: "Deep forest", levelCode: 2},{areaName: "Deeper forest", levelCode: 3},  {areaName: "Middle forest", levelCode: 4},
-                        {areaName: "Center forest", levelCode: 5},  {areaName: "Far forest", levelCode: 6}, {areaName: "Elven forest", levelCode: 7},    {areaName: "Forest edge", levelCode: 8},
-
-                        {areaName: "plains", levelCode: 9},{areaName: "plains", levelCode: 10},{areaName: "plains", levelCode: 11},{areaName: "plains", levelCode: 12},
-                        {areaName: "plains", levelCode: 13},{areaName: "plains", levelCode: 14},{areaName: "plains", levelCode: 15},{areaName: "plains", levelCode: 16},
+                { areaName: "Forest", levelCode: 1 },
+                { areaName: "Deep forest", levelCode: 2 },
+                { areaName: "Deeper forest", levelCode: 3 },
+                { areaName: "Middle forest", levelCode: 4 },
+                { areaName: "Center forest", levelCode: 5 },
+                { areaName: "Far forest", levelCode: 6 },
+                { areaName: "Elven forest", levelCode: 7 },
+                { areaName: "Forest edge", levelCode: 8 },
+                { areaName: "Plains", levelCode: 9 },
+                { areaName: "Wide Plaines", levelCode: 10 },
+                { areaName: "Barren Plains", levelCode: 11 },
+                { areaName: "Hillside", levelCode: 12 },
+                { areaName: "plains", levelCode: 13 },
+                { areaName: "plains", levelCode: 14 },
+                { areaName: "plains", levelCode: 15 },
+                { areaName: "plains", levelCode: 16 },
             ]
         }
     });
