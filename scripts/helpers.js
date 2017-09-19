@@ -1,4 +1,7 @@
 var helpers = {
+    hasEnoughKills: function(friendIndex){
+        return ractive.get('level') >=ractive.get('friends')[friendIndex].minKills;
+    },
     hasEnoughDiamonds: function(amount){
         return ractive.get('units') >= amount;
     },

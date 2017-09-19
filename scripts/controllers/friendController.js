@@ -1,6 +1,7 @@
 var friendController = {
     buyFriend: function(index){
-        if(helpers.hasEnoughDiamonds(ractive.get('friends')[index].price)) {
+        if(helpers.hasEnoughDiamonds(ractive.get('friends')[index].price) &&
+            helpers.hasEnoughKills(index)) {
             var selectedFriend =  ractive.get('friends')[index];
             ractive.set('units', ractive.get('units') - selectedFriend.price);
 

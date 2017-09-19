@@ -142,7 +142,7 @@
                                                     <span class="levelIcon"><i class="fa fa-group" aria-hidden="true"></i> {{count}}x</span>
                                                 </p>
                                             </div>         
-                                            <div class="friendcard {{ price >= units ? 'notClickable' : '' }} {{count >= 999 ? 'notClickable' : '' }}" 
+                                            <div class="friendcard {{ level >= minKills ? '' : 'notClickable' }} {{ price >= units ? 'notClickable' : '' }} {{count >= 999 ? 'notClickable' : '' }}" 
                                                 on-click="@this.fire('buy', event, @index)">                       
                                                 {{#if count < 999}}
                                                     <p class="buyButtonText">Buy</p>

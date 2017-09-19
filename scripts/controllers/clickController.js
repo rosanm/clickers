@@ -18,7 +18,7 @@ ractive.on({
         ractive.set('doorSet', false);
         ractive.set('mine', false);
         ractive.set('attack', true);
-        initializeClock('clockdiv', 0, 6); //minutes, seconds
+        initializeClock('clockdiv', 5, 0); //minutes, seconds
     },
     closeWindow: function(event) {
         $(".diceBox").hide();
