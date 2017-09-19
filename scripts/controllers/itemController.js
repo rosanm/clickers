@@ -24,7 +24,7 @@ var itemController = {
                 selectedFriend.boost = selectedFriend.boost + upgradedItem.boost;
 
                 //als het een cube is, gelijk base dmg verhogen
-                //selectedFriend.dmg = selectedFriend.dmg + upgradedItem.dmg;
+                selectedFriend.dmg = selectedFriend.dmg + upgradedItem.dmg;
                 ractive.update();
             }
             else {
