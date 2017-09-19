@@ -226,15 +226,28 @@
 <!--Dex-->
 <div style="margin-top:1500px;">
 
+
      {{#each enemys}}
-               <div  style="width:100px; height:120px; float:left;">  
+               <div  style="width:100px; height:120px; float:left;"> 
+                   <!--al gedood--> 
+                  {{#if index <= level}} 
                    <img class="item-image-enemy shadowed" src="{{img}}"/>
                        <div>{{name}}</div>
                          <p class="text">
                             <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{power}}</span>
-                         </p>                                                                  
+                         </p>   
+                    {{/if}}
+                    <!--nog niet gedood-->
+                    {{#if index > level}} 
+                   <img class="item-image-enemy-dark shadowed" src="{{img}}"/>
+                       <div>???</div>
+                         <p class="text">
+                            <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{power}}</span>
+                         </p>   
+                    {{/if}}
                </div>
      {{/each enemys}}
+
 
 </div>
 <!--/Dex-->

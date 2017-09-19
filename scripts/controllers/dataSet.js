@@ -2,7 +2,11 @@
         el: "#container",
         template: "#template",
         data: {
+<<<<<<< HEAD
             units: 9999999999999, //TODO SET TO 1000 FOR GAMPLAY
+=======
+            units: 99999999999, //TODO SET TO 1000 FOR GAMPLAY
+>>>>>>> 8eea20c305709e7f684e01f2d3aafed9a9a4ccf2
             dps: 0,
             level: 0, //aantalKills
             enemyIndex: 0,
@@ -42,7 +46,7 @@
            
             //Items per starter
             itemsPandoo: 
-                    [{name:"Focus Cube",   description:"Increase base Dmg.",                     img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:20,    boost:0,    max:1},
+                    [{name:"Focus Cube",   description:"Increase base Dmg.",                     img:"images/items/weird-cube.png",         lvl:0,  count:0, price:1000,   dmg:20,    boost:0,    max:1}, 
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",   img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,     boost:1,    max:999}],
 
             itemsBlazby: 
@@ -62,24 +66,24 @@
                      {name:"+1% DMG",      description:"Add 1% bonus damage to the base dmg.",    img:"images/items/water-glass.png",        lvl:0,  count:0, price:100,    dmg:0,      boost:1,     max:999}],
 
             enemys: 
-                    [{name:"Dropphin",   hp:150, total: 150, power:'easy', img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
-                     {name:"Dolswim",    hp:0,   total: 0,   power:'easy', img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
-                     {name:"Arambly",    hp:0,   total: 0,   power:'easy', img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
-                     {name:"Umbrarach",  hp:0,   total: 0,   power:'easy', img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
-                     {name:"Cubern",     hp:0,   total: 0,   power:'easy', img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
-                     {name:"Gigarotto",  hp:0,   total: 0,   power:'easy', img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"},
-                     {name:"Giksy",      hp:0,   total: 0,   power:'easy', img:"images/enemys/041_giksy_by_deoxysdaniel-d5ncn82.png"},
-                     {name:"Scrysee",    hp:0,   total: 0,   power:'easy', img:"images/enemys/042_scrysee_by_deoxysdaniel-d5ngh83.png"},
-                     {name:"Hitkid",     hp:0,   total: 0,   power:'easy', img:"images/enemys/043_hitkid_by_deoxysdaniel-d5ncn8n.png"},
-                     {name:"Hitkayow",   hp:0,   total: 0,   power:'easy', img:"images/enemys/044_hitkayow_by_deoxysdaniel-d5ngh88.png"},                  
-                     {name:"Snogoat",    hp:0,   total: 0,   power:'easy', img:"images/enemys/045_snogoat_by_deoxysdaniel-d5nwevp.png"},
-                     {name:"Firnhorn",   hp:0,   total: 0,   power:'easy', img:"images/enemys/046_firnhorn_by_deoxysdaniel-d5o36ot.png"},
-                     {name:"Glacyak",    hp:0,   total: 0,   power:'easy', img:"images/enemys/047_glacyak_by_deoxysdaniel-d5oh0h6.png"},
-                     {name:"Anemo",      hp:0,   total: 0,   power:'easy', img:"images/enemys/051_anemo_by_deoxysdaniel-d5nwex0.png"},
-                     {name:"Nemonish",   hp:0,   total: 0,   power:'easy', img:"images/enemys/052_nemonish_by_deoxysdaniel-d5o375e.png"},
-                     {name:"Ancshark",   hp:0,   total: 0,   power:'easy', img:"images/enemys/056_ancshark_by_deoxysdaniel-d5p8brn.png"},
-                     {name:"Ankammer",   hp:0,   total: 0,   power:'medum', img:"images/enemys/057_ankammer_by_deoxysdaniel-d5p8ici.png"},
-                     {name:"Hammerank",  hp:0,   total: 0,   power:'medum', img:"images/enemys/058_hammerank_by_deoxysdaniel-d5p9sfq.png"},
+                    [{name:"Dropphin",   hp:150, total: 150, power:'easy', index: 1, img:"images/enemys/007_dropphin_by_deoxysdaniel-d5j9slu.png"},
+                     {name:"Dolswim",    hp:0,   total: 0,   power:'easy', index: 2, img:"images/enemys/008_dolswim_by_deoxysdaniel-d5jhd0v.png"},
+                     {name:"Arambly",    hp:0,   total: 0,   power:'easy', index: 3, img:"images/enemys/034_arambly_by_deoxysdaniel-d5mriwg.png"},
+                     {name:"Umbrarach",  hp:0,   total: 0,   power:'easy', index: 4, img:"images/enemys/035_umbrarach_by_deoxysdaniel-d5mx4t9.png"},
+                     {name:"Cubern",     hp:0,   total: 0,   power:'easy', index: 5, img:"images/enemys/036_cubern_by_deoxysdaniel-d5n1gqm.png"},
+                     {name:"Gigarotto",  hp:0,   total: 0,   power:'easy', index: 6, img:"images/enemys/037_gigarotto_by_deoxysdaniel-d5n1w4w.png"},
+                     {name:"Giksy",      hp:0,   total: 0,   power:'easy', index: 7,img:"images/enemys/041_giksy_by_deoxysdaniel-d5ncn82.png"},
+                     {name:"Scrysee",    hp:0,   total: 0,   power:'easy', index: 8,img:"images/enemys/042_scrysee_by_deoxysdaniel-d5ngh83.png"},
+                     {name:"Hitkid",     hp:0,   total: 0,   power:'easy', index: 9,img:"images/enemys/043_hitkid_by_deoxysdaniel-d5ncn8n.png"},
+                     {name:"Hitkayow",   hp:0,   total: 0,   power:'easy', index: 10,img:"images/enemys/044_hitkayow_by_deoxysdaniel-d5ngh88.png"},                  
+                     {name:"Snogoat",    hp:0,   total: 0,   power:'easy', index: 11,img:"images/enemys/045_snogoat_by_deoxysdaniel-d5nwevp.png"},
+                     {name:"Firnhorn",   hp:0,   total: 0,   power:'easy', index: 12,img:"images/enemys/046_firnhorn_by_deoxysdaniel-d5o36ot.png"},
+                     {name:"Glacyak",    hp:0,   total: 0,   power:'easy', index: 13,img:"images/enemys/047_glacyak_by_deoxysdaniel-d5oh0h6.png"},
+                     {name:"Anemo",      hp:0,   total: 0,   power:'easy', index: 14,img:"images/enemys/051_anemo_by_deoxysdaniel-d5nwex0.png"},
+                     {name:"Nemonish",   hp:0,   total: 0,   power:'easy', index: 15,img:"images/enemys/052_nemonish_by_deoxysdaniel-d5o375e.png"},
+                     {name:"Ancshark",   hp:0,   total: 0,   power:'easy', index: 16,img:"images/enemys/056_ancshark_by_deoxysdaniel-d5p8brn.png"},
+                     {name:"Ankammer",   hp:0,   total: 0,   power:'medum', index: 17,img:"images/enemys/057_ankammer_by_deoxysdaniel-d5p8ici.png"},
+                     {name:"Hammerank",  hp:0,   total: 0,   power:'medum', index: 18,img:"images/enemys/058_hammerank_by_deoxysdaniel-d5p9sfq.png"},
                      {name:"Leafllen",   hp:0,   total: 0,   power:'medum', img:"images/enemys/059_leafllen_by_deoxysdaniel-d5pg65m.png"},
                      {name:"Spectree",   hp:0,   total: 0,   power:'medum', img:"images/enemys/060_spectree_by_deoxysdaniel-d5pg6nk.png"},
                      {name:"Treethom",   hp:0,   total: 0,   power:'medum', img:"images/enemys/061_treethom_by_deoxysdaniel-d5pg7k8.png"},
@@ -114,7 +118,7 @@
                      {name:"Unihund",    hp:0,   total: 0,   power:'legendary', img:"images/enemys/unihund_by_deoxysdaniel-d5ru0dg.png"}],
             //starters
             friends: 
-                    [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, minKills:0,   dmg:2, boost:60,  lifeTimeDmg:0, price:100, trainPrice: 100,   unlockedAt:0,   img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo",  isSelected: false },
+                    [{name:"Pandoo",  count: 1, lvl:1, levelUp: 10, stage:1, nextStageIndex:0, minKills:0,   dmg:2, boost:0,  lifeTimeDmg:0, price:100, trainPrice: 100,   unlockedAt:0,   img:"images/friends/001_pandoo_by_deoxysdaniel-d5j9po2.png", itemListName: "itemsPandoo",  isSelected: false },
                      {name:"Blazby",  count: 0, lvl:1, levelUp: 20, stage:1, nextStageIndex:2, minKills:1,  dmg:3, boost:0,  lifeTimeDmg:0, price:200,  trainPrice: 100,   unlockedAt:5,   img:"images/friends/004_blazby_by_deoxysdaniel-d5j9qzc.png", itemListName: "itemsBlazby",   isSelected: false },
                      {name:"Kniron",  count: 0, lvl:1, levelUp: 30, stage:1, nextStageIndex:4, minKills:50,  dmg:5, boost:0,  lifeTimeDmg:0, price:300,  trainPrice: 100,   unlockedAt:25,  img:"images/friends/038_kniron_by_deoxysdaniel-d5ncn7r.png", itemListName: "itemsKniron",   isSelected: false },
                      {name:"Eartail", count: 0, lvl:1, levelUp: 50, stage:1, nextStageIndex:6, minKills:100, dmg:8, boost:0,  lifeTimeDmg:0, price:500,  trainPrice: 100,   unlockedAt:50,  img:"images/friends/048_eartail_by_deoxysdaniel-d5nwewr.png", itemListName: "itemsEartail", isSelected: false },
@@ -139,11 +143,22 @@
                     ],
             //Levels
             maplevel: [
-                        {areaName: "Forest", levelCode: 1},         {areaName: "Deep forest", levelCode: 2},{areaName: "Deeper forest", levelCode: 3},  {areaName: "Middle forest", levelCode: 4},
-                        {areaName: "Center forest", levelCode: 5},  {areaName: "Far forest", levelCode: 6}, {areaName: "Elven forest", levelCode: 7},    {areaName: "Forest edge", levelCode: 8},
-
-                        {areaName: "plains", levelCode: 9},{areaName: "plains", levelCode: 10},{areaName: "plains", levelCode: 11},{areaName: "plains", levelCode: 12},
-                        {areaName: "plains", levelCode: 13},{areaName: "plains", levelCode: 14},{areaName: "plains", levelCode: 15},{areaName: "plains", levelCode: 16},
+                { areaName: "Forest", levelCode: 1 },
+                { areaName: "Deep forest", levelCode: 2 },
+                { areaName: "Deeper forest", levelCode: 3 },
+                { areaName: "Middle forest", levelCode: 4 },
+                { areaName: "Center forest", levelCode: 5 },
+                { areaName: "Far forest", levelCode: 6 },
+                { areaName: "Elven forest", levelCode: 7 },
+                { areaName: "Forest edge", levelCode: 8 },
+                { areaName: "Plains", levelCode: 9 },
+                { areaName: "Wide Plaines", levelCode: 10 },
+                { areaName: "Barren Plains", levelCode: 11 },
+                { areaName: "Hillside", levelCode: 12 },
+                { areaName: "plains", levelCode: 13 },
+                { areaName: "plains", levelCode: 14 },
+                { areaName: "plains", levelCode: 15 },
+                { areaName: "plains", levelCode: 16 },
             ]
         }
     });
