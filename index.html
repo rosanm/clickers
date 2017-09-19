@@ -226,9 +226,7 @@
             </div>
 
 <!--Dex-->
-<div style="margin-top:1500px;">
-
-
+<div>
      {{#each enemys}}
                <div  style="width:100px; height:120px; float:left;"> 
                    <!--al gedood--> 
@@ -236,7 +234,7 @@
                    <img class="item-image-enemy shadowed" src="{{img}}"/>
                        <div>{{name}}</div>
                          <p class="text">
-                            <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{power}}</span>
+                            <span><i class="diamondIcon fa fa-flash fa-lg"></i> {{power}}</span>
                          </p>   
                     {{/if}}
                     <!--nog niet gedood-->
@@ -244,13 +242,11 @@
                    <img class="item-image-enemy-dark shadowed" src="{{img}}"/>
                        <div>???</div>
                          <p class="text">
-                            <span><i class="diamondIcon fa fa-flash fa-lg"></i> +{{power}}</span>
+                            <span><i class="diamondIcon fa fa-flash fa-lg"></i> {{power}}</span>
                          </p>   
                     {{/if}}
                </div>
      {{/each enemys}}
-
-
 </div>
 <!--/Dex-->
 
